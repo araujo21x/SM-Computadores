@@ -8,34 +8,56 @@
   <link rel="stylesheet" href="assets/css/component.css">
   <link rel="stylesheet" href="assets/css/menu.css">
   <script src="assets/main.js"></script>
+  <script src="assets/js/helper.js"></script>
   <title>Drag and Drop</title>
 </head>
 
 <body>
-<section class="main">
-  <section class="component">
-    <section id="ram" ondrop="drop(event)" ondragover="allowDrop(event)" class="cpu"></section>
-    <!-- <section class="cooler"></section>
+  <section class="main">
+    <section class="component">
+      <section id="ram" ondrop="drop(event)" ondragover="allowDrop(event)" class="cpu"></section>
+      <!-- <section class="cooler"></section>
     <section class="pciExpress1"></section>
     <section class="pciExpress2"></section>
     <section class="pciExpress3"></section>
     <section class="pciExpress4"></section>
     <section class="ram1"></section>
     <section class="ram2"></section> -->
-  </section>
-  <section class="menu">
-
-    <section class="title">
-      Processador
     </section>
-    <div class="box">
-      <img id="drag1" src="assets/img/cpu.png" alt="processador 01" draggable="true" ondragstart="drag(event,{name:'ram01', type:'ram' , slotRam:'ddr4', url:'./img/cpu.png', slotRamFreq:2400})" height="90%" width="90%">
-      <img id="drag2" src="assets/img/cpu.png" alt="processador 01" draggable="true" ondragstart="drag(event,{name:'ram02', type:'ram' ,slotRam:'ddr4', slotRamFreq:2000})" height="90%" width="90%">
-      <img id="drag3" src="assets/img/cpu.png" alt="processador 01" draggable="true" ondragstart="drag(event,{name:'ram03', type:'ram' ,slotRam:'ddr3', slotRamFreq:1600})" height="90%" width="90%">
-    </div>
+    <section class="menu" id="menu" ondrop="drop(event)" ondragover="allowDrop(event)">
 
+      <section class="title">
+        Processador
+      </section>
+
+      <section class="parts" id="parts">
+
+        <section class="save" id="save" ondrop="drop(event)" ondragover="allowDrop(event)">
+          Guarde a peçã aqui!
+        </section>
+
+        <div class="box">
+          <img id="drag-1" src="assets/img/cpu.png" alt="processador 01" draggable="true"
+            ondragstart="drag(event,{name:'ram01', type:'ram' , slotRam:'ddr4', slotRamFreq:2400})" height="150px"
+            width="150px">
+        </div>
+
+        <div class="box">
+          <img id="drag-2" src="assets/img/cpu.png" alt="processador 01" draggable="true"
+            ondragstart="drag(event,{name:'ram02', type:'ram' ,slotRam:'ddr4', slotRamFreq:2000})" height="150px"
+            width="150px">
+        </div>
+        <div class="box">
+          <img id="drag-3" src="assets/img/cpu.png" alt="processador 01" draggable="true"
+            ondragstart="drag(event,{name:'ram03', type:'ram' ,slotRam:'ddr3', slotRamFreq:1600})" height="150px"
+            width="150px">
+        </div>
+
+      </section>
+
+
+    </section>
   </section>
-</section>
 
 </body>
 

@@ -4,17 +4,31 @@
   margin-left: 1%;
   border: 1px solid rgba(0, 0, 0, 0.8);
 }
-.title{
-  flex-direction: row;
+
+.title {
   text-align: center;
   background-color: white;
-  height: 7%;
-  font-size: 150%;
+  height: 4vh;
+  font-size: 3.5vh;
 }
 
-.box{
-  border: 1px black;
-  background-color: blue;
-  width: 48%;
-  height: 30%;
+.parts {
+  display: flex;
+  padding: 2%;
+  flex-wrap: wrap;
+}
+
+.save {
+  font-size: 4vh;
+  height: 20vh;
+  width: 20vh;
+  border: 3px solid rgba(0, 0, 0, 0.8);
+  border-style: dashed;
+  padding-left: 2%;
+  padding-bottom: 1%;
+}
+
+.box {
+  padding-left: 2%;
+  padding-bottom: 1%;
 }
