@@ -6,5 +6,5 @@
   grid-template-columns: repeat(200, 0.5%);
   grid-template-rows: repeat(200, 0.5%);
   border: 1px solid var(--backGroundColor);
-  border-right: 1px solid var(--backGroudDetail);
+  border-right: 1px solid var(--detailColor);
 }

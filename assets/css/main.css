@@ -1,8 +1,11 @@
 :root {
-  --secondaryColor: #62B0CB;
-  --primaryColor: #155C74;
+  --primaryColor: #62B0CB;
+  --errorColor: #ee8c73;
+  --primaryFontColor: #dfe3e8;
+  --secondaryFontColor: #000000;
   --backGroundColor: #f4f5f6;
-  --backGroudDetail: #dfe3e8;
+  --detailColor: #afafaf;
+
 }
 body{
   background-color: var(--backGroundColor);

@@ -29,13 +29,34 @@
 
       <button id="motherBoardTitle" class="titleTab" onclick="openTab(event, 'motherBoardTab')">Placa-Mãe</button>
       <div id="motherBoardTab" class="tab">
+
         <div class="detailsHardware">
-          <div><button>o que é</button></div>
-          <div><button>Filtro</button></div>
+          <button>O que é? <img src="assets/img/informationIcon.png" alt="Icone de Informação"></button>
+          <div class="verticalLine"></div>
+          <button>Filtro <img src="assets/img/filter.png" alt="Icone de filtro"></button>
         </div>
 
-        <div class="saveZone"><p>Guarde sua peçã aqui!</p></div>
+        <div class="saveZone">
+          <p>Guarde sua peçã aqui!</p>
+        </div>
 
+        <div class="hardwareItem">
+          <div class=hardwareItemImg>
+            <img src="assets/img/cpu.png" alt="Imagem de um processador">
+          </div>
+          <div class="HardwareItemBody">
+            <div class="hardwareItemTitle">i9 - 10º Geração</div>
+            <div class="HardwareItemText">
+              <ul>
+                <li><b>Soquete</b>: LGA1151</li>
+                <li><b>Chipset</b>: H110</li>
+                <li><b>Chipset</b>: H110</li>
+              </ul>
+            </div>
+            <button>Mais informações</button>
+          </div>
+
+        </div>
       </div>
 
       <button id="cpuTitle" class="titleTab" onclick="openTab(event, 'cpuTab')">Processador</button>

@@ -6,19 +6,17 @@
   overflow: hidden;
 }
 
-
 .titleTab {
   text-align: center;
   height: 5%;
   font-family: 'Mulish', sans-serif;
   font-weight: bold;
   font-size: 3vh;
-  color: var(--backGroudDetail);
-  background-color: var(--secondaryColor);
-  border-radius: 5px;
+  color: var(--primaryFontColor);
+  background-color: var(--primaryColor);
   border: none;
+  border-radius: 5px;
   margin-bottom: 2%;
-
   /* add for tab */
   outline: none;
   cursor: pointer;
@@ -27,18 +25,19 @@
 
 .titleTab:hover {
   background-color: var(--backGroundColor);
-  color: black;
+  color: var(--secondaryFontColor);
 }
 
 .titleTab:disabled {
-  background-color: rgb(238, 140, 115);
-  color: var(--backGroudDetail);
+  background-color: var(--errorColor);
+  color: var(--primaryFontColor);
 }
 
 .lateralMenu .active {
   background-color: var(--backGroundColor);
-  color: black;
-  border-bottom: 1px solid var(--backGroudDetail);
+  color: var(--secondaryFontColor);
+  border-bottom: 1px solid var(--detailColor);
+  border-radius: 0;
   margin-bottom: 0%;
 }
 
@@ -47,30 +46,121 @@
   height: 100%;
 }
 
-.detailsHardware{
+.detailsHardware {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background-color: var(--secondaryColor);
-  border-bottom: 1px solid var(--backGroudDetail);
+  align-items: center;
+  height: 8%;
+  background-color: var(--primaryColor);
+  border-bottom: 1px solid var(--detailColor);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  height: 8%;
 }
 
-.saveZone{
+.verticalLine {
+  height: 50%;
+  border-left: 1px solid var(--backGroundColor);
+}
+
+.detailsHardware button {
   display: flex;
-  border: 2px solid black;
-  border-style: dashed;
-  border-top: none;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 50%;
+  background-color: var(--primaryColor);
+  color: var(--primaryFontColor);
+  font-family: 'Mulish', sans-serif;
+  font-size: 2.5vh;
+  border: none;
+
+}
+
+.detailsHardware button img {
+  margin-left: 10%;
+  height: 3vh;
+  width: 3vh;
+}
+
+.detailsHardware button:hover {
+  background-color: var(--backGroundColor);
+  color: var(--secondaryFontColor);
+}
+
+.saveZone {
+  display: flex;
   margin-bottom: 2%;
   height: 18%;
   align-items: center;
   justify-content: center;
-
+  border: 2px solid var(--detailColor);
+  border-style: dashed;
+  border-top: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
+
 .saveZone p {
   margin: 0;
   font-family: 'Mulish', sans-serif;
   font-style: italic;
+  font-size: 2.5vh;
+}
+
+.hardwareItem {
+  display: flex;
+  height: 25%;
+  width: 99%;
+  border: 2px solid var(--errorColor);
+  border-radius: 5px;
+}
+
+.hardwareItemImg{
+  display: flex;
+  height: 100%;
+  width: 40%;
+  align-items: center;
+  justify-content: center;
+}
+
+.hardwareItem img {
+  border-radius: 5px;
+  height: 95%;
+  width: 95%;
+}
+
+.HardwareItemBody {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.hardwareItemTitle {
+  text-align: center;
+  font-family: 'Mulish', sans-serif;
+  height: 20%;
+  font-weight: bold;
+  font-size: 2.2vh;
+  border-bottom: 1px solid var(--detailColor);
+}
+
+.HardwareItemText {
+  height: 60%;
+  font-family: 'Mulish', sans-serif;
+  font-size: 2vh;
+}
+.HardwareItemText ul{
+  margin: 0% 0% 0% 8%;
+  padding: 0%;
+}
+
+.HardwareItemBody button{
+  height: 20%;
+  border: none;
+  background-color: var(--backGroundColor);
+  color: var(--secondaryFontColor);
+  font-size: 2vh;
+  font-family: 'Mulish', sans-serif;
+
 }
