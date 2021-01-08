@@ -1,0 +1,76 @@
+.lateralMenu {
+  display: flex;
+  flex-direction: column;
+  margin-left: 4%;
+  height: 95vh;
+  overflow: hidden;
+}
+
+
+.titleTab {
+  text-align: center;
+  height: 5%;
+  font-family: 'Mulish', sans-serif;
+  font-weight: bold;
+  font-size: 3vh;
+  color: var(--backGroudDetail);
+  background-color: var(--secondaryColor);
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 2%;
+
+  /* add for tab */
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.titleTab:hover {
+  background-color: var(--backGroundColor);
+  color: black;
+}
+
+.titleTab:disabled {
+  background-color: rgb(238, 140, 115);
+  color: var(--backGroudDetail);
+}
+
+.lateralMenu .active {
+  background-color: var(--backGroundColor);
+  color: black;
+  border-bottom: 1px solid var(--backGroudDetail);
+  margin-bottom: 0%;
+}
+
+.tab {
+  display: none;
+  height: 100%;
+}
+
+.detailsHardware{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: var(--secondaryColor);
+  border-bottom: 1px solid var(--backGroudDetail);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  height: 8%;
+}
+
+.saveZone{
+  display: flex;
+  border: 2px solid black;
+  border-style: dashed;
+  border-top: none;
+  margin-bottom: 2%;
+  height: 18%;
+  align-items: center;
+  justify-content: center;
+
+}
+.saveZone p {
+  margin: 0;
+  font-family: 'Mulish', sans-serif;
+  font-style: italic;
+}

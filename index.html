@@ -4,123 +4,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/component.css">
-  <link rel="stylesheet" href="assets/css/menu.css">
-  <script src="assets/main.js"></script>
-  <script src="assets/js/helper.js"></script>
-  <title>Drag and Drop</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/hardware.css">
+  <link rel="stylesheet" href="assets/css/lateralMenu.css">
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/helper/tab.js"></script>
+  <script src="assets/js/db/localStorage.js"></script>
+  <script src="assets/js/helper/onLoadMain.js"></script>
+
+  <title>SM - Drag and Drop</title>
 </head>
 
-<body>
-  <section class="main">
-    <section class="component">
-      <section id="ram" ondrop="drop(event)" ondragover="allowDrop(event)" class="cpu"></section>
-    <!-- <section class="cooler"></section> -->
-    <section class="pciExpress1"></section>
-    <section class="pciExpress2"></section>
-    <section class="pciExpress3"></section>
-    <section class="pciExpress4"></section>
-    <section class="ram1"></section>
-    <section class="ram2"></section>
-    </section>
-    <section class="menu">
+<body onLoad="mainLoaded()">
+  <div class="main">
+    <div class="hardware">
 
-      <section class="title">
-        Processador
-      </section>
+    </div>
 
-      <section class="parts" id="parts">
+    <div class="lateralMenu">
 
-        <section class="save" id="save" ondrop="drop(event)" ondragover="allowDrop(event)">
-          Guarde a peçã aqui!
-        </section>
-
-
-
-        <div class="box">
-
-          <img id="drag-1" src="assets/img/cpu.png" alt="processador 01" draggable="true"
-            ondragstart="drag(event,{name:'ram02', type:'ram' ,slotRam:'ddr4', slotRamFreq:2400})">
-
+      <button id="motherBoardTitle" class="titleTab" onclick="openTab(event, 'motherBoardTab')">Placa-Mãe</button>
+      <div id="motherBoardTab" class="tab">
+        <div class="detailsHardware">
+          <div><button>o que é</button></div>
+          <div><button>Filtro</button></div>
         </div>
 
-        <div class="box">
+        <div class="saveZone"><p>Guarde sua peçã aqui!</p></div>
 
-          <img id="drag-2" src="assets/img/cpu.png" alt="processador 01" draggable="true"
-            ondragstart="drag(event,{name:'ram02', type:'ram' ,slotRam:'ddr4', slotRamFreq:2000})">
+      </div>
 
-        </div>
+      <button id="cpuTitle" class="titleTab" onclick="openTab(event, 'cpuTab')">Processador</button>
+      <div id="cpuTab" class="tab"></div>
 
-        <div class="box">
+      <button id="coolerTitle" class="titleTab" onclick="openTab(event, 'coolerTab')">Cooler</button>
+      <div id="coolerTab" class="tab"></div>
 
-          <img id="drag-3" src="assets/img/cpu.png" alt="processador 01" draggable="true"
-            ondragstart="drag(event,{name:'ram02', type:'ram' ,slotRam:'ddr3', slotRamFreq:2000})">
-            <section class="title-box">
-              Intel Atom
-            </section>
-        </div>
+      <button id="ramTitle" class="titleTab" onclick="openTab(event, 'ramTab')">Memória Ram</button>
+      <div id="ramTab" class="tab"></div>
 
-        <div class="box">
+      <button id="pciExpressTitle" class="titleTab" onclick="openTab(event, 'pciExpressTab')">PCI Express</button>
+      <div id="pciExpressTab" class="tab"></div>
 
-          <img id="drag-3" src="assets/img/cpu.png" alt="processador 01" draggable="true"
-            ondragstart="drag(event,{name:'ram02', type:'ram' ,slotRam:'ddr3', slotRamFreq:2000})">
+      <button id="graphicsCardsTitle" class="titleTab" onclick="openTab(event, 'graphicsCardsTab')">Placa de
+        Vídeo</button>
+      <div id="graphicsCardsTab" class="tab"></div>
 
-        </div>
+      <button id="romTitle" class="titleTab" onclick="openTab(event, 'romTab')">Memória Rom</button>
+      <div id="romTab" class="tab"></div>
 
-        <div class="box">
+      <button id="recorderTitle" class="titleTab" onclick="openTab(event, 'recorderTab')">Leitor de DVD</button>
+      <div id="recorderTab" class="tab"></div>
 
-          <img id="drag-3" src="assets/img/cpu.png" alt="processador 01" draggable="true"
-            ondragstart="drag(event,{name:'ram02', type:'ram' ,slotRam:'ddr3', slotRamFreq:2000})">
+      <button id="powerSupplyTitle" class="titleTab" onclick="openTab(event, 'powerSupplyTab')">Fonte</button>
+      <div id="powerSupplyTab" class="tab"></div>
 
-        </div>
-
-        <div class="box">
-
-          <img id="drag-3" src="assets/img/cpu.png" alt="processador 01" draggable="true"
-            ondragstart="drag(event,{name:'ram02', type:'ram' ,slotRam:'ddr3', slotRamFreq:2000})">
-
-        </div>
-
-        <div class="box">
-
-          <img id="drag-3" src="assets/img/cpu.png" alt="processador 01" draggable="true"
-            ondragstart="drag(event,{name:'ram02', type:'ram' ,slotRam:'ddr3', slotRamFreq:2000})">
-
-        </div>
-
-        <!-- <div class="box">
-          <img id="drag-1" src="assets/img/cpu.png" alt="processador 01" draggable="true"
-            ondragstart="drag(event,{name:'ram01', type:'ram' , slotRam:'ddr4', slotRamFreq:2400})">
-        </div>
-
-        <div class="box">
-          <img id="drag-3" src="assets/img/cpu.png" alt="processador 01" draggable="true"
-            ondragstart="drag(event,{name:'ram03', type:'ram' ,slotRam:'ddr3', slotRamFreq:1600})">
-        </div> -->
-      </section>
-      <section class="title">
-        Placamãe
-      </section>
-      <section class="title">
-        Cooler
-      </section>
-      <section class="title">
-        memoria ram
-      </section>
-      <section class="title">
-        memoria Rom
-      </section>
-      <section class="title">
-        Fonte
-      </section>
-      <section class="title">
-        leitor de DVD
-      </section>
-
-    </section>
-  </section>
-
+    </div>
+  </div>
 </body>
 
 </html>

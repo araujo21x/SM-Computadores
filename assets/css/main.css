@@ -1,0 +1,19 @@
+:root {
+  --secondaryColor: #62B0CB;
+  --primaryColor: #155C74;
+  --backGroundColor: #f4f5f6;
+  --backGroudDetail: #dfe3e8;
+}
+body{
+  background-color: var(--backGroundColor);
+}
+.main {
+  display: grid;
+  grid-template-areas:
+    "hardware"
+    "lateralMenu"
+  ;
+  grid-template-columns: 75% 25%;
+  grid-template-rows: 100%;
+  padding: 5px;
+}

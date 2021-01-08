@@ -1,0 +1,10 @@
+.hardware {
+  display: grid;
+  background: url(../img/placa-mãe01.png) center / cover no-repeat;
+  background-size: 80% 96%;
+  height: 95vh;
+  grid-template-columns: repeat(200, 0.5%);
+  grid-template-rows: repeat(200, 0.5%);
+  border: 1px solid var(--backGroundColor);
+  border-right: 1px solid var(--backGroudDetail);
+}
