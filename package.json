@@ -1,0 +1,24 @@
+{
+  "name": "sm-draganddrop",
+  "version": "1.0.0",
+  "description": "Jogo no formato drag and drop(arrastar e soltar) com html, css e js vanilla",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.17.0",
+    "eslint-config-google": "^0.14.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/araujo21x/SM-DragAndDrop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/araujo21x/SM-DragAndDrop/issues"
+  },
+  "homepage": "https://github.com/araujo21x/SM-DragAndDrop#readme"
+}
