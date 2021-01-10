@@ -1,0 +1,116 @@
+.modalContainer {
+   height: 100vh;
+   width: 100vw;
+   background-color: rgba(0, 0, 0, 0.5);
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 2000;
+   justify-content: center;
+   align-items: center;
+   display: none;
+}
+
+.modalContainer.open {
+   display: flex;
+}
+
+.modal {
+   display: flex;
+   flex-direction: column;
+   width: 50%;
+   height: 70%;
+   background-color: var(--backGroundColor);
+   border-radius: 6px;
+   border: 5px solid var(--primaryColor);
+   box-shadow: 0 0 0 4px var(--backGroundColor);
+   position: relative;
+}
+
+@keyframes modal {
+   from {
+      opacity: 0;
+      transform: translate3d(0, -50px, 0);
+   }
+
+   to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+   }
+}
+
+.open .modal {
+   animation: modal .3s;
+}
+
+.modalTitle {
+   width: 95%;
+   height: 8%;
+   margin: 0.7% 0% 0.1% 0%;
+   text-align: center;
+   font-family: 'Mulish', sans-serif;
+   font-weight: bold;
+   font-size: 4vh;
+}
+
+.modalBody {
+   width: 98%;
+   height: 80%;
+   margin: 0% 1% 0% 1%;
+   font-family: 'Mulish', sans-serif;
+   overflow: auto;
+}
+
+.modalButton {
+   margin-top: 0.5%;
+   display: flex;
+   width: 100%;
+   height: 9%;
+   align-items: center;
+   justify-content: center;
+}
+
+.modalButton button {
+   width: 20%;
+   height: 70%;
+   font-family: 'Mulish', sans-serif;
+   font-weight: bold;
+   font-size: 3vh;
+   color: var(--primaryFontColor);
+   border-radius: 5px;
+   border: none;
+}
+
+.normalButton {
+   background-color: var(--primaryColor);
+   box-shadow: 3px 2px 2px #62b1cbd0;
+}
+
+.cancelButton {
+   margin-right: 2%;
+   background-color: var(--errorColor);
+   box-shadow: 3px 2px 2px #ee8c73a6;
+}
+
+.cancelButton.off {
+   display: none;
+}
+
+.close {
+   position: absolute;
+   width: 40px;
+   height: 40px;
+   top: -4%;
+   right: -3%;
+
+   border: none;
+   border-radius: 50%;
+   background: var(--primaryColor);
+
+   color: var(--backGroundColor);
+   font-family: 'Mulish', sans-serif;
+   font-size: 3vh;
+   font-weight: bold;
+
+   cursor: pointer;
+}

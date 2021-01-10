@@ -2,90 +2,168 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap" rel="stylesheet">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/main.css">
-  <link rel="stylesheet" href="assets/css/hardware.css">
-  <link rel="stylesheet" href="assets/css/lateralMenu.css">
+   <link rel="stylesheet" href="assets/css/main.css">
+   <link rel="stylesheet" href="assets/css/hardware.css">
+   <link rel="stylesheet" href="assets/css/lateralMenu.css">
+   <link rel="stylesheet" href="assets/css/modal.css">
 
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/helper/tab.js"></script>
-  <script src="assets/js/db/localStorage.js"></script>
-  <script src="assets/js/helper/onLoadMain.js"></script>
+   <script src="assets/js/main.js"></script>
+   <script src="assets/js/helper/tab.js"></script>
+   <script src="assets/js/db/localStorage.js"></script>
+   <script src="assets/js/helper/onLoadMain.js"></script>
+   <script src="assets/js/helper/modal.js"></script>
 
-  <title>SM - Drag and Drop</title>
+   <title>SM - Drag and Drop</title>
+
 </head>
 
 <body onLoad="mainLoaded()">
-  <div class="main">
-    <div class="hardware">
+   <div class="main">
+      <div class="hardware">
 
-    </div>
-
-    <div class="lateralMenu">
-
-      <button id="motherBoardTitle" class="titleTab" onclick="openTab(event, 'motherBoardTab')">Placa-Mãe</button>
-      <div id="motherBoardTab" class="tab">
-
-        <div class="detailsHardware">
-          <button>O que é? <img src="assets/img/informationIcon.png" alt="Icone de Informação"></button>
-          <div class="verticalLine"></div>
-          <button>Filtro <img src="assets/img/filter.png" alt="Icone de filtro"></button>
-        </div>
-
-        <div class="saveZone">
-          <p>Guarde sua peçã aqui!</p>
-        </div>
-
-        <div class="hardwareItem">
-          <div class=hardwareItemImg>
-            <img src="assets/img/cpu.png" alt="Imagem de um processador">
-          </div>
-          <div class="HardwareItemBody">
-            <div class="hardwareItemTitle">i9 - 10º Geração</div>
-            <div class="HardwareItemText">
-              <ul>
-                <li><b>Soquete</b>: LGA1151</li>
-                <li><b>Chipset</b>: H110</li>
-                <li><b>Chipset</b>: H110</li>
-              </ul>
-            </div>
-            <button>Mais informações</button>
-          </div>
-
-        </div>
       </div>
 
-      <button id="cpuTitle" class="titleTab" onclick="openTab(event, 'cpuTab')">Processador</button>
-      <div id="cpuTab" class="tab"></div>
+      <div class="lateralMenu">
 
-      <button id="coolerTitle" class="titleTab" onclick="openTab(event, 'coolerTab')">Cooler</button>
-      <div id="coolerTab" class="tab"></div>
+         <button id="motherBoardTitle" class="titleTab" onclick="openTab(event, 'motherBoardTab')">Placa-Mãe</button>
+         <div id="motherBoardTab" class="tab">
 
-      <button id="ramTitle" class="titleTab" onclick="openTab(event, 'ramTab')">Memória Ram</button>
-      <div id="ramTab" class="tab"></div>
+            <div class="detailsHardware">
+               <button onclick="openModal()">
+                  O que é?
+                  <img src="assets/img/informationIcon.png" alt="Icone de Informação">
+               </button>
+               <div class="verticalLine"></div>
+               <button>
+                  Filtro
+                  <img src="assets/img/filter.png" alt="Icone de filtro">
+               </button>
+            </div>
 
-      <button id="pciExpressTitle" class="titleTab" onclick="openTab(event, 'pciExpressTab')">PCI Express</button>
-      <div id="pciExpressTab" class="tab"></div>
+            <div class="saveZone">
+               <p>Guarde sua peçã aqui!</p>
+            </div>
 
-      <button id="graphicsCardsTitle" class="titleTab" onclick="openTab(event, 'graphicsCardsTab')">Placa de
-        Vídeo</button>
-      <div id="graphicsCardsTab" class="tab"></div>
+            <div class="hardwareItem">
 
-      <button id="romTitle" class="titleTab" onclick="openTab(event, 'romTab')">Memória Rom</button>
-      <div id="romTab" class="tab"></div>
+               <div class=hardwareItemImg>
+                  <img src="assets/img/cpu.png" alt="Imagem de um processador">
+               </div>
+               <div class="HardwareItemBody">
+                  <div class="hardwareItemTitle">i9 - 10º Geração</div>
+                  <div class="HardwareItemText">
+                     <ul>
+                        <li><b>Soquete</b>: LGA1151</li>
+                        <li><b>Chipset</b>: H110</li>
+                        <li><b>Chipset</b>: H110</li>
+                     </ul>
+                  </div>
+                  <button>Mais informações</button>
+               </div>
 
-      <button id="recorderTitle" class="titleTab" onclick="openTab(event, 'recorderTab')">Leitor de DVD</button>
-      <div id="recorderTab" class="tab"></div>
+            </div>
+            <div class="hardwareItem">
 
-      <button id="powerSupplyTitle" class="titleTab" onclick="openTab(event, 'powerSupplyTab')">Fonte</button>
-      <div id="powerSupplyTab" class="tab"></div>
+               <div class=hardwareItemImg>
+                  <img src="assets/img/cpu.png" alt="Imagem de um processador">
+               </div>
+               <div class="HardwareItemBody">
+                  <div class="hardwareItemTitle">i9 - 10º Geração</div>
+                  <div class="HardwareItemText">
+                     <ul>
+                        <li><b>Soquete</b>: LGA1151</li>
+                        <li><b>Chipset</b>: H110</li>
+                        <li><b>Chipset</b>: H110</li>
+                     </ul>
+                  </div>
+                  <button>Mais informações</button>
+               </div>
 
-    </div>
-  </div>
+            </div>
+            <div class="hardwareItem">
+
+               <div class=hardwareItemImg>
+                  <img src="assets/img/cpu.png" alt="Imagem de um processador">
+               </div>
+               <div class="HardwareItemBody">
+                  <div class="hardwareItemTitle">i9 - 10º Geração</div>
+                  <div class="HardwareItemText">
+                     <ul>
+                        <li><b>Soquete</b>: LGA1151</li>
+                        <li><b>Chipset</b>: H110</li>
+                        <li><b>Chipset</b>: H110</li>
+                     </ul>
+                  </div>
+                  <button>Mais informações</button>
+               </div>
+
+            </div>
+            <div class="hardwareItem">
+
+               <div class=hardwareItemImg>
+                  <img src="assets/img/cpu.png" alt="Imagem de um processador">
+               </div>
+               <div class="HardwareItemBody">
+                  <div class="hardwareItemTitle">i9 - 10º Geração</div>
+                  <div class="HardwareItemText">
+                     <ul>
+                        <li><b>Soquete</b>: LGA1151</li>
+                        <li><b>Chipset</b>: H110</li>
+                        <li><b>Chipset</b>: H110</li>
+                     </ul>
+                  </div>
+                  <button>Mais informações</button>
+               </div>
+
+            </div>
+         </div>
+
+         <button id="cpuTitle" class="titleTab" onclick="openTab(event, 'cpuTab')">Processador</button>
+         <div id="cpuTab" class="tab"></div>
+
+         <button id="coolerTitle" class="titleTab" onclick="openTab(event, 'coolerTab')">Cooler</button>
+         <div id="coolerTab" class="tab"></div>
+
+         <button id="ramTitle" class="titleTab" onclick="openTab(event, 'ramTab')">Memória Ram</button>
+         <div id="ramTab" class="tab"></div>
+
+         <button id="pciExpressTitle" class="titleTab" onclick="openTab(event, 'pciExpressTab')">PCI Express</button>
+         <div id="pciExpressTab" class="tab"></div>
+
+         <button id="graphicsCardsTitle" class="titleTab" onclick="openTab(event, 'graphicsCardsTab')">Placa de
+            Vídeo</button>
+         <div id="graphicsCardsTab" class="tab"></div>
+
+         <button id="romTitle" class="titleTab" onclick="openTab(event, 'romTab')">Memória Rom</button>
+         <div id="romTab" class="tab"></div>
+
+         <button id="recorderTitle" class="titleTab" onclick="openTab(event, 'recorderTab')">Leitor de DVD</button>
+         <div id="recorderTab" class="tab"></div>
+
+         <button id="powerSupplyTitle" class="titleTab" onclick="openTab(event, 'powerSupplyTab')">Fonte</button>
+         <div id="powerSupplyTab" class="tab"></div>
+
+      </div>
+   </div>
+
+   <div id="modal" class="modalContainer " onclick="closeModal(event)">
+      <div class="modal">
+         <button class="close">X</button>
+         <h3 class="modalTitle">Titulo do modal</h3>
+         <div class="modalBody"> fasdfasdfasdfasdfasdfasdfasdf</div>
+         <div class="modalButton">
+            <button class="cancelButton">Cancelar</button>
+            <button class="normalButton">Filtrar</button>
+         </div>
+
+      </div>
+   </div>
+
 </body>
 
 </html>

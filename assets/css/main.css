@@ -9,6 +9,7 @@
 }
 body{
   background-color: var(--backGroundColor);
+  margin: 0.1%;
 }
 .main {
   display: grid;
