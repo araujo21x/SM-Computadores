@@ -9,8 +9,9 @@ const openTab = (event, hardware) => {
       element.className = element.className.replace(' active', '');
    });
    document.getElementById(hardware).style.display = 'block';
-
    event.currentTarget.className += ' active';
+
+   index(hardware);
 };
 
 const disableTab = (titleTabs) => {

@@ -113,9 +113,20 @@
    display: flex;
    height: 25%;
    width: 99%;
-   border: 2px solid var(--errorColor);
    border-radius: 5px;
    margin-top: 1.5%;
+}
+
+.compatible{
+   border: 2px solid var(--compatible);
+}
+
+.malfunction{
+   border: 2px solid var(--incompatible);
+}
+
+.incompatible{
+   border: 2px solid var(--errorColor);
 }
 
 .hardwareItemImg {

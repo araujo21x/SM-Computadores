@@ -12,11 +12,15 @@
    <link rel="stylesheet" href="assets/css/lateralMenu.css">
    <link rel="stylesheet" href="assets/css/modal.css">
 
-   <script src="assets/js/main.js"></script>
-   <script src="assets/js/helper/tab.js"></script>
-   <script src="assets/js/db/localStorage.js"></script>
+   <script src="assets/js/data/localStorage.js"></script>
+   <script src="assets/js/data/db.js"></script>
    <script src="assets/js/helper/onLoadMain.js"></script>
-   <script src="assets/js/helper/modal.js"></script>
+   <script src="assets/js/helper/createTag.js"></script>
+   <script src="assets/js/helper/checkCompatibility.js"></script>
+   <script src="assets/js/helper/cutId.js"></script>
+   <script src="assets/js/tab.js"></script>
+   <script src="assets/js/modal.js"></script>
+   <script src="assets/js/render.js"></script>
 
    <title>SM - Drag and Drop</title>
 
@@ -134,10 +138,6 @@
 
          <button id="pciExpressTitle" class="titleTab" onclick="openTab(event, 'pciExpressTab')">PCI Express</button>
          <div id="pciExpressTab" class="tab"></div>
-
-         <button id="graphicsCardsTitle" class="titleTab" onclick="openTab(event, 'graphicsCardsTab')">Placa de
-            Vídeo</button>
-         <div id="graphicsCardsTab" class="tab"></div>
 
          <button id="romTitle" class="titleTab" onclick="openTab(event, 'romTab')">Memória Rom</button>
          <div id="romTab" class="tab"></div>

@@ -7,4 +7,3 @@ const getBuildingPC = () => {
 const setBuildingPC = (newBuildingPc) => {
    localStorage.setItem('buildingPC', JSON.stringify(newBuildingPc));
 };
-

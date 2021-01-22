@@ -1,16 +1,19 @@
 :root {
   --primaryColor: #62B0CB;
   --errorColor: #ee8c73;
+  --compatible: #50c740;
+  --incompatible: #ecea44;
   --primaryFontColor: #dfe3e8;
   --secondaryFontColor: #000000;
   --backGroundColor: #f4f5f6;
   --detailColor: #afafaf;
-
 }
+
 body{
   background-color: var(--backGroundColor);
   margin: 0.1%;
 }
+
 .main {
   display: grid;
   grid-template-areas:

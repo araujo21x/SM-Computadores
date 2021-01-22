@@ -1,2 +1,3 @@
 # SM-DragAndDrop
-Jogo no formato drag and drop(arrastar e soltar) com html, css e js vanilla
+Projeto para disciplina Software Educacional, a ideia é desenvolver um jogo drag and drop (arrastar e soltar) com tematica de manutenção em computadores.
+
