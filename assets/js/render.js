@@ -2,15 +2,15 @@
 const index = (hardware) => {
    const type = cutId(hardware);
    const pieces = getPieces(type);
+
+   // Adicionado os botões e a zona de recuperar peça
    const divTab = document.getElementById(hardware);
    divTab.innerText = '';
    divTab.appendChild(detailsHardware(hardware, type));
    divTab.appendChild(saveZone(type));
 
-   pieces.forEach((element) => {
-      const pieceTag = hardwareItem(element);
-      divTab.appendChild(pieceTag);
-   });
+   // Adicionando as peças
+   pieces.forEach((element) => divTab.appendChild(hardwareItem(element)));
 };
 
 const detailsHardware = (type) => {

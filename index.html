@@ -14,10 +14,15 @@
 
    <script src="assets/js/data/localStorage.js"></script>
    <script src="assets/js/data/db.js"></script>
+
+   <script src="assets/js/dragAndDrop/desktop.js"></script>
+   <script src="assets/js/dragAndDrop/mobile.js"></script>
+
    <script src="assets/js/helper/onLoadMain.js"></script>
    <script src="assets/js/helper/createTag.js"></script>
    <script src="assets/js/helper/checkCompatibility.js"></script>
    <script src="assets/js/helper/cutId.js"></script>
+
    <script src="assets/js/tab.js"></script>
    <script src="assets/js/modal.js"></script>
    <script src="assets/js/render.js"></script>
@@ -29,103 +34,21 @@
 <body onLoad="mainLoaded()">
    <div class="main">
       <div class="hardware">
-
+         <section id='ram' ondrop="drop(event)" ondragover="allowDrop(event)" class="cpu"></section>
+         <!-- <section id='ram' ondrop="drop(event)" ondragover="allowDrop(event)" class="cpu"></section>
+         <section id='ram' ondrop="drop(event)" ondragover="allowDrop(event)" class="cooler"></section>
+         <section id='ram' ondrop="drop(event)" ondragover="allowDrop(event)" class="ram1"></section>
+         <section id='ram' ondrop="drop(event)" ondragover="allowDrop(event)" class="ram2"></section>
+         <section id='ram' ondrop="drop(event)" ondragover="allowDrop(event)" class="pciExpress1"></section>
+         <section id='ram' ondrop="drop(event)" ondragover="allowDrop(event)" class="pciExpress2"></section>
+         <section id='ram' ondrop="drop(event)" ondragover="allowDrop(event)" class="pciExpress3"></section>
+         <section id='ram' ondrop="drop(event)" ondragover="allowDrop(event)" class="pciExpress4"></section> -->
       </div>
 
       <div class="lateralMenu">
 
          <button id="motherBoardTitle" class="titleTab" onclick="openTab(event, 'motherBoardTab')">Placa-Mãe</button>
-         <div id="motherBoardTab" class="tab">
-
-            <div class="detailsHardware">
-               <button onclick="openModal()">
-                  O que é?
-                  <img src="assets/img/informationIcon.png" alt="Icone de Informação">
-               </button>
-               <div class="verticalLine"></div>
-               <button>
-                  Filtro
-                  <img src="assets/img/filter.png" alt="Icone de filtro">
-               </button>
-            </div>
-
-            <div class="saveZone">
-               <p>Guarde sua peçã aqui!</p>
-            </div>
-
-            <div class="hardwareItem">
-
-               <div class=hardwareItemImg>
-                  <img src="assets/img/cpu.png" alt="Imagem de um processador">
-               </div>
-               <div class="HardwareItemBody">
-                  <div class="hardwareItemTitle">i9 - 10º Geração</div>
-                  <div class="HardwareItemText">
-                     <ul>
-                        <li><b>Soquete</b>: LGA1151</li>
-                        <li><b>Chipset</b>: H110</li>
-                        <li><b>Chipset</b>: H110</li>
-                     </ul>
-                  </div>
-                  <button>Mais informações</button>
-               </div>
-
-            </div>
-            <div class="hardwareItem">
-
-               <div class=hardwareItemImg>
-                  <img src="assets/img/cpu.png" alt="Imagem de um processador">
-               </div>
-               <div class="HardwareItemBody">
-                  <div class="hardwareItemTitle">i9 - 10º Geração</div>
-                  <div class="HardwareItemText">
-                     <ul>
-                        <li><b>Soquete</b>: LGA1151</li>
-                        <li><b>Chipset</b>: H110</li>
-                        <li><b>Chipset</b>: H110</li>
-                     </ul>
-                  </div>
-                  <button>Mais informações</button>
-               </div>
-
-            </div>
-            <div class="hardwareItem">
-
-               <div class=hardwareItemImg>
-                  <img src="assets/img/cpu.png" alt="Imagem de um processador">
-               </div>
-               <div class="HardwareItemBody">
-                  <div class="hardwareItemTitle">i9 - 10º Geração</div>
-                  <div class="HardwareItemText">
-                     <ul>
-                        <li><b>Soquete</b>: LGA1151</li>
-                        <li><b>Chipset</b>: H110</li>
-                        <li><b>Chipset</b>: H110</li>
-                     </ul>
-                  </div>
-                  <button>Mais informações</button>
-               </div>
-
-            </div>
-            <div class="hardwareItem">
-
-               <div class=hardwareItemImg>
-                  <img src="assets/img/cpu.png" alt="Imagem de um processador">
-               </div>
-               <div class="HardwareItemBody">
-                  <div class="hardwareItemTitle">i9 - 10º Geração</div>
-                  <div class="HardwareItemText">
-                     <ul>
-                        <li><b>Soquete</b>: LGA1151</li>
-                        <li><b>Chipset</b>: H110</li>
-                        <li><b>Chipset</b>: H110</li>
-                     </ul>
-                  </div>
-                  <button>Mais informações</button>
-               </div>
-
-            </div>
-         </div>
+         <div id="motherBoardTab" class="tab"></div>
 
          <button id="cpuTitle" class="titleTab" onclick="openTab(event, 'cpuTab')">Processador</button>
          <div id="cpuTab" class="tab"></div>
