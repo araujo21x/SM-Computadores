@@ -52,5 +52,14 @@ const saveZone = (type) => {
    saveZone.id = `${type}Save`;
    saveZone.appendChild(text);
 
+   // add drag function
+   saveZone.ondrop = function() {
+      dropSave(event, type);
+   };
+
+   saveZone.ondragover = function() {
+      allowDrop(event);
+   };
+
    return saveZone;
 };

@@ -28,10 +28,9 @@ const imageZone = (imageDir, infoImg, piece) => {
    imageTag.addEventListener('dragstart', function() {
       drag(event, piece);
    });
-   imageTag.id = `${piece.type}_${piece.id}`;
+   imageTag.id = `drag_${piece.type}_${piece.id}`;
 
    divImage.appendChild(imageTag);
-   console.log(imageTag);
    return divImage;
 };
 

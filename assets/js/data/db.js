@@ -30,3 +30,5 @@ const pieces = [
 const getPieces = (type) =>{
    return pieces.filter((element) => element.type === type);
 };
+
+

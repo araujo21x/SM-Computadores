@@ -42,7 +42,7 @@ const mainLoaded = () => {
             outputPower: 500,
          },
          energy: 450,
-      },
+      }, true,
    );
    const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
    disableTab(titleTabs);
