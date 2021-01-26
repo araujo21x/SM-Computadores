@@ -12,7 +12,6 @@ const openTab = (event, hardware) => {
 
    document.getElementById(hardware).style.display = 'block';
    event.currentTarget.className += ' active';
-
    index(hardware);
 };
 

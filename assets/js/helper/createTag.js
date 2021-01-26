@@ -4,7 +4,7 @@ const hardwareItem = (piece) => {// refatorar
    hardwareItemTag.className = 'hardwareItem';
 
    // Adicionar a imagem do peça
-   hardwareItemTag.appendChild(imageZone('https://sitehosting.com.br/wp-content/uploads//2018/05/processador-de-acordo-com-sua-necessidade-Intel-Celeron-D.png'
+   hardwareItemTag.appendChild(imageZone(piece.image
       , 'imagem de um processador na net teste 01', piece));
    // Adicionar as info das peça
    hardwareItemTag.appendChild(bodyZone(piece));

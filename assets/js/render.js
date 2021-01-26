@@ -11,6 +11,9 @@ const index = (hardware) => {
 
    // Adicionando as peças
    pieces.forEach((element) => divTab.appendChild(hardwareItem(element)));
+
+   // mudar o modo de visualização
+   modeCheck(type);
 };
 
 const detailsHardware = (type) => {
@@ -62,4 +65,33 @@ const saveZone = (type) => {
    };
 
    return saveZone;
+};
+
+const modeCheck = (type) => {
+   switch (type) {
+   case 'motherBoard':
+      motherboardMode();
+      break;
+   case 'cpu':
+      motherboardMode();
+      break;
+   case 'cooler':
+      motherboardMode();
+      break;
+   case 'ram':
+      motherboardMode();
+      break;
+   case 'pciExpress':
+      motherboardMode();
+      break;
+   case 'rom':
+      motherboardMode();
+      break;
+   case 'recorder':
+      pcMode();
+      break;
+   case 'powerSupply':
+      pcMode();
+      break;
+   }
 };

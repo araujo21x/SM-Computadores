@@ -1,58 +1,118 @@
 .hardware {
-  display: grid;
-  background: url(../img/placa-mãe01.png) center / cover no-repeat;
-  background-size: 80% 96%;
-  height: 95vh;
-  grid-template-columns: repeat(200, 0.5%);
-  grid-template-rows: repeat(200, 0.5%);
-  border: 1px solid var(--backGroundColor);
-  border-right: 1px solid var(--detailColor);
+   display: grid;
+   height: 95vh;
+   grid-template-columns: repeat(200, 0.5%);
+   grid-template-rows: repeat(200, 0.5%);
+   border: 1px solid var(--backGroundColor);
+   border-right: 1px solid var(--detailColor);
+}
+
+.mother {
+   display: grid;
+   grid-template-columns: repeat(200, 0.5%);
+   grid-template-rows: repeat(200, 0.5%);
+   /* background: url(../img/motherBoard/mother2.png) center / cover no-repeat; */
+   background-size: 60% 100%;
+   grid-column: 10 / 190;
+   grid-row: 2 / 190;
 }
 
 .cpu {
-   grid-column: 125 / 158;
-   grid-row: 68 / 120;
+   grid-column: 88 / 113;
+   grid-row: 40 / 75;
    background-color: rgba(255, 192, 203, 0.61);
- }
+}
 
- .cooler {
-   grid-column: 110 / 172;
-   grid-row: 46 / 136;
-   background-color: rgba(216, 120, 211, 0.514);
- }
+.cooler {
+   grid-column: 81 / 120;
+   grid-row: 28 / 86;
+   background-color: rgba(128, 121, 223, 0.514);
+}
 
- .ram1 {
-   grid-column: 73 / 160;
-   grid-row: 144 / 151;
+.ram1 {
+   grid-column: 129 / 133;
+   grid-row: 17 / 99;
    background-color: rgba(180, 238, 183, 0.8);
- }
+}
 
- .ram2 {
-   grid-column: 73 / 160;
-   grid-row: 156 / 163;
-   background-color: rgba(180, 238, 183, 0.8);
- }
+.ram2 {
+   grid-column: 134 / 138;
+   grid-row: 17 / 99;
+   background-color: rgba(149, 236, 154, 0.329);
+}
 
- .pciExpress1 {
-   grid-column: 28 / 34;
-   grid-row: 48 / 130;
+.pciExpress1 {
+   grid-column: 65 / 106;
+   grid-row: 184 / 191;
    background-color: rgba(180, 238, 183, 0.8);
- }
+}
 
- .pciExpress2 {
-   grid-column: 40 / 46;
-   grid-row: 48 / 130;
+.m2 {
+   display: none;
+   grid-column: 69 / 110;
+   grid-row: 132 / 151;
    background-color: rgba(180, 238, 183, 0.8);
- }
+}
 
- .pciExpress3 {
-   grid-column: 52 / 58;
-   grid-row: 48 / 130;
-   background-color: rgba(180, 238, 183, 0.8);
- }
 
- .pciExpress4 {
-   grid-column: 65 / 71;
-   grid-row: 48 / 130;
+/* PcMode */
+.powerSupplySlot {
+   display: none;
+   background-color: black;
+   grid-column: 1 / 75;
+   grid-row: 1 / 60;
+}
+
+.lateralSlotArea {
+   display: none;
+   background-color: black;
+   grid-column: 140/ 200;
+   grid-row: 1 / 200;
+}
+
+.motherPcMode {
+   display: grid;
+   grid-template-columns: repeat(200, 0.5%);
+   grid-template-rows: repeat(200, 0.5%);
+   /* background: url(../img/motherBoard/mother2.png) left / cover no-repeat; */
+   background-size: 90% 97%;
+   grid-column: 1 / 140;
+   grid-row: 60 / 200;
+}
+
+.cpuPcMode {
+   grid-column: 70 / 113;
+   grid-row: 40 / 75;
+   background-color: rgba(255, 192, 203, 0.61);
+}
+
+.coolerPcMode {
+   grid-column: 61 / 119;
+   grid-row: 29 / 86;
+   background-color: rgba(128, 121, 223, 0.514);
+}
+
+.ram1PcMode {
+   grid-column: 133 / 139;
+   grid-row: 19 / 98;
    background-color: rgba(180, 238, 183, 0.8);
- }
+}
+
+.ram2PcMode {
+   grid-column: 140 / 146;
+   grid-row: 19 / 98;
+   background-color: rgba(149, 236, 154, 0.329);
+}
+
+.pciExpress1PcMode {
+   grid-column: 37 / 99;
+   grid-row: 181 / 188;
+   background-color: rgba(180, 238, 183, 0.8);
+}
+
+.m2PcMode {
+   display: none;
+   grid-column: 36 / 106;
+   grid-row: 131 / 149;
+   background-color: rgba(180, 238, 183, 0.8);
+}

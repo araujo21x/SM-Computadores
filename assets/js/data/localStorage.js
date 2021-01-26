@@ -28,6 +28,7 @@ const generateBody = () => {
 
 const deleteBuildingPC = (deletePiece, type) => {
    let myPC;
+   // eslint-disable-next-line prefer-const
    myPC = getBuildingPC();
    if (JSON.stringify(myPC[type]) === JSON.stringify(deletePiece)) {
       myPC[type] = {};

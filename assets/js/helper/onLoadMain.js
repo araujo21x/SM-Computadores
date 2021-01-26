@@ -6,6 +6,7 @@ const mainLoaded = () => {
          motherBoard: {
             socket: true,
             chipset: true,
+            image: 'assets/img/motherBoard/mother2.png',
             memorySlotAmount: 2,
             memorySlotType: 'DDR4',
             memorySlotFrequency: [2666, 2400, 2133],
