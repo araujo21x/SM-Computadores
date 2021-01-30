@@ -12,7 +12,7 @@ const checkCompatibility = (piece) => {
       answer = verifyCooler(piece);
       break;
    case 'ram':
-      verifyRam(piece);
+      answer = verifyRam(piece);
       break;
    case 'pciExpress':
       answer = verifyPciExpress(piece);
@@ -53,14 +53,13 @@ const verifyRam = (piece) => {
    const {motherBoard:
       {memorySlotAmount, memorySlotType, memorySlotFrequency},
    } = getBuildingPC();
-   let answer = 'compatible';
 
+   let answer = 'compatible';
    if (memorySlotAmount === 0 || memorySlotType !== piece.memorySlotType) {
       answer = 'incompatible';
-   } else if (!memorySlotFrequency.include(piece.memorySlotFrequency)) {
+   } else if (memorySlotFrequency.includes(piece.memoryFrequency)) {
       answer = 'malfunction';
    }
-
    return answer;
 };
 

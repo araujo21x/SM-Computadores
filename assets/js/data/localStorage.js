@@ -6,22 +6,20 @@ const getBuildingPC = () => {
 
 const setBuildingPC = (piece, test) => {
    let myPC = getBuildingPC();
+   console.log(myPC);
    if (!myPC) myPC = generateBody();
-   // apagar essa verificação de test é so por causa da onLoadMain
-   if (test) myPC = piece;
-   else myPC[piece.type] = piece;
    localStorage.setItem('buildingPC', JSON.stringify(myPC));
 };
 
 const generateBody = () => {
    return {
-      motherBoard: {},
-      cpu: {},
-      cooler: {},
-      ram: {},
-      rom: {},
-      PCIe: {},
-      powerSupply: {},
+      motherBoard: null,
+      cpu: null,
+      cooler: null,
+      ram: null,
+      rom: null,
+      PCIe: null,
+      powerSupply: null,
       energy: 0,
    };
 };

@@ -61,9 +61,8 @@ const motherboardMode = () => {
 
 const motherTradeVisual = (direction) => {
    const {motherBoard} = getBuildingPC();
-
    if (!motherBoard) {
-      // modificar para mostrar a peça um texto
+      console.log('foi');
    } else {
       // eslint-disable-next-line max-len
       mother.style.background = `url(${motherBoard.image}) ${direction} / cover no-repeat`;
