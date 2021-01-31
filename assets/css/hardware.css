@@ -7,8 +7,33 @@
    border-right: 1px solid var(--detailColor);
 }
 
+.dropMother {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   grid-column: 10 / 190;
+   grid-row: 10 / 190;
+   border: 3px solid var(--primaryColor);
+   border-style: dotted;
+   border-radius: 7px;
+
+}
+
+.dropMother p {
+   font-family: 'Mulish', sans-serif;
+   font-weight: bold;
+   font-size: 6vh;
+   color: var(--primaryColor);
+}
+
+.dropMother img {
+   max-width: 15%;
+   height: auto;
+}
+
 .mother {
-   display: grid;
+   display: none;
    grid-template-columns: repeat(200, 0.5%);
    grid-template-rows: repeat(200, 0.5%);
    /* background: url(../img/motherBoard/mother2.png) center / cover no-repeat; */
@@ -24,6 +49,7 @@
 }
 
 .cooler {
+   display: none;
    grid-column: 81 / 120;
    grid-row: 28 / 86;
    background-color: rgba(128, 121, 223, 0.514);

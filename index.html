@@ -34,7 +34,7 @@
 
 <body onLoad="mainLoaded()">
    <div class="main">
-      <div class="hardware">
+      <div  class="hardware">
          <div id='mother' class='mother'>
             <section id='cpu' ondrop="drop(event)" ondragover="allowDrop(event)" class="cpu"></section>
             <section id='cooler' ondrop="drop(event)" ondragover="allowDrop(event)" class="cooler"></section>
@@ -42,12 +42,6 @@
             <section id='ram2' ondrop="drop(event)" ondragover="allowDrop(event)" class="ram2"></section>
             <section id='pciExpress1' ondrop="drop(event)" ondragover="allowDrop(event)" class="pciExpress1"></section>
             <section id='m2' ondrop="drop(event)" ondragover="allowDrop(event)" class="m2"></section>
-            <!-- <section id='ram' ondrop="drop(event)" ondragover="allowDrop(event)" class="cpuPcMode"></section>
-            <section id='ram' ondrop="drop(event)" ondragover="allowDrop(event)" class="coolerPcMode"></section>
-            <section id='ram' ondrop="drop(event)" ondragover="allowDrop(event)" class="ram1PcMode"></section>
-            <section id='ram' ondrop="drop(event)" ondragover="allowDrop(event)" class="ram2PcMode"></section>
-            <section id='ram' ondrop="drop(event)" ondragover="allowDrop(event)" class="pciExpress1PcMode"></section>
-            <section id='ram' ondrop="drop(event)" ondragover="allowDrop(event)" class="m2PcMode"></section> -->
          </div>
 
          <div class='powerSupplySlot'>
@@ -58,8 +52,9 @@
 
          </div>
 
-         <div class='lateralSlotArea'>
-
+         <div id='motherBoard' class='dropMother' ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p>Arraste sua placa-mãe aqui</p>
+            <img src="assets/img/arrow.png" alt="Seta para direita">
          </div>
       </div>
 

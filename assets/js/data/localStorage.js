@@ -4,10 +4,12 @@ const getBuildingPC = () => {
    return JSON.parse(localStorage.getItem('buildingPC'));
 };
 
-const setBuildingPC = (piece, test) => {
+const setBuildingPC = (piece) => {
    let myPC = getBuildingPC();
-   console.log(myPC);
    if (!myPC) myPC = generateBody();
+   if (piece) {
+      myPC[piece.type] = piece;
+   }
    localStorage.setItem('buildingPC', JSON.stringify(myPC));
 };
 
@@ -29,7 +31,7 @@ const deleteBuildingPC = (deletePiece, type) => {
    // eslint-disable-next-line prefer-const
    myPC = getBuildingPC();
    if (JSON.stringify(myPC[type]) === JSON.stringify(deletePiece)) {
-      myPC[type] = {};
+      myPC[type] = null;
    }
    localStorage.setItem('buildingPC', JSON.stringify(myPC));
 };

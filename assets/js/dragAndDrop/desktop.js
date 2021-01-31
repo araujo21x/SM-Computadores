@@ -13,31 +13,39 @@ const drop = (event) => {
    const data = event.dataTransfer.getData('text');
    const piece = JSON.parse(event.dataTransfer.getData('piece'));
 
-   if (event.target.id === piece.type) {
-      switch (checkCompatibility(piece)) {
-      case 'compatible':
-         compatible(event, data, piece);
-         break;
-      case 'malfunction':
-         malfunction(event, data, piece);
-         break;
-      case 'incompatible':
-         incompatible();
-         break;
-      }
+   if (piece.type === 'motherBoard') {
+      installMotherboard(piece);
    } else {
-      if (event.target.id.slice(0, 4) === 'drag') {
-         alert('já possui peçã retire a atual');
+      if (event.target.id === piece.type) {
+         switch (checkCompatibility(piece)) {
+         case 'compatible':
+            compatible(event, data, piece);
+            break;
+         case 'malfunction':
+            malfunction(event, data, piece);
+            break;
+         case 'incompatible':
+            incompatible();
+            break;
+         }
       } else {
-         alert('Esse não é o local da peçã');
+         if (event.target.id.slice(0, 4) === 'drag') {
+            alert('já possui peçã retire a atual');
+         } else {
+            alert('Esse não é o local da peçã');
+         }
       }
    }
+   coolerZone();
 };
 
 const compatible = (event, data, piece) => {
    event.target.appendChild(document.getElementById(data));
    phantomDivRemove();
    setBuildingPC(piece);
+   // liberar botoes do menu
+   const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
+   disableTab(titleTabs);
 };
 
 const malfunction = (event, data, piece) => {
@@ -45,6 +53,9 @@ const malfunction = (event, data, piece) => {
    event.target.appendChild(document.getElementById(data));
    phantomDivRemove();
    setBuildingPC(piece);
+   // liberar botoes do menu
+   const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
+   disableTab(titleTabs);
 };
 
 const incompatible = () => {
@@ -65,4 +76,18 @@ const dropSave = (event, typeTab) => {
 
    deleteBuildingPC(piece, typeTab);
    phantomDivRemove();
+   coolerZone();
+
+   const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
+   disableTab(titleTabs);
 };
+
+const installMotherboard = (piece) => {
+   setBuildingPC(piece);
+   motherboardMode();
+   phantomDivRemove();
+   // liberar botoes do menu
+   const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
+   disableTab(titleTabs);
+};
+

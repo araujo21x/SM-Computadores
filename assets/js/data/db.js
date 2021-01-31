@@ -31,7 +31,7 @@ const pieces = [
    },
 
    {
-      id: 1,
+      id: 2,
       name: 'motherBoard Simple',
       type: 'motherBoard',
       image: 'assets/img/motherBoard/mother2.png',
