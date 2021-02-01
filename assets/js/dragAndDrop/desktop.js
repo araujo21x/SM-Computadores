@@ -16,7 +16,7 @@ const drop = (event) => {
    if (piece.type === 'motherBoard') {
       installMotherboard(piece);
    } else {
-      if (event.target.id === piece.type) {
+      if (checkSlot(event.target.id, piece.type)) {
          switch (checkCompatibility(piece)) {
          case 'compatible':
             compatible(event, data, piece);
@@ -76,7 +76,6 @@ const dropSave = (event, typeTab) => {
 
    deleteBuildingPC(piece, typeTab);
    phantomDivRemove();
-   coolerZone();
 
    const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
    disableTab(titleTabs);
@@ -91,3 +90,13 @@ const installMotherboard = (piece) => {
    disableTab(titleTabs);
 };
 
+const checkSlot = (idSection, type) => {
+   let answer = false;
+
+   if (idSection.slice(idSection.length-2, idSection.length-1) === '_') {
+      const id = idSection.slice(0, idSection.length-2);
+      if (id === type) answer = true;
+   } else if (idSection === type) answer = true;
+
+   return answer;
+};

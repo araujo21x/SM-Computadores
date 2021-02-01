@@ -253,7 +253,16 @@ const pieces = [
 ];
 
 const getPieces = (type) => {
-   return pieces.filter((element) => element.type === type);
+   const buildingPC = getBuildingPC();
+   return pieces.filter((element) => {
+      let piece = element.type === type ? element : null;
+      if (piece) {
+         if (JSON.stringify(piece) === JSON.stringify(buildingPC[type])) {
+            piece = null;
+         }
+      }
+      return piece;
+   });
 };
 
 

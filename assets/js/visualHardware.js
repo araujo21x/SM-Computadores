@@ -11,13 +11,13 @@ const pcMode = () => {
    const cooler = document.getElementById('cooler');
    cooler.className = 'coolerPcMode';
 
-   const ram1 = document.getElementById('ram1');
+   const ram1 = document.getElementById('ram_1');
    ram1.className = 'ram1PcMode';
 
-   const ram2 = document.getElementById('ram2');
+   const ram2 = document.getElementById('ram_2');
    ram2.className = 'ram2PcMode';
 
-   const pciExpress1 = document.getElementById('pciExpress1');
+   const pciExpress1 = document.getElementById('pciExpress_1');
    pciExpress1.className = 'pciExpress1PcMode';
 
    const m2 = document.getElementById('m2');
@@ -43,13 +43,13 @@ const motherboardMode = () => {
       const cooler = document.getElementById('cooler');
       cooler.className = 'cooler';
 
-      const ram1 = document.getElementById('ram1');
+      const ram1 = document.getElementById('ram_1');
       ram1.className = 'ram1';
 
-      const ram2 = document.getElementById('ram2');
+      const ram2 = document.getElementById('ram_2');
       ram2.className = 'ram2';
 
-      const pciExpress1 = document.getElementById('pciExpress1');
+      const pciExpress1 = document.getElementById('pciExpress_1');
       pciExpress1.className = 'pciExpress1';
 
       const m2 = document.getElementById('m2');
@@ -94,13 +94,16 @@ const tradeDisplay = (displayDropMother, displayRemaining) => {
    mother.style.display = displayRemaining;
 };
 
-const coolerZone = () => {
-   const {motherBoard, cpu} = getBuildingPC();
-   if (motherBoard, cpu) {
-      const coolerSection = document.getElementById('cooler');
-      coolerSection.style.display = 'inline';
-   } else {
-      const coolerSection = document.getElementById('cooler');
+const coolerZone = (titleTab) => {
+   const {cpu, cooler} = getBuildingPC();
+   console.log(titleTab);
+   const coolerSection = document.getElementById('cooler');
+
+   if (cooler && cpu) coolerSection.style.display = 'inline';
+   else {
       coolerSection.style.display = 'none';
+      if (cpu && titleTab === 'coolerTab') {
+         coolerSection.style.display = 'inline';
+      }
    }
 };

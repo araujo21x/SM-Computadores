@@ -5,13 +5,14 @@ const openTab = (event, hardware) => {
    const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
 
    tabs.map((element) => element.style.display = 'none');
-
+   // retirar active em todas as tabs
    titleTabs.map((element) => {
       element.className = element.className.replace(' active', '');
    });
 
    document.getElementById(hardware).style.display = 'block';
    event.currentTarget.className += ' active';
+   coolerZone(hardware);
    index(hardware);
 };
 

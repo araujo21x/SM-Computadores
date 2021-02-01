@@ -50,21 +50,23 @@
 
 .cooler {
    display: none;
+   z-index: 2000;
    grid-column: 81 / 120;
    grid-row: 28 / 86;
    background-color: rgba(128, 121, 223, 0.514);
 }
 
+
 .ram1 {
-   grid-column: 129 / 133;
+   grid-column: 133 / 137;
    grid-row: 17 / 99;
-   background-color: rgba(180, 238, 183, 0.8);
+   background-color: rgba(149, 236, 154, 0.329);
 }
 
 .ram2 {
-   grid-column: 134 / 138;
+   grid-column: 138 / 142;
    grid-row: 17 / 99;
-   background-color: rgba(149, 236, 154, 0.329);
+   background-color: rgba(180, 238, 183, 0.8);
 }
 
 .pciExpress1 {

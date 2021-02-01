@@ -22,6 +22,7 @@ const imageZone = (imageDir, infoImg, piece) => {
    const imageTag = document.createElement('img');
    imageTag.src = imageDir;
    imageTag.alt = infoImg;
+   imageTag.className = 'imagePiece';
 
    // add drag and drop
    imageTag.draggable = true;
