@@ -20,7 +20,7 @@ const generateBody = () => {
       cooler: null,
       ram: null,
       rom: null,
-      PCIe: null,
+      pciExpress: null,
       powerSupply: null,
       energy: 0,
    };

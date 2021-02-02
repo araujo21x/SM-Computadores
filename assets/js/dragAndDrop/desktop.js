@@ -41,8 +41,10 @@ const drop = (event) => {
 
 const compatible = (event, data, piece) => {
    event.target.appendChild(document.getElementById(data));
+   pieceSpecificity(piece.type, data, piece);
    phantomDivRemove();
    setBuildingPC(piece);
+
    // liberar botoes do menu
    const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
    disableTab(titleTabs);
@@ -51,8 +53,10 @@ const compatible = (event, data, piece) => {
 const malfunction = (event, data, piece) => {
    alert('Pode apresentar mau funcionamento ou perda de desempenho');
    event.target.appendChild(document.getElementById(data));
+   pieceSpecificity(piece.type, data, piece);
    phantomDivRemove();
    setBuildingPC(piece);
+
    // liberar botoes do menu
    const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
    disableTab(titleTabs);
@@ -99,4 +103,15 @@ const checkSlot = (idSection, type) => {
    } else if (idSection === type) answer = true;
 
    return answer;
+};
+
+const pieceSpecificity = (type, data, piece) => {
+   switch (type) {
+   case 'pciExpress':
+      pciExpressSpecificity();
+      break;
+   case 'ram':
+      ramSpecificity(data, piece.dropImage);
+      break;
+   }
 };

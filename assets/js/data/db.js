@@ -136,7 +136,7 @@ const pieces = [
       memoryFrequency: 2400,
       memorySize: 8,
       image: 'assets/img/ram/ram1.png',
-      dropImage: 'assets/img/ram/ram1.png',
+      dropImage: 'assets/img/ram/ram1drop.png',
    },
    {
       id: 2,
@@ -146,7 +146,7 @@ const pieces = [
       memoryFrequency: 3000,
       memorySize: 8,
       image: 'assets/img/ram/ram1.png',
-      dropImage: 'assets/img/ram/ram1.png',
+      dropImage: 'assets/img/ram/ram1drop.png',
    },
    {
       id: 3,
@@ -156,7 +156,7 @@ const pieces = [
       memoryFrequency: 1600,
       memorySize: 8,
       image: 'assets/img/ram/ram2.png',
-      dropImage: 'assets/img/ram/ram2.png',
+      dropImage: 'assets/img/ram/ram2drop.png',
    },
    {
       id: 4,
@@ -166,7 +166,7 @@ const pieces = [
       memoryFrequency: 1866,
       memorySize: 8,
       image: 'assets/img/ram/ram2.png',
-      dropImage: 'assets/img/ram/ram2.png',
+      dropImage: 'assets/img/ram/ram2drop.png',
    },
 
    // rom

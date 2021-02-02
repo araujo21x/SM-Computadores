@@ -19,6 +19,8 @@ const pcMode = () => {
 
    const pciExpress1 = document.getElementById('pciExpress_1');
    pciExpress1.className = 'pciExpress1PcMode';
+   const {pciExpress} = getBuildingPC();
+   if (pciExpress) pciExpressSpecificity();
 
    const m2 = document.getElementById('m2');
    m2.className = 'm2PcMode';
@@ -50,7 +52,9 @@ const motherboardMode = () => {
       ram2.className = 'ram2';
 
       const pciExpress1 = document.getElementById('pciExpress_1');
+      const {pciExpress} = getBuildingPC();
       pciExpress1.className = 'pciExpress1';
+      if (pciExpress) pciExpressSpecificity();
 
       const m2 = document.getElementById('m2');
       m2.className = 'm2';
@@ -96,7 +100,6 @@ const tradeDisplay = (displayDropMother, displayRemaining) => {
 
 const coolerZone = (titleTab) => {
    const {cpu, cooler} = getBuildingPC();
-   console.log(titleTab);
    const coolerSection = document.getElementById('cooler');
 
    if (cooler && cpu) coolerSection.style.display = 'inline';
