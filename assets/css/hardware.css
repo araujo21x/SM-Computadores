@@ -91,7 +91,8 @@
 /* PcMode */
 .powerSupplySlot {
    display: none;
-   background-color: black;
+   border: 3px solid #62B0CB;
+   border-style: dashed;
    grid-column: 1 / 75;
    grid-row: 1 / 60;
 }

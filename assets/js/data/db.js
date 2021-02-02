@@ -227,7 +227,7 @@ const pieces = [
       memoryInterface: '128 bits',
       energyConsumption: 300,
       image: 'assets/img/pciExpress/grapichCard.png',
-      dropImage: 'assets/img/pciExpress/grapichCard.png',
+      dropImage: 'assets/img/pciExpress/grapichCardDrop.png',
    },
 
    // powerSupply

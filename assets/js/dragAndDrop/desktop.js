@@ -97,8 +97,8 @@ const installMotherboard = (piece) => {
 const checkSlot = (idSection, type) => {
    let answer = false;
 
-   if (idSection.slice(idSection.length-2, idSection.length-1) === '_') {
-      const id = idSection.slice(0, idSection.length-2);
+   if (idSection.slice(idSection.length - 2, idSection.length - 1) === '_') {
+      const id = idSection.slice(0, idSection.length - 2);
       if (id === type) answer = true;
    } else if (idSection === type) answer = true;
 
@@ -108,10 +108,13 @@ const checkSlot = (idSection, type) => {
 const pieceSpecificity = (type, data, piece) => {
    switch (type) {
    case 'pciExpress':
-      pciExpressSpecificity();
+      pciExpressSpecificity(data, piece.dropImage);
       break;
    case 'ram':
-      ramSpecificity(data, piece.dropImage);
+      tradeImagem(data, piece.dropImage);
+      break;
+   case 'powerSupply':
+      tradeImagem(data, piece.dropImage);
       break;
    }
 };
