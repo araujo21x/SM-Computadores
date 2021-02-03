@@ -5,4 +5,5 @@ const mainLoaded = () => {
    const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
    disableTab(titleTabs);
    motherTradeVisual();
+   continueConstruction();
 };

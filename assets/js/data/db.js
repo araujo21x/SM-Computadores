@@ -256,11 +256,22 @@ const getPieces = (type) => {
    const buildingPC = getBuildingPC();
    return pieces.filter((element) => {
       let piece = element.type === type ? element : null;
+
       if (piece) {
          if (JSON.stringify(piece) === JSON.stringify(buildingPC[type])) {
             piece = null;
          }
+
+         if (type === 'ram' && buildingPC[type]) {
+            buildingPC[type].map((buildinPiece) =>{
+               delete buildinPiece.div;
+               if (JSON.stringify(piece) === JSON.stringify(buildinPiece)) {
+                  piece = null;
+               }
+            });
+         }
       }
+
       return piece;
    });
 };

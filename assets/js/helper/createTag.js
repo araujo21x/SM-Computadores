@@ -19,6 +19,13 @@ const imageZone = (imageDir, infoImg, piece) => {
    const divImage = document.createElement('div');
    divImage.className = 'hardwareItemImg';
 
+   const imageTag = creatTagImg(imageDir, infoImg, piece);
+
+   divImage.appendChild(imageTag);
+   return divImage;
+};
+
+const creatTagImg = (imageDir, infoImg, piece) => {
    const imageTag = document.createElement('img');
    imageTag.src = imageDir;
    imageTag.alt = infoImg;
@@ -30,9 +37,7 @@ const imageZone = (imageDir, infoImg, piece) => {
       drag(event, piece);
    });
    imageTag.id = `drag_${piece.type}_${piece.id}`;
-
-   divImage.appendChild(imageTag);
-   return divImage;
+   return imageTag;
 };
 
 const bodyZone = (piece) => {

@@ -43,7 +43,7 @@ const compatible = (event, data, piece) => {
    event.target.appendChild(document.getElementById(data));
    pieceSpecificity(piece.type, data, piece);
    phantomDivRemove();
-   setBuildingPC(piece);
+   setBuildingPC(piece, event.target.id);
 
    // liberar botoes do menu
    const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
@@ -55,7 +55,7 @@ const malfunction = (event, data, piece) => {
    event.target.appendChild(document.getElementById(data));
    pieceSpecificity(piece.type, data, piece);
    phantomDivRemove();
-   setBuildingPC(piece);
+   setBuildingPC(piece, event.target.id);
 
    // liberar botoes do menu
    const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
@@ -78,7 +78,7 @@ const dropSave = (event, typeTab) => {
       document.getElementById(`${typeTab}Tab`).appendChild(hardwareItem(piece));
    }
 
-   deleteBuildingPC(piece, typeTab);
+   deleteBuildingPC(piece);
    phantomDivRemove();
 
    const titleTabs = Array.from(document.getElementsByClassName('titleTab'));

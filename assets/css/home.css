@@ -1,0 +1,36 @@
+.home {
+   display: flex;
+   height: 99vh;
+   width: 99%;
+   align-items: center;
+   justify-content: center;
+   background-color: var(--backGroundColor);
+}
+
+.homeButtons {
+   display: flex;
+   flex-direction: column;
+   height: 35%;
+   width: 35%;
+   align-items: center;
+   justify-content: center;
+   color: var(--primaryFontColor);
+   border: 1px solid var(--primaryColor);
+   border-radius: 5px;
+}
+
+.homeButtons button{
+   height: 23%;
+   width: 60%;
+   font-family: 'Mulish', sans-serif;
+   font-weight: bold;
+   font-size: 3.5vh;
+   color: var(--primaryColor);
+}
+.homeButtons a {
+   text-decoration: none;
+   color: var(--primaryColor);
+}
+.buttonGuide{
+   margin-top: 5%;
+}
