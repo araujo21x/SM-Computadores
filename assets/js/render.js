@@ -84,8 +84,11 @@ const modeCheck = (type) => {
    case 'pciExpress':
       motherboardMode();
       break;
-   case 'rom':
+   case 'm2':
       motherboardMode();
+      break;
+   case 'rom':
+      pcMode();
       break;
    case 'recorder':
       pcMode();

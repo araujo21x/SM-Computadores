@@ -4,6 +4,7 @@ const mainLoaded = () => {
    setBuildingPC();
    const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
    disableTab(titleTabs);
-   motherTradeVisual();
+
+   motherTradeVisual('center');
    continueConstruction();
 };

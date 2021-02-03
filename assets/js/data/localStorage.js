@@ -21,6 +21,7 @@ const generateBody = () => {
       cooler: null,
       ram: null,
       rom: null,
+      m2: null,
       pciExpress: null,
       powerSupply: null,
       energy: 0,

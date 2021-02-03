@@ -6,16 +6,19 @@ const continueConstruction = () => {
       cooler,
       ram,
       rom,
+      m2,
       pciExpress,
       powerSupply,
    } = getBuildingPC();
    if (motherBoard) {
-      motherboardMode();
+      motherBoardSpecificity();
       if (cpu) continueCpuCooler(cpu, cooler);
-      if (pciExpress) continuePciExpress(pciExpress); // falta foto
+      if (pciExpress) continuePciExpress(pciExpress);
       if (powerSupply) continuePowerSupply(powerSupply);
-      if (ram) continueRam(ram); // ver como vai ser o array
-      if (rom) continueRom(rom); // ver como vai ser o array
+      if (ram) continueRam(ram);
+      if (rom) continueRom(rom); // falta
+      if (m2) continueM2(m2);
+      motherboardMode();
    }
 };
 
@@ -30,13 +33,15 @@ const continueCpuCooler = (cpu, cooler) => {
 };
 
 const continuePowerSupply = (powerSupply) => {
-   const divCpu = document.getElementById('powerSupply');
-   divCpu.appendChild(
+   const divpowerSupply = document.getElementById('powerSupply');
+   divpowerSupply.appendChild(
       creatTagImg(powerSupply.dropImage, powerSupply.name, powerSupply));
 };
 
 const continuePciExpress = (pciExpress) => {
-
+   const divPci = document.getElementById('pciExpress_1');
+   divPci.appendChild(
+      creatTagImg(pciExpress.dropImage, pciExpress.name, pciExpress));
 };
 
 const continueRom = (rom) => {
@@ -48,4 +53,10 @@ const continueRam = (ram) => {
       const divRam = document.getElementById(element.div);
       divRam.appendChild(creatTagImg(element.dropImage, element.name, element));
    });
+};
+
+const continueM2 = (m2) => {
+   const divPci = document.getElementById('m2');
+   divPci.appendChild(
+      creatTagImg(m2.dropImage, m2.name, m2));
 };

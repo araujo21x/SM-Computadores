@@ -27,7 +27,7 @@ const pieces = [
          },
       ],
       hasSocketM2: true,
-      socketM2: [{type: 'NVMe'}],
+      socketM2: [{type: ['NVMe']}],
    },
 
    {
@@ -175,7 +175,6 @@ const pieces = [
       id: 1,
       name: 'HD',
       type: 'rom',
-      typeSocket: 'SATA',
       memorySize: 1,
       Rotation: 5900,
       Reading: null,
@@ -187,7 +186,6 @@ const pieces = [
       id: 2,
       name: 'SSD SATA',
       type: 'rom',
-      typeSocket: 'SATA',
       memorySize: 0.520,
       Reading: '550 MB/s',
       writing: '445 MB/s',
@@ -195,17 +193,16 @@ const pieces = [
       image: 'assets/img/rom/ssd.png',
       dropImage: 'assets/img/rom/ssdLateral.png',
    },
+
    {
-      id: 3,
+      id: 1,
       name: 'M.2 NVMe',
-      type: 'rom',
-      typeSocket: 'M2',
-      typeM2: 'NVMe', // interface
+      type: 'm2',
+      interface: 'NVMe', // interface
       model: 2280, // tamanho
       memorySize: 0.250,
       Reading: '2000 MB/s',
       writing: '1100 MB/s',
-      Rotation: null,
       image: 'assets/img/rom/M2.png',
       dropImage: 'assets/img/rom/M2Encaixe.png',
    },
@@ -249,6 +246,15 @@ const pieces = [
       voltage: 'bivolt',
       image: 'assets/img/powerSupply/powerSupply.png',
       dropImage: 'assets/img/powerSupply/powerSupplyLateral.png',
+   },
+
+   // leitor de dvd
+   {
+      id: 1,
+      name: 'Leitor de DVD',
+      type: 'recorder',
+      image: 'assets/img/recorder/recorder.png',
+      dropImage: 'assets/img/recorder/recorderDrop.png',
    },
 ];
 

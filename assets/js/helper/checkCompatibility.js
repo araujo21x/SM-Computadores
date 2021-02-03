@@ -20,6 +20,9 @@ const checkCompatibility = (piece) => {
    case 'rom':
       answer = verifyRom(piece);
       break;
+   case 'm2':
+      answer = verifyM2(piece);
+      break;
    case 'recorder':
       answer = verifyRecorder(piece);
       break;
@@ -86,17 +89,25 @@ const verifyPciExpress = (piece) => {
 };
 
 const verifyRom = (piece) => {
-   let answer;
-   switch (piece.typeSocket) {
-   case 'M2':
-      answer = verifyRomM2(piece);
-      break;
-   case 'SATA':
-      answer = verifyRomSATA(piece);
-      break;
+   return 'compatible';
+};
+
+const verifyM2 = (piece) => {
+   const {motherBoard: {hasSocketM2, socketM2}} = getBuildingPC();
+
+   if (!hasSocketM2) {
+      return 'incompatible';
+   };
+
+   const verifyTypeSockerM2 = socketM2.filter((element) => {
+      return element.type.includes(piece.interface);
+   });
+   console.log(verifyTypeSockerM2);
+   if (verifyTypeSockerM2.length === 0) {
+      return 'incompatible';
    }
 
-   return answer;
+   return 'compatible';
 };
 
 const verifyRecorder = (piece) => {
@@ -116,26 +127,4 @@ const verifyPowerSupply = (piece) => {
    }
 
    return answer;
-};
-
-const verifyRomM2 = (piece) => {
-   const {motherBoard: {hasSocketM2, socketM2}} = getBuildingPC();
-
-   if (!hasSocketM2) {
-      return 'incompatible';
-   };
-
-   const verifyTypeSockerM2 = socketM2.filter((element) => {
-      return element.type.include(piece.typeM2);
-   });
-
-   if (verifyTypeSockerM2.length === 0) {
-      return 'incompatible';
-   }
-
-   return 'compatible';
-};
-
-const verifyRomSATA = (piece) => {
-   return 'compatible';
 };
