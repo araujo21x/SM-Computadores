@@ -24,6 +24,7 @@
    <script src="assets/js/helper/cutId.js"></script>
    <script src="assets/js/helper/pieceSpecificity.js"></script>
    <script src="assets/js/helper/continueConstruction.js"></script>
+   <script src="assets/js/helper/createTagUl.js"></script>
 
    <script src="assets/js/tab.js"></script>
    <script src="assets/js/modal.js"></script>
@@ -36,7 +37,7 @@
 
 <body onLoad="mainLoaded()">
    <div class="main">
-      <div  class="hardware">
+      <div class="hardware">
          <div id='mother' class='mother'>
             <div id='cpu' ondrop="drop(event)" ondragover="allowDrop(event)" class="cpu"></div>
             <div id='cooler' ondrop="drop(event)" ondragover="allowDrop(event)" class="cooler"></div>
@@ -46,12 +47,10 @@
             <div id='m2' ondrop="drop(event)" ondragover="allowDrop(event)" class="m2"></div>
          </div>
 
-         <div id='powerSupply' ondrop="drop(event)" ondragover="allowDrop(event)" class='powerSupplySlot'>
-         </div>
-
-         <div class='lateralSlotArea'>
-
-         </div>
+         <div id='powerSupply' ondrop="drop(event)" ondragover="allowDrop(event)" class='powerSupplySlot'></div>
+         <div id='recorder' ondrop="drop(event)" ondragover="allowDrop(event)" class="recorder"></div>
+         <div id='rom_1' ondrop="drop(event)" ondragover="allowDrop(event)" class="rom1"></div>
+         <div id='rom_2' ondrop="drop(event)" ondragover="allowDrop(event)" class="rom2"></div>
 
          <div id='motherBoard' class='dropMother' ondrop="drop(event)" ondragover="allowDrop(event)">
             <p>Arraste sua placa-mãe aqui</p>

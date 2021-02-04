@@ -9,6 +9,7 @@ const continueConstruction = () => {
       m2,
       pciExpress,
       powerSupply,
+      recorder,
    } = getBuildingPC();
    if (motherBoard) {
       motherBoardSpecificity();
@@ -16,7 +17,8 @@ const continueConstruction = () => {
       if (pciExpress) continuePciExpress(pciExpress);
       if (powerSupply) continuePowerSupply(powerSupply);
       if (ram) continueRam(ram);
-      if (rom) continueRom(rom); // falta
+      if (rom) continueRom(rom);
+      if (recorder) continueRecorder(recorder);
       if (m2) continueM2(m2);
       motherboardMode();
    }
@@ -45,7 +47,10 @@ const continuePciExpress = (pciExpress) => {
 };
 
 const continueRom = (rom) => {
-
+   rom.map((element) => {
+      const divRom = document.getElementById(element.div);
+      divRom.appendChild(creatTagImg(element.dropImage, element.name, element));
+   });
 };
 
 const continueRam = (ram) => {
@@ -59,4 +64,10 @@ const continueM2 = (m2) => {
    const divPci = document.getElementById('m2');
    divPci.appendChild(
       creatTagImg(m2.dropImage, m2.name, m2));
+};
+
+const continueRecorder = (recorder) => {
+   const divRecorder = document.getElementById('recorder');
+   divRecorder.appendChild(
+      creatTagImg(recorder.dropImage, recorder.name, recorder));
 };

@@ -89,21 +89,6 @@
 
 
 /* PcMode */
-.powerSupplySlot {
-   display: none;
-   border: 3px solid #62B0CB;
-   border-style: dashed;
-   grid-column: 1 / 75;
-   grid-row: 1 / 60;
-}
-
-.lateralSlotArea {
-   display: none;
-   background-color: black;
-   grid-column: 140/ 200;
-   grid-row: 1 / 200;
-}
-
 .motherPcMode {
    display: grid;
    grid-template-columns: repeat(200, 0.5%);
@@ -151,7 +136,36 @@
 
 .m2PcMode {
    display: none;
-   grid-column: 43 / 106;
-   grid-row: 131 / 149;
+   grid-column: 44/ 103;
+   grid-row: 132 / 149;
    background-color: rgba(180, 238, 183, 0.8);
+}
+
+.powerSupplySlot {
+   display: none;
+   border: 3px solid #62B0CB;
+   border-style: dashed;
+   grid-column: 1 / 75;
+   grid-row: 1 / 60;
+}
+
+.recorder {
+   display: none;
+   grid-column: 130/ 200;
+   grid-row: 1 / 35;
+   background-color: rgba(30, 192, 38, 0.8);
+}
+
+.rom1 {
+   display: none;
+   grid-column: 140/ 200;
+   grid-row: 35 / 60;
+   background-color: rgba(174, 0, 255, 0.8);
+}
+
+.rom2 {
+   display: none;
+   grid-column: 140/ 200;
+   grid-row: 60 / 85;
+   background-color: rgba(167, 162, 231, 0.8);
 }

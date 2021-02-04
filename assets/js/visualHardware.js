@@ -1,8 +1,9 @@
 /* exported pcMode, motherboardMode, motherTrade, coolerZone */
+
 const pcMode = () => {
    const mother = document.getElementById('mother');
    mother.className = 'motherPcMode';
-   motherTradeVisual('left');
+   motherTradeVisual('left', 'inline');
    mother.style.backgroundSize = '90% 97%';
 
    const cpu = document.getElementById('cpu');
@@ -26,11 +27,6 @@ const pcMode = () => {
 
    const m2 = document.getElementById('m2');
    m2.className = 'm2PcMode';
-
-   const powerSupplySlot = document.getElementsByClassName('powerSupplySlot');
-   powerSupplySlot[0].style.display = 'inline';
-   const lateralSlotArea = document.getElementsByClassName('lateralSlotArea');
-   lateralSlotArea[0].style.display = 'inline';
 };
 
 const motherboardMode = () => {
@@ -38,7 +34,7 @@ const motherboardMode = () => {
    if (motherBoard) {
       const mother = document.getElementById('mother');
       mother.className = 'mother';
-      motherTradeVisual('center');
+      motherTradeVisual('center', 'none');
       mother.style.backgroundSize = '60% 100%';
 
       const cpu = document.getElementById('cpu');
@@ -62,44 +58,39 @@ const motherboardMode = () => {
 
       const m2 = document.getElementById('m2');
       m2.className = 'm2';
-
-      const powerSupplySlot = document.
-         getElementsByClassName('powerSupplySlot');
-      powerSupplySlot[0].style.display = 'none';
-
-      const lateralSlotArea = document.
-         getElementsByClassName('lateralSlotArea');
-      lateralSlotArea[0].style.display = 'none';
    }
 };
 
-const motherTradeVisual = (direction) => {
+const motherTradeVisual = (direction, displayRemaining) => {
    const {motherBoard} = getBuildingPC();
 
    if (!motherBoard) {
-      tradeDisplay('flex', 'none');
+      tradeDisplay('flex', 'none', 'none');
    } else {
       // eslint-disable-next-line max-len
       mother.style.background = `url(${motherBoard.image}) ${direction} / cover no-repeat`;
-      tradeDisplay('none', 'grid');
+      tradeDisplay('none', displayRemaining, 'grid');
    }
 };
 
-const tradeDisplay = (displayDropMother, displayRemaining) => {
-   // desativand div com a frase "arraste sua placa mãe aqui"
+const tradeDisplay = (displayDropMother, displayRemaining, displayMother) => {
    const dropMother = document.getElementById('motherBoard');
    dropMother.style.display = displayDropMother;
 
-   const powerSupplySlot = document.
-      getElementsByClassName('powerSupplySlot');
-   powerSupplySlot[0].style.display = displayRemaining;
+   const powerSupplySlot = document.getElementById('powerSupply');
+   powerSupplySlot.style.display = displayRemaining;
 
-   const lateralSlotArea = document.
-      getElementsByClassName('lateralSlotArea');
-   lateralSlotArea[0].style.display = displayRemaining;
+   const recorder = document.getElementById('recorder');
+   recorder.style.display = displayRemaining;
+
+   const rom1 = document.getElementById('rom_1');
+   rom1.style.display = displayRemaining;
+
+   const rom2 = document.getElementById('rom_2');
+   rom2.style.display = displayRemaining;
 
    const mother = document.getElementById('mother');
-   mother.style.display = displayRemaining;
+   mother.style.display = displayMother;
 };
 
 const coolerZone = (titleTab) => {

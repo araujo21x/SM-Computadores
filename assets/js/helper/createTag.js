@@ -63,12 +63,7 @@ const bodyInfo = (piece) => {
    const div = document.createElement('div');
    div.className = 'HardwareItemText';
 
-   const ul = document.createElement('ul');
-   const li = document.createElement('li');
-   li.textContent = piece.type;
-   ul.appendChild(li);
-   div.appendChild(ul);
-
+   div.appendChild(buildDivUl(piece));
    return div;
 };
 

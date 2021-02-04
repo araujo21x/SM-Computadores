@@ -118,6 +118,12 @@ const pieceSpecificity = (type, data, piece) => {
    case 'powerSupply':
       tradeImagem(data, piece.dropImage);
       break;
+   case 'rom':
+      tradeImagem(data, piece.dropImage);
+      break;
+   case 'recorder':
+      tradeImagem(data, piece.dropImage);
+      break;
    case 'm2':
       tradeImagem(data, piece.dropImage);
       break;
