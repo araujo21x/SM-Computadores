@@ -258,6 +258,8 @@ const pieces = [
    },
 ];
 
+const multiSlots = ['ram', 'rom'];
+
 const getPieces = (type) => {
    const buildingPC = getBuildingPC();
    return pieces.filter((element) => {
@@ -268,7 +270,7 @@ const getPieces = (type) => {
             piece = null;
          }
 
-         if (type === 'ram' && buildingPC[type]) {
+         if (multiSlots.includes(type) && buildingPC[type]) {
             buildingPC[type].map((buildinPiece) =>{
                delete buildinPiece.div;
                if (JSON.stringify(piece) === JSON.stringify(buildinPiece)) {

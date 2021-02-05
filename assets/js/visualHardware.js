@@ -89,6 +89,15 @@ const tradeDisplay = (displayDropMother, displayRemaining, displayMother) => {
    const rom2 = document.getElementById('rom_2');
    rom2.style.display = displayRemaining;
 
+   const recorderSlot = document.getElementById('recorderSlot');
+   recorderSlot.style.display = displayRemaining;
+
+   const rom1Slot = document.getElementById('rom_1_Slot');
+   rom1Slot.style.display = displayRemaining;
+
+   const rom2Slot = document.getElementById('rom_2_Slot');
+   rom2Slot.style.display = displayRemaining;
+
    const mother = document.getElementById('mother');
    mother.style.display = displayMother;
 };

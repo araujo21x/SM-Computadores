@@ -41,7 +41,7 @@ const drop = (event) => {
 
 const compatible = (event, data, piece) => {
    event.target.appendChild(document.getElementById(data));
-   pieceSpecificity(piece.type, data, piece);
+   pieceSpecificity(piece.type, data, piece, event.target.id);
    phantomDivRemove();
    setBuildingPC(piece, event.target.id);
 
@@ -77,7 +77,6 @@ const dropSave = (event, typeTab) => {
    if (piece.type === typeTab) {
       document.getElementById(`${typeTab}Tab`).appendChild(hardwareItem(piece));
    }
-
    deleteBuildingPC(piece);
    phantomDivRemove();
 
@@ -107,7 +106,7 @@ const checkSlot = (idSection, type) => {
    return answer;
 };
 
-const pieceSpecificity = (type, data, piece) => {
+const pieceSpecificity = (type, data, piece, idDiv) => {
    switch (type) {
    case 'pciExpress':
       pciExpressSpecificity(data, piece.dropImage);

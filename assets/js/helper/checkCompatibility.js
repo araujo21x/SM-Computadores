@@ -102,7 +102,7 @@ const verifyM2 = (piece) => {
    const verifyTypeSockerM2 = socketM2.filter((element) => {
       return element.type.includes(piece.interface);
    });
-   console.log(verifyTypeSockerM2);
+
    if (verifyTypeSockerM2.length === 0) {
       return 'incompatible';
    }
