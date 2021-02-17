@@ -11,16 +11,21 @@ const pcMode = () => {
 
    const cooler = document.getElementById('cooler');
    cooler.className = 'coolerPcMode';
-
+   const {pciExpress, ram} = getBuildingPC();
    const ram1 = document.getElementById('ram_1');
    ram1.className = 'ram1PcMode';
 
    const ram2 = document.getElementById('ram_2');
    ram2.className = 'ram2PcMode';
 
+   if (!ram.length > 0) {
+      ram.forEach((element) => {
+         ramSpecificity(element.div, element.dropImage);
+      });
+   }
+
    const pciExpress1 = document.getElementById('pciExpress_1');
    pciExpress1.className = 'pciExpress1PcMode';
-   const {pciExpress} = getBuildingPC();
    if (pciExpress) {
       pciExpressSpecificity('drag_pciExpress_1', pciExpress.dropImage);
    }
@@ -43,14 +48,20 @@ const motherboardMode = () => {
       const cooler = document.getElementById('cooler');
       cooler.className = 'cooler';
 
+      const {pciExpress, ram} = getBuildingPC();
       const ram1 = document.getElementById('ram_1');
       ram1.className = 'ram1';
 
       const ram2 = document.getElementById('ram_2');
       ram2.className = 'ram2';
 
+      if (ram.length > 0) {
+         ram.forEach((element) => {
+            ramSpecificity(element.div, element.dropImage);
+         });
+      }
+
       const pciExpress1 = document.getElementById('pciExpress_1');
-      const {pciExpress} = getBuildingPC();
       pciExpress1.className = 'pciExpress1';
       if (pciExpress) {
          pciExpressSpecificity('drag_pciExpress_1', pciExpress.dropImage);

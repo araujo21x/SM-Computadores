@@ -44,6 +44,7 @@
 .cpu {
    grid-column: 88 / 113;
    grid-row: 40 / 75;
+   background-color: rgba(44, 44, 204, 0.479);
 }
 
 .cooler {
@@ -55,17 +56,29 @@
 
 
 .ram1 {
+   grid-column: 133 / 137;
+   grid-row: 17 / 99;
+   background-color: black;
+}
+
+
+.ram1.docked {
    grid-column: 134 / 136;
-   /* grid-column: 133 / 137; */
-   /* grid-row: 17 / 99; */
    grid-row: 15 / 100;
+   background-color: black;
 }
 
 .ram2 {
+   grid-row: 17 / 99;
+   grid-column: 138 / 142;
+   background-color: blue;
+}
+
+
+.ram2.docked {
    grid-column: 139 / 141;
-   /* grid-row: 17 / 99; */
-   /* grid-column: 138 / 142; */
    grid-row: 15 / 100;
+   background-color: blue;
 }
 
 .pciExpress1 {
@@ -91,7 +104,7 @@
    grid-template-columns: repeat(200, 0.5%);
    grid-template-rows: repeat(200, 0.5%);
    background-size: 90% 97%;
-   grid-column: 1 / 140;
+   grid-column: 1 / 110;
    grid-row: 60 / 200;
 }
 

@@ -1,9 +1,18 @@
-/* exported pciExpressSpecificity, tradeImagem,motherBoardSpecificity */
+// eslint-disable-next-line max-len
+/* exported pciExpressSpecificity, tradeImagem,motherBoardSpecificity,ramSpecificity */
 const pciExpressSpecificity = (data, dropImage) => {
    const pciExpress = document.getElementById('pciExpress_1');
    pciExpress.classList.add('docked');
 
    const img = document.getElementById(data);
+   img.src = dropImage;
+};
+
+const ramSpecificity = (slot, dropImage) => {
+   const ram = document.getElementById(slot);
+   ram.classList.add('docked');
+   const img = ram.childNodes[0];
+   console.log(img);
    img.src = dropImage;
 };
 

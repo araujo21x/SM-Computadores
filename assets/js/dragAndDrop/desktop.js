@@ -53,7 +53,7 @@ const compatible = (event, data, piece) => {
 const malfunction = (event, data, piece) => {
    alert('Pode apresentar mau funcionamento ou perda de desempenho');
    event.target.appendChild(document.getElementById(data));
-   pieceSpecificity(piece.type, data, piece);
+   pieceSpecificity(piece.type, data, piece, event.target.id);
    phantomDivRemove();
    setBuildingPC(piece, event.target.id);
 
@@ -106,13 +106,13 @@ const checkSlot = (idSection, type) => {
    return answer;
 };
 
-const pieceSpecificity = (type, data, piece, idDiv) => {
+const pieceSpecificity = (type, data, piece, slot) => {
    switch (type) {
    case 'pciExpress':
       pciExpressSpecificity(data, piece.dropImage);
       break;
    case 'ram':
-      tradeImagem(data, piece.dropImage);
+      ramSpecificity(slot, piece.dropImage);
       break;
    case 'powerSupply':
       tradeImagem(data, piece.dropImage);
