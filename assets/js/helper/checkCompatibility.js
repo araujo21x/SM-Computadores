@@ -1,4 +1,5 @@
-/* exported  checkCompatibility*/
+/* exported  checkCompatibility, verifyTDP*/
+
 const checkCompatibility = (piece) => {
    let answer;
    switch (piece.type) {
@@ -30,6 +31,11 @@ const checkCompatibility = (piece) => {
       answer = verifyPowerSupply(piece);
       break;
    }
+
+   if (answer === 'compatible' || answer === 'malfunction') {
+      answer = verifyTDP(piece, answer);
+      console.log(answer);
+   }
    return answer;
 };
 
@@ -38,13 +44,30 @@ const verifyMotherBoard = (piece) => {
 };
 
 const verifyCpu = (piece) => {
-   const {motherBoard: {socket, chipset}} = getBuildingPC();
+   const {
+      motherBoard: {
+         socket,
+         chipset,
+         memorySlotAmount,
+         memorySizeSupport},
+      ramMemory,
+   } = getBuildingPC();
+
    let answer = 'compatible';
 
    if (socket !== piece.socket || chipset !== piece.chipset) {
       answer = 'incompatible';
-   };
+   } else {
+      if (memorySlotAmount !== piece.memorySupportAmountSlot) {
+         answer = 'incompatible';
+      } else {
+         if (memorySizeSupport !== piece.memorySizeSupport) {
+            answer = 'malfunction';
+         }
+      }
+   }
 
+   if (ramMemory > piece.memorySizeSupport) answer = 'incompatible';
    return answer;
 };
 
@@ -53,8 +76,15 @@ const verifyCooler = (piece) => {
 };
 
 const verifyRam = (piece) => {
-   const {motherBoard:
-      {memorySlotAmount, memorySlotType, memorySlotFrequency},
+   const {
+      motherBoard:
+      {memorySlotAmount,
+         memorySlotType,
+         memorySlotFrequency,
+         memorySizeSupport,
+      },
+      cpu,
+      ramMemory,
    } = getBuildingPC();
 
    let answer = 'compatible';
@@ -62,7 +92,18 @@ const verifyRam = (piece) => {
       answer = 'incompatible';
    } else if (memorySlotFrequency.includes(piece.memoryFrequency)) {
       answer = 'malfunction';
+   } else {
+      if ((ramMemory + piece.memorySize) > memorySizeSupport) {
+         answer = 'malfunction';
+      } else {
+         if (cpu) {
+            if ((ramMemory + piece.memorySize) > cpu.memorySizeSupport) {
+               answer = 'malfunction';
+            }
+         }
+      }
    }
+
    return answer;
 };
 
@@ -115,16 +156,25 @@ const verifyRecorder = (piece) => {
 };
 
 const verifyPowerSupply = (piece) => {
-   const {energy} = getBuildingPC();
+   const {currentTDP} = getBuildingPC();
    let answer = 'compatible';
 
-   if (energy > piece.outputPower) {
-      answer = 'incompatible';
-   }
+   if (currentTDP > piece.wattage) answer = 'incompatible';
 
-   if (energy === piece.outputPower) {
-      answer = 'malfunction';
-   }
+   const TDP = piece.wattage - currentTDP;
+   if (TDP >= 0 && TDP <= 50) answer = 'malfunction';
 
    return answer;
+};
+
+const verifyTDP = (piece, currentStatus) => {
+   const {currentTDP, powerSupply} = getBuildingPC();
+
+   if (powerSupply) {
+      if ((currentTDP + piece.TDP) > powerSupply.wattage) {
+         currentStatus = 'incompatible';
+      }
+   }
+
+   return currentStatus;
 };

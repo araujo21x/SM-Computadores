@@ -10,7 +10,9 @@ const pieces = [
       socket: 'LGA1200',
       chipset: 'H410 Express',
       memorySlotAmount: 2,
+      memorySizeSupport: 64,
       memorySlotType: 'DDR4',
+      TDP: 125,
       memorySlotFrequency: [2933, 2666, 2400, 2133],
       socketPCIE: [
          {
@@ -28,6 +30,7 @@ const pieces = [
       ],
       hasSocketM2: true,
       socketM2: [{type: ['NVMe']}],
+
    },
 
    {
@@ -39,7 +42,9 @@ const pieces = [
       socket: 'LGA1150',
       chipset: 'Z87 Express',
       memorySlotAmount: 2,
+      memorySizeSupport: 32,
       memorySlotType: 'DDR3',
+      TDP: 60,
       memorySlotFrequency: [1600, 1333],
       socketPCIE: [
          {
@@ -77,7 +82,7 @@ const pieces = [
       graphicsProcessor: ' Intel UHD Graphics 630',
       memorySupportFrequency: [2933, 2666, 2400, 2133],
       memorySupportAmountSlot: 2,
-      maxMemorySizeSupport: 128,
+      memorySizeSupport: 64,
       TDP: 65,
    },
 
@@ -97,7 +102,7 @@ const pieces = [
       graphicsProcessor: 'Intel HD Graphics 4400',
       memorySupportFrequency: [1600, 1333],
       memorySupportAmountSlot: 2,
-      maxMemorySizeSupport: 32,
+      memorySizeSupport: 32,
       TDP: 35,
    },
 
@@ -109,7 +114,7 @@ const pieces = [
       type: 'cooler',
       speedFan: 2200,
       fanAirflow: 42,
-      TDP: 65,
+      TDP: 35,
       compatibilityCpu: ['LGA1150', 'LGA1151'],
       image: 'assets/img/cooler/cooler.png',
       dropImage: 'assets/img/cooler/cooler.png',
@@ -135,6 +140,7 @@ const pieces = [
       memorySlotType: 'DDR4',
       memoryFrequency: 2400,
       memorySize: 8,
+      TDP: 2,
       image: 'assets/img/ram/ram1.png',
       dropImage: 'assets/img/ram/ram1drop.png',
    },
@@ -145,6 +151,7 @@ const pieces = [
       memorySlotType: 'DDR4',
       memoryFrequency: 3000,
       memorySize: 8,
+      TDP: 2,
       image: 'assets/img/ram/ram1.png',
       dropImage: 'assets/img/ram/ram1drop.png',
    },
@@ -155,6 +162,7 @@ const pieces = [
       memorySlotType: 'DDR3',
       memoryFrequency: 1600,
       memorySize: 8,
+      TDP: 2,
       image: 'assets/img/ram/ram2.png',
       dropImage: 'assets/img/ram/ram2drop.png',
    },
@@ -165,6 +173,7 @@ const pieces = [
       memorySlotType: 'DDR3',
       memoryFrequency: 1866,
       memorySize: 8,
+      TDP: 2,
       image: 'assets/img/ram/ram2.png',
       dropImage: 'assets/img/ram/ram2drop.png',
    },
@@ -177,6 +186,7 @@ const pieces = [
       type: 'rom',
       memorySize: 1,
       rotation: 5900,
+      TDP: 5,
       reading: '120 MB/s',
       writing: '50 MB/s',
       image: 'assets/img/rom/hdd.png',
@@ -187,6 +197,7 @@ const pieces = [
       name: 'SSD SATA',
       type: 'rom',
       memorySize: 0.520,
+      TDP: 2,
       reading: '550 MB/s',
       writing: '445 MB/s',
       rotation: null,
@@ -201,6 +212,7 @@ const pieces = [
       interface: 'NVMe', // interface
       model: 2280, // tamanho
       memorySize: 0.250,
+      TDP: 2,
       reading: '2000 MB/s',
       writing: '1100 MB/s',
       image: 'assets/img/rom/M2.png',
@@ -222,7 +234,7 @@ const pieces = [
       CUDACore: 896,
       memorySpeed: '12 Gbps',
       memoryInterface: '128 bits',
-      recommendedPSU: 300,
+      TDP: 100,
       image: 'assets/img/pciExpress/grapichCard.png',
       dropImage: 'assets/img/pciExpress/grapichCardDrop.png',
    },
@@ -234,6 +246,7 @@ const pieces = [
       name: 'Fonte 400W',
       type: 'powerSupply',
       wattage: 400,
+      TDP: 0,
       voltage: 'Bivolt',
       image: 'assets/img/powerSupply/powerSupply.png',
       dropImage: 'assets/img/powerSupply/powerSupplyLateral.png',
@@ -243,6 +256,7 @@ const pieces = [
       name: 'Fonte 200W',
       type: 'powerSupply',
       wattage: 200,
+      TDP: 0,
       voltage: 'Bivolt',
       image: 'assets/img/powerSupply/powerSupply.png',
       dropImage: 'assets/img/powerSupply/powerSupplyLateral.png',
@@ -253,6 +267,7 @@ const pieces = [
       id: 1,
       name: 'Leitor de DVD',
       type: 'recorder',
+      TDP: 20,
       image: 'assets/img/recorder/recorder.png',
       dropImage: 'assets/img/recorder/recorderDrop.png',
    },
