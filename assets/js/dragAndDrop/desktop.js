@@ -44,6 +44,8 @@ const compatible = (event, data, piece) => {
    pieceSpecificity(piece.type, data, piece, event.target.id);
    phantomDivRemove();
    setBuildingPC(piece, event.target.id);
+   const {mode}=getDropZone();
+   gridConfig(mode);
 
    // liberar botoes do menu
    const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
@@ -56,6 +58,9 @@ const malfunction = (event, data, piece) => {
    pieceSpecificity(piece.type, data, piece, event.target.id);
    phantomDivRemove();
    setBuildingPC(piece, event.target.id);
+
+   const {mode}=getDropZone();
+   gridConfig(mode);
 
    // liberar botoes do menu
    const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
@@ -79,6 +84,9 @@ const dropSave = (event, typeTab) => {
    }
    deleteBuildingPC(piece);
    phantomDivRemove();
+
+   const {mode}=getDropZone();
+   gridConfig(mode);
 
    const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
    disableTab(titleTabs);

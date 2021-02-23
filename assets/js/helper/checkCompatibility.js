@@ -34,7 +34,6 @@ const checkCompatibility = (piece) => {
 
    if (answer === 'compatible' || answer === 'malfunction') {
       answer = verifyTDP(piece, answer);
-      console.log(answer);
    }
    return answer;
 };

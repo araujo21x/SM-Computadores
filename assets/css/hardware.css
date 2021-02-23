@@ -41,63 +41,6 @@
    grid-row: 2 / 190;
 }
 
-.cpu {
-   grid-column: 88 / 113;
-   grid-row: 40 / 75;
-   background-color: rgba(44, 44, 204, 0.479);
-}
-
-.cooler {
-   display: none;
-   z-index: 2000;
-   grid-column: 81 / 120;
-   grid-row: 28 / 86;
-}
-
-
-.ram1 {
-   grid-column: 133 / 137;
-   grid-row: 17 / 99;
-   background-color: black;
-}
-
-
-.ram1.docked {
-   grid-column: 134 / 136;
-   grid-row: 15 / 100;
-   background-color: black;
-}
-
-.ram2 {
-   grid-row: 17 / 99;
-   grid-column: 138 / 142;
-   background-color: blue;
-}
-
-
-.ram2.docked {
-   grid-column: 139 / 141;
-   grid-row: 15 / 100;
-   background-color: blue;
-}
-
-.pciExpress1 {
-   grid-column: 65 / 106;
-   grid-row: 184 / 191;
-}
-
-.pciExpress1.docked {
-   grid-column: 41 / 150;
-   grid-row: 178 / 194;
-}
-
-.m2 {
-   display: none;
-   grid-column: 69 / 110;
-   grid-row: 132 / 151;
-}
-
-
 /* PcMode */
 .motherPcMode {
    display: grid;
@@ -106,47 +49,6 @@
    background-size: 90% 97%;
    grid-column: 1 / 110;
    grid-row: 60 / 200;
-}
-
-.cpuPcMode {
-   grid-column: 71 / 108;
-   grid-row: 41 / 75;
-}
-
-.coolerPcMode {
-   grid-column: 61 / 119;
-   grid-row: 29 / 86;
-}
-
-.ram1PcMode {
-   grid-column: 141 / 144;
-   grid-row: 18 / 100;
-}
-
-.ram2PcMode {
-   /* grid-column: 147 / 152;
-   grid-row: 19 / 98; */
-   grid-column: 148 / 151;
-   grid-row: 18 / 100;
-}
-
-.pciExpress1PcMode {
-   grid-column: 37 / 99;
-   grid-row: 181 / 188;
-
-}
-
-.pciExpress1PcMode.docked {
-   grid-column: 1 / 165;
-   grid-row: 177 / 190;
-
-}
-
-.m2PcMode {
-   display: none;
-   grid-column: 44/ 103;
-   grid-row: 132 / 149;
-
 }
 
 .powerSupplySlot {
@@ -198,4 +100,3 @@
    grid-row: 60 / 85;
    background: url(../img/gride.png) center/ cover no-repeat;
 }
-

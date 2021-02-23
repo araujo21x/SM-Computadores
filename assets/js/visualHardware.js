@@ -6,32 +6,8 @@ const pcMode = () => {
    motherTradeVisual('left', 'inline');
    mother.style.backgroundSize = '90% 97%';
 
-   const cpu = document.getElementById('cpu');
-   cpu.className = 'cpuPcMode';
-
-   const cooler = document.getElementById('cooler');
-   cooler.className = 'coolerPcMode';
-   const {pciExpress, ram} = getBuildingPC();
-   const ram1 = document.getElementById('ram_1');
-   ram1.className = 'ram1PcMode';
-
-   const ram2 = document.getElementById('ram_2');
-   ram2.className = 'ram2PcMode';
-
-   if (!ram.length > 0) {
-      ram.forEach((element) => {
-         ramSpecificity(element.div, element.dropImage);
-      });
-   }
-
-   const pciExpress1 = document.getElementById('pciExpress_1');
-   pciExpress1.className = 'pciExpress1PcMode';
-   if (pciExpress) {
-      pciExpressSpecificity('drag_pciExpress_1', pciExpress.dropImage);
-   }
-
-   const m2 = document.getElementById('m2');
-   m2.className = 'm2PcMode';
+   setModelDropZone('pc');
+   gridConfig('pc');
 };
 
 const motherboardMode = () => {
@@ -42,33 +18,8 @@ const motherboardMode = () => {
       motherTradeVisual('center', 'none');
       mother.style.backgroundSize = '60% 100%';
 
-      const cpu = document.getElementById('cpu');
-      cpu.className = 'cpu';
-
-      const cooler = document.getElementById('cooler');
-      cooler.className = 'cooler';
-
-      const {pciExpress, ram} = getBuildingPC();
-      const ram1 = document.getElementById('ram_1');
-      ram1.className = 'ram1';
-
-      const ram2 = document.getElementById('ram_2');
-      ram2.className = 'ram2';
-
-      if (ram.length > 0) {
-         ram.forEach((element) => {
-            ramSpecificity(element.div, element.dropImage);
-         });
-      }
-
-      const pciExpress1 = document.getElementById('pciExpress_1');
-      pciExpress1.className = 'pciExpress1';
-      if (pciExpress) {
-         pciExpressSpecificity('drag_pciExpress_1', pciExpress.dropImage);
-      }
-
-      const m2 = document.getElementById('m2');
-      m2.className = 'm2';
+      setModelDropZone('motherboard');
+      gridConfig('motherboard');
    }
 };
 
