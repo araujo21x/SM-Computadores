@@ -134,13 +134,12 @@ const verifyRom = (piece) => {
 
 const verifyM2 = (piece) => {
    const {motherBoard: {hasSocketM2, socketM2}} = getBuildingPC();
-
    if (!hasSocketM2) {
       return 'incompatible';
    };
 
    const verifyTypeSockerM2 = socketM2.filter((element) => {
-      return element.type.includes(piece.interface);
+      return element.type.includes(piece.format);
    });
 
    if (verifyTypeSockerM2.length === 0) {

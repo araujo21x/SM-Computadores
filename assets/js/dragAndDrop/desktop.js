@@ -8,13 +8,13 @@ const allowDrop = (event) => {
    event.preventDefault();
 };
 
-const drop = (event) => {
+const drop = async (event) => {
    event.preventDefault();
    const data = event.dataTransfer.getData('text');
    const piece = JSON.parse(event.dataTransfer.getData('piece'));
 
    if (piece.type === 'motherBoard') {
-      installMotherboard(piece);
+      await installMotherboard(piece);
    } else {
       if (checkSlot(event.target.id, piece.type)) {
          switch (checkCompatibility(piece)) {
@@ -92,8 +92,9 @@ const dropSave = (event, typeTab) => {
    disableTab(titleTabs);
 };
 
-const installMotherboard = (piece) => {
+const installMotherboard = async (piece) => {
    setBuildingPC(piece);
+   await setDropZone(piece.id);
    motherboardMode();
    phantomDivRemove();
    pieceSpecificity(piece.type);

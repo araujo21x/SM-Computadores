@@ -5,8 +5,6 @@ const mainLoaded = () => {
    const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
    disableTab(titleTabs);
 
-   setDropZone();
-
    motherTradeVisual('center');
    continueConstruction();
 };

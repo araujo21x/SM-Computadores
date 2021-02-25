@@ -1,7 +1,7 @@
 /* exported index*/
-const index = (hardware) => {
+const index = async (hardware) => {
    const type = cutId(hardware);
-   const pieces = getPieces(type);
+   const pieces = await getPieces(type);
 
    // Adicionado os botões e a zona de recuperar peça
    const divTab = document.getElementById(hardware);

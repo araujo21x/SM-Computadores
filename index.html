@@ -25,6 +25,7 @@
    <script src="assets/js/helper/pieceSpecificity.js"></script>
    <script src="assets/js/helper/continueConstruction.js"></script>
    <script src="assets/js/helper/createTagUl.js"></script>
+   <script src="assets/js/helper/fetch.js"></script>
 
    <script src="assets/js/helper/dropZone.js"></script>
    <script src="assets/js/helper/configGrid.js"></script>
@@ -42,12 +43,14 @@
    <div class="main">
       <div class="hardware">
          <div id='mother' class='mother'>
-            <div id='cpu' ondrop="drop(event)" ondragover="allowDrop(event)" class="cpu"></div>
-            <div id='cooler' ondrop="drop(event)" ondragover="allowDrop(event)" class="cooler"></div>
-            <div id='ram_1' ondrop="drop(event)" ondragover="allowDrop(event)" class="ram1"></div>
-            <div id='ram_2' ondrop="drop(event)" ondragover="allowDrop(event)" class="ram2"></div>
-            <div id='pciExpress_1' ondrop="drop(event)" ondragover="allowDrop(event)" class="pciExpress1"></div>
-            <div id='m2' ondrop="drop(event)" ondragover="allowDrop(event)" class="m2"></div>
+            <div id='cpu' ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id='cooler' ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id='ram_1' ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id='ram_2' ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id='ram_3' ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id='ram_4' ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id='pciExpress_1' ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id='m2' ondrop="drop(event)" ondragover="allowDrop(event)"></div>
          </div>
 
          <div id='powerSupply' ondrop="drop(event)" ondragover="allowDrop(event)" class='powerSupplySlot'></div>

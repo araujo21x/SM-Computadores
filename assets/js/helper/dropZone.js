@@ -106,7 +106,6 @@ const gridM2Mother = () =>{
 
 const gridM2PC = () =>{
    const {motherBoard: {hasSocketM2}} = getBuildingPC();
-   console.log(hasSocketM2);
    if (hasSocketM2) {
       const {pc: {m2}} = getDropZone();
       configGrid('m2', m2);
