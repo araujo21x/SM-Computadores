@@ -1,5 +1,5 @@
 /* exported getBuildingPC, setBuildingPC, deleteBuildingPC, getDropZone,
-setDropZone, setModelDropZone */
+setDropZone, setModelDropZone, resetLocalStorage */
 const piecesMulti = ['ram', 'rom'];
 const sizeSum = ['ram', 'rom', 'm2'];
 
@@ -109,4 +109,8 @@ const setModelDropZone = (value) => {
    const dropZone = getDropZone();
    dropZone.mode = value;
    localStorage.setItem('dropZone', JSON.stringify(dropZone));
+};
+
+const resetLocalStorage = () => {
+   localStorage.clear();
 };
