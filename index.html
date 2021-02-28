@@ -37,6 +37,8 @@
    <script src="assets/js/render.js"></script>
    <script src="assets/js/visualHardware.js"></script>
 
+   <script src="assets/js/modals/moreInfo.js"></script>
+
    <title>Drag and Drop</title>
 
 </head>
@@ -60,6 +62,7 @@
          <div id='recorder' ondrop="drop(event)" ondragover="allowDrop(event)" class="recorder"></div>
          <div id='rom_1' ondrop="drop(event)" ondragover="allowDrop(event)" class="rom1"></div>
          <div id='rom_2' ondrop="drop(event)" ondragover="allowDrop(event)" class="rom2"></div>
+
 
          <div id='recorderSlot' class="recorderSlot"></div>
          <div id='rom_1_Slot' class="rom1Slot"></div>
@@ -102,7 +105,7 @@
          <button id="powerSupplyTitle" class="titleTab" onclick="openTab(event, 'powerSupplyTab')">Fonte</button>
          <div id="powerSupplyTab" class="tab"></div>
 
-         <button onclick="finish()">Finalizar</button>
+         <button onclick="finish()">Gerar PDF</button>
          <button onclick="reset()">reset</button>
 
       </div>
@@ -111,11 +114,11 @@
    <div id="modal" class="modalContainer " onclick="closeModal(event)">
       <div class="modal">
          <button class="close">X</button>
-         <h3 class="modalTitle">Titulo do modal</h3>
-         <div class="modalBody"> fasdfasdfasdfasdfasdfasdfasdf</div>
+         <h3 class="modalTitle" id= "modalTitle"></h3>
+         <div class="modalBody" id="modalBody"></div>
          <div class="modalButton">
-            <button class="cancelButton">Cancelar</button>
-            <button class="normalButton">Filtrar</button>
+            <button class="cancelButton">Fechar</button>
+            <!-- <button class="normalButton">Filtrar</button> -->
          </div>
 
       </div>

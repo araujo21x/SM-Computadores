@@ -5,8 +5,8 @@ const finish = () => {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(getBuildingPC()),
-   }).then((response) => response.blob())
-      .then((blob) => {
+   }).then((response) =>{
+      response.blob().then((blob) => {
          const url = window.URL.createObjectURL(blob);
          const a = document.createElement('a');
          a.href = url;
@@ -15,5 +15,6 @@ const finish = () => {
          a.click();
          a.remove();
       });
+   });
 };
 

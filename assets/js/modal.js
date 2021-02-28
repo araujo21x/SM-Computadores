@@ -6,13 +6,13 @@ const openModal = (typeModal, piece) => {
 
    switch (typeModal) {
    case 'filter':
-      filter(piece);
+      filter();
       break;
    case 'whichIs':
-      whichIs(piece);
+      whichIs();
       break;
    case 'moreInfo':
-      moreInfo(piece);
+      createModalMoreInfo(piece);
       break;
    };
 };
@@ -28,14 +28,10 @@ const closeModal = (event) => {
    };
 };
 
-const filter = (piece) =>{
+const filter = () =>{
    console.log('filter');
 };
 
-const whichIs = (piece) =>{
+const whichIs = () =>{
    console.log('whichIs');
-};
-
-const moreInfo = (piece) =>{
-   console.log('moreInfo');
 };

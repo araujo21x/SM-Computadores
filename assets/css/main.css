@@ -1,6 +1,7 @@
 :root {
   --primaryColor: #62B0CB;
   --errorColor: #ee8c73;
+  --errorColorHover: #e48066;
   --compatible: #50c740;
   --incompatible: #ecea44;
   --primaryFontColor: #dfe3e8;

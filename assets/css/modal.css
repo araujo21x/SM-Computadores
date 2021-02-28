@@ -91,7 +91,12 @@
    background-color: var(--errorColor);
    box-shadow: 3px 2px 2px #ee8c73a6;
 }
+.cancelButton:hover {
+   margin-right: 2%;
+   background-color: var(--errorColorHover);
+   box-shadow: 3px 2px 2px #ee8c73a6;
 
+}
 .cancelButton.off {
    display: none;
 }
@@ -113,4 +118,27 @@
    font-weight: bold;
 
    cursor: pointer;
+}
+
+/* more info*/
+
+.moreInfoUl {}
+
+.moreInfoUl li {
+   display: flex;
+   margin-bottom: 1%;
+   flex-direction: row;
+   list-style: none;
+   color: black;
+   font-size: 1.2em;
+   font-family: 'Mulish', sans-serif;
+   display: flex;
+}
+.moreInfoUl li p {
+   margin: 0 10px 0  10px;
+   font-weight: bold;
+}
+.moreInfoUl li::before {
+   content: "\2699";
+   color: #62B0CB;
 }

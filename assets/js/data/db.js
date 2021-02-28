@@ -31,4 +31,3 @@ const getGrids = async (id) =>{
    return await fethRequest(`${URLAPI}/v1/gridMother/mother/${id}`, 'GET');
 };
 
-
