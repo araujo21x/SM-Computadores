@@ -36,8 +36,11 @@
    <script src="assets/js/modal.js"></script>
    <script src="assets/js/render.js"></script>
    <script src="assets/js/visualHardware.js"></script>
+   <script src="assets/js/helper/valuesFilter.js"></script>
 
    <script src="assets/js/modals/moreInfo.js"></script>
+   <script src="assets/js/modals/filter.js"></script>
+   <script src="assets/js/modals/whichIs.js"></script>
 
    <title>Drag and Drop</title>
 
@@ -114,13 +117,9 @@
    <div id="modal" class="modalContainer " onclick="closeModal(event)">
       <div class="modal">
          <button class="close">X</button>
-         <h3 class="modalTitle" id= "modalTitle"></h3>
+         <h3 class="modalTitle" id="modalTitle"></h3>
          <div class="modalBody" id="modalBody"></div>
-         <div class="modalButton">
-            <button class="cancelButton">Fechar</button>
-            <!-- <button class="normalButton">Filtrar</button> -->
-         </div>
-
+         <div class="modalButton" id="modalButton"></div>
       </div>
    </div>
 

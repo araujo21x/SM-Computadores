@@ -53,6 +53,7 @@ const motherBoardInfo = (piece) => {
       piece.memorySlotFrequency, 'frequency'));
 
    modalBody.appendChild(ul);
+   createCloseButton();
 };
 
 const cpuInfo = (piece) => {
@@ -82,6 +83,7 @@ const cpuInfo = (piece) => {
    ul.appendChild(createLi('Processador gráfico', piece.graphicsProcessor));
 
    modalBody.appendChild(ul);
+   createCloseButton();
 };
 
 const coolerInfo = (piece) => {
@@ -99,6 +101,7 @@ const coolerInfo = (piece) => {
       `${piece.fanAirflow} CFM`));
 
    modalBody.appendChild(ul);
+   createCloseButton();
 };
 
 const ramInfo = (piece) => {
@@ -110,12 +113,13 @@ const ramInfo = (piece) => {
    createTitle(piece.name);
    createImg(piece.image, '20', '6');
 
-   ul.appendChild(createLi('Frequencia da Memória',
+   ul.appendChild(createLi('Frequencia da memória',
       `${piece.memoryFrequency} MHz`));
-   ul.appendChild(createLi('Tamanho de Memória', `${piece.memorySize} GB`));
+   ul.appendChild(createLi('Tamanho de memória', `${piece.memorySize} GB`));
    ul.appendChild(createLi('Tipo de slot', `${piece.memorySlotType}`));
 
    modalBody.appendChild(ul);
+   createCloseButton();
 };
 
 const pciExpressInfo = (piece) => {
@@ -139,6 +143,7 @@ const pciExpressInfo = (piece) => {
    ul.appendChild(createLi('Tipo de memória', piece.memoryType));
 
    modalBody.appendChild(ul);
+   createCloseButton();
 };
 
 const romInfo = (piece) => {
@@ -159,6 +164,7 @@ const romInfo = (piece) => {
 
 
    modalBody.appendChild(ul);
+   createCloseButton();
 };
 
 const m2Info = (piece) => {
@@ -174,9 +180,10 @@ const m2Info = (piece) => {
    ul.appendChild(createLi('Tamanho de memória', `${piece.memorySize} GB`));
    ul.appendChild(createLi('Formato', piece.model));
    ul.appendChild(createLi('Velocidade de leitura', piece.reading));
-   ul.appendChild(createLi('Velocidade de escrita ', piece.writing));
+   ul.appendChild(createLi('Velocidade de escrita', piece.writing));
 
    modalBody.appendChild(ul);
+   createCloseButton();
 };
 
 const recorderInfo = (piece) => {
@@ -189,6 +196,7 @@ const recorderInfo = (piece) => {
    createImg(piece.image, '15', '10');
 
    modalBody.appendChild(ul);
+   createCloseButton();
 };
 
 const powerSupplyInfo = (piece) => {
@@ -204,6 +212,7 @@ const powerSupplyInfo = (piece) => {
    ul.appendChild(createLi('Capacidade de saída', `${piece.wattage} W`));
 
    modalBody.appendChild(ul);
+   createCloseButton();
 };
 
 const createLi = (subTitle, info) => {
@@ -246,7 +255,6 @@ const createTitle = (title) => {
 const createImg = (image, width, height) => {
    const img = document.createElement('img');
    img.src = image;
-   console.log(image);
    img.style.marginRight = 'auto';
    img.style.marginLeft = 'auto';
    img.style.display = 'block';
@@ -255,4 +263,13 @@ const createImg = (image, width, height) => {
 
    const modalBody = document.getElementById('modalBody');
    modalBody.appendChild(img);
+};
+
+const createCloseButton = () => {
+   const modalButton = document.getElementById('modalButton');
+   modalButton.innerHTML = '';
+   const buttonClose = document.createElement('button');
+   buttonClose.className = 'cancelButton';
+   buttonClose.innerText = 'Fechar';
+   modalButton.appendChild(buttonClose);
 };

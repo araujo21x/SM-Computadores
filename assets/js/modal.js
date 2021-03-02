@@ -3,13 +3,12 @@
 const openModal = (typeModal, piece) => {
    const modal = document.getElementById('modal');
    modal.classList.add('open');
-
    switch (typeModal) {
    case 'filter':
-      filter();
+      createModalFilter(piece);
       break;
    case 'whichIs':
-      whichIs();
+      createModalWhichIs(piece);
       break;
    case 'moreInfo':
       createModalMoreInfo(piece);
@@ -26,12 +25,4 @@ const closeModal = (event) => {
       const modal = document.getElementById('modal');
       modal.classList.remove('open');
    };
-};
-
-const filter = () =>{
-   console.log('filter');
-};
-
-const whichIs = () =>{
-   console.log('whichIs');
 };

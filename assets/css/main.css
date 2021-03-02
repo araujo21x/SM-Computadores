@@ -1,5 +1,6 @@
 :root {
   --primaryColor: #62B0CB;
+  --primaryColorHover: #479ebb;
   --errorColor: #ee8c73;
   --errorColorHover: #e48066;
   --compatible: #50c740;

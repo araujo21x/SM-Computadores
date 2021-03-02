@@ -38,7 +38,7 @@ const buttonDetailsHardware = (type, text, image, typeModal) => {
    button.textContent = text;
    img.src = image;
    button.addEventListener('click', function() {
-      openModal(typeModal, type);
+      openModal(typeModal, cutId(type));
    });
 
    button.appendChild(img);

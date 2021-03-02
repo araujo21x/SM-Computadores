@@ -85,6 +85,10 @@
    background-color: var(--primaryColor);
    box-shadow: 3px 2px 2px #62b1cbd0;
 }
+.normalButton:hover {
+   background-color: var(--primaryColorHover);
+   box-shadow: 3px 2px 2px #62b1cbd0;
+}
 
 .cancelButton {
    margin-right: 2%;
@@ -141,4 +145,28 @@
 .moreInfoUl li::before {
    content: "\2699";
    color: #62B0CB;
+}
+
+/* more filter*/
+
+.filterForm {
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 20px;
+}
+
+.itemFilter{
+   width: 75%;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: flex-end;
+   margin-bottom: 1.5%;
+}
+.itemFilter p{
+   margin: 0 1.5%;
+}
+
+.selectFilter{
+   width: 40%;
 }
