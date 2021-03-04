@@ -259,7 +259,7 @@ const pciFilterCamp = {
       name: 'memorySize',
       question: 'Tamanho de memória',
       answer: [
-         {value: '4', text: '1600 MHz'},
+         {value: '4', text: '4 GB'},
       ],
    },
    memorySpeed: {

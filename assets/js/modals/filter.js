@@ -33,24 +33,56 @@ const createModalFilter = (piece) => {
    modalButton.innerHTML = '';
    const button = document.createElement('button');
    button.className = 'normalButton';
-   button.addEventListener('click', function() {
+   button.addEventListener('click', async function() {
       filter(piece);
    });
    button.innerText = 'Filtrar';
    modalButton.appendChild(button);
 };
 
-const filter = (piece) => {
-   const filterRequest = {piece};
+const filter = async (typePiece) => {
+   const filterRequest = {type: typePiece};
 
    Array.from(document.getElementsByClassName('selectFilter'))
       .forEach((element) => {
          if (element.value !== '') filterRequest[element.name] = element.value;
       });
 
-   console.log(filterRequest);
+   const url = new URL('http://localhost:3000/v1/piece/filter');
+   url.search = new URLSearchParams(filterRequest).toString();
+   const response = await fetch(url,
+      {
+         method: 'GET',
+         headers: {'Content-Type': 'application/json'},
+      },
+   );
+   renderFilter(response, typePiece);
 };
+const renderFilter = async (response, typePiece) => {
+   if (response.status !== 200) alert('Erro! peça não encontrada!');
+   else {
+      parts = await response.json();
+      const verifiedParts = removingPieceFitted(parts, typePiece);
+      console.log(verifiedParts); // pagar depois
 
+      if (verifiedParts.length === 0) {
+         alert('Erro! só foi encontrada uma peçã e ela já esta encaixada!');
+      } else {
+         // pegar a div
+         const divDropableParts = document.querySelector(
+            `#${typePiece}Tab #dropableParts`);
+         divDropableParts.innerHTML = '';
+
+         // adicionar as peçãs
+         verifiedParts.forEach((element) => {
+            divDropableParts.appendChild(hardwareItem(element));
+         });
+         // fechar modal
+         const modal = document.getElementById('modal');
+         modal.classList.remove('open');
+      }
+   }
+};
 const createTitleFilter = (name) => {
    const modalTitle = document.getElementById('modalTitle');
    modalTitle.innerText = `Filtro de ${name}`;

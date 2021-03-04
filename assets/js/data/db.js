@@ -1,11 +1,16 @@
-/* exported  getPieces, getGrids*/
+/* exported  getPieces, getGrids, removingPieceFitted*/
 const multiSlots = ['ram', 'rom'];
 const URLAPI = 'http://localhost:3000';
 
-const getPieces = async (type) => {
+const getPieces = async (pieceType) => {
+   const parts = await fethRequest(`${URLAPI}/v1/piece?type=${pieceType}`
+      , 'GET');
+   return removingPieceFitted(parts, pieceType);
+};
+
+const removingPieceFitted = (parts, type) => {
    const buildingPC = getBuildingPC();
-   const pieces = await fethRequest(`${URLAPI}/v1/piece?type=${type}`, 'GET');
-   return pieces.filter((element) => {
+   return parts.filter((element) => {
       let piece = element.type === type ? element : null;
 
       if (piece) {
@@ -14,7 +19,7 @@ const getPieces = async (type) => {
          }
 
          if (multiSlots.includes(type) && buildingPC[type]) {
-            buildingPC[type].map((buildinPiece) =>{
+            buildingPC[type].map((buildinPiece) => {
                delete buildinPiece.div;
                if (JSON.stringify(piece) === JSON.stringify(buildinPiece)) {
                   piece = null;
@@ -27,7 +32,7 @@ const getPieces = async (type) => {
    });
 };
 
-const getGrids = async (id) =>{
+const getGrids = async (id) => {
    return await fethRequest(`${URLAPI}/v1/gridMother/mother/${id}`, 'GET');
 };
 

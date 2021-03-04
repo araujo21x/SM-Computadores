@@ -9,9 +9,13 @@ const index = async (hardware) => {
    divTab.appendChild(detailsHardware(hardware, type));
    divTab.appendChild(saveZone(type));
 
-   // Adicionando as peças
-   pieces.forEach((element) => divTab.appendChild(hardwareItem(element)));
 
+   // mudançãs test para filter
+   const section = document.createElement('section');
+   section.id ='dropableParts';
+   // Adicionando as peças
+   pieces.forEach((element) => section.appendChild(hardwareItem(element)));
+   divTab.appendChild(section);
    // mudar o modo de visualização
    modeCheck(type);
 };
