@@ -93,10 +93,11 @@ const dropSave = (event, typeTab) => {
 };
 
 const installMotherboard = async (piece) => {
+   index('motherBoardTab'); // armengue para recarregar as placas
    setBuildingPC(piece);
    await setDropZone(piece.id);
    motherboardMode();
-   phantomDivRemove();
+   // phantomDivRemove();
    pieceSpecificity(piece.type);
    // liberar botoes do menu
    const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
