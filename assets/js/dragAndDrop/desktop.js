@@ -80,7 +80,7 @@ const dropSave = (event, typeTab) => {
    imgDelete.parentNode.removeChild(imgDelete);
 
    if (piece.type === typeTab) {
-      document.getElementById(`${typeTab}Tab`).appendChild(hardwareItem(piece));
+      document.getElementById('dropableParts').appendChild(hardwareItem(piece));
    }
    deleteBuildingPC(piece);
    phantomDivRemove();

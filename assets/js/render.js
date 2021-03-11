@@ -1,21 +1,21 @@
 /* exported index*/
-const index = async (hardware) => {
+const index = async (hardware, title) => {
    const type = cutId(hardware);
    const pieces = await getPieces(type);
 
    // Adicionado os botões e a zona de recuperar peça
    const divTab = document.getElementById(hardware);
    divTab.innerText = '';
-   divTab.appendChild(detailsHardware(hardware, type));
+   divTab.appendChild(titleSection(title, hardware));
+   divTab.appendChild(detailsHardware(hardware));
    divTab.appendChild(saveZone(type));
 
-
-   // mudançãs test para filter
    const section = document.createElement('section');
-   section.id ='dropableParts';
+   section.id = 'dropableParts';
    // Adicionando as peças
    pieces.forEach((element) => section.appendChild(hardwareItem(element)));
    divTab.appendChild(section);
+   divTab.appendChild(backButton());
    // mudar o modo de visualização
    modeCheck(type);
 };
@@ -26,26 +26,28 @@ const detailsHardware = (type) => {
    verticalLine.className = 'verticalLine';
    zoneButtons.className = 'detailsHardware';
 
-   zoneButtons.appendChild(buttonDetailsHardware(type, 'O que é?',
-      'assets/img/informationIcon.png', 'whichIs'));
+   zoneButtons.appendChild(buttonDetailsHardware(type, 'Ordenar', 'order'));
    zoneButtons.appendChild(verticalLine);
-   zoneButtons.appendChild(buttonDetailsHardware(type, 'Filtro',
-      'assets/img/filter.png', 'filter'));
+   zoneButtons.appendChild(buttonDetailsHardware(type, 'Filtro', 'filter'));
 
    return zoneButtons;
 };
 
-const buttonDetailsHardware = (type, text, image, typeModal) => {
+const buttonDetailsHardware = (type, text, typeModal) => {
    const button = document.createElement('button');
-   const img = document.createElement('img');
+   const p = document.createElement('p');
+   const icon = document.createElement('i');
 
-   button.textContent = text;
-   img.src = image;
    button.addEventListener('click', function() {
       openModal(typeModal, cutId(type));
    });
 
-   button.appendChild(img);
+   p.innerText = text;
+   button.appendChild(p);
+
+   if (typeModal === 'order') icon.className = 'fas fa-sort-alpha-up-alt';
+   else icon.className = 'fas fa-filter';
+   button.appendChild(icon);
 
    return button;
 };
@@ -101,4 +103,50 @@ const modeCheck = (type) => {
       pcMode();
       break;
    }
+};
+
+const backButton = () => {
+   const backButton = document.createElement('button');
+   backButton.className = 'backButton';
+   backButton.addEventListener('click', function() {
+      showTitleTabs();
+   });
+
+   const iconBack = document.createElement('i');
+   iconBack.className = 'fas fa-arrow-left';
+   backButton.appendChild(iconBack);
+
+   const p = document.createElement('p');
+   p.innerHTML = 'Voltar';
+   backButton.appendChild(p);
+
+   return backButton;
+};
+
+const titleSection = (titleText, type) => {
+   const titleSection = document.createElement('section');
+   titleSection.id = 'titleSection';
+   // create back icon
+   const icomBack = document.createElement('i');
+   icomBack.className = 'fas fa-arrow-circle-left titleSectionIcon';
+   icomBack.addEventListener('click', function() {
+      showTitleTabs();
+   });
+   titleSection.appendChild(icomBack);
+
+   // create tag p
+   const elementP = document.createElement('p');
+   elementP.innerText = titleText;
+   titleSection.appendChild(elementP);
+
+   // create tag icon two
+   const iconWhichIs = document.createElement('i');
+   iconWhichIs.className = 'fas fa-info-circle titleSectionIcon';
+   iconWhichIs.addEventListener('click', function() {
+      openModal('whichIs', cutId(type));
+   });
+   titleSection.appendChild(iconWhichIs);
+
+
+   return titleSection;
 };

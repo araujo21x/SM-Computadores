@@ -1,24 +1,18 @@
-/* exported openTab, disableTab */
+/* exported openTab, disableTab,showTitleTabs */
 
-const openTab = (event, hardware) => {
+const openTab = (title, hardware) => {
    const tabs = Array.from(document.getElementsByClassName('tab'));
-   const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
-
    tabs.map((element) => element.style.display = 'none');
-   // retirar active em todas as tabs
-   titleTabs.map((element) => {
-      element.className = element.className.replace(' active', '');
-   });
-
-   document.getElementById(hardware).style.display = 'block';
-   event.currentTarget.className += ' active';
+   hideTitleTabs();
+   document.getElementById(hardware).style.display = 'flex';
    coolerZone(hardware);
-   index(hardware);
+   index(hardware, title);
 };
 
 const disableTab = (titleTabs) => {
    const buildingPC = getBuildingPC();
-
+   // aqui vou mudar a cor para verde
+   // se tiver a peçã(confirma mas acho que é aqui)
    titleTabs.map((titleTab) => {
       titleTab.disabled = false;
       if (titleTab.id === 'coolerTitle') {
@@ -31,4 +25,24 @@ const disableTab = (titleTabs) => {
          }
       }
    });
+};
+
+const hideTitleTabs = () => {
+   const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
+   const sectionTabs = document.getElementById('partsTabs');
+   sectionTabs.style.height = '100%';
+
+   titleTabs.map((element) => element.style.display = 'none');
+   document.getElementById('optionsLateralMenu').style.display = 'none';
+};
+
+const showTitleTabs = () => {
+   const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
+   const sectionTabs = document.getElementById('partsTabs');
+   sectionTabs.style.height = '78%';
+
+   titleTabs.map((element) => element.style.display = 'inline');
+   document.getElementById('optionsLateralMenu').style.display = 'flex';
+   const tabs = Array.from(document.getElementsByClassName('tab'));
+   tabs.map((element) => element.style.display = 'none');
 };

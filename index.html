@@ -11,7 +11,8 @@
    <link rel="stylesheet" href="assets/css/hardware.css">
    <link rel="stylesheet" href="assets/css/lateralMenu.css">
    <link rel="stylesheet" href="assets/css/modal.css">
-
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+   
    <script src="assets/js/data/localStorage.js"></script>
    <script src="assets/js/data/db.js"></script>
 
@@ -80,37 +81,75 @@
       </div>
 
       <div class="lateralMenu">
+         <section id="partsTabs">
+            <button id="motherBoardTitle" class="titleTab" onclick="openTab('Placa-mãe', 'motherBoardTab')">
+               <img src="assets/img/icon/mother.png" width="60%" height="60%">
+               <p>Placa-Mãe</p>
+            </button>
+            <div id="motherBoardTab" class="tab"></div>
 
-         <button id="motherBoardTitle" class="titleTab" onclick="openTab(event, 'motherBoardTab')">Placa-Mãe</button>
-         <div id="motherBoardTab" class="tab"></div>
+            <button id="cpuTitle" class="titleTab" onclick="openTab('Processador', 'cpuTab')">
+               <img src="assets/img/icon/cpu.png" width="60%" height="60%">
+               <p>Processador</p>
+            </button>
+            <div id="cpuTab" class="tab"></div>
 
-         <button id="cpuTitle" class="titleTab" onclick="openTab(event, 'cpuTab')">Processador</button>
-         <div id="cpuTab" class="tab"></div>
+            <button id="coolerTitle" class="titleTab" onclick="openTab('Cooler', 'coolerTab')">
+               <img src="assets/img/icon/cooler.png" width="60%" height="60%">
+               <p>Cooler</p>
+            </button>
+            <div id="coolerTab" class="tab"></div>
 
-         <button id="coolerTitle" class="titleTab" onclick="openTab(event, 'coolerTab')">Cooler</button>
-         <div id="coolerTab" class="tab"></div>
+            <button id="ramTitle" class="titleTab" onclick="openTab('Memória Ram', 'ramTab')">
+               <img src="assets/img/icon/ram.png" width="90%" height="60%">
+               <p>Memória Ram</p>
+            </button>
+            <div id="ramTab" class="tab"></div>
 
-         <button id="ramTitle" class="titleTab" onclick="openTab(event, 'ramTab')">Memória Ram</button>
-         <div id="ramTab" class="tab"></div>
+            <button id="pciExpressTitle" class="titleTab" onclick="openTab('PCI Express', 'pciExpressTab')">
+               <img src="assets/img/icon/pciExpress.png" width="85%" height="60%">
+               <p>PCI Express</p>
+            </button>
+            <div id="pciExpressTab" class="tab"></div>
 
-         <button id="pciExpressTitle" class="titleTab" onclick="openTab(event, 'pciExpressTab')">PCI Express</button>
-         <div id="pciExpressTab" class="tab"></div>
+            <button id="m2Title" class="titleTab" onclick="openTab('M2', 'm2Tab')">
+               <img src="assets/img/icon/m2.png" width="90%" height="60%">
+               <p>M.2</p>
+            </button>
+            <div id="m2Tab" class="tab"></div>
 
-         <button id="m2Title" class="titleTab" onclick="openTab(event, 'm2Tab')">Memória Rom - M.2</button>
-         <div id="m2Tab" class="tab"></div>
+            <button id="romTitle" class="titleTab" onclick="openTab('Memória Rom', 'romTab')">
+               <img src="assets/img/icon/rom.png" width="60%" height="60%">
+               <p> Memória Rom</p>
+            </button>
+            <div id="romTab" class="tab"></div>
 
-         <button id="romTitle" class="titleTab" onclick="openTab(event, 'romTab')">Memória Rom</button>
-         <div id="romTab" class="tab"></div>
+            <button id="recorderTitle" class="titleTab" onclick="openTab('Leitor de DVD', 'recorderTab')">
+               <img src="assets/img/icon/recorder.png" width="60%" height="60%">
+               <p>Leitor de DVD</p>
+            </button>
+            <div id="recorderTab" class="tab"></div>
 
-         <button id="recorderTitle" class="titleTab" onclick="openTab(event, 'recorderTab')">Leitor de DVD</button>
-         <div id="recorderTab" class="tab"></div>
+            <button id="powerSupplyTitle" class="titleTab" onclick="openTab('Fonte', 'powerSupplyTab')">
+               <img src="assets/img/icon/powerSupply.png" width="60%" height="60%">
+               <p>Fonte</p>
+            </button>
+            <div id="powerSupplyTab" class="tab"></div>
+         </section>
 
-         <button id="powerSupplyTitle" class="titleTab" onclick="openTab(event, 'powerSupplyTab')">Fonte</button>
-         <div id="powerSupplyTab" class="tab"></div>
+         <section id="optionsLateralMenu">
 
-         <button onclick="finish()">Gerar PDF</button>
-         <button onclick="reset()">reset</button>
+            <button onclick="finish()" class="buttonFinish">
+               <i class="fas fa-file-pdf imgOptionsButton"></i>
+               <p>Gerar PDF</p>
+            </button>
 
+            <button onclick="reset()" class="buttonReset">
+               <i class="fas fa-power-off imgOptionsButton" ></i>
+               <p>Resetar</p>
+            </button>
+
+         </section>
       </div>
    </div>
 

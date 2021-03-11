@@ -1,26 +1,39 @@
 .lateralMenu {
    display: flex;
-   flex-direction: column;
    margin-left: 4%;
-   height: 95vh;
-   overflow: hidden;
+   height: 98vh;
+   width: 96%;
+   flex-direction: column;
+   overflow: auto;
+   align-items: space-between;
+}
+
+#partsTabs {
+   height: 78%;
+   flex-wrap: wrap;
 }
 
 .titleTab {
+   display: inline;
    text-align: center;
-   height: 5%;
-   font-family: 'Mulish', sans-serif;
-   font-weight: bold;
-   font-size: 3vh;
+   height: 18%;
+   width: 45%;
+   margin: 1%;
    color: var(--primaryFontColor);
    background-color: var(--primaryColor);
    border: none;
    border-radius: 5px;
-   margin-bottom: 2%;
 
    outline: none;
    cursor: pointer;
    transition: 0.3s;
+}
+
+.titleTab p {
+   margin: 0;
+   font-family: 'Mulish', sans-serif;
+   font-weight: bold;
+   font-size: 160%;
 }
 
 .titleTab:hover {
@@ -33,27 +46,99 @@
    color: var(--primaryFontColor);
 }
 
-.lateralMenu .active {
+#optionsLateralMenu {
+   display: flex;
+   flex-direction: column;
+   margin-top: 13%;
+   width: 97%;
+   height: 18%;
+}
+
+#optionsLateralMenu button {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 1%;
+   height: 5vh;
+   border: none;
+   border-radius: 5px;
+
+   outline: none;
+   cursor: pointer;
+   transition: 0.3s;
+}
+
+#optionsLateralMenu p {
+   margin: 0;
+   font-family: 'Mulish', sans-serif;
+   font-weight: bold;
+   font-size: 160%;
+}
+
+.imgOptionsButton{
+   margin-right: 2%;
+   font-size: 160%;
+}
+
+.buttonFinish {
+   color: var(--primaryFontColor);
+   background-color: var(--primaryColor);
+}
+
+.buttonReset {
+   color: var(--primaryFontColor);
+   background-color: var(--errorColor);
+}
+
+#optionsLateralMenu button:hover {
    background-color: var(--backGroundColor);
    color: var(--secondaryFontColor);
-   border-bottom: 1px solid var(--detailColor);
-   border-radius: 0;
-   margin-bottom: 0%;
+}
+
+#dropableParts {
+   margin-top: 1.5%;
+   overflow: auto;
+   display: flex;
+   flex-direction: column;
+   height: 70%;
+   width: 100%;
 }
 
 .tab {
    display: none;
+   flex-direction: column;
    height: 100%;
    margin-bottom: 1%;
    overflow: auto;
 }
 
+#titleSection {
+   display: flex;
+   flex-direction: row;
+   height: 4%;
+   width: 100%;
+   justify-content: space-around;
+   align-items: center;
+}
+
+#titleSection p {
+   margin: 0px;
+   font-family: 'Mulish', sans-serif;
+   font-weight: bold;
+   font-size: 160%;
+}
+.titleSectionIcon{
+   font-size: 180%;
+}
+.titleSectionIcon:hover{
+   color: var(--primaryColor);
+}
 .detailsHardware {
    display: flex;
    flex-direction: row;
    justify-content: space-around;
    align-items: center;
-   height: 8%;
+   height: 4%;
    background-color: var(--primaryColor);
    border-bottom: 1px solid var(--detailColor);
    border-bottom-left-radius: 5px;
@@ -71,20 +156,17 @@
    justify-content: center;
    height: 100%;
    width: 50%;
+   font-weight: bold;
    background-color: var(--primaryColor);
    color: var(--primaryFontColor);
    font-family: 'Mulish', sans-serif;
-   font-size: 2.5vh;
+   font-size: 160%;
    border: none;
-
 }
-
-.detailsHardware button img {
-   margin-left: 10%;
-   height: 3vh;
-   width: 3vh;
+.detailsHardware p{
+   margin: 0;
+   margin-right: 10%;
 }
-
 .detailsHardware button:hover {
    background-color: var(--backGroundColor);
    color: var(--secondaryFontColor);
@@ -92,7 +174,7 @@
 
 .saveZone {
    display: flex;
-   height: 18%;
+   height: 12%;
    align-items: center;
    justify-content: center;
    border: 2px solid var(--detailColor);
@@ -111,37 +193,37 @@
 
 .hardwareItem {
    display: flex;
-   height: 25%;
-   width: 99%;
+   height: 22%;
+   width: 97%;
+   border: solid 50em;
    border-radius: 5px;
    margin-top: 1.5%;
 }
 
-.compatible{
+.compatible {
    border: 2px solid var(--compatible);
 }
 
-.malfunction{
+.malfunction {
    border: 2px solid var(--incompatible);
 }
 
-.incompatible{
+.incompatible {
    border: 2px solid var(--errorColor);
 }
 
 .hardwareItemImg {
-   display: flex;
-   height: 100%;
-   width: 40%;
-   align-items: center;
-   justify-content: center;
+   height: 70%;
+   width: 47%;
+   margin: 5%
 }
 
-.imagePiece{
+.imagePiece {
    border-radius: 5px;
    height: 100%;
    width: 100%;
 }
+
 .HardwareItemBody {
    display: flex;
    flex-direction: column;
@@ -173,7 +255,31 @@
    border: none;
    background-color: var(--backGroundColor);
    color: var(--secondaryFontColor);
-   font-size: 2vh;
+   font-size: 160%;
    font-family: 'Mulish', sans-serif;
+}
 
+.backButton{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 4%;
+   margin-top: 2%;
+   width: 99%;
+   color: var(--primaryFontColor);
+   background-color: var(--primaryColor);
+   border: none;
+   border-radius: 5px;
+   font-size: 160%;
+}
+.backButton p{
+   font-weight: bold;
+   font-family: 'Mulish', sans-serif;
+   margin: 0;
+   margin-left: 2%;
+}
+
+.backButton:hover{
+   background-color: var(--backGroundColor);
+   color: var(--secondaryFontColor);
 }
