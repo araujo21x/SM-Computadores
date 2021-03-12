@@ -33,9 +33,15 @@ const creatTagImg = (imageDir, infoImg, piece) => {
 
    // add drag and drop
    imageTag.draggable = true;
+
    imageTag.addEventListener('dragstart', function() {
       drag(event, piece);
    });
+
+   imageTag.addEventListener('dragend', function() {
+      dropEnd();
+   });
+
    imageTag.id = `drag_${piece.type}_${piece.id}`;
    return imageTag;
 };

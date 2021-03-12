@@ -1,4 +1,4 @@
-/* exported openTab, disableTab,showTitleTabs */
+/* exported openTab, disableTab, showTitleTabs */
 
 const openTab = (title, hardware) => {
    const tabs = Array.from(document.getElementsByClassName('tab'));
@@ -11,9 +11,21 @@ const openTab = (title, hardware) => {
 
 const disableTab = (titleTabs) => {
    const buildingPC = getBuildingPC();
-   // aqui vou mudar a cor para verde
-   // se tiver a peçã(confirma mas acho que é aqui)
+
    titleTabs.map((titleTab) => {
+      const typePiece = titleTab.id.slice(0, -5);
+      titleTab.className = 'titleTab';
+
+      if (buildingPC[typePiece]) {
+         if (Array.isArray(buildingPC[typePiece])) {
+            if (buildingPC[typePiece].length > 0) {
+               titleTab.className = 'titleTab docked';
+            }
+         } else {
+            titleTab.className = 'titleTab docked';
+         }
+      }
+
       titleTab.disabled = false;
       if (titleTab.id === 'coolerTitle') {
          if (!buildingPC.motherBoard || !buildingPC.cpu) {
@@ -44,5 +56,8 @@ const showTitleTabs = () => {
    titleTabs.map((element) => element.style.display = 'inline');
    document.getElementById('optionsLateralMenu').style.display = 'flex';
    const tabs = Array.from(document.getElementsByClassName('tab'));
-   tabs.map((element) => element.style.display = 'none');
+   tabs.map((element) => {
+      element.innerHTML = '';
+      element.style.display = 'none';
+   });
 };

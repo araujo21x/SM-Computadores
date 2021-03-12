@@ -1,9 +1,12 @@
-/* exported  drag, drop, allowDrop, dropSave*/
+/* exported  drag, drop, allowDrop, dropSave, dropEnd*/
 const drag = (event, piece) => {
    event.dataTransfer.setData('text', event.target.id);
    event.dataTransfer.setData('piece', JSON.stringify(piece));
+   showSaveZone();
 };
-
+const dropEnd = () => {
+   hideSaveZone();
+};
 const allowDrop = (event) => {
    event.preventDefault();
 };
@@ -44,7 +47,7 @@ const compatible = (event, data, piece) => {
    pieceSpecificity(piece.type, data, piece, event.target.id);
    phantomDivRemove();
    setBuildingPC(piece, event.target.id);
-   const {mode}=getDropZone();
+   const {mode} = getDropZone();
    gridConfig(mode);
 
    // liberar botoes do menu
@@ -59,7 +62,7 @@ const malfunction = (event, data, piece) => {
    phantomDivRemove();
    setBuildingPC(piece, event.target.id);
 
-   const {mode}=getDropZone();
+   const {mode} = getDropZone();
    gridConfig(mode);
 
    // liberar botoes do menu
@@ -80,12 +83,14 @@ const dropSave = (event, typeTab) => {
    imgDelete.parentNode.removeChild(imgDelete);
 
    if (piece.type === typeTab) {
-      document.getElementById('dropableParts').appendChild(hardwareItem(piece));
+      const dropableParts = document.getElementById('dropableParts');
+      console.log(dropableParts);
+      dropableParts.appendChild(hardwareItem(piece));
    }
    deleteBuildingPC(piece);
    phantomDivRemove();
 
-   const {mode}=getDropZone();
+   const {mode} = getDropZone();
    gridConfig(mode);
 
    const titleTabs = Array.from(document.getElementsByClassName('titleTab'));

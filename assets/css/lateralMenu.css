@@ -29,11 +29,15 @@
    transition: 0.3s;
 }
 
+.titleTab.docked{
+   background-color: var(--compatible);
+}
+
 .titleTab p {
    margin: 0;
    font-family: 'Mulish', sans-serif;
    font-weight: bold;
-   font-size: 160%;
+   font-size: 125%;
 }
 
 .titleTab:hover {
@@ -72,12 +76,12 @@
    margin: 0;
    font-family: 'Mulish', sans-serif;
    font-weight: bold;
-   font-size: 160%;
+   font-size: 125%;
 }
 
-.imgOptionsButton{
+.imgOptionsButton {
    margin-right: 2%;
-   font-size: 160%;
+   font-size: 125%;
 }
 
 .buttonFinish {
@@ -100,7 +104,7 @@
    overflow: auto;
    display: flex;
    flex-direction: column;
-   height: 70%;
+   height: 83%;
    width: 100%;
 }
 
@@ -125,14 +129,17 @@
    margin: 0px;
    font-family: 'Mulish', sans-serif;
    font-weight: bold;
-   font-size: 160%;
+   font-size: 125%;
 }
-.titleSectionIcon{
-   font-size: 180%;
+
+.titleSectionIcon {
+   font-size: 125%;
 }
-.titleSectionIcon:hover{
+
+.titleSectionIcon:hover {
    color: var(--primaryColor);
 }
+
 .detailsHardware {
    display: flex;
    flex-direction: row;
@@ -160,26 +167,29 @@
    background-color: var(--primaryColor);
    color: var(--primaryFontColor);
    font-family: 'Mulish', sans-serif;
-   font-size: 160%;
+   font-size: 125%;
    border: none;
 }
-.detailsHardware p{
+
+.detailsHardware p {
    margin: 0;
    margin-right: 10%;
 }
+
 .detailsHardware button:hover {
    background-color: var(--backGroundColor);
    color: var(--secondaryFontColor);
 }
 
 .saveZone {
-   display: flex;
-   height: 12%;
+   display: none;
+   margin-top: 2%;
+   height: 95%;
+   width: 97%;
    align-items: center;
    justify-content: center;
    border: 2px solid var(--detailColor);
    border-style: dashed;
-   border-top: none;
    border-bottom-left-radius: 10px;
    border-bottom-right-radius: 10px;
 }
@@ -188,7 +198,7 @@
    margin: 0;
    font-family: 'Mulish', sans-serif;
    font-style: italic;
-   font-size: 2.5vh;
+   font-size: 125%;
 }
 
 .hardwareItem {
@@ -235,14 +245,14 @@
    font-family: 'Mulish', sans-serif;
    height: 20%;
    font-weight: bold;
-   font-size: 2.2vh;
+   font-size: 100%;
    border-bottom: 1px solid var(--detailColor);
 }
 
 .HardwareItemText {
    height: 60%;
    font-family: 'Mulish', sans-serif;
-   font-size: 2vh;
+   font-size: 100%;
 }
 
 .HardwareItemText ul {
@@ -255,11 +265,11 @@
    border: none;
    background-color: var(--backGroundColor);
    color: var(--secondaryFontColor);
-   font-size: 160%;
+   font-size: 100%;
    font-family: 'Mulish', sans-serif;
 }
 
-.backButton{
+.backButton {
    display: flex;
    align-items: center;
    justify-content: center;
@@ -270,16 +280,17 @@
    background-color: var(--primaryColor);
    border: none;
    border-radius: 5px;
-   font-size: 160%;
+   font-size: 125%;
 }
-.backButton p{
+
+.backButton p {
    font-weight: bold;
    font-family: 'Mulish', sans-serif;
    margin: 0;
    margin-left: 2%;
 }
 
-.backButton:hover{
+.backButton:hover {
    background-color: var(--backGroundColor);
    color: var(--secondaryFontColor);
 }
