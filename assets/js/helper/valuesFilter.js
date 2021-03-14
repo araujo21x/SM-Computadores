@@ -1,6 +1,29 @@
 /* exported motherBoardFilterCamp, cpuFilterCamp, coolerFilterCamp,
 ramFilterCamp, pciFilterCamp, romCamp, M2Camp, psuCamp  */
 const motherBoardFilterCamp = {
+   order: {
+      name: 'order',
+      question: 'Ordenar por',
+      answer: [
+         {value: 'name', text: 'Nome'},
+         {value: 'chipset', text: 'Chipset'},
+         {value: 'socket', text: 'Socket'},
+         {value: 'memorySizeSupport', text: 'Limite maximo de Ram'},
+         {value: 'memorySlotAmount', text: 'Limite de slots de memória'},
+         {value: 'memorySlotType', text: 'Tipo de slot de memória'},
+         {value: 'motherFrequencies', text: 'Frequências de memória'},
+      ],
+   },
+
+   sortType: {
+      name: 'sortType',
+      question: 'Ordenar de maneira',
+      answer: [
+         {value: 'ASC', text: 'Crescente'},
+         {value: 'DESC', text: 'Decrecente'},
+      ],
+   },
+
    chipset: {
       name: 'chipset',
       question: 'Selecione um chipset',
@@ -71,6 +94,34 @@ const motherBoardFilterCamp = {
 };
 
 const cpuFilterCamp = {
+   order: {
+      name: 'order',
+      question: 'Ordenar por',
+      answer: [
+         {value: 'name', text: 'Nome'},
+         {value: 'chipset', text: 'Chipset'},
+         {value: 'socket', text: 'Socket'},
+         {value: 'memorySizeSupport', text: 'Limite maximo de Ram'},
+         {value: 'memorySupportAmountSlot', text: 'Limite de slots de memória'},
+         {value: 'cpuFrequencies', text: 'Frequências de memória'},
+         {value: 'baseClockSpeed', text: 'Frequência mínima de clock'},
+         {value: 'maximumBoostSpeed', text: 'Frequência máxima de clock'},
+         {value: 'cache', text: 'Cache'},
+         {value: 'core', text: 'Core'},
+         {value: 'threads', text: 'Threads'},
+         {value: 'graphicsProcessor', text: 'Placa grafica integrada'},
+      ],
+   },
+
+   sortType: {
+      name: 'sortType',
+      question: 'Ordenar de maneira',
+      answer: [
+         {value: 'ASC', text: 'Crescente'},
+         {value: 'DESC', text: 'Decrecente'},
+      ],
+   },
+
    chipset: {
       name: 'chipset',
       question: 'Selecione um chipset',
@@ -161,8 +212,8 @@ const cpuFilterCamp = {
       ],
    },
    grapshicProcessor: {
-      name: 'core',
-      question: 'grapshicProcessor',
+      name: 'grapshicProcessor',
+      question: 'Placa grafica integrada',
       answer: [
          {value: 'Intel UHD Graphics 630', text: 'Intel UHD Graphics 630'},
          {value: 'Intel HD Graphics 4400', text: 'Intel HD Graphics 4400'},
@@ -171,6 +222,26 @@ const cpuFilterCamp = {
 };
 
 const coolerFilterCamp = {
+   order: {
+      name: 'order',
+      question: 'Ordenar por',
+      answer: [
+         {value: 'name', text: 'Nome'},
+         {value: 'compatibilityCpu', text: 'Selecione um socket'},
+         {value: 'speedFan', text: 'Velocidade do Fan'},
+         {value: 'fanAirflow', text: 'Máximo fluxo de ar do fan'},
+      ],
+   },
+
+   sortType: {
+      name: 'sortType',
+      question: 'Ordenar de maneira',
+      answer: [
+         {value: 'ASC', text: 'Crescente'},
+         {value: 'DESC', text: 'Decrecente'},
+      ],
+   },
+
    compatibilityCpu: {
       name: 'compatibilityCpu',
       question: 'Selecione um socket',
@@ -199,9 +270,29 @@ const coolerFilterCamp = {
 };
 
 const ramFilterCamp = {
+   order: {
+      name: 'order',
+      question: 'Ordenar por',
+      answer: [
+         {value: 'name', text: 'Nome'},
+         {value: 'memoryFrequency', text: 'Frequência da Memória'},
+         {value: 'memorySize', text: 'Tamanho de memória'},
+         {value: 'memorySlotType', text: 'Tipo de slot'},
+      ],
+   },
+
+   sortType: {
+      name: 'sortType',
+      question: 'Ordenar de maneira',
+      answer: [
+         {value: 'ASC', text: 'Crescente'},
+         {value: 'DESC', text: 'Decrecente'},
+      ],
+   },
+
    memoryFrequency: {
       name: 'memoryFrequency',
-      question: 'Frequencia da memória',
+      question: 'Frequência da Memória',
       answer: [
          {value: '1600', text: '1600 MHz'},
          {value: '1866', text: '1866 MHz'},
@@ -227,6 +318,30 @@ const ramFilterCamp = {
 };
 
 const pciFilterCamp = {
+   order: {
+      name: 'order',
+      question: 'Ordenar por',
+      answer: [
+         {value: 'name', text: 'Nome'},
+         {value: 'baseClock', text: 'Base clock'},
+         {value: 'boostClock', text: 'Boost clock'},
+         {value: 'CUDACore', text: 'CUDACore'},
+         {value: 'memoryInterface', text: 'Interface de memória'},
+         {value: 'memorySize', text: 'Tamanho de memória'},
+         {value: 'memorySpeed', text: 'Velocidade de memória'},
+         {value: 'memoryType', text: 'Tipo de memória'},
+      ],
+   },
+
+   sortType: {
+      name: 'sortType',
+      question: 'Ordenar de maneira',
+      answer: [
+         {value: 'ASC', text: 'Crescente'},
+         {value: 'DESC', text: 'Decrecente'},
+      ],
+   },
+
    baseClock: {
       name: 'baseClock',
       question: 'GPU base clock',
@@ -278,8 +393,28 @@ const pciFilterCamp = {
    },
 };
 
-
 const romCamp = {
+   order: {
+      name: 'order',
+      question: 'Ordenar por',
+      answer: [
+         {value: 'name', text: 'Nome'},
+         {value: 'memorySize', text: 'Tamanho da memória'},
+         {value: 'reading', text: 'Velocidade de leitura'},
+         {value: 'writing', text: 'Velocidade de escrita'},
+         {value: 'rotation', text: 'Rotação(para HDD)'},
+      ],
+   },
+
+   sortType: {
+      name: 'sortType',
+      question: 'Ordenar de maneira',
+      answer: [
+         {value: 'ASC', text: 'Crescente'},
+         {value: 'DESC', text: 'Decrecente'},
+      ],
+   },
+
    memorySize: {
       name: 'memorySize',
       question: 'Tamanho da memória',
@@ -314,6 +449,28 @@ const romCamp = {
 };
 
 const M2Camp = {
+   order: {
+      name: 'order',
+      question: 'Ordenar por',
+      answer: [
+         {value: 'name', text: 'Nome'},
+         {value: 'format', text: 'Interface'},
+         {value: 'memorySize', text: 'Tamanho de memória'},
+         {value: 'model', text: 'Formato'},
+         {value: 'reading', text: 'Velocidade de leitura'},
+         {value: 'writing', text: 'Velocidade de escrita'},
+      ],
+   },
+
+   sortType: {
+      name: 'sortType',
+      question: 'Ordenar de maneira',
+      answer: [
+         {value: 'ASC', text: 'Crescente'},
+         {value: 'DESC', text: 'Decrecente'},
+      ],
+   },
+
    format: {
       name: 'format',
       question: 'Interface',
@@ -352,6 +509,25 @@ const M2Camp = {
 };
 
 const psuCamp = {
+   order: {
+      name: 'order',
+      question: 'Ordenar por',
+      answer: [
+         {value: 'name', text: 'Nome'},
+         {value: 'voltage', text: 'Voltagem'},
+         {value: 'wattage', text: 'Potência'},
+      ],
+   },
+
+   sortType: {
+      name: 'sortType',
+      question: 'Ordenar de maneira',
+      answer: [
+         {value: 'ASC', text: 'Crescente'},
+         {value: 'DESC', text: 'Decrecente'},
+      ],
+   },
+
    voltage: {
       name: 'voltage',
       question: 'Voltagem',

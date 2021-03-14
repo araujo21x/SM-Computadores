@@ -7,6 +7,9 @@ const openModal = (typeModal, piece) => {
    case 'filter':
       createModalFilter(piece);
       break;
+   case 'order':
+      createModalOrder(piece);
+      break;
    case 'whichIs':
       createModalWhichIs(piece);
       break;

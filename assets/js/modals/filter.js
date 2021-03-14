@@ -58,6 +58,7 @@ const filter = async (typePiece) => {
    );
    renderFilter(response, typePiece);
 };
+
 const renderFilter = async (response, typePiece) => {
    if (response.status !== 200) alert('Erro! peça não encontrada!');
    else {
@@ -122,7 +123,8 @@ const motherBoardFilter = () => {
 
    const divForm = document.createElement('div');
    divForm.className = 'filterForm';
-
+   divForm.appendChild(creatItemForm(motherBoardFilterCamp.order));
+   divForm.appendChild(creatItemForm(motherBoardFilterCamp.sortType));
    divForm.appendChild(creatItemForm(motherBoardFilterCamp.chipset));
    divForm.appendChild(creatItemForm(motherBoardFilterCamp.socket));
    divForm.appendChild(creatItemForm(motherBoardFilterCamp.suportM2));
@@ -142,6 +144,8 @@ const cpuFilter = () => {
    const divForm = document.createElement('div');
    divForm.className = 'filterForm';
 
+   divForm.appendChild(creatItemForm(cpuFilterCamp.order));
+   divForm.appendChild(creatItemForm(cpuFilterCamp.sortType));
    divForm.appendChild(creatItemForm(cpuFilterCamp.chipset));
    divForm.appendChild(creatItemForm(cpuFilterCamp.socket));
    divForm.appendChild(creatItemForm(cpuFilterCamp.memorySizeSupport));
@@ -165,6 +169,8 @@ const coolerFilter = () => {
    const divForm = document.createElement('div');
    divForm.className = 'filterForm';
 
+   divForm.appendChild(creatItemForm(coolerFilterCamp.order));
+   divForm.appendChild(creatItemForm(coolerFilterCamp.sortType));
    divForm.appendChild(creatItemForm(coolerFilterCamp.compatibilityCpu));
    divForm.appendChild(creatItemForm(coolerFilterCamp.speedFan));
    divForm.appendChild(creatItemForm(coolerFilterCamp.fanAirflow));
@@ -180,6 +186,8 @@ const ramFilter = () => {
    const divForm = document.createElement('div');
    divForm.className = 'filterForm';
 
+   divForm.appendChild(creatItemForm(ramFilterCamp.order));
+   divForm.appendChild(creatItemForm(ramFilterCamp.sortType));
    divForm.appendChild(creatItemForm(ramFilterCamp.memoryFrequency));
    divForm.appendChild(creatItemForm(ramFilterCamp.memorySize));
    divForm.appendChild(creatItemForm(ramFilterCamp.memorySlotType));
@@ -195,6 +203,8 @@ const pciExpressFilter = () => {
    const divForm = document.createElement('div');
    divForm.className = 'filterForm';
 
+   divForm.appendChild(creatItemForm(pciFilterCamp.order));
+   divForm.appendChild(creatItemForm(pciFilterCamp.sortType));
    divForm.appendChild(creatItemForm(pciFilterCamp.baseClock));
    divForm.appendChild(creatItemForm(pciFilterCamp.boostClock));
    divForm.appendChild(creatItemForm(pciFilterCamp.CUDACore));
@@ -214,6 +224,8 @@ const romFilter = () => {
    const divForm = document.createElement('div');
    divForm.className = 'filterForm';
 
+   divForm.appendChild(creatItemForm(romCamp.order));
+   divForm.appendChild(creatItemForm(romCamp.sortType));
    divForm.appendChild(creatItemForm(romCamp.memorySize));
    divForm.appendChild(creatItemForm(romCamp.reading));
    divForm.appendChild(creatItemForm(romCamp.writing));
@@ -230,6 +242,8 @@ const m2Filter = () => {
    const divForm = document.createElement('div');
    divForm.className = 'filterForm';
 
+   divForm.appendChild(creatItemForm(M2Camp.order));
+   divForm.appendChild(creatItemForm(M2Camp.sortType));
    divForm.appendChild(creatItemForm(M2Camp.format));
    divForm.appendChild(creatItemForm(M2Camp.memorySize));
    divForm.appendChild(creatItemForm(M2Camp.model));
@@ -253,6 +267,8 @@ const psuFilter = () => {
    const divForm = document.createElement('div');
    divForm.className = 'filterForm';
 
+   divForm.appendChild(creatItemForm(psuCamp.order));
+   divForm.appendChild(creatItemForm(psuCamp.sortType));
    divForm.appendChild(creatItemForm(psuCamp.voltage));
    divForm.appendChild(creatItemForm(psuCamp.wattage));
 
