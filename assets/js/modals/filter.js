@@ -48,7 +48,7 @@ const filter = async (typePiece) => {
          if (element.value !== '') filterRequest[element.name] = element.value;
       });
 
-   const url = new URL('http://localhost:3000/v1/piece/filter');
+   const url = new URL('https://api-draganddrop.herokuapp.com/v1/piece/filter');
    url.search = new URLSearchParams(filterRequest).toString();
    const response = await fetch(url,
       {

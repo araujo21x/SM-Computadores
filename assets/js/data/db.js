@@ -1,6 +1,8 @@
 /* exported  getPieces, getGrids, removingPieceFitted*/
 const multiSlots = ['ram', 'rom'];
-const URLAPI = 'http://localhost:3000';
+// const URLAPI = 'http://localhost:3000';
+const URLAPI = 'https://api-draganddrop.herokuapp.com';
+
 
 const getPieces = async (pieceType) => {
    const parts = await fethRequest(`${URLAPI}/v1/piece?type=${pieceType}`
