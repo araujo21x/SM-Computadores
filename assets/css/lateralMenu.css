@@ -152,17 +152,17 @@
    border-bottom-right-radius: 5px;
 }
 
-.verticalLine {
+/* .verticalLine {
    height: 50%;
    border-left: 1px solid var(--backGroundColor);
-}
+} */
 
 .detailsHardware button {
    display: flex;
    align-items: center;
    justify-content: center;
    height: 100%;
-   width: 50%;
+   width: 100%;
    font-weight: bold;
    background-color: var(--primaryColor);
    color: var(--primaryFontColor);
@@ -173,9 +173,11 @@
 
 .detailsHardware p {
    margin: 0;
-   margin-right: 10%;
+   margin-right: 3%;
 }
-
+.detailsHardware:hover{
+   border-bottom: 1px solid var(--backGroundColor);
+}
 .detailsHardware button:hover {
    background-color: var(--backGroundColor);
    color: var(--secondaryFontColor);

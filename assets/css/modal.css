@@ -85,6 +85,7 @@
    background-color: var(--primaryColor);
    box-shadow: 3px 2px 2px #62b1cbd0;
 }
+
 .normalButton:hover {
    background-color: var(--primaryColorHover);
    box-shadow: 3px 2px 2px #62b1cbd0;
@@ -95,12 +96,14 @@
    background-color: var(--errorColor);
    box-shadow: 3px 2px 2px #ee8c73a6;
 }
+
 .cancelButton:hover {
    margin-right: 2%;
    background-color: var(--errorColorHover);
    box-shadow: 3px 2px 2px #ee8c73a6;
 
 }
+
 .cancelButton.off {
    display: none;
 }
@@ -138,10 +141,12 @@
    font-family: 'Mulish', sans-serif;
    display: flex;
 }
+
 .moreInfoUl li p {
-   margin: 0 10px 0  10px;
+   margin: 0 10px 0 10px;
    font-weight: bold;
 }
+
 .moreInfoUl li::before {
    content: "\2699";
    color: #62B0CB;
@@ -155,7 +160,7 @@
    margin-bottom: 20px;
 }
 
-.itemFilter{
+.itemFilter {
    width: 75%;
    display: flex;
    flex-direction: row;
@@ -163,10 +168,18 @@
    justify-content: flex-end;
    margin-bottom: 1.5%;
 }
-.itemFilter p{
+
+.itemFilter p {
    margin: 0 1.5%;
 }
 
-.selectFilter{
+.selectFilter {
+   height: 2em;
    width: 40%;
+   border: 1px solid var(--detailColor);
+   border-radius: 5px;
+   background-color: #f1f0ee;
+   font-size: 95%;
+   font-family: 'Mulish', sans-serif;
+   padding-left: 1%;
 }

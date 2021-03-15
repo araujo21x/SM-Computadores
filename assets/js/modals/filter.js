@@ -36,7 +36,7 @@ const createModalFilter = (piece) => {
    button.addEventListener('click', async function() {
       filter(piece);
    });
-   button.innerText = 'Filtrar';
+   button.innerText = 'Pesquisar';
    modalButton.appendChild(button);
 };
 
@@ -56,15 +56,14 @@ const filter = async (typePiece) => {
          headers: {'Content-Type': 'application/json'},
       },
    );
-   renderFilter(response, typePiece);
+   renderFilter(response, typePiece, filterRequest.showPieces);
 };
 
-const renderFilter = async (response, typePiece) => {
+const renderFilter = async (response, typePiece, showPieces) => {
    if (response.status !== 200) alert('Erro! peça não encontrada!');
    else {
       parts = await response.json();
       const verifiedParts = removingPieceFitted(parts, typePiece);
-      console.log(verifiedParts); // pagar depois
 
       if (verifiedParts.length === 0) {
          alert('Erro! só foi encontrada uma peçã e ela já esta encaixada!');
@@ -75,9 +74,23 @@ const renderFilter = async (response, typePiece) => {
          divDropableParts.innerHTML = '';
 
          // adicionar as peçãs
-         verifiedParts.forEach((element) => {
-            divDropableParts.appendChild(hardwareItem(element));
-         });
+
+         if (showPieces === 'pluggable') {
+            const newParts = justPluggable(verifiedParts);
+            newParts.forEach((element) => {
+               divDropableParts.appendChild(hardwareItem(element));
+            });
+         } else if (showPieces === 'notPluggable') {
+            const newParts = notPluggable(verifiedParts);
+            newParts.forEach((element) => {
+               divDropableParts.appendChild(hardwareItem(element));
+            });
+         } else {
+            verifiedParts.forEach((element) => {
+               divDropableParts.appendChild(hardwareItem(element));
+            });
+         }
+
          // fechar modal
          const modal = document.getElementById('modal');
          modal.classList.remove('open');
@@ -86,7 +99,7 @@ const renderFilter = async (response, typePiece) => {
 };
 const createTitleFilter = (name) => {
    const modalTitle = document.getElementById('modalTitle');
-   modalTitle.innerText = `Filtro de ${name}`;
+   modalTitle.innerText = `Filtro e Ordenação de ${name}`;
 };
 
 const creatItemForm = ({name, question, answer}) => {
@@ -125,6 +138,7 @@ const motherBoardFilter = () => {
    divForm.className = 'filterForm';
    divForm.appendChild(creatItemForm(motherBoardFilterCamp.order));
    divForm.appendChild(creatItemForm(motherBoardFilterCamp.sortType));
+   divForm.appendChild(creatItemForm(motherBoardFilterCamp.showPieces));
    divForm.appendChild(creatItemForm(motherBoardFilterCamp.chipset));
    divForm.appendChild(creatItemForm(motherBoardFilterCamp.socket));
    divForm.appendChild(creatItemForm(motherBoardFilterCamp.suportM2));
@@ -146,6 +160,7 @@ const cpuFilter = () => {
 
    divForm.appendChild(creatItemForm(cpuFilterCamp.order));
    divForm.appendChild(creatItemForm(cpuFilterCamp.sortType));
+   divForm.appendChild(creatItemForm(cpuFilterCamp.showPieces));
    divForm.appendChild(creatItemForm(cpuFilterCamp.chipset));
    divForm.appendChild(creatItemForm(cpuFilterCamp.socket));
    divForm.appendChild(creatItemForm(cpuFilterCamp.memorySizeSupport));
@@ -171,6 +186,7 @@ const coolerFilter = () => {
 
    divForm.appendChild(creatItemForm(coolerFilterCamp.order));
    divForm.appendChild(creatItemForm(coolerFilterCamp.sortType));
+   divForm.appendChild(creatItemForm(coolerFilterCamp.showPieces));
    divForm.appendChild(creatItemForm(coolerFilterCamp.compatibilityCpu));
    divForm.appendChild(creatItemForm(coolerFilterCamp.speedFan));
    divForm.appendChild(creatItemForm(coolerFilterCamp.fanAirflow));
@@ -188,6 +204,7 @@ const ramFilter = () => {
 
    divForm.appendChild(creatItemForm(ramFilterCamp.order));
    divForm.appendChild(creatItemForm(ramFilterCamp.sortType));
+   divForm.appendChild(creatItemForm(ramFilterCamp.showPieces));
    divForm.appendChild(creatItemForm(ramFilterCamp.memoryFrequency));
    divForm.appendChild(creatItemForm(ramFilterCamp.memorySize));
    divForm.appendChild(creatItemForm(ramFilterCamp.memorySlotType));
@@ -205,6 +222,7 @@ const pciExpressFilter = () => {
 
    divForm.appendChild(creatItemForm(pciFilterCamp.order));
    divForm.appendChild(creatItemForm(pciFilterCamp.sortType));
+   divForm.appendChild(creatItemForm(pciFilterCamp.showPieces));
    divForm.appendChild(creatItemForm(pciFilterCamp.baseClock));
    divForm.appendChild(creatItemForm(pciFilterCamp.boostClock));
    divForm.appendChild(creatItemForm(pciFilterCamp.CUDACore));
@@ -226,6 +244,7 @@ const romFilter = () => {
 
    divForm.appendChild(creatItemForm(romCamp.order));
    divForm.appendChild(creatItemForm(romCamp.sortType));
+   divForm.appendChild(creatItemForm(romCamp.showPieces));
    divForm.appendChild(creatItemForm(romCamp.memorySize));
    divForm.appendChild(creatItemForm(romCamp.reading));
    divForm.appendChild(creatItemForm(romCamp.writing));
@@ -244,6 +263,7 @@ const m2Filter = () => {
 
    divForm.appendChild(creatItemForm(M2Camp.order));
    divForm.appendChild(creatItemForm(M2Camp.sortType));
+   divForm.appendChild(creatItemForm(M2Camp.showPieces));
    divForm.appendChild(creatItemForm(M2Camp.format));
    divForm.appendChild(creatItemForm(M2Camp.memorySize));
    divForm.appendChild(creatItemForm(M2Camp.model));
@@ -269,6 +289,7 @@ const psuFilter = () => {
 
    divForm.appendChild(creatItemForm(psuCamp.order));
    divForm.appendChild(creatItemForm(psuCamp.sortType));
+   divForm.appendChild(creatItemForm(psuCamp.showPieces));
    divForm.appendChild(creatItemForm(psuCamp.voltage));
    divForm.appendChild(creatItemForm(psuCamp.wattage));
 

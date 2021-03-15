@@ -1,4 +1,4 @@
-/* exported index*/
+/* exported index, justPluggable, notPluggable*/
 const index = async (hardware, title) => {
    const type = cutId(hardware);
    const pieces = await getPieces(type);
@@ -12,8 +12,10 @@ const index = async (hardware, title) => {
 
    const section = document.createElement('section');
    section.id = 'dropableParts';
+
    // Adicionando as peças
-   pieces.forEach((element) => section.appendChild(hardwareItem(element)));
+   const newPieces = justPluggable(pieces);
+   newPieces.forEach((element) => section.appendChild(hardwareItem(element)));
    divTab.appendChild(section);
    divTab.appendChild(backButton());
    // mudar o modo de visualização
@@ -22,13 +24,10 @@ const index = async (hardware, title) => {
 
 const detailsHardware = (type) => {
    const zoneButtons = document.createElement('div');
-   const verticalLine = document.createElement('div');
-   verticalLine.className = 'verticalLine';
    zoneButtons.className = 'detailsHardware';
 
-   zoneButtons.appendChild(buttonDetailsHardware(type, 'Ordenar', 'order'));
-   zoneButtons.appendChild(verticalLine);
-   zoneButtons.appendChild(buttonDetailsHardware(type, 'Filtro', 'filter'));
+   zoneButtons.appendChild(buttonDetailsHardware(type,
+      'Filtrar e Ordenar', 'filter'));
 
    return zoneButtons;
 };
@@ -149,4 +148,20 @@ const titleSection = (titleText, type) => {
 
 
    return titleSection;
+};
+
+const justPluggable = (parts) => {
+   const newParts = parts.filter((piece) => {
+      const isCompatible = checkCompatibility(piece);
+      return isCompatible !== 'incompatible' ? piece : null;
+   });
+   return newParts;
+};
+
+const notPluggable = (parts) => {
+   const newParts = parts.filter((piece) => {
+      const isCompatible = checkCompatibility(piece);
+      return isCompatible === 'incompatible' ? piece : null;
+   });
+   return newParts;
 };

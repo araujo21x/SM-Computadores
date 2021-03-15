@@ -24,6 +24,16 @@ const motherBoardFilterCamp = {
       ],
    },
 
+   showPieces: {
+      name: 'showPieces',
+      question: 'Mostrar Peças',
+      answer: [
+         {value: 'all', text: 'Todas'},
+         {value: 'pluggable', text: 'Encaixáveis'},
+         {value: 'notPluggable', text: 'Não Encaixáveis'},
+      ],
+   },
+
    chipset: {
       name: 'chipset',
       question: 'Selecione um chipset',
@@ -119,6 +129,16 @@ const cpuFilterCamp = {
       answer: [
          {value: 'ASC', text: 'Crescente'},
          {value: 'DESC', text: 'Decrecente'},
+      ],
+   },
+
+   showPieces: {
+      name: 'showPieces',
+      question: 'Mostrar Peças',
+      answer: [
+         {value: 'all', text: 'Todas'},
+         {value: 'pluggable', text: 'Encaixáveis'},
+         {value: 'notPluggable', text: 'Não Encaixáveis'},
       ],
    },
 
@@ -242,6 +262,16 @@ const coolerFilterCamp = {
       ],
    },
 
+   showPieces: {
+      name: 'showPieces',
+      question: 'Mostrar Peças',
+      answer: [
+         {value: 'all', text: 'Todas'},
+         {value: 'pluggable', text: 'Encaixáveis'},
+         {value: 'notPluggable', text: 'Não Encaixáveis'},
+      ],
+   },
+
    compatibilityCpu: {
       name: 'compatibilityCpu',
       question: 'Selecione um socket',
@@ -287,6 +317,16 @@ const ramFilterCamp = {
       answer: [
          {value: 'ASC', text: 'Crescente'},
          {value: 'DESC', text: 'Decrecente'},
+      ],
+   },
+
+   showPieces: {
+      name: 'showPieces',
+      question: 'Mostrar Peças',
+      answer: [
+         {value: 'all', text: 'Todas'},
+         {value: 'pluggable', text: 'Encaixáveis'},
+         {value: 'notPluggable', text: 'Não Encaixáveis'},
       ],
    },
 
@@ -339,6 +379,16 @@ const pciFilterCamp = {
       answer: [
          {value: 'ASC', text: 'Crescente'},
          {value: 'DESC', text: 'Decrecente'},
+      ],
+   },
+
+   showPieces: {
+      name: 'showPieces',
+      question: 'Mostrar Peças',
+      answer: [
+         {value: 'all', text: 'Todas'},
+         {value: 'pluggable', text: 'Encaixáveis'},
+         {value: 'notPluggable', text: 'Não Encaixáveis'},
       ],
    },
 
@@ -415,6 +465,16 @@ const romCamp = {
       ],
    },
 
+   showPieces: {
+      name: 'showPieces',
+      question: 'Mostrar Peças',
+      answer: [
+         {value: 'all', text: 'Todas'},
+         {value: 'pluggable', text: 'Encaixáveis'},
+         {value: 'notPluggable', text: 'Não Encaixáveis'},
+      ],
+   },
+
    memorySize: {
       name: 'memorySize',
       question: 'Tamanho da memória',
@@ -468,6 +528,15 @@ const M2Camp = {
       answer: [
          {value: 'ASC', text: 'Crescente'},
          {value: 'DESC', text: 'Decrecente'},
+      ],
+   },
+   showPieces: {
+      name: 'showPieces',
+      question: 'Mostrar Peças',
+      answer: [
+         {value: 'all', text: 'Todas'},
+         {value: 'pluggable', text: 'Encaixáveis'},
+         {value: 'notPluggable', text: 'Não Encaixáveis'},
       ],
    },
 
@@ -525,6 +594,16 @@ const psuCamp = {
       answer: [
          {value: 'ASC', text: 'Crescente'},
          {value: 'DESC', text: 'Decrecente'},
+      ],
+   },
+
+   showPieces: {
+      name: 'showPieces',
+      question: 'Mostrar Peças',
+      answer: [
+         {value: 'all', text: 'Todas'},
+         {value: 'pluggable', text: 'Encaixáveis'},
+         {value: 'notPluggable', text: 'Não Encaixáveis'},
       ],
    },
 
