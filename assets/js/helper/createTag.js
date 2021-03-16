@@ -16,15 +16,19 @@ const hardwareItem = (piece) => {// refatorar
 };
 
 const imageZone = (imageDir, infoImg, piece) => {
-   const divImage = document.createElement('div');
-   divImage.className = 'hardwareItemImg';
-
+   const divZoneImage = document.createElement('div');
+   divZoneImage.className = 'hardwareItemImg';
    const imageTag = creatTagImg(imageDir, infoImg, piece);
-
+   const divImage = document.createElement('div');
+   if (piece.type==='motherBoard') {
+      divImage.style.width = '100%';
+      divImage.style.height = '100%';
+   }
    divImage.appendChild(imageTag);
-   return divImage;
-};
 
+   divZoneImage.appendChild(divImage);
+   return divZoneImage;
+};
 const creatTagImg = (imageDir, infoImg, piece) => {
    const imageTag = document.createElement('img');
    imageTag.src = imageDir;

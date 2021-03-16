@@ -18,6 +18,9 @@ const drop = async (event) => {
 
    if (piece.type === 'motherBoard') {
       await installMotherboard(piece);
+      setTimeout(() => {
+         showTitleTabs();
+      }, 200);
    } else {
       if (checkSlot(event.target.id, piece.type)) {
          switch (checkCompatibility(piece)) {
@@ -31,6 +34,9 @@ const drop = async (event) => {
             incompatible();
             break;
          }
+         setTimeout(() => {
+            showTitleTabs();
+         }, 200);
       } else {
          if (event.target.id.slice(0, 4) === 'drag') {
             alert('já possui peçã retire a atual');
@@ -84,7 +90,6 @@ const dropSave = (event, typeTab) => {
 
    if (piece.type === typeTab) {
       const dropableParts = document.getElementById('dropableParts');
-      console.log(dropableParts);
       dropableParts.appendChild(hardwareItem(piece));
    }
    deleteBuildingPC(piece);
