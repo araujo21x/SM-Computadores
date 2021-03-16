@@ -20,7 +20,7 @@ const drop = async (event) => {
       await installMotherboard(piece);
       setTimeout(() => {
          showTitleTabs();
-      }, 200);
+      }, 100);
    } else {
       if (checkSlot(event.target.id, piece.type)) {
          switch (checkCompatibility(piece)) {
