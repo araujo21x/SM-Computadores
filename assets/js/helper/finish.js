@@ -16,7 +16,9 @@ const finish = () => {
             a.remove();
          });
       } else {
-         alert('erro!');
+         response.json().then((value) => {
+            alert(value.result.mensagem);
+         });
       }
    });
 };
