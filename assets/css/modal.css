@@ -216,14 +216,15 @@
 
 #whatIsContent {
    margin: 0 2% 1% 2%;
-   font-size: 110%;
    max-height: 0;
    overflow: hidden;
    transition: max-height 0.2s ease-out;
    color: black;
+}
+#whatIsContent p {
+   font-size: 110%;
    font-family: 'Mulish', sans-serif;
 }
-
 #verificationsContent {
    margin: 0 2% 1% 2%;
    font-size: 105%;
@@ -238,7 +239,7 @@
 .contentLi li{
    list-style: none;
    color: black;
-   font-family: 'Mulish', sans-serif;
+   
    display: flex;
    margin-top: 1%;
    margin-right: 0;
@@ -247,6 +248,8 @@
 .contentLi li p {
    margin: 0 10px 0 10px;
    font-weight: bold;
+   font-family: 'Mulish', sans-serif;
+   font-size: 110%;
 }
 
 .contentLi li::before {
