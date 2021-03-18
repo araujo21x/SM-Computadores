@@ -46,7 +46,7 @@
 .modalTitle {
    width: 95%;
    height: 8%;
-   margin: 0.7% 0% 0.1% 0%;
+   margin: 0.7% 0% 2% 0%;
    text-align: center;
    font-family: 'Mulish', sans-serif;
    font-weight: bold;
@@ -182,4 +182,76 @@
    font-size: 95%;
    font-family: 'Mulish', sans-serif;
    padding-left: 1%;
+}
+
+.collapsible {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+   width: 100%;
+   border: none;
+   background-color: var(--backGroundColor);
+   border-bottom: 1px solid;
+   font-size: 125%;
+   font-family: 'Mulish', sans-serif;
+   font-weight: bold;
+   border-radius: 3px;
+}
+
+.active,
+.collapsible:hover {
+   background-color: var(--primaryColor);
+}
+
+.collapsible:after {
+   content: '\142F';
+   font-size: 85%;
+   margin-left: 3%;
+}
+
+.active:after {
+   content: "\1431";
+}
+
+#whatIsContent {
+   margin: 0 2% 1% 2%;
+   font-size: 110%;
+   max-height: 0;
+   overflow: hidden;
+   transition: max-height 0.2s ease-out;
+   color: black;
+   font-family: 'Mulish', sans-serif;
+}
+
+#verificationsContent {
+   margin: 0 2% 1% 2%;
+   font-size: 105%;
+   max-height: 0;
+   overflow: hidden;
+   transition: max-height 0.2s ease-out;
+}
+.contentLi{
+   width: 100%;
+   padding: 0;
+}
+.contentLi li{
+   list-style: none;
+   color: black;
+   font-family: 'Mulish', sans-serif;
+   display: flex;
+   margin-top: 1%;
+   margin-right: 0;
+}
+
+.contentLi li p {
+   margin: 0 10px 0 10px;
+   font-weight: bold;
+}
+
+.contentLi li::before {
+   margin-left: 0;
+   margin-right: 2%;
+   content: "\2699";
+   color: #62B0CB;
 }

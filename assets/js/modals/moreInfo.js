@@ -38,7 +38,7 @@ const motherBoardInfo = (piece) => {
    ul.className = 'moreInfoUl';
 
    createTitle(piece.name);
-   createImg(piece.image, '17', '12');
+   createImg(piece.image, '17', '14');
 
    ul.appendChild(createLi('Chipset', piece.chipset));
    ul.appendChild(createLi('Socket', piece.socket));
