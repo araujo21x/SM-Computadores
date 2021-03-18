@@ -117,9 +117,9 @@ const cpuWhichIs = () => {
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
 
-   createImgWhich(motherBoardWich.img, '17', '14');
-   creteCollapsible(motherBoardWich.whatIs, 'whatIs', 'O que é', modalBody);
-   creteCollapsible(motherBoardWich.verifications, 'verifications', 'Cuidados', modalBody);
+   createImgWhich(cpuWich.img, '9', '9');
+   creteCollapsible(cpuWich.whatIs, 'whatIs', 'O que é', modalBody);
+   creteCollapsible(cpuWich.verifications, 'verifications', 'Cuidados', modalBody);
 };
 
 const coolerWhichIs = () => {
@@ -127,27 +127,27 @@ const coolerWhichIs = () => {
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
 
-   createImgWhich(motherBoardWich.img, '17', '14');
-   creteCollapsible(motherBoardWich.whatIs, 'whatIs', 'O que é', modalBody);
-   creteCollapsible(motherBoardWich.verifications, 'verifications', 'Cuidados', modalBody);
+   createImgWhich(coolerWich.img, '10', '10');
+   creteCollapsible(coolerWich.whatIs, 'whatIs', 'O que é', modalBody);
+   creteCollapsible(coolerWich.verifications, 'verifications', 'Cuidados', modalBody);
 };
 const ramWhichIs = () => {
    createTitleWhich('Memória RAM');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
 
-   createImgWhich(motherBoardWich.img, '17', '14');
-   creteCollapsible(motherBoardWich.whatIs, 'whatIs', 'O que é', modalBody);
-   creteCollapsible(motherBoardWich.verifications, 'verifications', 'Cuidados', modalBody);
+   createImgWhich(ramWich.img, '20', '6');
+   creteCollapsible(ramWich.whatIs, 'whatIs', 'O que é', modalBody);
+   creteCollapsible(ramWich.verifications, 'verifications', 'Cuidados', modalBody);
 };
 const pciExpressWhichIs = () => {
    createTitleWhich('PCI Express');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
 
-   createImgWhich(motherBoardWich.img, '17', '14');
-   creteCollapsible(motherBoardWich.whatIs, 'whatIs', 'O que é', modalBody);
-   creteCollapsible(motherBoardWich.verifications, 'verifications', 'Cuidados', modalBody);
+   createImgWhich(pcieWich.img, '20', '10');
+   creteCollapsible(pcieWich.whatIs, 'whatIs', 'O que é', modalBody);
+   creteCollapsible(pcieWich.verifications, 'verifications', 'Cuidados', modalBody);
 };
 
 const romWhichIs = () => {
@@ -155,9 +155,9 @@ const romWhichIs = () => {
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
 
-   createImgWhich(motherBoardWich.img, '17', '14');
-   creteCollapsible(motherBoardWich.whatIs, 'whatIs', 'O que é', modalBody);
-   creteCollapsible(motherBoardWich.verifications, 'verifications', 'Cuidados', modalBody);
+   createImgWhich(romWich.img, '15', '8');
+   creteCollapsible(romWich.whatIs, 'whatIs', 'O que é', modalBody);
+   creteCollapsible(romWich.verifications, 'verifications', 'Cuidados', modalBody);
 };
 
 const m2WhichIs = () => {
@@ -165,9 +165,9 @@ const m2WhichIs = () => {
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
 
-   createImgWhich(motherBoardWich.img, '17', '14');
-   creteCollapsible(motherBoardWich.whatIs, 'whatIs', 'O que é', modalBody);
-   creteCollapsible(motherBoardWich.verifications, 'verifications', 'Cuidados', modalBody);
+   createImgWhich(m2Wich.img, '17', '5');
+   creteCollapsible(m2Wich.whatIs, 'whatIs', 'O que é', modalBody);
+   creteCollapsible(m2Wich.verifications, 'verifications', 'Cuidados', modalBody);
 };
 
 const recorderWhichIs = () => {
@@ -175,9 +175,9 @@ const recorderWhichIs = () => {
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
 
-   createImgWhich(motherBoardWich.img, '17', '14');
-   creteCollapsible(motherBoardWich.whatIs, 'whatIs', 'O que é', modalBody);
-   creteCollapsible(motherBoardWich.verifications, 'verifications', 'Cuidados', modalBody);
+   createImgWhich(recorderWich.img, '15', '10');
+   creteCollapsible(recorderWich.whatIs, 'whatIs', 'O que é', modalBody);
+   creteCollapsible(recorderWich.verifications, 'verifications', 'Cuidados', modalBody);
 };
 
 const psuWhichIs = () => {
@@ -185,7 +185,7 @@ const psuWhichIs = () => {
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
 
-   createImgWhich(motherBoardWich.img, '17', '14');
-   creteCollapsible(motherBoardWich.whatIs, 'whatIs', 'O que é', modalBody);
-   creteCollapsible(motherBoardWich.verifications, 'verifications', 'Cuidados', modalBody);
+   createImgWhich(psuWich.img, '15', '10');
+   creteCollapsible(psuWich.whatIs, 'whatIs', 'O que é', modalBody);
+   creteCollapsible(psuWich.verifications, 'verifications', 'Cuidados', modalBody);
 };

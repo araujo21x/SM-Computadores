@@ -192,7 +192,7 @@
    width: 100%;
    border: none;
    background-color: var(--backGroundColor);
-   border-bottom: 1px solid;
+   /* border-bottom: 1px solid; */
    font-size: 125%;
    font-family: 'Mulish', sans-serif;
    font-weight: bold;
