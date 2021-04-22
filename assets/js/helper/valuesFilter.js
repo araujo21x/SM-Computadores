@@ -28,7 +28,6 @@ const motherBoardFilterCamp = {
       name: 'showPieces',
       question: 'Mostrar Peças',
       answer: [
-         {value: 'all', text: 'Todas'},
          {value: 'pluggable', text: 'Encaixáveis'},
          {value: 'notPluggable', text: 'Não Encaixáveis'},
       ],
@@ -136,7 +135,6 @@ const cpuFilterCamp = {
       name: 'showPieces',
       question: 'Mostrar Peças',
       answer: [
-         {value: 'all', text: 'Todas'},
          {value: 'pluggable', text: 'Encaixáveis'},
          {value: 'notPluggable', text: 'Não Encaixáveis'},
       ],
@@ -266,7 +264,6 @@ const coolerFilterCamp = {
       name: 'showPieces',
       question: 'Mostrar Peças',
       answer: [
-         {value: 'all', text: 'Todas'},
          {value: 'pluggable', text: 'Encaixáveis'},
          {value: 'notPluggable', text: 'Não Encaixáveis'},
       ],
@@ -324,7 +321,6 @@ const ramFilterCamp = {
       name: 'showPieces',
       question: 'Mostrar Peças',
       answer: [
-         {value: 'all', text: 'Todas'},
          {value: 'pluggable', text: 'Encaixáveis'},
          {value: 'notPluggable', text: 'Não Encaixáveis'},
       ],
@@ -386,7 +382,6 @@ const pciFilterCamp = {
       name: 'showPieces',
       question: 'Mostrar Peças',
       answer: [
-         {value: 'all', text: 'Todas'},
          {value: 'pluggable', text: 'Encaixáveis'},
          {value: 'notPluggable', text: 'Não Encaixáveis'},
       ],
@@ -469,7 +464,6 @@ const romCamp = {
       name: 'showPieces',
       question: 'Mostrar Peças',
       answer: [
-         {value: 'all', text: 'Todas'},
          {value: 'pluggable', text: 'Encaixáveis'},
          {value: 'notPluggable', text: 'Não Encaixáveis'},
       ],
@@ -534,7 +528,6 @@ const M2Camp = {
       name: 'showPieces',
       question: 'Mostrar Peças',
       answer: [
-         {value: 'all', text: 'Todas'},
          {value: 'pluggable', text: 'Encaixáveis'},
          {value: 'notPluggable', text: 'Não Encaixáveis'},
       ],
@@ -601,7 +594,6 @@ const psuCamp = {
       name: 'showPieces',
       question: 'Mostrar Peças',
       answer: [
-         {value: 'all', text: 'Todas'},
          {value: 'pluggable', text: 'Encaixáveis'},
          {value: 'notPluggable', text: 'Não Encaixáveis'},
       ],

@@ -114,10 +114,19 @@ const creatItemForm = ({name, question, answer}) => {
    select.className = 'selectFilter';
    select.name = name;
 
-   const optionNull = document.createElement('option');
-   optionNull.value = '';
-   optionNull.text = 'Nenhum';
-   select.appendChild(optionNull);
+   if (name !== 'order' && name !== 'sortType' && name !== 'showPieces') {
+      const optionNull = document.createElement('option');
+      optionNull.value = '';
+      optionNull.text = 'Todas';
+      select.appendChild(optionNull);
+   }
+
+   if (name === 'showPieces') {
+      const optionNull = document.createElement('option');
+      optionNull.value = 'all';
+      optionNull.text = 'Todas';
+      select.appendChild(optionNull);
+   }
 
    answer.forEach((element) => {
       const option = document.createElement('option');

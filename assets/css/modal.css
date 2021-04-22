@@ -239,7 +239,6 @@
 .contentLi li{
    list-style: none;
    color: black;
-   
    display: flex;
    margin-top: 1%;
    margin-right: 0;
