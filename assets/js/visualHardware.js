@@ -1,71 +1,57 @@
-/* exported pcMode, motherboardMode, motherTrade, coolerZone */
+import {setModelDropZone, getPCBuilding} from './data/localStorage.js';
+import resizeGrid from './helper/dropZone.js';
+// mother trade visual
+function changeMotherAppearance(direction, displayRemaining) {
+   const {motherBoard} = getPCBuilding();
 
-const pcMode = () => {
+   if (!motherBoard) {
+      changeDisplay('flex', 'none', 'none');
+   } else {
+      // verificar se precisa colocar mesmo essa mother
+      const mother = document.getElementById('mother');
+      // eslint-disable-next-line max-len
+      mother.style.background = `url(${motherBoard.image}) ${direction} / cover no-repeat`;
+      changeDisplay('none', displayRemaining, 'grid');
+   }
+}
+
+function changeDisplay(displayDropMother, displayRemaining, displayMother) {
+   document.getElementById('motherBoard').style.display = displayDropMother;
+   document.getElementById('powerSupply').style.display = displayRemaining;
+   document.getElementById('recorder').style.display = displayRemaining;
+   document.getElementById('rom_1').style.display = displayRemaining;
+   document.getElementById('rom_2').style.display = displayRemaining;
+   document.getElementById('recorderSlot').style.display = displayRemaining;
+   document.getElementById('rom_1_Slot').style.display = displayRemaining;
+   document.getElementById('rom_2_Slot').style.display = displayRemaining;
+   document.getElementById('mother').style.display = displayMother;
+}
+
+export function pcMode() {
    const mother = document.getElementById('mother');
    mother.className = 'motherPcMode';
-   motherTradeVisual('left', 'inline');
+   changeMotherAppearance('left', 'inline');
    mother.style.backgroundSize = '90% 97%';
 
    setModelDropZone('pc');
-   gridConfig('pc');
-};
+   resizeGrid('pc');// falta fazer essa função
+}
 
-const motherboardMode = () => {
-   const {motherBoard} = getBuildingPC();
+export function motherboardMode() {
+   const {motherBoard} = getPCBuilding();
    if (motherBoard) {
       const mother = document.getElementById('mother');
       mother.className = 'mother';
-      motherTradeVisual('center', 'none');
+      changeMotherAppearance('center', 'none');
       mother.style.backgroundSize = '60% 100%';
 
       setModelDropZone('motherboard');
-      gridConfig('motherboard');
+      resizeGrid('motherboard');// falta fazer
    }
-};
+}
 
-const motherTradeVisual = (direction, displayRemaining) => {
-   const {motherBoard} = getBuildingPC();
-
-   if (!motherBoard) {
-      tradeDisplay('flex', 'none', 'none');
-   } else {
-      // eslint-disable-next-line max-len
-      mother.style.background = `url(${motherBoard.image}) ${direction} / cover no-repeat`;
-      tradeDisplay('none', displayRemaining, 'grid');
-   }
-};
-
-const tradeDisplay = (displayDropMother, displayRemaining, displayMother) => {
-   const dropMother = document.getElementById('motherBoard');
-   dropMother.style.display = displayDropMother;
-
-   const powerSupplySlot = document.getElementById('powerSupply');
-   powerSupplySlot.style.display = displayRemaining;
-
-   const recorder = document.getElementById('recorder');
-   recorder.style.display = displayRemaining;
-
-   const rom1 = document.getElementById('rom_1');
-   rom1.style.display = displayRemaining;
-
-   const rom2 = document.getElementById('rom_2');
-   rom2.style.display = displayRemaining;
-
-   const recorderSlot = document.getElementById('recorderSlot');
-   recorderSlot.style.display = displayRemaining;
-
-   const rom1Slot = document.getElementById('rom_1_Slot');
-   rom1Slot.style.display = displayRemaining;
-
-   const rom2Slot = document.getElementById('rom_2_Slot');
-   rom2Slot.style.display = displayRemaining;
-
-   const mother = document.getElementById('mother');
-   mother.style.display = displayMother;
-};
-
-const coolerZone = (titleTab) => {
-   const {cpu, cooler} = getBuildingPC();
+export function coolerZone(titleTab) {
+   const {cpu, cooler} = getPCBuilding();
    const coolerSection = document.getElementById('cooler');
 
    if (cooler && cpu) coolerSection.style.display = 'inline';
@@ -75,4 +61,4 @@ const coolerZone = (titleTab) => {
          coolerSection.style.display = 'inline';
       }
    }
-};
+}

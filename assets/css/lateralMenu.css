@@ -99,7 +99,7 @@
    color: var(--secondaryFontColor);
 }
 
-#dropableParts {
+#droppableParts {
    margin-top: 1.5%;
    overflow: auto;
    display: flex;

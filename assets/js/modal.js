@@ -1,25 +1,24 @@
-/* exported openModal, closeModal */
-
-const openModal = (typeModal, piece) => {
+export function openModal(typeModal, part) {
    const modal = document.getElementById('modal');
    modal.classList.add('open');
+
    switch (typeModal) {
    case 'filter':
-      createModalFilter(piece);
+      createModalFilter(part);
       break;
    case 'order':
-      createModalOrder(piece);
+      createModalOrder(part);
       break;
    case 'whichIs':
-      createModalWhichIs(piece);
+      createModalWhichIs(part);
       break;
    case 'moreInfo':
-      createModalMoreInfo(piece);
+      createModalMoreInfo(part);
       break;
    };
-};
+}
 
-const closeModal = (event) => {
+export function closeModal(event) {
    if (
       event.target.id === 'modal' ||
       event.target.className === 'close' ||

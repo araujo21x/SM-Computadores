@@ -1,40 +1,40 @@
-/* exported  getPieces, getGrids, removingPieceFitted*/
-const multiSlots = ['ram', 'rom'];
-// const URLAPI = 'http://localhost:3000';
-const URLAPI = 'https://api-draganddrop.herokuapp.com';
+import {request} from '../helper/utils.js';
+import {getPCBuilding} from '../data/localStorage.js';
 
+const multiplesParts = ['ram', 'rom'];
+const API = 'https://api-draganddrop.herokuapp.com';
 
-const getPieces = async (pieceType) => {
-   const parts = await fethRequest(`${URLAPI}/v1/piece?type=${pieceType}`
-      , 'GET');
-   return removingPieceFitted(parts, pieceType);
-};
+function removingPieceFitted(parts, partType) {
+   const pcBuilding = getPCBuilding();
 
-const removingPieceFitted = (parts, type) => {
-   const buildingPC = getBuildingPC();
    return parts.filter((element) => {
-      let piece = element.type === type ? element : null;
+      let part = element.type === partType ? element : null;
 
-      if (piece) {
-         if (JSON.stringify(piece) === JSON.stringify(buildingPC[type])) {
-            piece = null;
+      if (part) {
+         if (JSON.stringify(part) === JSON.stringify(pcBuilding[partType])) {
+            part = null;
          }
 
-         if (multiSlots.includes(type) && buildingPC[type]) {
-            buildingPC[type].map((buildinPiece) => {
-               delete buildinPiece.div;
-               if (JSON.stringify(piece) === JSON.stringify(buildinPiece)) {
-                  piece = null;
+         if (multiplesParts.includes(partType) && pcBuilding[partType]) {
+            pcBuilding[partType].map((buildingPart) => {
+               delete buildingPart.div;
+               if (JSON.stringify(part) === JSON.stringify(buildingPart)) {
+                  part = null;
                }
             });
          }
       }
 
-      return piece;
+      return part;
    });
-};
+}
 
-const getGrids = async (id) => {
-   return await fethRequest(`${URLAPI}/v1/gridMother/mother/${id}`, 'GET');
-};
+export async function getParts(partType) {
+   const parts = await request(`${API}/v1/piece?type=${partType}`
+      , 'GET');
+   return removingPieceFitted(parts, partType);
+}
 
+export async function getGrids(id) {
+   return await request(`${API}/v1/gridMother/mother/${id}`, 'GET');
+}

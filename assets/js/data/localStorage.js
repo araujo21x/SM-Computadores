@@ -1,30 +1,9 @@
-/* exported getBuildingPC, setBuildingPC, deleteBuildingPC, getDropZone,
-setDropZone, setModelDropZone, resetLocalStorage */
-const piecesMulti = ['ram', 'rom'];
+import {getGrids} from './db.js';
+
+const multiplesParts = ['ram', 'rom'];
 const sizeSum = ['ram', 'rom', 'm2'];
 
-const getBuildingPC = () => {
-   return JSON.parse(localStorage.getItem('buildingPC'));
-};
-
-const setBuildingPC = (piece, idDiv) => {
-   let myPC = getBuildingPC();
-
-   if (!myPC) myPC = generateBody();
-   if (piece) {
-      if (piecesMulti.includes(piece.type)) {
-         myPC = multipleSlots(piece, idDiv, myPC);
-      } else {
-         myPC[piece.type] = piece;
-      }
-
-      myPC.currentTDP = myPC.currentTDP + piece.TDP;
-      if (sizeSum.includes(piece.type)) myPC = addSize(piece, myPC);
-   }
-   localStorage.setItem('buildingPC', JSON.stringify(myPC));
-};
-
-const generateBody = () => {
+function generateBuildingPC() {
    return {
       motherBoard: null,
       cpu: null,
@@ -38,79 +17,110 @@ const generateBody = () => {
       ramMemory: 0,
       romMemory: 0,
    };
-};
+}
 
-const multipleSlots = (piece, idDiv, myPC) => {
-   if (!myPC[piece.type]) myPC[piece.type] = [];
+function multipleSlots(part, idDiv, PCBuilding) {
+   if (!PCBuilding[part.type]) PCBuilding[part.type] = [];
 
-   myPC[piece.type].push({...piece, div: idDiv});
-   return myPC;
-};
+   PCBuilding[part.type].push({...part, div: idDiv});
+   return PCBuilding;
+}
 
-const deleteBuildingPC = (deletePiece) => {
-   // eslint-disable-next-line prefer-const
-   let myPC = getBuildingPC();
-   if (piecesMulti.includes(deletePiece.type)) {
-      myPC[deletePiece.type] = deleteArray(deletePiece, myPC);
-   } else {
-      myPC[deletePiece.type] = null;
-      if (deletePiece.type === 'm2') {
-         myPC.romMemory = myPC.romMemory - deletePiece.memorySize;
-      }
-   }
+function addSize(part, PCBuilding) {
+   //  if (part.type === 'ram') {
+   //     PCBuilding.ramMemory = PCBuilding.ramMemory + part.memorySize;
+   //  } else {
+   //     PCBuilding.romMemory = PCBuilding.romMemory + part.memorySize;
+   //  }
 
-   myPC.currentTDP = myPC.currentTDP - deletePiece.TDP;
+   // new tentativa
+   const addField = `${part.type}Memory`;
+   PCBuilding[addField] = PCBuilding[addField] + part.memorySize;
+   return PCBuilding;
+}
 
-   localStorage.setItem('buildingPC', JSON.stringify(myPC));
-};
+function deleteArray(part, PCBuilding) {
+   const answer = PCBuilding[part.type].filter((element) => {
+      part.div = element.div;
 
-const deleteArray = (piece, myPC) => {
-   const answer = myPC[piece.type].filter((element) => {
-      piece.div = element.div;
-
-      if (JSON.stringify(element) === JSON.stringify(piece)) {
-         if (piece.type === 'ram') {
-            myPC.ramMemory = myPC.ramMemory - piece.memorySize;
-         } else {
-            myPC.romMemory = myPC.romMemory - piece.memorySize;
-         }
+      if (JSON.stringify(element) === JSON.stringify(part)) {
+      //  if (part.type === 'ram') {
+      //     PCBuilding.ramMemory = PCBuilding.ramMemory - part.memorySize;
+      //  } else {
+      //     PCBuilding.romMemory = PCBuilding.romMemory - part.memorySize;
+      //  }
+         const removeField = `${part.type}Memory`;
+         PCBuilding[removeField] = PCBuilding[removeField] - part.memorySize;
       }
 
-      return JSON.stringify(element) !== JSON.stringify(piece);
+      return JSON.stringify(element) !== JSON.stringify(part);
    });
+
    if (answer.length === 0) return [];
    else return answer;
-};
+}
 
-const addSize = (piece, myPC) => {
-   if (piece.type === 'ram') {
-      myPC.ramMemory = myPC.ramMemory + piece.memorySize;
+// export
+
+// configurações do localStorage do buildingPC
+export function getPCBuilding() {
+   return JSON.parse(localStorage.getItem('buildingPC'));
+}
+
+export function setBuildingPC(part, idDiv) {
+   let PCBuilding = getPCBuilding() ? getPCBuilding() : generateBuildingPC();
+
+   if (part) {
+      if (multiplesParts.includes(part.type)) {
+         PCBuilding = multipleSlots(part, idDiv, PCBuilding);
+      } else {
+         PCBuilding[part.type] = part;
+      }
+
+      PCBuilding.currentTDP = PCBuilding.currentTDP + part.TDP;
+
+      if (sizeSum.includes(part.type)) PCBuilding = addSize(part, PCBuilding);
+   }
+   localStorage.setItem('buildingPC', JSON.stringify(PCBuilding));
+}
+
+export function deletePCBuilding(deletePart) {
+   const PCBuilding = getPCBuilding();
+
+   if (multiplesParts.includes(deletePart.type)) {
+      PCBuilding[deletePart.type] = deleteArray(deletePart, PCBuilding);
    } else {
-      myPC.romMemory = myPC.romMemory + piece.memorySize;
+      PCBuilding[deletePart.type] = null;
+      if (deletePart.type === 'm2') {
+         PCBuilding.romMemory = PCBuilding.romMemory - deletePart.memorySize;
+      }
    }
 
-   return myPC;
-};
+   PCBuilding.currentTDP = PCBuilding.currentTDP - deletePart.TDP;
 
-const setDropZone = async (id) => {
+   localStorage.setItem('buildingPC', JSON.stringify(PCBuilding));
+}
+
+// configurações da drop zone
+export async function setDropZone(id) {
    const grids = await getGrids(id);
    const dropZone = {
       mode: 'motherboard',
       ...grids,
    };
    localStorage.setItem('dropZone', JSON.stringify(dropZone));
-};
+}
 
-const getDropZone = () => {
+export function getDropZone() {
    return JSON.parse(localStorage.getItem('dropZone'));
-};
+}
 
-const setModelDropZone = (value) => {
+export function setModelDropZone(value) {
    const dropZone = getDropZone();
    dropZone.mode = value;
    localStorage.setItem('dropZone', JSON.stringify(dropZone));
-};
+}
 
-const resetLocalStorage = () => {
+export function resetLocalStorage() {
    localStorage.clear();
-};
+}
