@@ -1,5 +1,7 @@
 import {drag, dropEnd} from '../dragAndDrop/desktop.js';
 import {checkCompatibility} from '../helper/checkCompatibility.js';
+import {openModal} from '../modal.js';
+
 import partBoxInfo from './partBoxInfo.js';
 
 function imageZone(imageDir, infoImg, part) {

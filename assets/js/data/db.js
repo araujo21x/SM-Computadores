@@ -4,7 +4,7 @@ import {getPCBuilding} from '../data/localStorage.js';
 const multiplesParts = ['ram', 'rom'];
 const API = 'https://api-draganddrop.herokuapp.com';
 
-function removingPieceFitted(parts, partType) {
+export function removingPieceFitted(parts, partType) {
    const pcBuilding = getPCBuilding();
 
    return parts.filter((element) => {

@@ -1,7 +1,18 @@
 /* eslint-disable max-len */
-/* exported createModalWhichIs, showContent */
-const createModalWhichIs = (piece) => {
-   switch (piece) {
+import {
+   motherBoardWich,
+   cpuWich,
+   ramWich,
+   romWich,
+   pcieWich,
+   m2Wich,
+   coolerWich,
+   recorderWich,
+   psuWich,
+} from '../data/wichIsData.js';
+
+export default function(part) {
+   switch (part) {
    case 'motherBoard':
       motherBoardWhichIs();
       break;
@@ -38,7 +49,7 @@ const createModalWhichIs = (piece) => {
    modalButton.appendChild(button);
 };
 
-const showContent = (idElement) => {
+function showContent(idElement) {
    const content = document.getElementById(idElement);
    content.previousElementSibling.classList.toggle('active');
    if (content.style.maxHeight) {
@@ -48,13 +59,13 @@ const showContent = (idElement) => {
    }
 };
 
-const createTitleWhich = (title) => {
+function createTitleWhich(title) {
    const modalTitle = document.getElementById('modalTitle');
    modalTitle.innerHTML = '';
    modalTitle.innerText = title;
 };
 
-const createImgWhich = (image, width, height) => {
+function createImgWhich(image, width, height) {
    const img = document.createElement('img');
    img.src = image;
    img.style.marginRight = 'auto';
@@ -68,18 +79,18 @@ const createImgWhich = (image, width, height) => {
    modalBody.appendChild(img);
 };
 
-const creteCollapsible = (text, id, title, body) => {
+function creteCollapsible(text, id, title, body) {
    const button = document.createElement('button');
-   const idComplet = `${id}Content`;
+   const idFull = `${id}Content`;
    button.className = 'collapsible';
    button.innerText = title;
    button.onclick = function() {
-      showContent(idComplet);
+      showContent(idFull);
    };
    body.appendChild(button);
    if (typeof text === 'string') {
       const div = document.createElement('div');
-      div.id = idComplet;
+      div.id = idFull;
 
       const pElement = document.createElement('p');
       pElement.align = 'justify';
@@ -88,7 +99,7 @@ const creteCollapsible = (text, id, title, body) => {
       body.appendChild(div);
    } else {
       const div = document.createElement('div');
-      div.id = idComplet;
+      div.id = idFull;
       const ulElement = document.createElement('ul');
       ulElement.className = 'contentLi';
       text.forEach((element) => {
@@ -102,7 +113,7 @@ const creteCollapsible = (text, id, title, body) => {
    }
 };
 
-const motherBoardWhichIs = () => {
+function motherBoardWhichIs() {
    createTitleWhich('Placa mãe');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -112,7 +123,7 @@ const motherBoardWhichIs = () => {
    creteCollapsible(motherBoardWich.verifications, 'verifications', 'Cuidados', modalBody);
 };
 
-const cpuWhichIs = () => {
+function cpuWhichIs() {
    createTitleWhich('Processador');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -122,7 +133,7 @@ const cpuWhichIs = () => {
    creteCollapsible(cpuWich.verifications, 'verifications', 'Cuidados', modalBody);
 };
 
-const coolerWhichIs = () => {
+function coolerWhichIs() {
    createTitleWhich('Cooler');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -131,7 +142,8 @@ const coolerWhichIs = () => {
    creteCollapsible(coolerWich.whatIs, 'whatIs', 'O que é', modalBody);
    creteCollapsible(coolerWich.verifications, 'verifications', 'Cuidados', modalBody);
 };
-const ramWhichIs = () => {
+
+function ramWhichIs() {
    createTitleWhich('Memória RAM');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -140,7 +152,8 @@ const ramWhichIs = () => {
    creteCollapsible(ramWich.whatIs, 'whatIs', 'O que é', modalBody);
    creteCollapsible(ramWich.verifications, 'verifications', 'Cuidados', modalBody);
 };
-const pciExpressWhichIs = () => {
+
+function pciExpressWhichIs() {
    createTitleWhich('PCI Express');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -150,7 +163,7 @@ const pciExpressWhichIs = () => {
    creteCollapsible(pcieWich.verifications, 'verifications', 'Cuidados', modalBody);
 };
 
-const romWhichIs = () => {
+function romWhichIs() {
    createTitleWhich('Memória ROM');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -160,7 +173,7 @@ const romWhichIs = () => {
    creteCollapsible(romWich.verifications, 'verifications', 'Cuidados', modalBody);
 };
 
-const m2WhichIs = () => {
+function m2WhichIs() {
    createTitleWhich('Memória ROM');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -170,7 +183,7 @@ const m2WhichIs = () => {
    creteCollapsible(m2Wich.verifications, 'verifications', 'Cuidados', modalBody);
 };
 
-const recorderWhichIs = () => {
+function recorderWhichIs() {
    createTitleWhich('Memória RA');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -180,7 +193,7 @@ const recorderWhichIs = () => {
    creteCollapsible(recorderWich.verifications, 'verifications', 'Cuidados', modalBody);
 };
 
-const psuWhichIs = () => {
+function psuWhichIs() {
    createTitleWhich('Placa mãe');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';

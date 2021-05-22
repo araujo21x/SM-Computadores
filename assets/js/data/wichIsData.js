@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
-/* exported motherBoardWich, cpuWich , ramWich, romWich, pcieWich, coolerWich, recorderWich, psuWich, m2Wich*/
-const motherBoardWich = {
+export const motherBoardWich = {
    img: 'https://res.cloudinary.com/drbclvi9z/image/upload/v1614129009/DragAndDrop/motherBoard/mother1_iumte0.png',
    whatIs: 'Um dos componentes mais importante, a placa mãe é como uma central para o computador, ela faz a comunicação entre todas as peças além de passar a energia necessária para as peças.',
    verifications: [
@@ -11,7 +10,7 @@ const motherBoardWich = {
    ],
 };
 
-const cpuWich = {
+export const cpuWich = {
    img: 'https://res.cloudinary.com/drbclvi9z/image/upload/v1614129003/DragAndDrop/cpu/cpu1_qetftx.png',
    whatIs: 'O processador ou CPU(central processing unit ou em portugues unidade central de processamento) é o cérebro do computador, sendo o componente responsável por efetuar os cálculos necessários para você realizar suas tarefas. Interage e faz as conexões necessárias entre todos os programas instalados. Neste processo, ele também interpreta as informações enviadas pelos programas, realiza diversas operações, inclusive gerando a interface que nós interagimos quando usamos um computador.',
    verifications: [
@@ -22,7 +21,7 @@ const cpuWich = {
    ],
 };
 
-const ramWich = {
+export const ramWich = {
    img: 'https://res.cloudinary.com/drbclvi9z/image/upload/v1614129023/DragAndDrop/ram/ram1_leolkv.png',
    whatIs: 'A memória RAM (random access memory ou portugues memória de acesso aleatório) trabalha junto com o processador na execução de programas, ela guarda temporariamente toda a informação que o computador precisa para aquele momento ou para um futuro próximo. A memória RAM é mais rápida que a memória ROM, mas tem uma capacidade inferior de armazenamento, além de ser volátil ao desligar o computador as informações são perdidas.',
    verifications: [
@@ -32,7 +31,7 @@ const ramWich = {
    ],
 };
 
-const romWich = {
+export const romWich = {
    img: 'https://res.cloudinary.com/drbclvi9z/image/upload/v1614129026/DragAndDrop/rom/hd_mktl0j.png',
    whatIs: 'A Memória ROM serve para o armazenamento de dados, a principal peça para se utilizar como memória ROM é o HDD(Hard Disk Drive) popularmente chamado de HD, nos últimos anos o SSD também ganhou espaço por ser uma tecnologia mais nova e rápida que o HD, geralmente  HD e SSD seguem o padrão Sata 3.',
    verifications: [
@@ -40,7 +39,7 @@ const romWich = {
    ],
 };
 
-const pcieWich = {
+export const pcieWich = {
    img: 'https://res.cloudinary.com/drbclvi9z/image/upload/v1614129013/DragAndDrop/pciExpress/grapichCard_kegkgf.png',
    whatIs: 'PCI-Express (ou PCIe) é o nome dado ao barramento encontrado em placas-mãe, usado como entrada para placas de expansão gráfica, de som e rede.',
    verifications: [
@@ -49,7 +48,7 @@ const pcieWich = {
    ],
 };
 
-const m2Wich = {
+export const m2Wich = {
    img: 'https://res.cloudinary.com/drbclvi9z/image/upload/v1614129026/DragAndDrop/rom/M2_jiaxtx.png',
    whatIs: 'M.2 conhecido como Next Generation Form Factor (NGFF), se refere a uma slot que pode encaixar diferentes tipos de peças(desde que seja no formato M.2). A maneira mais comum de se utilizar a entrada M.2 é através de SSD, ',
    verifications: [
@@ -57,7 +56,7 @@ const m2Wich = {
    ],
 };
 
-const coolerWich = {
+export const coolerWich = {
    img: 'https://res.cloudinary.com/drbclvi9z/image/upload/v1614128996/DragAndDrop/cooler/cooler_dqjvtl.png',
    whatIs: 'Sistemas de refrigeração. Ele é composto por um dissipador( peça de cobre ou alumínio que faz contato com o processador) e um ventilador que gira constantemente para remover o calor excessivo da CPU.',
    verifications: [
@@ -65,7 +64,7 @@ const coolerWich = {
    ],
 };
 
-const recorderWich = {
+export const recorderWich = {
    img: 'https://res.cloudinary.com/drbclvi9z/image/upload/v1614129026/DragAndDrop/recorder/recorder_dcvehc.png',
    whatIs: 'Server para ler e gravar em mídias do tipo CD, DVD e Blu-ray.',
    verifications: [
@@ -73,7 +72,7 @@ const recorderWich = {
    ],
 };
 
-const psuWich = {
+export const psuWich = {
    img: 'https://res.cloudinary.com/drbclvi9z/image/upload/v1614129016/DragAndDrop/powerSupply/powerSupply_izjyph.png',
    whatIs: 'Serve para alimentar cargas elétricas do aparelho. Ela serve também como uma última linha de defesa contra picos de tensão e instabilidade na corrente, depois do nobreak ou estabilizador.',
    verifications: [

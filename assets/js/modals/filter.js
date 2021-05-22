@@ -1,6 +1,19 @@
-/* exported createModalFilter, filter */
-const createModalFilter = (piece) => {
-   switch (piece) {
+import {request} from '../helper/utils.js';
+import {
+   motherBoardFilterCamp,
+   cpuFilterCamp,
+   coolerFilterCamp,
+   ramFilterCamp,
+   pciFilterCamp,
+   romCamp,
+   M2Camp,
+   psuCamp,
+} from '../data/filterData.js';
+import {removingPieceFitted} from '../data/db.js';
+import hardwareItem from '../components/partBox.js';
+
+export default function(part) {
+   switch (part) {
    case 'motherBoard':
       motherBoardFilter();
       break;
@@ -29,19 +42,22 @@ const createModalFilter = (piece) => {
       psuFilter();
       break;
    }
+
    const modalButton = document.getElementById('modalButton');
    modalButton.innerHTML = '';
+
    const button = document.createElement('button');
    button.className = 'normalButton';
    button.addEventListener('click', async function() {
-      filter(piece);
+      filter(part);
    });
    button.innerText = 'Pesquisar';
-   modalButton.appendChild(button);
-};
 
-const filter = async (typePiece) => {
-   const filterRequest = {type: typePiece};
+   modalButton.appendChild(button);
+}
+
+export async function filter(typePart) {
+   const filterRequest = {type: typePart};
 
    Array.from(document.getElementsByClassName('selectFilter'))
       .forEach((element) => {
@@ -50,44 +66,47 @@ const filter = async (typePiece) => {
 
    const url = new URL('https://api-draganddrop.herokuapp.com/v1/piece/filter');
    url.search = new URLSearchParams(filterRequest).toString();
-   const response = await fetch(url,
-      {
-         method: 'GET',
-         headers: {'Content-Type': 'application/json'},
-      },
-   );
-   renderFilter(response, typePiece, filterRequest.showPieces);
-};
 
-const renderFilter = async (response, typePiece, showPieces) => {
+   const response = await fetch(url, {
+      method: 'GET',
+      headers: {'Content-Type': 'application/json'},
+   });
+   console.log(response);
+   console.log(response);
+   renderFilter(response, typePart, filterRequest.showPieces);
+}
+
+async function renderFilter(response, typePart, showPieces) {
    if (response.status !== 200) alert('Erro! peça não encontrada!');
    else {
-      parts = await response.json();
-      const verifiedParts = removingPieceFitted(parts, typePiece);
+      const parts = await response.json();
+      const verifiedParts = removingPieceFitted(parts, typePart);
 
       if (verifiedParts.length === 0) {
          alert('Erro! só foi encontrada uma peçã e ela já esta encaixada!');
       } else {
          // pegar a div
-         const divDropableParts = document.querySelector(
-            `#${typePiece}Tab #dropableParts`);
-         divDropableParts.innerHTML = '';
+
+         const divDroppableParts = document.querySelector(
+            `#${typePart}Tab #droppableParts`);
+         console.log(divDroppableParts);
+         divDroppableParts.innerHTML = '';
 
          // adicionar as peçãs
 
          if (showPieces === 'pluggable') {
             const newParts = justPluggable(verifiedParts);
             newParts.forEach((element) => {
-               divDropableParts.appendChild(hardwareItem(element));
+               divDroppableParts.appendChild(hardwareItem(element));
             });
          } else if (showPieces === 'notPluggable') {
             const newParts = notPluggable(verifiedParts);
             newParts.forEach((element) => {
-               divDropableParts.appendChild(hardwareItem(element));
+               divDroppableParts.appendChild(hardwareItem(element));
             });
          } else {
             verifiedParts.forEach((element) => {
-               divDropableParts.appendChild(hardwareItem(element));
+               divDroppableParts.appendChild(hardwareItem(element));
             });
          }
 
@@ -97,12 +116,13 @@ const renderFilter = async (response, typePiece, showPieces) => {
       }
    }
 };
-const createTitleFilter = (name) => {
+
+function createTitleFilter(name) {
    const modalTitle = document.getElementById('modalTitle');
    modalTitle.innerText = `Filtro e Ordenação de ${name}`;
 };
 
-const creatItemForm = ({name, question, answer}) => {
+function creatItemForm({name, question, answer}) {
    const divItemFilter = document.createElement('div');
    divItemFilter.className = 'itemFilter';
 
@@ -138,7 +158,7 @@ const creatItemForm = ({name, question, answer}) => {
    return divItemFilter;
 };
 
-const motherBoardFilter = () => {
+function motherBoardFilter() {
    createTitleFilter('Placa-Mãe');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -159,7 +179,7 @@ const motherBoardFilter = () => {
    modalBody.appendChild(divForm);
 };
 
-const cpuFilter = () => {
+function cpuFilter() {
    createTitleFilter('Processador');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -185,7 +205,7 @@ const cpuFilter = () => {
    modalBody.appendChild(divForm);
 };
 
-const coolerFilter = () => {
+function coolerFilter() {
    createTitleFilter('Cooler');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -203,7 +223,7 @@ const coolerFilter = () => {
    modalBody.appendChild(divForm);
 };
 
-const ramFilter = () => {
+function ramFilter() {
    createTitleFilter('Memória RAM');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -221,7 +241,7 @@ const ramFilter = () => {
    modalBody.appendChild(divForm);
 };
 
-const pciExpressFilter = () => {
+function pciExpressFilter() {
    createTitleFilter('PCI Express');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -243,7 +263,7 @@ const pciExpressFilter = () => {
    modalBody.appendChild(divForm);
 };
 
-const romFilter = () => {
+function romFilter() {
    createTitleFilter('Memória ROM');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -262,7 +282,7 @@ const romFilter = () => {
    modalBody.appendChild(divForm);
 };
 
-const m2Filter = () => {
+function m2Filter() {
    createTitleFilter('M2 - Memória ROM');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -282,13 +302,13 @@ const m2Filter = () => {
    modalBody.appendChild(divForm);
 };
 
-const recorderFilter = () => {
+function recorderFilter() {
    createTitleFilter('Leitor de DVD');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
 };
 
-const psuFilter = () => {
+function psuFilter() {
    createTitleFilter('Fonte');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';

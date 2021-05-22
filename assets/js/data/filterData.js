@@ -1,6 +1,4 @@
-/* exported motherBoardFilterCamp, cpuFilterCamp, coolerFilterCamp,
-ramFilterCamp, pciFilterCamp, romCamp, M2Camp, psuCamp  */
-const motherBoardFilterCamp = {
+export const motherBoardFilterCamp = {
    order: {
       name: 'order',
       question: 'Ordenar por',
@@ -8,7 +6,7 @@ const motherBoardFilterCamp = {
          {value: 'name', text: 'Nome'},
          {value: 'chipset', text: 'Chipset'},
          {value: 'socket', text: 'Socket'},
-         {value: 'memorySizeSupport', text: 'Limite maximo de Ram'},
+         {value: 'memorySizeSupport', text: 'Limite máximo de Ram'},
          {value: 'memorySlotAmount', text: 'Limite de slots de memória'},
          {value: 'memorySlotType', text: 'Tipo de slot de memória'},
          {value: 'motherFrequencies', text: 'Frequências de memória'},
@@ -20,7 +18,7 @@ const motherBoardFilterCamp = {
       question: 'Ordenar de maneira',
       answer: [
          {value: 'ASC', text: 'Crescente'},
-         {value: 'DESC', text: 'Decrecente'},
+         {value: 'DESC', text: 'Decrescente'},
       ],
    },
 
@@ -62,7 +60,7 @@ const motherBoardFilterCamp = {
 
    memorySizeSupport: {
       name: 'memorySizeSupport',
-      question: 'Limite maximo de Ram',
+      question: 'Limite máximo de Ram',
       answer: [
          {value: 32, text: '32 GB'},
          {value: 64, text: '64 GB'},
@@ -102,7 +100,7 @@ const motherBoardFilterCamp = {
    },
 };
 
-const cpuFilterCamp = {
+export const cpuFilterCamp = {
    order: {
       name: 'order',
       question: 'Ordenar por',
@@ -239,7 +237,7 @@ const cpuFilterCamp = {
    },
 };
 
-const coolerFilterCamp = {
+export const coolerFilterCamp = {
    order: {
       name: 'order',
       question: 'Ordenar por',
@@ -296,7 +294,7 @@ const coolerFilterCamp = {
    },
 };
 
-const ramFilterCamp = {
+export const ramFilterCamp = {
    order: {
       name: 'order',
       question: 'Ordenar por',
@@ -353,7 +351,7 @@ const ramFilterCamp = {
    },
 };
 
-const pciFilterCamp = {
+export const pciFilterCamp = {
    order: {
       name: 'order',
       question: 'Ordenar por',
@@ -438,7 +436,7 @@ const pciFilterCamp = {
    },
 };
 
-const romCamp = {
+export const romCamp = {
    order: {
       name: 'order',
       question: 'Ordenar por',
@@ -502,7 +500,7 @@ const romCamp = {
    },
 };
 
-const M2Camp = {
+export const M2Camp = {
    order: {
       name: 'order',
       question: 'Ordenar por',
@@ -570,7 +568,7 @@ const M2Camp = {
    },
 };
 
-const psuCamp = {
+export const psuCamp = {
    order: {
       name: 'order',
       question: 'Ordenar por',

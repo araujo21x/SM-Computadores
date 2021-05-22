@@ -1,165 +1,164 @@
-/* exported createModalMoreInfo */
-const createModalMoreInfo = (piece) => {
-   switch (piece.type) {
+export default function(part) {
+   switch (part.type) {
    case 'motherBoard':
-      motherBoardInfo(piece);
+      motherBoardInfo(part);
       break;
    case 'cpu':
-      cpuInfo(piece);
+      cpuInfo(part);
       break;
    case 'cooler':
-      coolerInfo(piece);
+      coolerInfo(part);
       break;
    case 'ram':
-      ramInfo(piece);
+      ramInfo(part);
       break;
    case 'pciExpress':
-      pciExpressInfo(piece);
+      pciExpressInfo(part);
       break;
    case 'rom':
-      romInfo(piece);
+      romInfo(part);
       break;
    case 'm2':
-      m2Info(piece);
+      m2Info(part);
       break;
    case 'recorder':
-      recorderInfo(piece);
+      recorderInfo(part);
       break;
    case 'powerSupply':
-      powerSupplyInfo(piece);
+      powerSupplyInfo(part);
       break;
    }
 };
 
-const motherBoardInfo = (piece) => {
+function motherBoardInfo(part) {
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
    const ul = document.createElement('ul');
    ul.className = 'moreInfoUl';
 
-   createTitle(piece.name);
-   createImg(piece.image, '17', '14');
+   createTitle(part.name);
+   createImg(part.image, '17', '14');
 
-   ul.appendChild(createLi('Chipset', piece.chipset));
-   ul.appendChild(createLi('Socket', piece.socket));
-   if (piece.hasSocketM2) ul.appendChild(createLi('Suporte M2', 'Possui'));
+   ul.appendChild(createLi('Chipset', part.chipset));
+   ul.appendChild(createLi('Socket', part.socket));
+   if (part.hasSocketM2) ul.appendChild(createLi('Suporte M2', 'Possui'));
    else ul.appendChild(createLi('Suporte M2', 'Não Possui'));
    ul.appendChild(createLi('Limite maximo de Ram',
-      `${piece.memorySizeSupport} GB`));
+      `${part.memorySizeSupport} GB`));
    ul.appendChild(createLi('Quantidade de slots de memória',
-      piece.memorySlotAmount));
-   ul.appendChild(createLi('Tipo de slot de memória', piece.memorySlotType));
+      part.memorySlotAmount));
+   ul.appendChild(createLi('Tipo de slot de memória', part.memorySlotType));
    ul.appendChild(createLiArray('Frequências de memória suportadas',
-      piece.memorySlotFrequency, 'frequency'));
+      part.memorySlotFrequency, 'frequency'));
 
    modalBody.appendChild(ul);
    createCloseButton();
 };
 
-const cpuInfo = (piece) => {
+function cpuInfo(part) {
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
    const ul = document.createElement('ul');
    ul.className = 'moreInfoUl';
 
-   createTitle(piece.name);
-   createImg(piece.image, '9', '9');
+   createTitle(part.name);
+   createImg(part.image, '9', '9');
 
-   ul.appendChild(createLi('Chipset', piece.chipset));
-   ul.appendChild(createLi('Socket', piece.socket));
-   ul.appendChild(createLi('Limite maximo de Ram',
-      `${piece.memorySizeSupport} GB`));
+   ul.appendChild(createLi('Chipset', part.chipset));
+   ul.appendChild(createLi('Socket', part.socket));
+   ul.appendChild(createLi('Limite máximo de Ram',
+      `${part.memorySizeSupport} GB`));
    ul.appendChild(createLi('Limite de slots de memória',
-      piece.memorySupportAmountSlot));
-   ul.appendChild(createLiArray('Frequencia de memória suportada',
-      piece.memorySupportFrequency, 'frequency'));
+      part.memorySupportAmountSlot));
+   ul.appendChild(createLiArray('Frequência de memória suportada',
+      part.memorySupportFrequency, 'frequency'));
    ul.appendChild(createLi('Frequência mínima de clock',
-      `${piece.baseClockSpeed} GHz`));
+      `${part.baseClockSpeed} GHz`));
    ul.appendChild(createLi('Frequência máxima de clock',
-      `${piece.maximumBoostSpeed} GHz`));
-   ul.appendChild(createLi('Cache', `${piece.cache} MB`));
-   ul.appendChild(createLi('Core', piece.core));
-   ul.appendChild(createLi('Threads', piece.threads));
-   ul.appendChild(createLi('Processador gráfico', piece.graphicsProcessor));
+      `${part.maximumBoostSpeed} GHz`));
+   ul.appendChild(createLi('Cache', `${part.cache} MB`));
+   ul.appendChild(createLi('Core', part.core));
+   ul.appendChild(createLi('Threads', part.threads));
+   ul.appendChild(createLi('Processador gráfico', part.graphicsProcessor));
 
    modalBody.appendChild(ul);
    createCloseButton();
 };
 
-const coolerInfo = (piece) => {
+function coolerInfo(part) {
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
    const ul = document.createElement('ul');
    ul.className = 'moreInfoUl';
 
-   createTitle(piece.name);
-   createImg(piece.image, '10', '10');
+   createTitle(part.name);
+   createImg(part.image, '10', '10');
 
-   ul.appendChild(createLiArray('Sockets Suportados', piece.compatibilityCpu));
-   ul.appendChild(createLi('Velocidade do Fan', `${piece.speedFan} RPM`));
+   ul.appendChild(createLiArray('Sockets Suportados', part.compatibilityCpu));
+   ul.appendChild(createLi('Velocidade do Fan', `${part.speedFan} RPM`));
    ul.appendChild(createLi('Máximo fluxo de ar do fan',
-      `${piece.fanAirflow} CFM`));
+      `${part.fanAirflow} CFM`));
 
    modalBody.appendChild(ul);
    createCloseButton();
 };
 
-const ramInfo = (piece) => {
+function ramInfo(part) {
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
    const ul = document.createElement('ul');
    ul.className = 'moreInfoUl';
 
-   createTitle(piece.name);
-   createImg(piece.image, '20', '6');
+   createTitle(part.name);
+   createImg(part.image, '20', '6');
 
-   ul.appendChild(createLi('Frequencia da memória',
-      `${piece.memoryFrequency} MHz`));
-   ul.appendChild(createLi('Tamanho de memória', `${piece.memorySize} GB`));
-   ul.appendChild(createLi('Tipo de slot', `${piece.memorySlotType}`));
+   ul.appendChild(createLi('Frequência da memória',
+      `${part.memoryFrequency} MHz`));
+   ul.appendChild(createLi('Tamanho de memória', `${part.memorySize} GB`));
+   ul.appendChild(createLi('Tipo de slot', `${part.memorySlotType}`));
 
    modalBody.appendChild(ul);
    createCloseButton();
 };
 
-const pciExpressInfo = (piece) => {
+function pciExpressInfo(part) {
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
    const ul = document.createElement('ul');
    ul.className = 'moreInfoUl';
-   console.log(piece);
-   createTitle(piece.name);
-   createImg(piece.image, '20', '10');
+   console.log(part);
+   createTitle(part.name);
+   createImg(part.image, '20', '10');
 
-   ul.appendChild(createLi('PCI Express', piece.PCIeType));
-   ul.appendChild(createLi('PCI Express Versão', piece.PCIeVersion));
-   ul.appendChild(createLi('GPU base clock', `${piece.baseClock} MHz`));
-   ul.appendChild(createLi('GPU boost clock', `${piece.boostClock} MHz`));
-   ul.appendChild(createLi('CUDA core', piece.CUDACore));
+   ul.appendChild(createLi('PCI Express', part.PCIeType));
+   ul.appendChild(createLi('PCI Express Versão', part.PCIeVersion));
+   ul.appendChild(createLi('GPU base clock', `${part.baseClock} MHz`));
+   ul.appendChild(createLi('GPU boost clock', `${part.boostClock} MHz`));
+   ul.appendChild(createLi('CUDA core', part.CUDACore));
 
-   ul.appendChild(createLi('Interface de memória', piece.memoryInterface));
-   ul.appendChild(createLi('Tamanho de memória', `${piece.memorySize} GB`));
-   ul.appendChild(createLi('Velocidade de memória', piece.memorySpeed));
-   ul.appendChild(createLi('Tipo de memória', piece.memoryType));
+   ul.appendChild(createLi('Interface de memória', part.memoryInterface));
+   ul.appendChild(createLi('Tamanho de memória', `${part.memorySize} GB`));
+   ul.appendChild(createLi('Velocidade de memória', part.memorySpeed));
+   ul.appendChild(createLi('Tipo de memória', part.memoryType));
 
    modalBody.appendChild(ul);
    createCloseButton();
 };
 
-const romInfo = (piece) => {
+function romInfo(part) {
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
    const ul = document.createElement('ul');
    ul.className = 'moreInfoUl';
 
-   createTitle(piece.name);
-   createImg(piece.image, '15', '8');
+   createTitle(part.name);
+   createImg(part.image, '15', '8');
 
-   ul.appendChild(createLi('Tamanho da memória', `${piece.memorySize} GB`));
-   ul.appendChild(createLi('Velocidade de leitura', piece.reading));
-   ul.appendChild(createLi('Velocidade de escrita', piece.writing));
-   if (piece.rotation) {
-      ul.appendChild(createLi('Rotação', `${piece.rotation} RPM`));
+   ul.appendChild(createLi('Tamanho da memória', `${part.memorySize} GB`));
+   ul.appendChild(createLi('Velocidade de leitura', part.reading));
+   ul.appendChild(createLi('Velocidade de escrita', part.writing));
+   if (part.rotation) {
+      ul.appendChild(createLi('Rotação', `${part.rotation} RPM`));
    }
 
 
@@ -167,55 +166,55 @@ const romInfo = (piece) => {
    createCloseButton();
 };
 
-const m2Info = (piece) => {
+function m2Info(part) {
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
    const ul = document.createElement('ul');
    ul.className = 'moreInfoUl';
 
-   createTitle(piece.name);
-   createImg(piece.image, '17', '5');
+   createTitle(part.name);
+   createImg(part.image, '17', '5');
 
-   ul.appendChild(createLi('Interface', piece.format));
-   ul.appendChild(createLi('Tamanho de memória', `${piece.memorySize} GB`));
-   ul.appendChild(createLi('Formato', piece.model));
-   ul.appendChild(createLi('Velocidade de leitura', piece.reading));
-   ul.appendChild(createLi('Velocidade de escrita', piece.writing));
+   ul.appendChild(createLi('Interface', part.format));
+   ul.appendChild(createLi('Tamanho de memória', `${part.memorySize} GB`));
+   ul.appendChild(createLi('Formato', part.model));
+   ul.appendChild(createLi('Velocidade de leitura', part.reading));
+   ul.appendChild(createLi('Velocidade de escrita', part.writing));
 
    modalBody.appendChild(ul);
    createCloseButton();
 };
 
-const recorderInfo = (piece) => {
+function recorderInfo(part) {
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
    const ul = document.createElement('ul');
    ul.className = 'moreInfoUl';
-   console.log(piece);
-   createTitle(piece.name);
-   createImg(piece.image, '15', '10');
+   console.log(part);
+   createTitle(part.name);
+   createImg(part.image, '15', '10');
 
    modalBody.appendChild(ul);
    createCloseButton();
 };
 
-const powerSupplyInfo = (piece) => {
+function powerSupplyInfo(part) {
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
    const ul = document.createElement('ul');
    ul.className = 'moreInfoUl';
 
-   createTitle(piece.name);
-   createImg(piece.image, '15', '10');
+   createTitle(part.name);
+   createImg(part.image, '15', '10');
 
-   ul.appendChild(createLi('Voltagem', piece.voltage));
-   ul.appendChild(createLi('Capacidade de saída', `${piece.wattage} W`));
+   ul.appendChild(createLi('Voltagem', part.voltage));
+   ul.appendChild(createLi('Capacidade de saída', `${part.wattage} W`));
 
    modalBody.appendChild(ul);
    createCloseButton();
 };
 
-const createLi = (subTitle, info) => {
+function createLi(subTitle, info) {
    const p = document.createElement('p');
    const li = document.createElement('li');
 
@@ -225,7 +224,7 @@ const createLi = (subTitle, info) => {
    return li;
 };
 
-const createLiArray = (subTitle, info, type) => {
+function createLiArray(subTitle, info, type) {
    const p = document.createElement('p');
    const li = document.createElement('li');
 
@@ -247,12 +246,12 @@ const createLiArray = (subTitle, info, type) => {
    return li;
 };
 
-const createTitle = (title) => {
+function createTitle(title) {
    const modalTitle = document.getElementById('modalTitle');
    modalTitle.innerText = title;
 };
 
-const createImg = (image, width, height) => {
+function createImg(image, width, height) {
    const img = document.createElement('img');
    img.src = image;
    img.style.marginRight = 'auto';
@@ -265,7 +264,7 @@ const createImg = (image, width, height) => {
    modalBody.appendChild(img);
 };
 
-const createCloseButton = () => {
+function createCloseButton() {
    const modalButton = document.getElementById('modalButton');
    modalButton.innerHTML = '';
    const buttonClose = document.createElement('button');

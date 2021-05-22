@@ -1,3 +1,7 @@
+import createModalFilter from './modals/filter.js';
+import createModalMoreInfo from './modals/moreInfo.js';
+import createModalWhichIs from './modals/whichIs.js';
+
 export function openModal(typeModal, part) {
    const modal = document.getElementById('modal');
    modal.classList.add('open');
@@ -5,9 +9,6 @@ export function openModal(typeModal, part) {
    switch (typeModal) {
    case 'filter':
       createModalFilter(part);
-      break;
-   case 'order':
-      createModalOrder(part);
       break;
    case 'whichIs':
       createModalWhichIs(part);

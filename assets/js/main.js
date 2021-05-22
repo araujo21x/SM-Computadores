@@ -3,6 +3,7 @@ import {setBuildingPC} from './data/localStorage.js';
 import {disableTab} from './tab.js';
 import {motherboardMode} from './visualHardware.js';
 import {reset, generatePDF} from './helper/utils.js';
+import {closeModal} from './modal.js';
 
 import menuItens from './components/menuItens.js';
 import menuData from './data/menuData.js';
@@ -56,13 +57,48 @@ function generateDropZone() {
 }
 
 function generateModal() {
+   const body = document.getElementsByTagName('BODY')[0];
 
+   const divModalContainer = document.createElement('div');
+   divModalContainer.id = 'modal';
+   divModalContainer.className = 'modalContainer';
+   divModalContainer.addEventListener('click', function() {
+      closeModal(event);
+   });
+
+   const divModal = document.createElement('div');
+   divModal.className = 'modal';
+
+   const buttonClose = document.createElement('button');
+   buttonClose.className = 'close';
+   buttonClose.innerText = 'X';
+   divModal.appendChild(buttonClose);
+
+   const h3Title = document.createElement('h3');
+   h3Title.id = 'modalTitle';
+   h3Title.className = 'modalTitle';
+   divModal.appendChild(h3Title);
+
+   const divModalBody = document.createElement('div');
+   divModalBody.id = 'modalBody';
+   divModalBody.className = 'modalBody';
+   divModal.appendChild(divModalBody);
+
+   const divModalButton = document.createElement('div');
+   divModalButton.id = 'modalButton';
+   divModalButton.className = 'modalButton';
+   divModal.appendChild(divModalButton);
+
+   divModalContainer.appendChild(divModal);
+
+   body.appendChild(divModalContainer);
 }
 
 (function init() {
    generateSideMenu();
    generateDropZone();
    generateButtonsSideMenu();
+   generateModal();
    setBuildingPC();
 
    const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
