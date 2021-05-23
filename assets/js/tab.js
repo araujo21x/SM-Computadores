@@ -1,6 +1,7 @@
 import {coolerZone} from './visualHardware.js';
 import {getPCBuilding} from './data/localStorage.js';
 import {listParts} from './listParts.js';
+import {loading} from './helper/utils.js';
 
 function hideTitleTabs() {
    const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
@@ -12,13 +13,16 @@ function hideTitleTabs() {
 }
 
 export function openTab(title, tabId) {
+   loading(true);
    const tabs = Array.from(document.getElementsByClassName('tab'));
    tabs.map((element) => element.style.display = 'none');
    hideTitleTabs();
 
    document.getElementById(tabId).style.display = 'flex';
    coolerZone(tabId);
-   listParts(tabId, title);// falta fazer
+
+   listParts(tabId, title);
+   loading(false);
 }
 
 export function showTitleTabs() {

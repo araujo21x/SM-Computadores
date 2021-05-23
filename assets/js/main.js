@@ -2,7 +2,7 @@
 import {setBuildingPC} from './data/localStorage.js';
 import {disableTab} from './tab.js';
 import {motherboardMode} from './visualHardware.js';
-import {reset, generatePDF} from './helper/utils.js';
+import {reset, generatePDF, loading} from './helper/utils.js';
 import {closeModal} from './modal.js';
 
 import menuItens from './components/menuItens.js';
@@ -95,6 +95,7 @@ function generateModal() {
 }
 
 (function init() {
+   loading(true);
    generateSideMenu();
    generateDropZone();
    generateButtonsSideMenu();
@@ -106,4 +107,5 @@ function generateModal() {
 
    motherboardMode();
    continueBuilding();
+   loading(false);
 })();

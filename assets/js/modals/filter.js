@@ -1,4 +1,5 @@
 import {request} from '../helper/utils.js';
+
 import {
    motherBoardFilterCamp,
    cpuFilterCamp,
@@ -11,6 +12,7 @@ import {
 } from '../data/filterData.js';
 import {removingPieceFitted} from '../data/db.js';
 import hardwareItem from '../components/partBox.js';
+import {loading} from '../helper/utils.js';
 
 export default function(part) {
    switch (part) {
@@ -57,6 +59,7 @@ export default function(part) {
 }
 
 export async function filter(typePart) {
+   loading(true);
    const filterRequest = {type: typePart};
 
    Array.from(document.getElementsByClassName('selectFilter'))
@@ -71,9 +74,10 @@ export async function filter(typePart) {
       method: 'GET',
       headers: {'Content-Type': 'application/json'},
    });
-   console.log(response);
-   console.log(response);
    renderFilter(response, typePart, filterRequest.showPieces);
+   setTimeout(() => {
+      loading(false);
+   }, 3000);
 }
 
 async function renderFilter(response, typePart, showPieces) {
@@ -89,7 +93,6 @@ async function renderFilter(response, typePart, showPieces) {
 
          const divDroppableParts = document.querySelector(
             `#${typePart}Tab #droppableParts`);
-         console.log(divDroppableParts);
          divDroppableParts.innerHTML = '';
 
          // adicionar as peçãs

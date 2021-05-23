@@ -36,6 +36,7 @@ export function reset() {
 }
 
 export function generatePDF() {
+   loading(true);
    fetch('https://api-draganddrop.herokuapp.com/finish', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -57,6 +58,7 @@ export function generatePDF() {
          });
       }
    });
+   loading(false);
 }
 
 export function showSaveZone() {
@@ -79,4 +81,10 @@ export function hideSaveZone() {
       document.getElementById('titleSection').style.display = 'flex';
       document.getElementById('droppableParts').style.display = 'flex';
    }, 150);
+}
+
+export function loading(activate) {
+   const modalLoading = document.getElementById('modalLoading');
+   if (activate) modalLoading.classList.add('open');
+   else modalLoading.classList.remove('open');
 }

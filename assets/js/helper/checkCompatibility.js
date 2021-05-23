@@ -32,8 +32,18 @@ function verifyCpu(part) {
    return answer;
 }
 
-function verifyCooler(part) { // falta adicionar validação
-   return 'compatible';
+function verifyCooler(part) {
+   let answer = 'compatible';
+   const {
+      cpu: {
+         socket,
+      },
+   } = getPCBuilding();
+
+   if (!part.compatibilityCpu.includes(socket)) {
+      answer = 'incompatible';
+   }
+   return answer;
 }
 
 function verifyRam(part) {
