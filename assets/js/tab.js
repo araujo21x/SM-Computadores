@@ -13,7 +13,6 @@ function hideTitleTabs() {
 }
 
 export function openTab(title, tabId) {
-   loading(true);
    const tabs = Array.from(document.getElementsByClassName('tab'));
    tabs.map((element) => element.style.display = 'none');
    hideTitleTabs();
@@ -22,7 +21,6 @@ export function openTab(title, tabId) {
    coolerZone(tabId);
 
    listParts(tabId, title);
-   loading(false);
 }
 
 export function showTitleTabs() {

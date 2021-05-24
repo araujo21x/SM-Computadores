@@ -2,7 +2,7 @@
 import {setBuildingPC} from './data/localStorage.js';
 import {disableTab} from './tab.js';
 import {motherboardMode} from './visualHardware.js';
-import {reset, generatePDF, loading} from './helper/utils.js';
+import {loading} from './helper/utils.js';
 import {closeModal} from './modal.js';
 
 import menuItens from './components/menuItens.js';
@@ -25,8 +25,8 @@ function generateSideMenu() {
 
 function generateButtonsSideMenu() {
    const sectionButton = document.getElementById('optionsLateralMenu');
-   buttonSideMenu('buttonFinish', generatePDF, 'fa-file-pdf', 'Gerar PDF', sectionButton);
-   buttonSideMenu('buttonReset', reset, 'fa-power-off', 'Resetar', sectionButton);
+   buttonSideMenu('buttonFinish', 'generatePDF', 'fa-file-pdf', 'Gerar PDF', sectionButton);
+   buttonSideMenu('buttonReset', 'reset', 'fa-power-off', 'Resetar', sectionButton);
 }
 
 function generateDropZone() {

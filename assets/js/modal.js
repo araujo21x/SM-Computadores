@@ -1,23 +1,36 @@
 import createModalFilter from './modals/filter.js';
 import createModalMoreInfo from './modals/moreInfo.js';
 import createModalWhichIs from './modals/whichIs.js';
+import {reset, generatePDF} from './modals/others.js';
 
 export function openModal(typeModal, part) {
    const modal = document.getElementById('modal');
    modal.classList.add('open');
+   const borderModal = document.getElementsByClassName('modal');
 
    switch (typeModal) {
    case 'filter':
+      borderModal[0].style.border = '5px solid var(--primaryColor)';
       createModalFilter(part);
       break;
    case 'whichIs':
+      borderModal[0].style.border = '5px solid var(--primaryColor)';
       createModalWhichIs(part);
       break;
    case 'moreInfo':
+      borderModal[0].style.border = '5px solid var(--primaryColor)';
       createModalMoreInfo(part);
       break;
+   case 'reset':
+      borderModal[0].style.border = '5px solid var(--errorColor)';
+      reset();
+      break;
+   case 'generatePDF':
+      borderModal[0].style.border = '5px solid var(--primaryColor)';
+      generatePDF();
+      break;
    };
-}
+};
 
 export function closeModal(event) {
    if (

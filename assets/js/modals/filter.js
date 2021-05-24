@@ -75,9 +75,7 @@ export async function filter(typePart) {
       headers: {'Content-Type': 'application/json'},
    });
    renderFilter(response, typePart, filterRequest.showPieces);
-   setTimeout(() => {
-      loading(false);
-   }, 3000);
+   loading(false);
 }
 
 async function renderFilter(response, typePart, showPieces) {

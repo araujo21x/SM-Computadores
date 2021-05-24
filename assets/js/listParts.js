@@ -2,7 +2,7 @@ import {showTitleTabs} from './tab.js';
 import {openModal} from './modal.js';
 import {dropSave, allowDrop} from './dragAndDrop/desktop.js';
 import {motherboardMode, pcMode} from './visualHardware.js';
-import {cutId} from './helper/utils.js';
+import {cutId, loading} from './helper/utils.js';
 import {getParts} from './data/db.js';
 import {checkCompatibility} from './helper/checkCompatibility.js';
 import partBox from './components/partBox.js';
@@ -155,6 +155,7 @@ export function notPluggable(parts) {
 }
 
 export async function listParts(tabId, title) {
+   loading(true);
    const typePart = cutId(tabId);
    const parts = await getParts(typePart);
 
@@ -177,4 +178,5 @@ export async function listParts(tabId, title) {
 
    // mudar o modo de visualização
    checkMode(typePart); // falta fazer
+   loading(false);
 }

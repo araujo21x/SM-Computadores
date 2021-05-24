@@ -1,8 +1,10 @@
-export default function(className, callBack, iClassName, pText, fatherDiv) {
+import {openModal} from '../modal.js';
+
+export default function(className, typeModal, iClassName, pText, fatherDiv) {
    const button = document.createElement('button');
    button.className = className;
    button.addEventListener('click', function() {
-      callBack();
+      openModal(typeModal);
    });
 
    const i = document.createElement('i');
