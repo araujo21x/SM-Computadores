@@ -40,7 +40,7 @@
 }
 
 .alertTitle {
-  margin-top: 2%;
+  margin-top: 2.5%;
   font-family: 'Mulish', sans-serif;
   font-weight: bold;
   font-size: 4vh;
@@ -69,7 +69,7 @@
   height: 20%;
   justify-content: center;
   font-family: 'Mulish', sans-serif;
-  margin-bottom: 0.2%;
+  margin-bottom: 1%;
 }
 .alertButton button {
   width: 20%;

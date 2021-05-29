@@ -3,7 +3,8 @@ import {listParts} from '../listParts.js';
 import {setBuildingPC, setDropZone, getDropZone, deletePCBuilding}
    from '../data/localStorage.js';
 import {motherboardMode, coolerZone} from '../visualHardware.js';
-import {phantomDivRemove, showSaveZone, hideSaveZone} from '../helper/utils.js';
+// eslint-disable-next-line max-len
+import {phantomDivRemove, showSaveZone, hideSaveZone, loading} from '../helper/utils.js';
 import {
    pcieSpecificity,
    ramSpecificity,
@@ -122,7 +123,7 @@ export async function drop(event) {
 
    if (part.type === 'motherBoard') {
       await installMotherboard(part);
-
+      loading(false);
       setTimeout(() => {
          showTitleTabs();
       }, 200);
