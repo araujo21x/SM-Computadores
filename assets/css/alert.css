@@ -8,24 +8,23 @@
   z-index: 2000;
   justify-content: center;
   align-items: center;
+  display: none;
+}
+.alertContainer.openAlert {
   display: flex;
 }
-/* .alertContainer.open {
-  display: flex;
-} */
 
-.teste {
+.alert {
   display: flex;
   flex-direction: column;
   width: 50%;
   height: 20%;
   background-color: #f4f4f7;
   border-radius: 6px;
-  box-shadow: 0 0 0 5px var(--errorColor);
   position: relative;
 }
 
-@keyframes teste {
+@keyframes alert {
   from {
      opacity: 0;
      transform: translate3d(0, -50px, 0);
@@ -36,28 +35,60 @@
      transform: translate3d(0, 0, 0);
   }
 }
-.open .teste {
+.openAlert .alert {
   animation: modal .3s;
 }
 
-.testeTitle {
-  color: var(--errorColor);
-  width: 95%;
-  height: 8%;
-  margin: 0.7% 0% 2% 0%;
-  text-align: center;
+.alertTitle {
+  margin-top: 2%;
   font-family: 'Mulish', sans-serif;
   font-weight: bold;
   font-size: 4vh;
+
+  display: flex;
+  width: 100%;
+  height: 10%;
+  justify-content: center;
+  align-items: center;
 }
 
-.testeBody {
+.alertBody {
+  display: flex;
+  width: 100%;
+  height: 70%;
+  justify-content: center;
   align-items: center;
-  justify-content: center;
-  align-content: center;
-  width: 98%;
-  height: 80%;
-  margin: 0% 1% 0% 1%;
+  
   font-family: 'Mulish', sans-serif;
+  font-size: 2vh;
+}
+
+.alertButton {
+  display: flex;
+  width: 100%;
+  height: 20%;
   justify-content: center;
+  font-family: 'Mulish', sans-serif;
+  margin-bottom: 0.2%;
+}
+.alertButton button {
+  width: 20%;
+  height: 92%;
+  font-family: 'Mulish', sans-serif;
+  font-weight: bold;
+  margin-right: 2%;
+  font-size: 3vh;
+  color: var(--primaryFontColor);
+  border-radius: 5px;
+  border: none;
+}
+
+.neutralButton {
+  background-color: var(--detailColor);
+  box-shadow: 3px 2px 2px var(--detailColor);
+}
+
+.neutralButton:hover {
+  background-color: #a09f9f;
+  box-shadow: 3px 2px 2px var(--detailColor);
 }

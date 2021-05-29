@@ -1,11 +1,25 @@
-import {openModal} from '../modal.js';
+/* eslint-disable max-len */
+import {openAlert} from '../alert.js';
+import {reset, generatePDF} from '../helper/utils.js';
 
-export default function(className, typeModal, iClassName, pText, fatherDiv) {
+export default function(className, typeAlert, iClassName, pText, fatherDiv) {
    const button = document.createElement('button');
    button.className = className;
-   button.addEventListener('click', function() {
-      openModal(typeModal);
-   });
+   if (typeAlert === 'confirm') {
+      button.addEventListener('click', function() {
+         openAlert(typeAlert, 'Deseja gerar PDF ?',
+            'Gerar um arquivo pdf com as especificações que você montou até agora',
+            generatePDF);
+      });
+   } else {
+      button.addEventListener('click', function() {
+         openAlert(typeAlert, 'Deseja reiniciar ?',
+            'Ao confirmar você vai precisar recomeçar o processo de montagem',
+            reset,
+         );
+      });
+   }
+
 
    const i = document.createElement('i');
    i.className = `fas ${iClassName} imgOptionsButton`;

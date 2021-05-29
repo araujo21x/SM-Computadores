@@ -4,6 +4,7 @@ import {disableTab} from './tab.js';
 import {motherboardMode} from './visualHardware.js';
 import {loading} from './helper/utils.js';
 import {closeModal} from './modal.js';
+import {closeAlert} from './alert.js';
 
 import menuItens from './components/menuItens.js';
 import menuData from './data/menuData.js';
@@ -25,8 +26,8 @@ function generateSideMenu() {
 
 function generateButtonsSideMenu() {
    const sectionButton = document.getElementById('optionsLateralMenu');
-   buttonSideMenu('buttonFinish', 'generatePDF', 'fa-file-pdf', 'Gerar PDF', sectionButton);
-   buttonSideMenu('buttonReset', 'reset', 'fa-power-off', 'Resetar', sectionButton);
+   buttonSideMenu('buttonFinish', 'confirm', 'fa-file-pdf', 'Gerar PDF', sectionButton);
+   buttonSideMenu('buttonReset', 'confirmDanger', 'fa-power-off', 'Resetar', sectionButton);
 }
 
 function generateDropZone() {
@@ -94,12 +95,45 @@ function generateModal() {
    body.appendChild(divModalContainer);
 }
 
+function generateAlertBase() {
+   const body = document.getElementsByTagName('BODY')[0];
+
+   const divAlertContainer = document.createElement('div');
+   divAlertContainer.id = 'alert';
+   divAlertContainer.className = 'alertContainer';
+   divAlertContainer.addEventListener('click', function() {
+      closeAlert(event);
+   });
+
+   const divAlert = document.createElement('div');
+   divAlert.className = 'alert';
+
+   const divAlertTitle = document.createElement('div');
+   divAlertTitle.id = 'alertTitle';
+   divAlertTitle.className = 'alertTitle';
+   divAlert.appendChild(divAlertTitle);
+
+   const divAlertBody = document.createElement('div');
+   divAlertBody.id = 'alertBody';
+   divAlertBody.className = 'alertBody';
+   divAlert.appendChild(divAlertBody);
+
+   const divAlertButton = document.createElement('div');
+   divAlertButton.id = 'alertButton';
+   divAlertButton.className = 'alertButton';
+   divAlert.appendChild(divAlertButton);
+
+   divAlertContainer.appendChild(divAlert);
+   body.appendChild(divAlertContainer);
+}
+
 (function init() {
    loading(true);
    generateSideMenu();
    generateDropZone();
    generateButtonsSideMenu();
    generateModal();
+   generateAlertBase();
    setBuildingPC();
 
    const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
