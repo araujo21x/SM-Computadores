@@ -1,10 +1,20 @@
 import {showTitleTabs, disableTab} from '../tab.js';
 import {listParts} from '../listParts.js';
-import {setBuildingPC, setDropZone, getDropZone, deletePCBuilding}
+import {
+   setBuildingPC,
+   setDropZone,
+   getDropZone,
+   deletePCBuilding,
+   getPCBuilding,
+}
    from '../data/localStorage.js';
 import {motherboardMode, coolerZone} from '../visualHardware.js';
-// eslint-disable-next-line max-len
-import {phantomDivRemove, showSaveZone, hideSaveZone, loading} from '../helper/utils.js';
+import {
+   phantomDivRemove,
+   showSaveZone,
+   hideSaveZone,
+   loading,
+} from '../helper/utils.js';
 import {
    pcieSpecificity,
    ramSpecificity,
@@ -14,6 +24,7 @@ import {
 import partBox from '../components/partBox.js';
 import resizeGrid from '../helper/dropZone.js';
 import {checkCompatibility} from '../helper/checkCompatibility.js';
+import {openAlert} from '../alert.js';
 
 function partSpecificity(partType, idDropZone, part, slot) {
    switch (partType) {
@@ -82,7 +93,8 @@ function compatible(event, idDropZone, part) {
 }
 
 function malfunction(event, idDropZone, part) {
-   alert('Pode apresentar mau funcionamento ou perda de desempenho');
+   openAlert('confirmAttention', ' Atenção!!!',
+      'Pode apresentar mau funcionamento ou perca de desempenho');
 
    event.target.appendChild(document.getElementById(idDropZone));
    partSpecificity(part.type, idDropZone, part, event.target.id);
@@ -98,7 +110,7 @@ function malfunction(event, idDropZone, part) {
 }
 
 function incompatible() {
-   alert('Não compatível com a placa mãe!');
+   openAlert('confirmDanger', ' Erro!!!', 'Incompatível com a placa mãe!');
 }
 
 export function drag(event, part) {
@@ -120,16 +132,19 @@ export async function drop(event) {
 
    const data = event.dataTransfer.getData('text');
    const part = JSON.parse(event.dataTransfer.getData('part'));
-
    if (part.type === 'motherBoard') {
-      await installMotherboard(part);
-      loading(false);
-      setTimeout(() => {
-         showTitleTabs();
-      }, 200);
+      if (!getPCBuilding().motherBoard) {
+         await installMotherboard(part);
+         loading(false);
+         setTimeout(() => {
+            showTitleTabs();
+         }, 200);
+      } else {
+         openAlert('confirmDanger', ' Erro', 'já possui placa mãe');
+      }
    } else {
       if (checkSlot(event.target.id, part.type)) {
-         switch (checkCompatibility(part)) { // falta fazer essa função
+         switch (checkCompatibility(part)) {
          case 'compatible':
             compatible(event, data, part);
             break;
@@ -145,9 +160,11 @@ export async function drop(event) {
          }, 200);
       } else {
          if (event.target.id.slice(0, 4) === 'drag') {
-            alert('já possui peçã retire a atual');
+            openAlert('confirmDanger', ' Erro!!!',
+               'já possui peça, retire a atual');
          } else {
-            alert('Esse não é o local da peçã');
+            openAlert('confirmDanger', ' Erro!!!',
+               'Esse não é o local da peça');
          }
       }
    }

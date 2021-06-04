@@ -92,3 +92,13 @@
   background-color: #a09f9f;
   box-shadow: 3px 2px 2px var(--detailColor);
 }
+
+.attentionButton {
+  background-color: var(--incompatible);
+  box-shadow: 3px 2px 2px #f8f40f;
+}
+
+.attentionButton:hover {
+  background-color: #f0ec0e;
+  box-shadow: 3px 2px 2px #f8f40f;
+}

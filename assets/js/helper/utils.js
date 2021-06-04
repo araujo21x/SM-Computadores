@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import {resetLocalStorage, getPCBuilding} from '../data/localStorage.js';
+import {openAlert, close} from '../alert.js';
 
 // server para pegar o tipo da peça
 export function cutId(string) {
@@ -36,6 +37,7 @@ export function reset() {
 }
 
 export function generatePDF() {
+   close();
    loading(true);
    fetch('https://api-draganddrop.herokuapp.com/finish', {
       method: 'POST',
@@ -54,7 +56,7 @@ export function generatePDF() {
          });
       } else {
          response.json().then((value) => {
-            alert(value.result.mensagem);
+            openAlert('confirmDanger', ' Erro', value.result.mensagem);
          });
       }
    });

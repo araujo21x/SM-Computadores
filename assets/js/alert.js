@@ -4,11 +4,13 @@ export function openAlert(typeAlert, title, text, cb) {
 
    switch (typeAlert) {
    case 'confirm':
-      console.log(title);
       confirmAlert(title, text, cb);
       break;
    case 'confirmDanger':
       confirmDangerAlert(title, text, cb);
+      break;
+   case 'confirmAttention':
+      confirmAttentionAlert(title, text, cb);
       break;
    }
 }
@@ -43,8 +45,30 @@ function confirmDangerAlert(title, text, cb) {
 
    createTile(title, 'errorColor', 'fas fa-exclamation-triangle');
    createBody(text);
-   alertButton.appendChild(createButton('Cancelar', 'neutralButton', close));
-   alertButton.appendChild(createButton('Confirmar', 'cancelButton', cb));
+   if (!cb) {
+      alertButton.appendChild(createButton('Confirmar', 'cancelButton', close));
+   } else {
+      alertButton.appendChild(createButton('Cancelar', 'neutralButton', close));
+      alertButton.appendChild(createButton('Confirmar', 'cancelButton', cb));
+   }
+}
+
+function confirmAttentionAlert(title, text, cb) {
+   const alert = document.getElementsByClassName('alert');
+   alert[0].style.boxShadow = '0 0 0 6px var(--incompatible)';
+
+   const alertButton = document.getElementById('alertButton');
+   alertButton.innerHTML = '';
+
+   createTile(title, 'incompatible', 'fas fa-exclamation-triangle');
+   createBody(text);
+   if (!cb) {
+      alertButton.appendChild(createButton('Confirmar', 'attentionButton',
+         close));
+   } else {
+      alertButton.appendChild(createButton('Cancelar', 'neutralButton', close));
+      alertButton.appendChild(createButton('Confirmar', 'attentionButton', cb));
+   }
 }
 
 function createTile(title, color, icon) {
@@ -76,7 +100,7 @@ function createButton(text, type, cb) {
    return button;
 }
 
-function close() {
+export function close() {
    const modal = document.getElementById('alert');
    modal.classList.remove('openAlert');
 }

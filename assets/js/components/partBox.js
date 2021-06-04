@@ -63,6 +63,7 @@ export function creatTagImg(imageDir, infoImg, part) {
    imageTag.src = imageDir;
    imageTag.alt = infoImg;
    imageTag.className = 'imagePiece';
+   imageTag.loading = 'lazy';
 
    // add drag and drop
    imageTag.draggable = true;

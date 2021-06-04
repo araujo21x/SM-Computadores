@@ -126,7 +126,6 @@ function pciExpressInfo(part) {
    modalBody.innerHTML = '';
    const ul = document.createElement('ul');
    ul.className = 'moreInfoUl';
-   console.log(part);
    createTitle(part.name);
    createImg(part.image, '20', '10');
 
@@ -190,7 +189,6 @@ function recorderInfo(part) {
    modalBody.innerHTML = '';
    const ul = document.createElement('ul');
    ul.className = 'moreInfoUl';
-   console.log(part);
    createTitle(part.name);
    createImg(part.image, '15', '10');
 
