@@ -1,7 +1,9 @@
+/* eslint-disable max-len */
 import {getPCBuilding} from '../data/localStorage.js';
+import err from '../data/erroCompatibility.js';
 
 function verifyMotherBoard(part) {
-   return 'compatible';
+   return {situation: 'compatible', error: ''};
 }
 
 function verifyCpu(part) {
@@ -14,26 +16,28 @@ function verifyCpu(part) {
       ramMemory,
    } = getPCBuilding();
 
-   let answer = 'compatible';
+   let answer = {situation: 'compatible', error: ''};
 
    if (socket !== part.socket || chipset !== part.chipset) {
-      answer = 'incompatible';
+      answer = {situation: 'incompatible', error: err.cpu01};
    } else {
       if (memorySlotAmount !== part.memorySupportAmountSlot) {
-         answer = 'incompatible';
+         answer = {situation: 'incompatible', error: err.cpu02};
       } else {
          if (memorySizeSupport !== part.memorySizeSupport) {
-            answer = 'malfunction';
+            answer = {situation: 'malfunction', error: err.cpu03};
          }
       }
    }
 
-   if (ramMemory > part.memorySizeSupport) answer = 'incompatible';
+   if (ramMemory > part.memorySizeSupport) {
+      answer = {situation: 'incompatible', error: err.cpu04};
+   } // confirmar se é incompatible ou malfunction
    return answer;
 }
 
 function verifyCooler(part) {
-   let answer = 'compatible';
+   let answer = {situation: 'compatible', error: ''};
    const {
       cpu: {
          socket,
@@ -41,7 +45,7 @@ function verifyCooler(part) {
    } = getPCBuilding();
 
    if (!part.compatibilityCpu.includes(socket)) {
-      answer = 'incompatible';
+      answer = {situation: 'incompatible', error: err.cooler01};
    }
    return answer;
 }
@@ -58,18 +62,18 @@ function verifyRam(part) {
       ramMemory,
    } = getPCBuilding();
 
-   let answer = 'compatible';
+   let answer = {situation: 'compatible', error: ''};
    if (memorySlotAmount === 0 || memorySlotType !== part.memorySlotType) {
-      answer = 'incompatible';
+      answer = {situation: 'incompatible', error: err.ram01};
    } else if (memorySlotFrequency.includes(part.memoryFrequency)) {
-      answer = 'malfunction';
+      answer = {situation: 'malfunction', error: err.ram02};
    } else {
       if ((ramMemory + part.memorySize) > memorySizeSupport) {
-         answer = 'malfunction';
+         answer = {situation: 'malfunction', error: err.ram03};
       } else {
          if (cpu) {
             if ((ramMemory + part.memorySize) > cpu.memorySizeSupport) {
-               answer = 'malfunction';
+               answer = {situation: 'malfunction', error: err.ram04};
             }
          }
       }
@@ -86,7 +90,7 @@ function verifyPciExpress(part) {
    });
    // aqui ela verifica se tem uma entrada PCIe do mesmo tipo ex: x16, x2
    if (verifyType.length === 0) {
-      return 'incompatible';
+      return {situation: 'incompatible', error: err.pci01};
    }
 
    // aqui ela verifica se tem uma versão de PCIe da mesma exemplo:
@@ -96,46 +100,46 @@ function verifyPciExpress(part) {
    });
 
    if (verifyVersion.length === 0) {
-      return 'malfunction';
+      return {situation: 'malfunction', error: err.pci02};
    } else {
-      return 'compatible';
+      return {situation: 'compatible', error: ''};
    }
 }
 
 function verifyRom(part) {
-   return 'compatible';
+   return {situation: 'compatible', error: ''};
 }
 
 function verifyM2(part) {
    const {motherBoard: {hasSocketM2, socketM2}} = getPCBuilding();
 
    if (!hasSocketM2) {
-      return 'incompatible';
+      return {situation: 'incompatible', error: err.m201};
    };
 
-   const verifyTypeSockerM2 = socketM2.filter((element) => {
+   const verifyTypeSocketM2 = socketM2.filter((element) => {
       return element.type.includes(part.format);
    });
 
-   if (verifyTypeSockerM2.length === 0) {
-      return 'incompatible';
+   if (verifyTypeSocketM2.length === 0) {
+      return {situation: 'incompatible', error: err.m202}; // verificar
    }
 
-   return 'compatible';
+   return {situation: 'compatible', error: ''};
 }
 
 function verifyRecorder(part) {
-   return 'compatible';
+   return {situation: 'compatible', error: ''};
 }
 
 function verifyPowerSupply(part) {
    const {currentTDP} = getPCBuilding();
    let answer = 'compatible';
 
-   if (currentTDP > part.wattage) answer = 'incompatible';
+   if (currentTDP > part.wattage) answer = {situation: 'incompatible', error: err.psu01};
 
    const TDP = part.wattage - currentTDP;
-   if (TDP >= 0 && TDP <= 50) answer = 'malfunction';
+   if (TDP >= 0 && TDP <= 50) answer = {situation: 'malfunction', error: err.psu02};
 
    return answer;
 }
@@ -145,7 +149,7 @@ export function verifyTDP(part, currentStatus) {
 
    if (powerSupply) {
       if ((currentTDP + part.TDP) > powerSupply.wattage) {
-         currentStatus = 'incompatible';
+         currentStatus = {situation: 'incompatible', error: err.psu01};
       }
    }
 

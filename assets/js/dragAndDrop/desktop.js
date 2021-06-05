@@ -93,9 +93,8 @@ function compatible(event, idDropZone, part) {
    disableTab(titleTabs);
 }
 
-function malfunction(event, idDropZone, part) {
-   openAlert('confirmAttention', ' Atenção!!!',
-      'Pode apresentar mau funcionamento ou perca de desempenho');
+function malfunction(event, idDropZone, part, error) {
+   openAlert('confirmAttention', ' Atenção!!!', error);
 
    event.target.appendChild(document.getElementById(idDropZone));
    partSpecificity(part.type, idDropZone, part, event.target.id);
@@ -110,8 +109,8 @@ function malfunction(event, idDropZone, part) {
    disableTab(titleTabs);
 }
 
-function incompatible() {
-   openAlert('confirmDanger', ' Erro!!!', 'Incompatível com a placa mãe!');
+function incompatible(error) {
+   openAlert('confirmDanger', ' Erro!!!', error);
 }
 
 export function drag(event, part) {
@@ -148,15 +147,16 @@ export async function drop(event) {
          if (getEvaluativeMode()) {
             compatible(event, data, part);
          } else {
-            switch (checkCompatibility(part)) {
+            const compatibility = checkCompatibility(part);
+            switch (compatibility.situation) {
             case 'compatible':
                compatible(event, data, part);
                break;
             case 'malfunction':
-               malfunction(event, data, part);
+               malfunction(event, data, part, compatibility.error);
                break;
             case 'incompatible':
-               incompatible();
+               incompatible(compatibility.error);
                break;
             }
          }

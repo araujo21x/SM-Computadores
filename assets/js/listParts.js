@@ -141,7 +141,7 @@ function checkMode(typePart) {
 
 export function justPlugable(parts) {
    const newParts = parts.filter((part) => {
-      const isCompatible = checkCompatibility(part);
+      const isCompatible = checkCompatibility(part).situation;
       return isCompatible !== 'incompatible' ? part : null;
    });
    return newParts;
@@ -149,7 +149,7 @@ export function justPlugable(parts) {
 
 export function notPluggable(parts) {
    const newParts = parts.filter((part) => {
-      const isCompatible = checkCompatibility(part);
+      const isCompatible = checkCompatibility(part).situation;
       return isCompatible === 'incompatible' ? part : null;
    });
    return newParts;

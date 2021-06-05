@@ -94,7 +94,7 @@ export default function(part) {// refatorar
    if (getEvaluativeMode()) {
       partItemTag.classList.add('nullBorder');
    } else {
-      partItemTag.classList.add(checkCompatibility(part));
+      partItemTag.classList.add(checkCompatibility(part).situation);
    }
 
    return partItemTag;

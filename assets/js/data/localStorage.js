@@ -129,7 +129,7 @@ export function resetLocalStorage() {
 
 // modo de jogo
 export async function setEvaluativeMode(isEvaluative) {
-   localStorage.setItem('evaluativeMode', JSON.stringify(true));
+   localStorage.setItem('evaluativeMode', JSON.stringify(false));
 }
 
 export function getEvaluativeMode() {

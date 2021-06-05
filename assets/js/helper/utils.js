@@ -18,6 +18,7 @@ export function phantomDivRemove() {
 
 export function configGrid(tag, piece) {
    const div = document.getElementById(tag);
+   div.className = 'dropMobile';
    div.style.gridColumn = piece.gridColumn;
    div.style.gridRow = piece.gridRow;
    if (!getEvaluativeMode()) {
