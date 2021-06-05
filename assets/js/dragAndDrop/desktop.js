@@ -6,6 +6,7 @@ import {
    getDropZone,
    deletePCBuilding,
    getPCBuilding,
+   getEvaluativeMode,
 }
    from '../data/localStorage.js';
 import {motherboardMode, coolerZone} from '../visualHardware.js';
@@ -144,17 +145,22 @@ export async function drop(event) {
       }
    } else {
       if (checkSlot(event.target.id, part.type)) {
-         switch (checkCompatibility(part)) {
-         case 'compatible':
+         if (getEvaluativeMode()) {
             compatible(event, data, part);
-            break;
-         case 'malfunction':
-            malfunction(event, data, part);
-            break;
-         case 'incompatible':
-            incompatible();
-            break;
+         } else {
+            switch (checkCompatibility(part)) {
+            case 'compatible':
+               compatible(event, data, part);
+               break;
+            case 'malfunction':
+               malfunction(event, data, part);
+               break;
+            case 'incompatible':
+               incompatible();
+               break;
+            }
          }
+
          setTimeout(() => {
             showTitleTabs();
          }, 200);
@@ -163,6 +169,7 @@ export async function drop(event) {
             openAlert('confirmDanger', ' Erro!!!',
                'já possui peça, retire a atual');
          } else {
+            // verificar se é para mostrar esse aviso ou não
             openAlert('confirmDanger', ' Erro!!!',
                'Esse não é o local da peça');
          }

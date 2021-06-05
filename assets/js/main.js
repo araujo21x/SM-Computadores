@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import {setBuildingPC} from './data/localStorage.js';
+import {setBuildingPC, setEvaluativeMode} from './data/localStorage.js';
 import {disableTab} from './tab.js';
 import {motherboardMode} from './visualHardware.js';
 import {loading} from './helper/utils.js';
@@ -129,6 +129,7 @@ function generateAlertBase() {
 
 (function init() {
    loading(true);
+   setEvaluativeMode();
    generateSideMenu();
    generateDropZone();
    generateButtonsSideMenu();

@@ -13,6 +13,7 @@ import {
 import {removingPieceFitted} from '../data/db.js';
 import hardwareItem from '../components/partBox.js';
 import {loading} from '../helper/utils.js';
+import {justPlugable} from '../listParts.js';
 
 export default function(part) {
    switch (part) {
@@ -96,7 +97,7 @@ async function renderFilter(response, typePart, showPieces) {
          // adicionar as peçãs
 
          if (showPieces === 'pluggable') {
-            const newParts = justPluggable(verifiedParts);
+            const newParts = justPlugable(verifiedParts);
             newParts.forEach((element) => {
                divDroppableParts.appendChild(hardwareItem(element));
             });

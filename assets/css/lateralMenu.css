@@ -225,7 +225,9 @@
 .incompatible {
    border: 2px solid var(--errorColor);
 }
-
+.nullBorder {
+   border: 2px solid var(--primaryColor);
+}
 .hardwareItemImg {
    height: 88%;
    width: 46%;

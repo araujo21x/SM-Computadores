@@ -1,6 +1,7 @@
 import {drag, dropEnd} from '../dragAndDrop/desktop.js';
 import {checkCompatibility} from '../helper/checkCompatibility.js';
 import {openModal} from '../modal.js';
+import {getEvaluativeMode} from '../data/localStorage.js';
 
 import partBoxInfo from './partBoxInfo.js';
 
@@ -11,7 +12,7 @@ function imageZone(imageDir, infoImg, part) {
    const imageTag = creatTagImg(imageDir, infoImg, part);
    const divImage = document.createElement('div');
 
-   if (part.type==='motherBoard') {
+   if (part.type === 'motherBoard') {
       divImage.style.width = '100%';
       divImage.style.height = '100%';
    }
@@ -20,7 +21,6 @@ function imageZone(imageDir, infoImg, part) {
    divZoneImage.appendChild(divImage);
    return divZoneImage;
 }
-
 
 function bodyZone(part) {
    const divBody = document.createElement('div');
@@ -91,7 +91,11 @@ export default function(part) {// refatorar
    partItemTag.appendChild(bodyZone(part));
 
    // verificar se a peçã e compatível com a placa-mãe e definir a cor da borda
-   partItemTag.classList.add(checkCompatibility(part));
+   if (getEvaluativeMode()) {
+      partItemTag.classList.add('nullBorder');
+   } else {
+      partItemTag.classList.add(checkCompatibility(part));
+   }
 
    return partItemTag;
 }

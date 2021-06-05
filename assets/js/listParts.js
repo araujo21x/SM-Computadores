@@ -5,6 +5,7 @@ import {motherboardMode, pcMode} from './visualHardware.js';
 import {cutId, loading} from './helper/utils.js';
 import {getParts} from './data/db.js';
 import {checkCompatibility} from './helper/checkCompatibility.js';
+import {getEvaluativeMode} from './data/localStorage.js';
 import partBox from './components/partBox.js';
 
 // falta colocar o cutId
@@ -157,7 +158,7 @@ export function notPluggable(parts) {
 export async function listParts(tabId, title) {
    loading(true);
    const typePart = cutId(tabId);
-   const parts = await getParts(typePart);
+   let parts = await getParts(typePart);
 
    // Adicionado os botões e a zona de recuperar peça
    const divTab = document.getElementById(tabId);
@@ -170,13 +171,13 @@ export async function listParts(tabId, title) {
    section.id = 'droppableParts';
 
    // Adicionando as peças
-   const newParts = justPlugable(parts);
-   // falta fazer
-   newParts.forEach((element) => section.appendChild(partBox(element)));
+   if (!getEvaluativeMode()) parts = justPlugable(parts);
+
+   parts.forEach((element) => section.appendChild(partBox(element)));
    divTab.appendChild(section);
    divTab.appendChild(backButton());
 
    // mudar o modo de visualização
-   checkMode(typePart); // falta fazer
+   checkMode(typePart);
    loading(false);
 }

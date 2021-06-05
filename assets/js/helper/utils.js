@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import {resetLocalStorage, getPCBuilding} from '../data/localStorage.js';
+import {resetLocalStorage, getPCBuilding, getEvaluativeMode} from '../data/localStorage.js';
 import {openAlert, close} from '../alert.js';
 
 // server para pegar o tipo da peça
@@ -20,7 +20,9 @@ export function configGrid(tag, piece) {
    const div = document.getElementById(tag);
    div.style.gridColumn = piece.gridColumn;
    div.style.gridRow = piece.gridRow;
-   div.style.border = '2px solid #ff00ff';
+   if (!getEvaluativeMode()) {
+      div.style.border = '2px solid #ff00ff';
+   }
 }
 
 export async function request(url, method) {
