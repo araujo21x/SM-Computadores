@@ -134,7 +134,7 @@ function verifyRecorder(part) {
 
 function verifyPowerSupply(part) {
    const {currentTDP} = getPCBuilding();
-   let answer = 'compatible';
+   let answer = {situation: 'compatible', error: ''};
 
    if (currentTDP > part.wattage) answer = {situation: 'incompatible', error: err.psu01};
 

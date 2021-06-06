@@ -129,7 +129,7 @@ function generateAlertBase() {
 
 (function init() {
    loading(true);
-   setEvaluativeMode();
+   setEvaluativeMode(true);
    generateSideMenu();
    generateDropZone();
    generateButtonsSideMenu();

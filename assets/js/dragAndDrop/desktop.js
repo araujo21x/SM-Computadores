@@ -7,6 +7,8 @@ import {
    deletePCBuilding,
    getPCBuilding,
    getEvaluativeMode,
+   setErrorReport,
+   deleteErrorReport,
 }
    from '../data/localStorage.js';
 import {motherboardMode, coolerZone} from '../visualHardware.js';
@@ -79,14 +81,19 @@ async function installMotherboard(part) {
    disableTab(titleTabs);
 }
 
-function compatible(event, idDropZone, part) {
+function compatible(event, idDropZone, part, compatibility) {
    event.target.appendChild(document.getElementById(idDropZone));
    partSpecificity(part.type, idDropZone, part, event.target.id);
    phantomDivRemove();
    setBuildingPC(part, event.target.id);
-
+   if (compatibility !== undefined) {
+      if (compatibility.error) {
+         setErrorReport(part, event.target.id, compatibility);
+      }
+   }
    const {mode} = getDropZone();
    resizeGrid(mode);
+
 
    // liberar botoes do menu
    const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
@@ -144,10 +151,10 @@ export async function drop(event) {
       }
    } else {
       if (checkSlot(event.target.id, part.type)) {
+         const compatibility = checkCompatibility(part);
          if (getEvaluativeMode()) {
-            compatible(event, data, part);
+            compatible(event, data, part, compatibility);
          } else {
-            const compatibility = checkCompatibility(part);
             switch (compatibility.situation) {
             case 'compatible':
                compatible(event, data, part);
@@ -185,12 +192,14 @@ export function dropSave(event, typeTab) { // drop da save zone
    const part = JSON.parse(event.dataTransfer.getData('part'));
 
    const imgDelete = document.getElementById(data);
+   removeError(part, imgDelete.parentNode.id);
    imgDelete.parentNode.removeChild(imgDelete);
 
    if (part.type === typeTab) {
       const droppableParts = document.getElementById('droppableParts');
       droppableParts.appendChild(partBox(part));
    }
+   removeError(part);
    deletePCBuilding(part);
    phantomDivRemove();
 
@@ -199,4 +208,11 @@ export function dropSave(event, typeTab) { // drop da save zone
 
    const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
    disableTab(titleTabs);
+}
+
+function removeError(part, idDiv) {
+   const compatibility = checkCompatibility(part);
+   if (compatibility.situation !== 'compatible') {
+      deleteErrorReport(part, compatibility, idDiv);
+   }
 }
