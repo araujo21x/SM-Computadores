@@ -1,48 +1,38 @@
-import {request} from '../helper/utils.js';
 
-import {
-   motherBoardFilterCamp,
-   cpuFilterCamp,
-   coolerFilterCamp,
-   ramFilterCamp,
-   pciFilterCamp,
-   romCamp,
-   M2Camp,
-   psuCamp,
-} from '../data/filterData.js';
-import {removingPieceFitted} from '../data/db.js';
+import {removingPieceFitted, getFieldsFilter} from '../data/db.js';
 import hardwareItem from '../components/partBox.js';
 import {loading} from '../helper/utils.js';
 import {justPlugable} from '../listParts.js';
 
-export default function(part) {
+export default async function(part) {
+   const fieldsFilter = await getFieldsFilter(part);
    switch (part) {
    case 'motherBoard':
-      motherBoardFilter();
+      motherBoardFilter(fieldsFilter);
       break;
    case 'cpu':
-      cpuFilter();
+      cpuFilter(fieldsFilter);
       break;
    case 'cooler':
-      coolerFilter();
+      coolerFilter(fieldsFilter);
       break;
    case 'ram':
-      ramFilter();
+      ramFilter(fieldsFilter);
       break;
    case 'pciExpress':
-      pciExpressFilter();
+      pciExpressFilter(fieldsFilter);
       break;
    case 'rom':
-      romFilter();
+      romFilter(fieldsFilter);
       break;
    case 'm2':
-      m2Filter();
+      m2Filter(fieldsFilter);
       break;
    case 'recorder':
-      recorderFilter();
+      recorderFilter(fieldsFilter);
       break;
    case 'powerSupply':
-      psuFilter();
+      psuFilter(fieldsFilter);
       break;
    }
 
@@ -124,7 +114,7 @@ function createTitleFilter(name) {
    modalTitle.innerText = `Filtro e Ordenação de ${name}`;
 };
 
-function creatItemForm({name, question, answer}) {
+function creatItemForm({name, question, filterResponse}) {
    const divItemFilter = document.createElement('div');
    divItemFilter.className = 'itemFilter';
 
@@ -150,7 +140,7 @@ function creatItemForm({name, question, answer}) {
       select.appendChild(optionNull);
    }
 
-   answer.forEach((element) => {
+   filterResponse.forEach((element) => {
       const option = document.createElement('option');
       option.value = element.value;
       option.text = element.text;
@@ -160,28 +150,21 @@ function creatItemForm({name, question, answer}) {
    return divItemFilter;
 };
 
-function motherBoardFilter() {
+function motherBoardFilter(fieldsFilter) {
    createTitleFilter('Placa-Mãe');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
 
    const divForm = document.createElement('div');
    divForm.className = 'filterForm';
-   divForm.appendChild(creatItemForm(motherBoardFilterCamp.order));
-   divForm.appendChild(creatItemForm(motherBoardFilterCamp.sortType));
-   divForm.appendChild(creatItemForm(motherBoardFilterCamp.showPieces));
-   divForm.appendChild(creatItemForm(motherBoardFilterCamp.chipset));
-   divForm.appendChild(creatItemForm(motherBoardFilterCamp.socket));
-   divForm.appendChild(creatItemForm(motherBoardFilterCamp.suportM2));
-   divForm.appendChild(creatItemForm(motherBoardFilterCamp.memorySizeSupport));
-   divForm.appendChild(creatItemForm(motherBoardFilterCamp.memorySlotAmount));
-   divForm.appendChild(creatItemForm(motherBoardFilterCamp.memorySlotType));
-   divForm.appendChild(creatItemForm(motherBoardFilterCamp.motherFrequencies));
+   fieldsFilter.forEach((element) => {
+      divForm.appendChild(creatItemForm(element));
+   });
 
    modalBody.appendChild(divForm);
 };
 
-function cpuFilter() {
+function cpuFilter(fieldsFilter) {
    createTitleFilter('Processador');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -189,25 +172,15 @@ function cpuFilter() {
    const divForm = document.createElement('div');
    divForm.className = 'filterForm';
 
-   divForm.appendChild(creatItemForm(cpuFilterCamp.order));
-   divForm.appendChild(creatItemForm(cpuFilterCamp.sortType));
-   divForm.appendChild(creatItemForm(cpuFilterCamp.showPieces));
-   divForm.appendChild(creatItemForm(cpuFilterCamp.chipset));
-   divForm.appendChild(creatItemForm(cpuFilterCamp.socket));
-   divForm.appendChild(creatItemForm(cpuFilterCamp.memorySizeSupport));
-   divForm.appendChild(creatItemForm(cpuFilterCamp.memorySlotAmount));
-   divForm.appendChild(creatItemForm(cpuFilterCamp.cpuFrequencies));
-   divForm.appendChild(creatItemForm(cpuFilterCamp.baseClockSpeed));
-   divForm.appendChild(creatItemForm(cpuFilterCamp.maximumBoostSpeed));
-   divForm.appendChild(creatItemForm(cpuFilterCamp.cache));
-   divForm.appendChild(creatItemForm(cpuFilterCamp.core));
-   divForm.appendChild(creatItemForm(cpuFilterCamp.threads));
-   divForm.appendChild(creatItemForm(cpuFilterCamp.grapshicProcessor));
+   fieldsFilter.forEach((element) => {
+      divForm.appendChild(creatItemForm(element));
+   });
+
 
    modalBody.appendChild(divForm);
 };
 
-function coolerFilter() {
+function coolerFilter(fieldsFilter) {
    createTitleFilter('Cooler');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -215,17 +188,14 @@ function coolerFilter() {
    const divForm = document.createElement('div');
    divForm.className = 'filterForm';
 
-   divForm.appendChild(creatItemForm(coolerFilterCamp.order));
-   divForm.appendChild(creatItemForm(coolerFilterCamp.sortType));
-   divForm.appendChild(creatItemForm(coolerFilterCamp.showPieces));
-   divForm.appendChild(creatItemForm(coolerFilterCamp.compatibilityCpu));
-   divForm.appendChild(creatItemForm(coolerFilterCamp.speedFan));
-   divForm.appendChild(creatItemForm(coolerFilterCamp.fanAirflow));
+   fieldsFilter.forEach((element) => {
+      divForm.appendChild(creatItemForm(element));
+   });
 
    modalBody.appendChild(divForm);
 };
 
-function ramFilter() {
+function ramFilter(fieldsFilter) {
    createTitleFilter('Memória RAM');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -233,17 +203,14 @@ function ramFilter() {
    const divForm = document.createElement('div');
    divForm.className = 'filterForm';
 
-   divForm.appendChild(creatItemForm(ramFilterCamp.order));
-   divForm.appendChild(creatItemForm(ramFilterCamp.sortType));
-   divForm.appendChild(creatItemForm(ramFilterCamp.showPieces));
-   divForm.appendChild(creatItemForm(ramFilterCamp.memoryFrequency));
-   divForm.appendChild(creatItemForm(ramFilterCamp.memorySize));
-   divForm.appendChild(creatItemForm(ramFilterCamp.memorySlotType));
+   fieldsFilter.forEach((element) => {
+      divForm.appendChild(creatItemForm(element));
+   });
 
    modalBody.appendChild(divForm);
 };
 
-function pciExpressFilter() {
+function pciExpressFilter(fieldsFilter) {
    createTitleFilter('PCI Express');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -251,21 +218,14 @@ function pciExpressFilter() {
    const divForm = document.createElement('div');
    divForm.className = 'filterForm';
 
-   divForm.appendChild(creatItemForm(pciFilterCamp.order));
-   divForm.appendChild(creatItemForm(pciFilterCamp.sortType));
-   divForm.appendChild(creatItemForm(pciFilterCamp.showPieces));
-   divForm.appendChild(creatItemForm(pciFilterCamp.baseClock));
-   divForm.appendChild(creatItemForm(pciFilterCamp.boostClock));
-   divForm.appendChild(creatItemForm(pciFilterCamp.CUDACore));
-   divForm.appendChild(creatItemForm(pciFilterCamp.memoryInterface));
-   divForm.appendChild(creatItemForm(pciFilterCamp.memorySize));
-   divForm.appendChild(creatItemForm(pciFilterCamp.memorySpeed));
-   divForm.appendChild(creatItemForm(pciFilterCamp.memoryType));
+   fieldsFilter.forEach((element) => {
+      divForm.appendChild(creatItemForm(element));
+   });
 
    modalBody.appendChild(divForm);
 };
 
-function romFilter() {
+function romFilter(fieldsFilter) {
    createTitleFilter('Memória ROM');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -273,18 +233,14 @@ function romFilter() {
    const divForm = document.createElement('div');
    divForm.className = 'filterForm';
 
-   divForm.appendChild(creatItemForm(romCamp.order));
-   divForm.appendChild(creatItemForm(romCamp.sortType));
-   divForm.appendChild(creatItemForm(romCamp.showPieces));
-   divForm.appendChild(creatItemForm(romCamp.memorySize));
-   divForm.appendChild(creatItemForm(romCamp.reading));
-   divForm.appendChild(creatItemForm(romCamp.writing));
-   divForm.appendChild(creatItemForm(romCamp.rotation));
+   fieldsFilter.forEach((element) => {
+      divForm.appendChild(creatItemForm(element));
+   });
 
    modalBody.appendChild(divForm);
 };
 
-function m2Filter() {
+function m2Filter(fieldsFilter) {
    createTitleFilter('M2 - Memória ROM');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -292,25 +248,20 @@ function m2Filter() {
    const divForm = document.createElement('div');
    divForm.className = 'filterForm';
 
-   divForm.appendChild(creatItemForm(M2Camp.order));
-   divForm.appendChild(creatItemForm(M2Camp.sortType));
-   divForm.appendChild(creatItemForm(M2Camp.showPieces));
-   divForm.appendChild(creatItemForm(M2Camp.format));
-   divForm.appendChild(creatItemForm(M2Camp.memorySize));
-   divForm.appendChild(creatItemForm(M2Camp.model));
-   divForm.appendChild(creatItemForm(M2Camp.reading));
-   divForm.appendChild(creatItemForm(M2Camp.writing));
+   fieldsFilter.forEach((element) => {
+      divForm.appendChild(creatItemForm(element));
+   });
 
    modalBody.appendChild(divForm);
 };
 
-function recorderFilter() {
+function recorderFilter(fieldsFilter) {
    createTitleFilter('Leitor de DVD');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
 };
 
-function psuFilter() {
+function psuFilter(fieldsFilter) {
    createTitleFilter('Fonte');
    const modalBody = document.getElementById('modalBody');
    modalBody.innerHTML = '';
@@ -318,11 +269,9 @@ function psuFilter() {
    const divForm = document.createElement('div');
    divForm.className = 'filterForm';
 
-   divForm.appendChild(creatItemForm(psuCamp.order));
-   divForm.appendChild(creatItemForm(psuCamp.sortType));
-   divForm.appendChild(creatItemForm(psuCamp.showPieces));
-   divForm.appendChild(creatItemForm(psuCamp.voltage));
-   divForm.appendChild(creatItemForm(psuCamp.wattage));
+   fieldsFilter.forEach((element) => {
+      divForm.appendChild(creatItemForm(element));
+   });
 
    modalBody.appendChild(divForm);
 };

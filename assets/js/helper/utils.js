@@ -42,7 +42,8 @@ export function reset() {
 export function generatePDF() {
    close();
    loading(true);
-   fetch('https://api-draganddrop.herokuapp.com/finish', {
+   // fetch('https://api-draganddrop.herokuapp.com/finish', {
+   fetch('http://localhost:3000/finish', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(getPCBuilding()),

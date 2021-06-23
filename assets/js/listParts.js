@@ -54,8 +54,8 @@ function buttonPartDetails(tabId, text, typeModal) {
    const p = document.createElement('p');
    const icon = document.createElement('i');
 
-   button.addEventListener('click', function() {
-      openModal(typeModal, cutId(tabId));
+   button.addEventListener('click', async function() {
+      await openModal(typeModal, cutId(tabId));
    });
 
    p.innerText = text;

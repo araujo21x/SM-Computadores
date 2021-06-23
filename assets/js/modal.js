@@ -3,7 +3,7 @@ import createModalMoreInfo from './modals/moreInfo.js';
 import createModalWhichIs from './modals/whichIs.js';
 import {reset, generatePDF} from './modals/others.js';
 
-export function openModal(typeModal, part) {
+export async function openModal(typeModal, part) {
    const modal = document.getElementById('modal');
    modal.classList.add('open');
    const borderModal = document.getElementsByClassName('modal');
@@ -11,7 +11,7 @@ export function openModal(typeModal, part) {
    switch (typeModal) {
    case 'filter':
       borderModal[0].style.border = '5px solid var(--primaryColor)';
-      createModalFilter(part);
+      await createModalFilter(part);
       break;
    case 'whichIs':
       borderModal[0].style.border = '5px solid var(--primaryColor)';

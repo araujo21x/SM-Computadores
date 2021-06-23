@@ -2,7 +2,8 @@ import {request} from '../helper/utils.js';
 import {getPCBuilding} from '../data/localStorage.js';
 
 const multiplesParts = ['ram', 'rom'];
-const API = 'https://api-draganddrop.herokuapp.com';
+// const API = 'https://api-draganddrop.herokuapp.com';
+const API = 'http://localhost:3000';
 
 export function removingPieceFitted(parts, partType) {
    const pcBuilding = getPCBuilding();
@@ -37,4 +38,11 @@ export async function getParts(partType) {
 
 export async function getGrids(id) {
    return await request(`${API}/v1/gridMother/mother/${id}`, 'GET');
+}
+
+export async function getFieldsFilter(partType) {
+   const fields = await request(
+      `${API}/v1/piece/getFieldsFilter?typePart=${partType}`
+      , 'GET');
+   return fields;
 }

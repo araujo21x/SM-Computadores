@@ -27,13 +27,6 @@ function multipleSlots(part, idDiv, PCBuilding) {
 }
 
 function addSize(part, PCBuilding) {
-   //  if (part.type === 'ram') {
-   //     PCBuilding.ramMemory = PCBuilding.ramMemory + part.memorySize;
-   //  } else {
-   //     PCBuilding.romMemory = PCBuilding.romMemory + part.memorySize;
-   //  }
-
-   // new tentativa
    const addField = `${part.type}Memory`;
    PCBuilding[addField] = PCBuilding[addField] + part.memorySize;
    return PCBuilding;
