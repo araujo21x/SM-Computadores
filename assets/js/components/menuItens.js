@@ -21,8 +21,8 @@ function menuButton(partName, title, img) {
    });
 
    imgTag.src = img;
-   imgTag.style.width = '60%';
-   imgTag.style.height = '60%';
+   imgTag.style.width = 'auto';
+   imgTag.style.height = '55%';
 
    pTag.innerText = title;
 

@@ -179,7 +179,7 @@
    border: 1px solid var(--detailColor);
    border-radius: 5px;
    background-color: #f1f0ee;
-   font-size: 95%;
+   font-size: 2vh;
    font-family: 'Mulish', sans-serif;
    padding-left: 1%;
 }
@@ -193,7 +193,7 @@
    border: none;
    background-color: var(--backGroundColor);
    /* border-bottom: 1px solid; */
-   font-size: 125%;
+   font-size: 2.5vh;
    font-family: 'Mulish', sans-serif;
    font-weight: bold;
    border-radius: 3px;
@@ -206,7 +206,7 @@
 
 .collapsible:after {
    content: '\142F';
-   font-size: 85%;
+   font-size: 1.8vh;
    margin-left: 3%;
 }
 
@@ -222,12 +222,12 @@
    color: black;
 }
 #whatIsContent p {
-   font-size: 110%;
+   font-size: 2vh;
    font-family: 'Mulish', sans-serif;
 }
 #verificationsContent {
    margin: 0 2% 1% 2%;
-   font-size: 105%;
+   font-size:2vh;
    max-height: 0;
    overflow: hidden;
    transition: max-height 0.2s ease-out;
@@ -248,7 +248,7 @@
    margin: 0 10px 0 10px;
    font-weight: bold;
    font-family: 'Mulish', sans-serif;
-   font-size: 110%;
+   font-size: 2vh;
 }
 
 .contentLi li::before {
