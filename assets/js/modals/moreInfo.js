@@ -255,7 +255,7 @@ function createImg(image, width, height) {
    img.style.marginRight = 'auto';
    img.style.marginLeft = 'auto';
    img.style.display = 'block';
-   img.style.width = `${width}em`;
+   img.style.width = `auto`;
    img.style.height = `${height}em`;
 
    const modalBody = document.getElementById('modalBody');
