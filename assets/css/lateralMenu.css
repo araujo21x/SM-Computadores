@@ -9,14 +9,13 @@
 }
 
 #partsTabs {
-   height: 78%;
    flex-wrap: wrap;
 }
 
 .titleTab {
    display: inline;
    text-align: center;
-   height: 18%;
+   height: 13.5vh;
    width: 45%;
    margin: 1%;
    color: var(--primaryFontColor);
@@ -27,6 +26,8 @@
    outline: none;
    cursor: pointer;
    transition: 0.3s;
+
+   color: var(--primaryFontColor);
 }
 
 .titleTab.docked {

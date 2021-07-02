@@ -2,32 +2,32 @@ export default {
    motherBoard: {
       part: 'motherBoard',
       title: 'Placa-mãe',
-      img: 'https://res.cloudinary.com/drbclvi9z/image/upload/v1620926306/DragAndDrop/icon/mother_ulvedt.png',
+      img: './assets/img/icon/mother.svg',
    },
    cpu: {
       part: 'cpu',
       title: 'Processador',
-      img: 'https://res.cloudinary.com/drbclvi9z/image/upload/v1620926306/DragAndDrop/icon/cpu_avlxjf.png',
+      img: './assets/img/icon/cpu.svg',
    },
    cooler: {
       part: 'cooler',
       title: 'Cooler',
-      img: 'https://res.cloudinary.com/drbclvi9z/image/upload/v1620926306/DragAndDrop/icon/cooler_yocbcx.png',
+      img: './assets/img/icon/cooler.svg',
    },
    ram: {
       part: 'ram',
       title: 'Memória Ram',
-      img: 'https://res.cloudinary.com/drbclvi9z/image/upload/v1620926309/DragAndDrop/icon/ram_vqz8bf.png',
+      img: './assets/img/icon/ram.svg',
    },
    rom: {
       part: 'rom',
       title: 'Memória Rom',
-      img: 'https://res.cloudinary.com/drbclvi9z/image/upload/v1620926310/DragAndDrop/icon/rom_zasgnc.png',
+      img: './assets/img/icon/rom.svg',
    },
    pciExpress: {
       part: 'pciExpress',
       title: 'PCI Express',
-      img: 'https://res.cloudinary.com/drbclvi9z/image/upload/v1620926309/DragAndDrop/icon/pciExpress_dvsfvy.png',
+      img: './assets/img/icon/pci.svg',
    },
    m2: {
       part: 'm2',
@@ -37,11 +37,11 @@ export default {
    recorder: {
       part: 'recorder',
       title: 'Leitor de DVD',
-      img: 'https://res.cloudinary.com/drbclvi9z/image/upload/v1620926312/DragAndDrop/icon/recorder_ppeaqk.png',
+      img: './assets/img/icon/record.svg',
    },
    psu: {
       part: 'powerSupply',
       title: 'Fonte',
-      img: 'https://res.cloudinary.com/drbclvi9z/image/upload/v1620926306/DragAndDrop/icon/powerSupply_sxigrr.png',
+      img: './assets/img/icon/psu.svg',
    },
 };
