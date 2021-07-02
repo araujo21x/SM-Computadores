@@ -58,6 +58,7 @@
    height: 80%;
    margin: 0% 1% 0% 1%;
    font-family: 'Mulish', sans-serif;
+   font-size: 2vh;
    overflow: auto;
 }
 
@@ -137,7 +138,7 @@
    flex-direction: row;
    list-style: none;
    color: black;
-   font-size: 1.2em;
+   font-size: 2vh;
    font-family: 'Mulish', sans-serif;
    display: flex;
 }

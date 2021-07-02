@@ -37,7 +37,7 @@ function motherBoardInfo(part) {
    ul.className = 'moreInfoUl';
 
    createTitle(part.name);
-   createImg(part.image, '17', '14');
+   createImg(part.image, '14');
 
    ul.appendChild(createLi('Chipset', part.chipset));
    ul.appendChild(createLi('Socket', part.socket));
@@ -62,7 +62,7 @@ function cpuInfo(part) {
    ul.className = 'moreInfoUl';
 
    createTitle(part.name);
-   createImg(part.image, '9', '9');
+   createImg(part.image, '9');
 
    ul.appendChild(createLi('Chipset', part.chipset));
    ul.appendChild(createLi('Socket', part.socket));
@@ -92,7 +92,7 @@ function coolerInfo(part) {
    ul.className = 'moreInfoUl';
 
    createTitle(part.name);
-   createImg(part.image, '10', '10');
+   createImg(part.image, '10');
 
    ul.appendChild(createLiArray('Sockets Suportados', part.compatibilityCpu));
    ul.appendChild(createLi('Velocidade do Fan', `${part.speedFan} RPM`));
@@ -110,7 +110,7 @@ function ramInfo(part) {
    ul.className = 'moreInfoUl';
 
    createTitle(part.name);
-   createImg(part.image, '20', '6');
+   createImg(part.image, '6');
 
    ul.appendChild(createLi('Frequência da memória',
       `${part.memoryFrequency} MHz`));
@@ -127,7 +127,7 @@ function pciExpressInfo(part) {
    const ul = document.createElement('ul');
    ul.className = 'moreInfoUl';
    createTitle(part.name);
-   createImg(part.image, '20', '10');
+   createImg(part.image, '10');
 
    ul.appendChild(createLi('PCI Express', part.PCIeType));
    ul.appendChild(createLi('PCI Express Versão', part.PCIeVersion));
@@ -151,7 +151,7 @@ function romInfo(part) {
    ul.className = 'moreInfoUl';
 
    createTitle(part.name);
-   createImg(part.image, '15', '8');
+   createImg(part.image, '8');
 
    ul.appendChild(createLi('Tamanho da memória', `${part.memorySize} GB`));
    ul.appendChild(createLi('Velocidade de leitura', part.reading));
@@ -172,7 +172,7 @@ function m2Info(part) {
    ul.className = 'moreInfoUl';
 
    createTitle(part.name);
-   createImg(part.image, '17', '5');
+   createImg(part.image, '5');
 
    ul.appendChild(createLi('Interface', part.format));
    ul.appendChild(createLi('Tamanho de memória', `${part.memorySize} GB`));
@@ -190,7 +190,7 @@ function recorderInfo(part) {
    const ul = document.createElement('ul');
    ul.className = 'moreInfoUl';
    createTitle(part.name);
-   createImg(part.image, '15', '10');
+   createImg(part.image, '10');
 
    modalBody.appendChild(ul);
    createCloseButton();
@@ -203,7 +203,7 @@ function powerSupplyInfo(part) {
    ul.className = 'moreInfoUl';
 
    createTitle(part.name);
-   createImg(part.image, '15', '10');
+   createImg(part.image, '10');
 
    ul.appendChild(createLi('Voltagem', part.voltage));
    ul.appendChild(createLi('Capacidade de saída', `${part.wattage} W`));
@@ -249,7 +249,7 @@ function createTitle(title) {
    modalTitle.innerText = title;
 };
 
-function createImg(image, width, height) {
+function createImg(image, height) {
    const img = document.createElement('img');
    img.src = image;
    img.style.marginRight = 'auto';

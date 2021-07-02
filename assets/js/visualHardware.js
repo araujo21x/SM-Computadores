@@ -25,13 +25,21 @@ function changeDisplay(displayDropMother, displayRemaining, displayMother) {
    document.getElementById('rom_1_Slot').style.display = displayRemaining;
    document.getElementById('rom_2_Slot').style.display = displayRemaining;
    document.getElementById('mother').style.display = displayMother;
+
+   // test cable
+   document.getElementById('rom_3').style.display = displayRemaining;
+   document.getElementById('rom_4').style.display = displayRemaining;
+   document.getElementById('rom_4_Slot').style.display = displayRemaining;
+   document.getElementById('rom_4_Slot').style.display = displayRemaining;
+
+   document.getElementById('plugRecord').style.display = displayRemaining;
 }
 
 export function pcMode() {
    const mother = document.getElementById('mother');
    mother.className = 'motherPcMode';
    changeMotherAppearance('left', 'inline');
-   mother.style.backgroundSize = '90% 97%';
+   mother.style.backgroundSize = '80% 100%';
 
    setModelDropZone('pc');
    resizeGrid('pc');// falta fazer essa função

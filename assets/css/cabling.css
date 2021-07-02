@@ -1,0 +1,68 @@
+.plugSata01 {
+  background: lawngreen;
+  grid-column: 117/125;
+  grid-row: 195/200;
+}
+.plugSata01 .pc{
+  grid-column: 102/113;
+  grid-row: 195/200;
+}
+
+.plugSata02 {
+  background: lawngreen;
+  grid-column: 127/136;
+  grid-row: 195/200;
+}
+.plugSata02 .pc{
+  grid-column: 116/127;
+  grid-row: 195/200;
+}
+
+.plugSata03 {
+  background: lawngreen;
+  grid-column: 137/146;
+  grid-row: 195/200;
+}
+.plugSata03 .pc{
+  grid-column: 129/140;
+  grid-row: 195/200;
+}
+
+.plugSata04 {
+  background: lawngreen;
+  grid-column: 147/156;
+  grid-row: 195/200;
+}
+.plugSata04 .pc{
+  grid-column: 143/154;
+  grid-row: 195/200;
+}
+
+.plugPSU{
+  grid-column: 152/157;
+  background: lawngreen;
+  grid-row: 60/95;
+}
+.plugPSU .pc{
+  grid-column: 149/156;
+  background: lawngreen;
+  grid-row: 60/95;
+}
+
+.plugCooler{
+  grid-column: 101/106;
+  background: lawngreen;
+  grid-row: 10/12;
+}
+.plugCooler .pc{
+  grid-column: 81/88;
+  background: lawngreen;
+  grid-row: 10/12;
+}
+
+.plugRecord{
+  /* z-index: 2000; */
+  grid-column: 1/88;
+  background: lawngreen;
+  grid-row: 10/12;
+}

@@ -48,7 +48,6 @@
    display: grid;
    grid-template-columns: repeat(200, 0.5%);
    grid-template-rows: repeat(200, 0.5%);
-   background-size: 90% 97%;
    grid-column: 1 / 110;
    grid-row: 60 / 200;
 }
@@ -57,8 +56,8 @@
    display: none;
    border: 3px solid #62B0CB;
    border-style: dashed;
-   grid-column: 4 / 75;
-   grid-row: 1 / 60;
+   grid-column: 3 / 65;
+   grid-row: 1 / 50;
 }
 
 .recorder {
@@ -104,5 +103,35 @@
    display: none;
    grid-column: 155/ 200;
    grid-row: 60 / 85;
+   background: url(../img/gride.png) center/ cover no-repeat;
+}
+
+.rom3 {
+   display: none;
+   grid-column: 140/ 200;
+   grid-row: 85 / 110;
+   border: 3px solid #62B0CB;
+   border-style: dashed;
+}
+
+.rom3Slot {
+   display: none;
+   grid-column: 155/ 200;
+   grid-row: 85 / 110;
+   background: url(../img/gride.png) center/ cover no-repeat;
+}
+
+.rom4 {
+   display: none;
+   grid-column: 140/ 200;
+   grid-row: 110 / 135;
+   border: 3px solid #62B0CB;
+   border-style: dashed;
+}
+
+.rom4Slot {
+   display: none;
+   grid-column: 155/ 200;
+   grid-row: 110 / 135;
    background: url(../img/gride.png) center/ cover no-repeat;
 }
