@@ -29,8 +29,13 @@ function changeDisplay(displayDropMother, displayRemaining, displayMother) {
    // test cable
    document.getElementById('rom_3').style.display = displayRemaining;
    document.getElementById('rom_4').style.display = displayRemaining;
+   document.getElementById('rom_3_Slot').style.display = displayRemaining;
    document.getElementById('rom_4_Slot').style.display = displayRemaining;
-   document.getElementById('rom_4_Slot').style.display = displayRemaining;
+   document.getElementById('plugRecord').style.display = displayRemaining;
+   document.getElementById('plugRom1').style.display = displayRemaining;
+   document.getElementById('plugRom2').style.display = displayRemaining;
+   document.getElementById('plugRom3').style.display = displayRemaining;
+   document.getElementById('plugRom4').style.display = displayRemaining;
 
    document.getElementById('plugRecord').style.display = displayRemaining;
 }
@@ -42,7 +47,8 @@ export function pcMode() {
    mother.style.backgroundSize = '80% 100%';
 
    setModelDropZone('pc');
-   resizeGrid('pc');// falta fazer essa função
+   resizeGrid('pc');
+   changeDisplayPlug('add');
 }
 
 export function motherboardMode() {
@@ -54,8 +60,18 @@ export function motherboardMode() {
       mother.style.backgroundSize = '60% 100%';
 
       setModelDropZone('motherboard');
-      resizeGrid('motherboard');// falta fazer
+      resizeGrid('motherboard');
+      changeDisplayPlug('remove');
    }
+}
+
+function changeDisplayPlug(classStatus) {
+   document.getElementById('plugSata01').classList[classStatus]('pc');
+   document.getElementById('plugSata02').classList[classStatus]('pc');
+   document.getElementById('plugSata03').classList[classStatus]('pc');
+   document.getElementById('plugSata04').classList[classStatus]('pc');
+   document.getElementById('plugPSU').classList[classStatus]('pc');
+   document.getElementById('plugCooler').classList[classStatus]('pc');
 }
 
 export function coolerZone(titleTab) {

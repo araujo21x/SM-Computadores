@@ -26,6 +26,6 @@ export default function(id, nameClass, fatherDiv, isMotherBoard) {
 export function dropZonePCDetails(id, nameClass, fatherDiv) {
    const div = document.createElement('div');
    div.id = id;
-   div.class = nameClass;
+   div.className = nameClass;
    fatherDiv.appendChild(div);
 }

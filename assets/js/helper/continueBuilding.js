@@ -35,7 +35,7 @@ export default function() {
 
 function checkPart(part, id) {
    const divPart = document.getElementById(id);
-   divPart.appendChild(creatTagImg(part.image, part.name, part));
+   divPart.appendChild(creatTagImg(part.dropImage, part.name, part));
 }
 
 function checkPartArray(parts) {

@@ -59,19 +59,21 @@ function generateDropZone() {
    divDropZone('recorder', 'recorder', partZone[0], false);
    divDropZone('rom_1', 'rom1', partZone[0], false);
    divDropZone('rom_2', 'rom2', partZone[0], false);
+   divDropZone('rom_3', 'rom3', partZone[0], false);
+   divDropZone('rom_4', 'rom4', partZone[0], false);
 
    dropZonePCDetails('recorderSlot', 'recorderSlot', partZone[0]);
    dropZonePCDetails('rom_1_Slot', 'rom1Slot', partZone[0]);
    dropZonePCDetails('rom_2_Slot', 'rom2Slot', partZone[0]);
-
-   // test cable
-   divDropZone('rom_3', 'rom3', partZone[0], false);
-   divDropZone('rom_4', 'rom4', partZone[0], false);
    dropZonePCDetails('rom_3_Slot', 'rom3Slot', partZone[0]);
    dropZonePCDetails('rom_4_Slot', 'rom4Slot', partZone[0]);
 
    // test cable delete
-   divDropZone('plugRecord', 'plugRecord', partZone[0], false);
+   dropZonePCDetails('plugRecord', 'plugRecord', partZone[0]);
+   dropZonePCDetails('plugRom1', 'plugRom1', partZone[0]);
+   dropZonePCDetails('plugRom2', 'plugRom2', partZone[0]);
+   dropZonePCDetails('plugRom3', 'plugRom3', partZone[0]);
+   dropZonePCDetails('plugRom4', 'plugRom4', partZone[0]);
 
    divDropZone('motherBoard', 'dropMother', partZone[0], true);
 }
