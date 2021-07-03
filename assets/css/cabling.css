@@ -8,7 +8,9 @@
   grid-column: 102/113;
   grid-row: 195/200;
 }
-
+.plugged{
+  background: url(../img/sataPlug.png) center/ 90% 71% no-repeat;
+}
 .plugSata02 {
   background: lawngreen;
   grid-column: 127/136;
@@ -52,6 +54,10 @@
   grid-column: 149/156;
   background: lawngreen;
   grid-row: 60/95;
+}
+
+.plugPSU.plugged{
+  background: url(../img/psuPlug.png) center/ 100% 100% no-repeat;
 }
 
 .plugCooler{
