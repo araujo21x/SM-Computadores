@@ -54,6 +54,7 @@
 
 .powerSupplySlot {
    display: none;
+   z-index: 2000;
    border: 3px solid #62B0CB;
    border-style: dashed;
    grid-column: 3 / 65;

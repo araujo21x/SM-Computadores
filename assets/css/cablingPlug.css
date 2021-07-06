@@ -8,9 +8,10 @@
   grid-column: 102/113;
   grid-row: 195/200;
 }
-.plugged{
-  background: url(../img/sataPlug.png) center/ 90% 71% no-repeat;
+.plugSata01.plugged{
+  background: url(../img/sataPlug.png) center/ 100% 100% no-repeat;
 }
+
 .plugSata02 {
   background: lawngreen;
   grid-column: 127/136;
@@ -20,6 +21,9 @@
   background: lawngreen;
   grid-column: 116/127;
   grid-row: 195/200;
+}
+.plugSata02.plugged{
+  background: url(../img/sataPlug.png) center/ 100% 100% no-repeat;
 }
 
 .plugSata03 {
@@ -32,6 +36,9 @@
   grid-column: 129/140;
   grid-row: 195/200;
 }
+.plugSata03.plugged{
+  background: url(../img/sataPlug.png) center/ 100% 100% no-repeat;
+}
 
 .plugSata04 {
   background: lawngreen;
@@ -42,6 +49,9 @@
   background: lawngreen;
   grid-column: 143/154;
   grid-row: 195/200;
+}
+.plugSata04.plugged{
+  background: url(../img/sataPlug.png) center/ 100% 100% no-repeat;
 }
 
 .plugPSU{
