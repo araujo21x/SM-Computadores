@@ -55,7 +55,7 @@
 }
 
 .plugPSU{
-  
+  display: none;
   grid-column: 152/157;
   background: lawngreen;
   grid-row: 60/95;

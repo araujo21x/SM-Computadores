@@ -28,6 +28,7 @@ import partBox from '../components/partBox.js';
 import resizeGrid from '../helper/dropZone.js';
 import {checkCompatibility} from '../helper/checkCompatibility.js';
 import {openAlert} from '../alert.js';
+import {activatePlug} from '../helper/plugHelper.js';
 
 function partSpecificity(partType, idDropZone, part, slot) {
    switch (partType) {
@@ -39,6 +40,7 @@ function partSpecificity(partType, idDropZone, part, slot) {
       break;
    case 'powerSupply':
       tradeImagem(idDropZone, part.dropImage);
+      activatePlug('plugPSU', 'inline');
       break;
    case 'rom':
       tradeImagem(idDropZone, part.dropImage);
@@ -194,6 +196,7 @@ export function dropSave(event, typeTab) { // drop da save zone
    const imgDelete = document.getElementById(data);
    removeError(part, imgDelete.parentNode.id);
    imgDelete.parentNode.removeChild(imgDelete);
+   partSpecificityRemove(part.type, part);
 
    if (part.type === typeTab) {
       const droppableParts = document.getElementById('droppableParts');
@@ -214,5 +217,12 @@ function removeError(part, idDiv) {
    const compatibility = checkCompatibility(part);
    if (compatibility.situation !== 'compatible') {
       deleteErrorReport(part, compatibility, idDiv);
+   }
+}
+function partSpecificityRemove(partType, part) {
+   switch (partType) {
+   case 'powerSupply':
+      activatePlug('plugPSU', 'none');
+      break;
    }
 }
