@@ -11,6 +11,7 @@ import menuData from './data/menuData.js';
 import divDropZone, {dropZonePCDetails} from './components/divDropZone.js';
 import buttonSideMenu from './components/buttonSideMenu.js';
 import continueBuilding from './helper/continueBuilding.js';
+import {psuPlugged} from './helper/cablingHelper.js';
 
 function generateSideMenu() {
    menuItens(menuData.motherBoard.part, menuData.motherBoard.title, menuData.motherBoard.img);
@@ -46,11 +47,13 @@ function generateDropZone() {
    divDropZone('m2', null, divMother, false);
 
    // test cable
+   divDropZone('plugPSU', 'plugPSU', divMother, false);
+
    divDropZone('plugSata01', 'plugSata01', divMother, false);
    divDropZone('plugSata02', 'plugSata02', divMother, false);
    divDropZone('plugSata03', 'plugSata03', divMother, false);
    divDropZone('plugSata04', 'plugSata04', divMother, false);
-   divDropZone('plugPSU', 'plugPSU', divMother, false);
+
    divDropZone('plugCooler', 'plugCooler', divMother, false);
 
    partZone[0].appendChild(divMother);
@@ -70,6 +73,11 @@ function generateDropZone() {
    // test cable thread
    generateThread(partZone[0]);
 
+   const plugPSU = document.getElementById('plugPSU');
+   console.log(plugPSU);
+   plugPSU.addEventListener('click', () =>{
+      psuPlugged('inline');
+   });
 
    divDropZone('motherBoard', 'dropMother', partZone[0], true);
 }

@@ -1,5 +1,11 @@
-import {setModelDropZone, getPCBuilding} from './data/localStorage.js';
+import {
+   setModelDropZone,
+   getPCBuilding,
+   getCable,
+} from './data/localStorage.js';
 import resizeGrid from './helper/dropZone.js';
+import {psuCable} from './helper/cablingHelper.js';
+
 // mother trade visual
 function changeMotherAppearance(direction, displayRemaining) {
    const {motherBoard} = getPCBuilding();
@@ -44,6 +50,7 @@ export function pcMode() {
    setModelDropZone('pc');
    resizeGrid('pc');
    changeDisplayPlug('add');
+   changeDisplayCable('inline');
 }
 
 export function motherboardMode() {
@@ -57,6 +64,7 @@ export function motherboardMode() {
       setModelDropZone('motherboard');
       resizeGrid('motherboard');
       changeDisplayPlug('remove');
+      changeDisplayCable('none');
    }
 }
 
@@ -69,7 +77,11 @@ function changeDisplayPlug(classStatus) {
    document.getElementById('plugPSU').classList[classStatus]('pc');
    document.getElementById('plugCooler').classList[classStatus]('pc');
 }
-
+function changeDisplayCable(displayStatus) {
+   const {powerSupply} = getPCBuilding();
+   const cables = getCable();
+   if (powerSupply && cables.powerSupply) psuCable(displayStatus);
+}
 export function coolerZone(titleTab) {
    const {cpu, cooler} = getPCBuilding();
    const coolerSection = document.getElementById('cooler');

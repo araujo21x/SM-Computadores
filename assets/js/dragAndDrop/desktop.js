@@ -9,6 +9,7 @@ import {
    getEvaluativeMode,
    setErrorReport,
    deleteErrorReport,
+   setCable,
 }
    from '../data/localStorage.js';
 import {motherboardMode, coolerZone} from '../visualHardware.js';
@@ -29,6 +30,7 @@ import resizeGrid from '../helper/dropZone.js';
 import {checkCompatibility} from '../helper/checkCompatibility.js';
 import {openAlert} from '../alert.js';
 import {activatePlug} from '../helper/plugHelper.js';
+import {psuPlugged} from '../helper/cablingHelper.js';
 
 function partSpecificity(partType, idDropZone, part, slot) {
    switch (partType) {
@@ -220,9 +222,12 @@ function removeError(part, idDiv) {
    }
 }
 function partSpecificityRemove(partType, part) {
+   console.log(partType);
    switch (partType) {
    case 'powerSupply':
       activatePlug('plugPSU', 'none');
+      psuPlugged('none');
+      setCable('powerSupply', false);
       break;
    }
 }

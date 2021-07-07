@@ -193,3 +193,27 @@ function deleteArrayError(part, errorReport, error, idDiv) {
    if (answer.length === 0) return [];
    else return answer;
 }
+
+
+// cable
+function generateCable() {
+   return {
+      powerSupply: false,
+   };
+}
+
+export function getCable() {
+   let cable = JSON.parse(localStorage.getItem('cables'));
+   if (!cable) {
+      cable = generateCable();
+      localStorage.setItem('cables', JSON.stringify(cable));
+   }
+   return cable;
+}
+
+export function setCable(partType, value) {
+   const cable = getCable() ? getCable() : generateCable();
+
+   cable[partType] = value;
+   localStorage.setItem('cables', JSON.stringify(cable));
+}
