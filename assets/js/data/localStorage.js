@@ -139,6 +139,7 @@ function generateErrorReport() {
       currentTDP: 0,
       ramMemory: 0,
       romMemory: 0,
+      recorder: null,
    };
 }
 
@@ -199,6 +200,9 @@ function deleteArrayError(part, errorReport, error, idDiv) {
 function generateCable() {
    return {
       powerSupply: false,
+      record: false,
+      rom1: false,
+      rom2: false,
    };
 }
 

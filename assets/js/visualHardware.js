@@ -4,7 +4,12 @@ import {
    getCable,
 } from './data/localStorage.js';
 import resizeGrid from './helper/dropZone.js';
-import {psuCable} from './helper/cablingHelper.js';
+import {
+   psuCable,
+   recordCable,
+   rom1cable,
+   rom2cable,
+} from './helper/cablingHelper.js';
 
 // mother trade visual
 function changeMotherAppearance(direction, displayRemaining) {
@@ -33,12 +38,8 @@ function changeDisplay(displayDropMother, displayRemaining, displayMother) {
    document.getElementById('mother').style.display = displayMother;
 
    // test cable
-   document.getElementById('plugRecord').style.display = displayRemaining;
    document.getElementById('plugRom1').style.display = displayRemaining;
    document.getElementById('plugRom2').style.display = displayRemaining;
-
-
-   document.getElementById('plugRecord').style.display = displayRemaining;
 }
 
 export function pcMode() {
@@ -76,12 +77,25 @@ function changeDisplayPlug(classStatus) {
 
    document.getElementById('plugPSU').classList[classStatus]('pc');
    document.getElementById('plugCooler').classList[classStatus]('pc');
+   const pcBuild = getPCBuilding();
+   if (classStatus === 'add') {
+      if (pcBuild.recorder) {
+         document.getElementById('plugRecord').style.display = 'inline';
+      }
+   } else {
+      document.getElementById('plugRecord').style.display = 'none';
+   }
 }
+
 function changeDisplayCable(displayStatus) {
-   const {powerSupply} = getPCBuilding();
+   const {powerSupply, recorder} = getPCBuilding();
    const cables = getCable();
    if (powerSupply && cables.powerSupply) psuCable(displayStatus);
+   if (powerSupply && recorder && cables.record) recordCable(displayStatus);
+   if (cables.rom1) rom1cable(displayStatus);
+   if (cables.rom2) rom2cable(displayStatus);
 }
+
 export function coolerZone(titleTab) {
    const {cpu, cooler} = getPCBuilding();
    const coolerSection = document.getElementById('cooler');

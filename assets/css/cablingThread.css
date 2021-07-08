@@ -188,7 +188,7 @@
   grid-row: 123/123;
 }
 
-.thread_psu_sata_01_01{
+/* .thread_psu_sata_01_01{
   grid-column: 60/99;
   background: yellow;
   grid-row: 37/37;
@@ -218,44 +218,51 @@
   grid-column: 101/140;
   background: black;
   grid-row: 108/108;
-}
+} */
 
 .thread_psu_sata_03_01{
+  display: none;
   grid-column: 63/101;
   background: red;
   grid-row: 35/35;
 } 
 .thread_psu_sata_03_02{
+  display: none;
   grid-column: 101/101;
   background: red;
-  grid-row: 35/84;
+  grid-row: 35/83;
 } 
 .thread_psu_sata_03_03{
+  display: none;
   grid-column: 102/140;
   background: red;
-  grid-row: 83/83;
+  grid-row: 82/82;
 }
 
 .thread_psu_sata_04_01{
+  display: none;
   grid-column: 65/102;
   background: green;
   grid-row: 34/34;
 } 
 .thread_psu_sata_04_02{
+  display: none;
   grid-column: 102/102;
   background: green;
-  grid-row: 34/59;
+  grid-row: 34/58;
 } 
 .thread_psu_sata_04_03{
+  display: none;
   grid-column: 103/140;
   background: green;
-  grid-row: 58/59;
+  grid-row: 57/57;
 }
 
 .thread_psu_sata_05_01{
+  display: none;
   grid-column: 65/130;
   background: grey;
-  grid-row: 33/33;
+  grid-row: 32/32;
 } 
 
 /* encaixe no primeiro  */

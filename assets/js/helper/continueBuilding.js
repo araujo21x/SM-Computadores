@@ -59,6 +59,18 @@ function checkPartCooler(cooler, id) {
 }
 
 function continueCable() {
-   const {powerSupply} = getCable();
+   const {powerSupply, record, rom1, rom2} = getCable();
    if (powerSupply) psuPlugged('plugPSU', 'inline');
+   if (record) {
+      const plugRecord = document.getElementById('plugRecord');
+      plugRecord.classList.add('plugged');
+   }
+   if (rom1) {
+      const plugRecord = document.getElementById('plugRom1');
+      plugRecord.classList.add('plugged');
+   }
+   if (rom2) {
+      const plugRecord = document.getElementById('plugRom2');
+      plugRecord.classList.add('plugged');
+   }
 }

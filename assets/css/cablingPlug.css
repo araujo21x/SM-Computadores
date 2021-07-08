@@ -1,10 +1,10 @@
 .plugSata01 {
-  background: lawngreen;
+  /* background: lawngreen; */
   grid-column: 117/125;
   grid-row: 195/200;
 }
 .plugSata01.pc{
-  background: lawngreen;
+  /* background: lawngreen; */
   grid-column: 102/113;
   grid-row: 195/200;
 }
@@ -13,12 +13,12 @@
 }
 
 .plugSata02 {
-  background: lawngreen;
+  /* background: lawngreen; */
   grid-column: 127/136;
   grid-row: 195/200;
 }
 .plugSata02.pc{
-  background: lawngreen;
+  /* background: lawngreen; */
   grid-column: 116/127;
   grid-row: 195/200;
 }
@@ -27,12 +27,12 @@
 }
 
 .plugSata03 {
-  background: lawngreen;
+  /* background: lawngreen; */
   grid-column: 137/146;
   grid-row: 195/200;
 }
 .plugSata03.pc{
-  background: lawngreen;
+  /* background: lawngreen; */
   grid-column: 129/140;
   grid-row: 195/200;
 }
@@ -41,12 +41,12 @@
 }
 
 .plugSata04 {
-  background: lawngreen;
+  /* background: lawngreen; */
   grid-column: 147/156;
   grid-row: 195/200;
 }
 .plugSata04.pc{
-  background: lawngreen;
+  /* background: lawngreen; */
   grid-column: 143/154;
   grid-row: 195/200;
 }
@@ -70,12 +70,12 @@
 
 .plugCooler{
   grid-column: 101/106;
-  background: lawngreen;
+  /* background: lawngreen; */
   grid-row: 10/12;
 }
 .plugCooler.pc{
   grid-column: 81/88;
-  background: lawngreen;
+  /* background: lawngreen; */
   grid-row: 10/12;
 }
 
@@ -83,38 +83,43 @@
   display: none;
   z-index: 2000;
   grid-column: 130/145;
-  background: lawngreen;
-  grid-row: 25/35;
+  /* background: rgb(151, 151, 151); */
+  grid-row: 24/34;
 }
+.plugRecord.plugged{
+  display: none;
+  z-index: 2000;
+  grid-column: 130/132;
+  background: rgb(17, 17, 17);
+  grid-row: 24/34;
+}
+
 
 .plugRom1{
   display: none;
   z-index: 2000;
   grid-column: 140/155;
-  background: lawngreen;
-  grid-row: 50/60;
+  /* background: lawngreen; */
+  grid-row: 52/59;
 }
-
+.plugRom1.plugged{
+  display: none;
+  z-index: 2000;
+  grid-column: 140/142;
+  background: red;
+  grid-row: 52/59;
+}
 .plugRom2{
   display: none;
   z-index: 2000;
   grid-column: 140/155;
-  background: lawngreen;
-  grid-row: 75/85;
+  /* background: lawngreen; */
+  grid-row: 73/84;
 }
- 
-.plugRom3{
+.plugRom2.plugged{
   display: none;
   z-index: 2000;
-  grid-column: 140/155;
-  background: lawngreen;
-  grid-row: 100/110;
-} 
-
-.plugRom4{
-  display: none;
-  z-index: 2000;
-  grid-column: 140/155;
-  background: lawngreen;
-  grid-row: 125/135;
+  grid-column: 140/142;
+  background: red;
+  grid-row: 73/84;
 }

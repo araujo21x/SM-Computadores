@@ -30,7 +30,12 @@ import resizeGrid from '../helper/dropZone.js';
 import {checkCompatibility} from '../helper/checkCompatibility.js';
 import {openAlert} from '../alert.js';
 import {activatePlug} from '../helper/plugHelper.js';
-import {psuPlugged} from '../helper/cablingHelper.js';
+import {
+   psuPlugged,
+   recordPluggedDisable,
+   rom1PluggedDisable,
+   rom2PluggedDisable,
+} from '../helper/cablingHelper.js';
 
 function partSpecificity(partType, idDropZone, part, slot) {
    switch (partType) {
@@ -49,6 +54,7 @@ function partSpecificity(partType, idDropZone, part, slot) {
       break;
    case 'recorder':
       tradeImagem(idDropZone, part.dropImage);
+      activatePlug('plugRecord', 'inline');
       break;
    case 'm2':
       tradeImagem(idDropZone, part.dropImage);
@@ -222,12 +228,22 @@ function removeError(part, idDiv) {
    }
 }
 function partSpecificityRemove(partType, part) {
-   console.log(partType);
+   console.log(part);
    switch (partType) {
    case 'powerSupply':
       activatePlug('plugPSU', 'none');
       psuPlugged('none');
       setCable('powerSupply', false);
+      recordPluggedDisable();
+      rom1PluggedDisable(true, part);
+      rom2PluggedDisable(true, part);
       break;
+   case 'recorder':
+      activatePlug('plugRecord', 'none');
+      recordPluggedDisable();
+      break;
+   case 'rom':
+      rom1PluggedDisable(false, part);
+      rom2PluggedDisable(false, part);
    }
 }

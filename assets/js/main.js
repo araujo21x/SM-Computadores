@@ -11,7 +11,7 @@ import menuData from './data/menuData.js';
 import divDropZone, {dropZonePCDetails} from './components/divDropZone.js';
 import buttonSideMenu from './components/buttonSideMenu.js';
 import continueBuilding from './helper/continueBuilding.js';
-import {psuPlugged} from './helper/cablingHelper.js';
+import {psuPlugged, recordPlugged, rom1Plugged, rom2Plugged} from './helper/cablingHelper.js';
 
 function generateSideMenu() {
    menuItens(menuData.motherBoard.part, menuData.motherBoard.title, menuData.motherBoard.img);
@@ -74,11 +74,24 @@ function generateDropZone() {
    generateThread(partZone[0]);
 
    const plugPSU = document.getElementById('plugPSU');
-   console.log(plugPSU);
+   const plugRecord = document.getElementById('plugRecord');
+   const plugRom1 = document.getElementById('plugRom1');
+   const plugRom2 = document.getElementById('plugRom2');
+
    plugPSU.addEventListener('click', () =>{
       psuPlugged('inline');
    });
 
+   plugRecord.addEventListener('click', () =>{
+      recordPlugged();
+   });
+
+   plugRom1.addEventListener('click', () =>{
+      rom1Plugged();
+   });
+   plugRom2.addEventListener('click', () =>{
+      rom2Plugged();
+   });
    divDropZone('motherBoard', 'dropMother', partZone[0], true);
 }
 
@@ -115,13 +128,13 @@ function generateThread(partZone) {
    dropZonePCDetails('thread_psu_mother_30', 'thread_psu_mother_10_03', partZone);
 
 
-   // dropZonePCDetails('thread_psu_sata_03_01', 'thread_psu_sata_03_01', partZone);
-   // dropZonePCDetails('thread_psu_sata_03_02', 'thread_psu_sata_03_02', partZone);
-   // dropZonePCDetails('thread_psu_sata_03_03', 'thread_psu_sata_03_03', partZone);
-   // dropZonePCDetails('thread_psu_sata_04_01', 'thread_psu_sata_04_01', partZone);
-   // dropZonePCDetails('thread_psu_sata_04_02', 'thread_psu_sata_04_02', partZone);
-   // dropZonePCDetails('thread_psu_sata_04_03', 'thread_psu_sata_04_03', partZone);
-   // dropZonePCDetails('thread_psu_sata_05_01', 'thread_psu_sata_05_01', partZone);
+   dropZonePCDetails('thread_psu_sata_01', 'thread_psu_sata_03_01', partZone);
+   dropZonePCDetails('thread_psu_sata_02', 'thread_psu_sata_03_02', partZone);
+   dropZonePCDetails('thread_psu_sata_03', 'thread_psu_sata_03_03', partZone);
+   dropZonePCDetails('thread_psu_sata_04', 'thread_psu_sata_04_01', partZone);
+   dropZonePCDetails('thread_psu_sata_05', 'thread_psu_sata_04_02', partZone);
+   dropZonePCDetails('thread_psu_sata_06', 'thread_psu_sata_04_03', partZone);
+   dropZonePCDetails('thread_psu_sata_07', 'thread_psu_sata_05_01', partZone);
 
    // dropZonePCDetails('thread_mother_sata_01_01_01', 'thread_mother_sata_01_01_01', partZone);
    // dropZonePCDetails('thread_mother_sata_01_01_02', 'thread_mother_sata_01_01_02', partZone);
@@ -217,7 +230,7 @@ function generateAlertBase() {
 
 (function init() {
    loading(true);
-   setEvaluativeMode(true);
+   setEvaluativeMode(false);
    generateSideMenu();
    generateDropZone();
    generateButtonsSideMenu();
