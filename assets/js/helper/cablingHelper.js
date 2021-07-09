@@ -70,26 +70,6 @@ export function rom1cable(display) {
    }
 }
 
-export function rom1PluggedDisable(psu, part) {
-   const {rom} = getPCBuilding();
-   const plugRom1 = document.getElementById('plugRom1');
-   if (!romSlotVerify(rom, 'rom_1', part)) {
-      plugRom1.classList.remove('plugged');
-      setCable('rom1', false);
-      rom1cable('none');
-   }
-   if (psu) {
-      plugRom1.classList.remove('plugged');
-      setCable('rom1', false);
-      rom1cable('none');
-   } else {
-      if (romSlotVerify(rom, 'rom_1', part)) {
-         plugRom1.style.display = 'none';
-      }
-   }
-}
-
-
 export function rom2Plugged() {
    const {powerSupply} = getPCBuilding();
    const plugRom2 = document.getElementById('plugRom2');
@@ -109,27 +89,36 @@ export function rom2cable(display) {
    }
 }
 
-export function rom2PluggedDisable(psu, part) {
+export function romPluggedDisable(psu, part) {
    const {rom} = getPCBuilding();
-   const plugRom2 = document.getElementById('plugRom2');
-   if (!romSlotVerify(rom, 'rom_2', part)) {
-      plugRom2.classList.remove('plugged');
-      setCable('rom2', false);
-      rom2cable('none');
-   }
    if (psu) {
-      plugRom2.classList.remove('plugged');
+      document.getElementById('plugRom1').classList.remove('plugged');
+      document.getElementById('plugRom2').classList.remove('plugged');
+      setCable('rom1', false);
+      rom1cable('none');
       setCable('rom2', false);
       rom2cable('none');
    } else {
-      if (romSlotVerify(rom, 'rom_2', part)) {
-         plugRom2.style.display = 'none';
+      const romRemove = romSlotVerify(rom, part);
+      if (romRemove === 'rom_1') {
+         document.getElementById('plugRom1').classList.remove('plugged');
+         setCable('rom1', false);
+         rom1cable('none');
+         document.getElementById('plugRom1').style.display = 'none';
+      }
+      if (romRemove === 'rom_2') {
+         document.getElementById('plugRom2').classList.remove('plugged');
+         setCable('rom2', false);
+         rom2cable('none');
+         document.getElementById('plugRom2').style.display = 'none';
       }
    }
 }
 
-export function romSlotVerify(rom, slot, part) {
+export function romSlotVerify(rom, part) {
+   let answer;
    rom.forEach((element) => {
-      if (element.div === slot ) return true;
+      if (element.id === part.id ) answer = element.div;
    });
+   return answer;
 }

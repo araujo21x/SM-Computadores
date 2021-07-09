@@ -33,8 +33,7 @@ import {activatePlug} from '../helper/plugHelper.js';
 import {
    psuPlugged,
    recordPluggedDisable,
-   rom1PluggedDisable,
-   rom2PluggedDisable,
+   romPluggedDisable,
 } from '../helper/cablingHelper.js';
 
 function partSpecificity(partType, idDropZone, part, slot) {
@@ -51,6 +50,12 @@ function partSpecificity(partType, idDropZone, part, slot) {
       break;
    case 'rom':
       tradeImagem(idDropZone, part.dropImage);
+      if (idDropZone === 'drag_rom_1') {
+         activatePlug('plugRom1', 'inline');
+      }
+      if (idDropZone === 'drag_rom_2') {
+         activatePlug('plugRom2', 'inline');
+      }
       break;
    case 'recorder':
       tradeImagem(idDropZone, part.dropImage);
@@ -228,22 +233,19 @@ function removeError(part, idDiv) {
    }
 }
 function partSpecificityRemove(partType, part) {
-   console.log(part);
    switch (partType) {
    case 'powerSupply':
       activatePlug('plugPSU', 'none');
       psuPlugged('none');
       setCable('powerSupply', false);
       recordPluggedDisable();
-      rom1PluggedDisable(true, part);
-      rom2PluggedDisable(true, part);
+      romPluggedDisable(true, part);
       break;
    case 'recorder':
       activatePlug('plugRecord', 'none');
       recordPluggedDisable();
       break;
    case 'rom':
-      rom1PluggedDisable(false, part);
-      rom2PluggedDisable(false, part);
+      romPluggedDisable(false, part);
    }
 }

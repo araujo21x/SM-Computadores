@@ -36,10 +36,6 @@ function changeDisplay(displayDropMother, displayRemaining, displayMother) {
    document.getElementById('rom_1_Slot').style.display = displayRemaining;
    document.getElementById('rom_2_Slot').style.display = displayRemaining;
    document.getElementById('mother').style.display = displayMother;
-
-   // test cable
-   document.getElementById('plugRom1').style.display = displayRemaining;
-   document.getElementById('plugRom2').style.display = displayRemaining;
 }
 
 export function pcMode() {
@@ -82,8 +78,18 @@ function changeDisplayPlug(classStatus) {
       if (pcBuild.recorder) {
          document.getElementById('plugRecord').style.display = 'inline';
       }
+      pcBuild.rom.forEach((element) => {
+         if (element.div === 'rom_1') {
+            document.getElementById('plugRom1').style.display = 'inline';
+         }
+         if (element.div === 'rom_2') {
+            document.getElementById('plugRom2').style.display = 'inline';
+         }
+      });
    } else {
       document.getElementById('plugRecord').style.display = 'none';
+      document.getElementById('plugRom1').style.display = 'none';
+      document.getElementById('plugRom2').style.display = 'none';
    }
 }
 
