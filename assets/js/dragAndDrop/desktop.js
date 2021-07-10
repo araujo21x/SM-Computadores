@@ -67,6 +67,9 @@ function partSpecificity(partType, idDropZone, part, slot) {
    case 'motherBoard':
       motherBoardSpecificity();
       break;
+   case 'cooler':
+      activatePlug('plugCooler', 'inline');
+      break;
    }
 }
 
@@ -232,6 +235,7 @@ function removeError(part, idDiv) {
       deleteErrorReport(part, compatibility, idDiv);
    }
 }
+
 function partSpecificityRemove(partType, part) {
    switch (partType) {
    case 'powerSupply':
@@ -247,5 +251,13 @@ function partSpecificityRemove(partType, part) {
       break;
    case 'rom':
       romPluggedDisable(false, part);
+      break;
+   case 'cooler':
+      activatePlug('plugCooler', 'none');
+      document.getElementById('plugCooler').classList.remove('plugged');
+      activatePlug('thread_mother_cooler_01', 'none');
+      activatePlug('thread_mother_cooler_02', 'none');
+      setCable('cooler', false);
+      break;
    }
 }

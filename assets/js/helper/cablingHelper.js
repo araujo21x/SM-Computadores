@@ -122,3 +122,14 @@ export function romSlotVerify(rom, part) {
    });
    return answer;
 }
+
+export function coolerPlugged(display) {
+   document.getElementById('thread_mother_cooler_01').style.display = display;
+   document.getElementById('thread_mother_cooler_02').style.display = display;
+   if (display === 'inline') {
+      setCable('cooler', true);
+      document.getElementById('plugCooler').classList.add('plugged');
+   } else {
+      setCable('cooler', false);
+   }
+}

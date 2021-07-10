@@ -68,17 +68,6 @@
   background: url(../img/psuPlug.png) center/ 100% 100% no-repeat;
 }
 
-.plugCooler{
-  grid-column: 101/106;
-  /* background: lawngreen; */
-  grid-row: 10/12;
-}
-.plugCooler.pc{
-  grid-column: 81/88;
-  /* background: lawngreen; */
-  grid-row: 10/12;
-}
-
 .plugRecord{
   display: none;
   z-index: 2000;
@@ -122,4 +111,20 @@
   grid-column: 140/142;
   background: red;
   grid-row: 73/84;
+}
+
+.plugCooler{
+  display: none;
+  grid-column: 101/106;
+  background: lawngreen;
+  grid-row: 10/12;
+}
+.plugCooler.pc{
+  grid-column: 81/87;
+  background: lawngreen;
+  grid-row: 10/12;
+}
+
+.plugCooler.plugged{
+  background: url(../img/coolerPlug.png) center/ 100% 100% no-repeat;
 }

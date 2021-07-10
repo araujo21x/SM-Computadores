@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import {
    setModelDropZone,
    getPCBuilding,
@@ -73,6 +74,9 @@ function changeDisplayPlug(classStatus) {
 
    document.getElementById('plugPSU').classList[classStatus]('pc');
    document.getElementById('plugCooler').classList[classStatus]('pc');
+   document.getElementById('thread_mother_cooler_01').classList[classStatus]('pc');
+   document.getElementById('thread_mother_cooler_02').classList[classStatus]('pc');
+
    const pcBuild = getPCBuilding();
    if (classStatus === 'add') {
       if (pcBuild.recorder) {

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import {getPCBuilding, getCable} from '../data/localStorage.js';
 import {motherboardMode} from '../visualHardware.js';
 import {motherBoardSpecificity} from './partSpecificity.js';
@@ -59,7 +60,7 @@ function checkPartCooler(cooler, id) {
 }
 
 function continueCable() {
-   const {powerSupply, record, rom1, rom2} = getCable();
+   const {powerSupply, record, rom1, rom2, cooler} = getCable();
    if (powerSupply) psuPlugged('plugPSU', 'inline');
    if (record) {
       const plugRecord = document.getElementById('plugRecord');
@@ -72,5 +73,12 @@ function continueCable() {
    if (rom2) {
       const plugRecord = document.getElementById('plugRom2');
       plugRecord.classList.add('plugged');
+   }
+   if (cooler) {
+      const coolerPlug = document.getElementById('plugCooler');
+      coolerPlug.classList.add('plugged');
+      coolerPlug.style.display = 'inline';
+      document.getElementById('thread_mother_cooler_01').style.display = 'inline';
+      document.getElementById('thread_mother_cooler_02').style.display = 'inline';
    }
 }

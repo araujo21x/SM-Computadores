@@ -1,187 +1,207 @@
-.thread_psu_mother_01_01{
+.thread_psu_mother_01_01 {
   display: none;
   grid-column: 65/91;
   background: red;
   grid-row: 46/46;
-} 
-.thread_psu_mother_01_02{
+}
+
+.thread_psu_mother_01_02 {
   display: none;
   grid-column: 90/90;
   background: red;
   grid-row: 46/103;
-} 
-.thread_psu_mother_01_03{
+}
+
+.thread_psu_mother_01_03 {
   display: none;
   grid-column: 83/90;
   background: red;
   grid-row: 102/103;
-} 
+}
 
-.thread_psu_mother_02_01{
+.thread_psu_mother_02_01 {
   display: none;
   grid-column: 65/91;
   background: orange;
   grid-row: 45/45;
-} 
-.thread_psu_mother_02_02{
+}
+
+.thread_psu_mother_02_02 {
   display: none;
   grid-column: 91/91;
   background: orange;
   grid-row: 45/105;
-} 
-.thread_psu_mother_02_03{
+}
+
+.thread_psu_mother_02_03 {
   display: none;
   grid-column: 83/92;
   background: orange;
   grid-row: 105/105;
 }
 
-.thread_psu_mother_03_01{
+.thread_psu_mother_03_01 {
   display: none;
   grid-column: 65/93;
   background: green;
   grid-row: 44/44;
-} 
-.thread_psu_mother_03_02{
+}
+
+.thread_psu_mother_03_02 {
   display: none;
   grid-column: 92/92;
   background: green;
   grid-row: 45/108;
-} 
-.thread_psu_mother_03_03{
+}
+
+.thread_psu_mother_03_03 {
   display: none;
   grid-column: 83/92;
   background: green;
   grid-row: 107/107;
 }
 
-.thread_psu_mother_04_01{
+.thread_psu_mother_04_01 {
   display: none;
   grid-column: 65/94;
   background: black;
   grid-row: 43/43;
-} 
-.thread_psu_mother_04_02{
+}
+
+.thread_psu_mother_04_02 {
   display: none;
   grid-column: 93/93;
   background: black;
   grid-row: 43/110;
-} 
-.thread_psu_mother_04_03{
+}
+
+.thread_psu_mother_04_03 {
   display: none;
   grid-column: 83/93;
   background: black;
   grid-row: 110/109;
 }
 
-.thread_psu_mother_05_01{
+.thread_psu_mother_05_01 {
   display: none;
   grid-column: 65/95;
   background: gray;
   grid-row: 42/42;
-} 
-.thread_psu_mother_05_02{
+}
+
+.thread_psu_mother_05_02 {
   display: none;
   grid-column: 94/94;
   background: gray;
   grid-row: 43/112;
-} 
-.thread_psu_mother_05_03{
+}
+
+.thread_psu_mother_05_03 {
   display: none;
   grid-column: 83/95;
   background: gray;
   grid-row: 112/112;
 }
 
-.thread_psu_mother_06_01{
+.thread_psu_mother_06_01 {
   display: none;
   grid-column: 65/96;
   background: yellow;
   grid-row: 41/41;
-} 
-.thread_psu_mother_06_02{
+}
+
+.thread_psu_mother_06_02 {
   display: none;
   grid-column: 95/95;
   background: yellow;
   grid-row: 42/115;
-} 
-.thread_psu_mother_06_03{
+}
+
+.thread_psu_mother_06_03 {
   display: none;
   grid-column: 83/96;
   background: yellow;
   grid-row: 114/114;
 }
 
-.thread_psu_mother_07_01{
+.thread_psu_mother_07_01 {
   display: none;
   grid-column: 65/96;
   background: #EDEDED;
   grid-row: 40/40;
-} 
-.thread_psu_mother_07_02{
+}
+
+.thread_psu_mother_07_02 {
   display: none;
   grid-column: 96/96;
   background: #EDEDED;
   grid-row: 40/117;
-} 
-.thread_psu_mother_07_03{
+}
+
+.thread_psu_mother_07_03 {
   display: none;
   grid-column: 83/97;
   background: #EDEDED;
   grid-row: 117/117;
 }
 
-.thread_psu_mother_08_01{
+.thread_psu_mother_08_01 {
   display: none;
   grid-column: 65/98;
   background: black;
   grid-row: 39/39;
-} 
-.thread_psu_mother_08_02{
+}
+
+.thread_psu_mother_08_02 {
   display: none;
   grid-column: 97/97;
   background: black;
   grid-row: 39/120;
-} 
-.thread_psu_mother_08_03{
+}
+
+.thread_psu_mother_08_03 {
   display: none;
   grid-column: 83/98;
   background: black;
   grid-row: 119/119;
 }
 
-.thread_psu_mother_09_01{
+.thread_psu_mother_09_01 {
   display: none;
   grid-column: 65/98;
   background: blue;
   grid-row: 38/38;
-} 
-.thread_psu_mother_09_02{
+}
+
+.thread_psu_mother_09_02 {
   display: none;
   grid-column: 98/98;
   background: blue;
   grid-row: 38/122;
-} 
-.thread_psu_mother_09_03{
+}
+
+.thread_psu_mother_09_03 {
   display: none;
   grid-column: 83/98;
   background: blue;
   grid-row: 121/121;
 }
 
-.thread_psu_mother_10_01{
+.thread_psu_mother_10_01 {
   display: none;
   grid-column: 65/99;
   background: grey;
   grid-row: 37/37;
-} 
-.thread_psu_mother_10_02{
+}
+
+.thread_psu_mother_10_02 {
   display: none;
   grid-column: 99/99;
   background: grey;
   grid-row: 37/123;
-} 
-.thread_psu_mother_10_03{
+}
+
+.thread_psu_mother_10_03 {
   display: none;
   grid-column: 83/100;
   background: grey;
@@ -220,68 +240,79 @@
   grid-row: 108/108;
 } */
 
-.thread_psu_sata_03_01{
+.thread_psu_sata_03_01 {
   display: none;
   grid-column: 63/101;
   background: red;
   grid-row: 35/35;
-} 
-.thread_psu_sata_03_02{
+}
+
+.thread_psu_sata_03_02 {
   display: none;
   grid-column: 101/101;
   background: red;
   grid-row: 35/83;
-} 
-.thread_psu_sata_03_03{
+}
+
+.thread_psu_sata_03_03 {
   display: none;
   grid-column: 102/140;
   background: red;
   grid-row: 82/82;
 }
 
-.thread_psu_sata_04_01{
+.thread_psu_sata_04_01 {
   display: none;
   grid-column: 65/102;
   background: green;
   grid-row: 34/34;
-} 
-.thread_psu_sata_04_02{
+}
+
+.thread_psu_sata_04_02 {
   display: none;
   grid-column: 102/102;
   background: green;
   grid-row: 34/58;
-} 
-.thread_psu_sata_04_03{
+}
+
+.thread_psu_sata_04_03 {
   display: none;
   grid-column: 103/140;
   background: green;
   grid-row: 57/57;
 }
 
-.thread_psu_sata_05_01{
+.thread_psu_sata_05_01 {
   display: none;
   grid-column: 65/130;
   background: grey;
   grid-row: 32/32;
-} 
+}
 
+/*Sata entrada Leitor de dvd*/
+/* o primeiro numero 01-> significa qual entrada sata é a 01 é a de leitor de dvd*/
+/* a segunda é as falando se é conexão na entrada 1, 2, 3 ou 4 da placa mãe */
+/* terceiro são as partes para fazer a afiação*/
 /* encaixe no primeiro  */
-.thread_mother_sata_01_01_01{
+.thread_mother_sata_01_01_01 {
   grid-column: 109/130;
   background: red;
   grid-row: 26/29;
-} 
-.thread_mother_sata_01_01_02{
+}
+
+.thread_mother_sata_01_01_02 {
   grid-column: 109/111;
   background: red;
   grid-row: 29/174;
-} 
-.thread_mother_sata_01_01_03{
+}
+
+.thread_mother_sata_01_01_03 {
   grid-column: 60/111;
   background: red;
   grid-row: 174/177;
 }
-.thread_mother_sata_01_01_04{
+
+.thread_mother_sata_01_01_04 {
   grid-column: 58/60;
   background: red;
   grid-row: 174/198;
@@ -289,7 +320,7 @@
 
 
 /* encaixe no segundo  */
-/* .thread_mother_sata_01_02_01{
+.thread_mother_sata_01_02_01{
   grid-column: 109/130;
   background: red;
   grid-row: 26/29;
@@ -308,10 +339,10 @@
   grid-column: 66/68;
   background: red;
   grid-row: 174/198;
-} */
+}
 
 /* terceiro*/
-/* .thread_mother_sata_01_03_01{
+.thread_mother_sata_01_03_01{
   grid-column: 109/130;
   background: red;
   grid-row: 26/29;
@@ -330,10 +361,10 @@
   grid-column: 73/75;
   background: red;
   grid-row: 174/198;
-} */
+}
 
 /*quarto*/
-/* .thread_mother_sata_01_04_01{
+.thread_mother_sata_01_04_01{
   grid-column: 109/130;
   background: red;
   grid-row: 26/29;
@@ -352,7 +383,8 @@
   grid-column: 80/82;
   background: red;
   grid-row: 174/198;
-} */
+}
+
 
 /* encaixe no segundo sata  */
 /* .thread_mother_sata_02_01_01{
@@ -377,22 +409,25 @@
 } */
 
 /*Segunda sata segunda entrada*/
-.thread_mother_sata_02_02_01{
+.thread_mother_sata_02_02_01 {
   grid-column: 115/140;
   background: red;
   grid-row: 51/54;
-} 
-.thread_mother_sata_02_02_02{
+}
+
+.thread_mother_sata_02_02_02 {
   grid-column: 113/115;
   background: red;
   grid-row: 51/185;
-} 
-.thread_mother_sata_02_02_03{
+}
+
+.thread_mother_sata_02_02_03 {
   grid-column: 65/115;
   background: red;
   grid-row: 185/188;
 }
-.thread_mother_sata_02_02_04{
+
+.thread_mother_sata_02_02_04 {
   grid-column: 65/67;
   background: red;
   grid-row: 185/198;
@@ -486,22 +521,25 @@
 } */
 
 /* sata 3 entrada 1 */
-.thread_mother_sata_03_01_01{
+.thread_mother_sata_03_01_01 {
   grid-column: 123/140;
   background: red;
   grid-row: 76/79;
-} 
-.thread_mother_sata_03_01_02{
+}
+
+.thread_mother_sata_03_01_02 {
   grid-column: 121/123;
   background: red;
   grid-row: 76/191;
-} 
-.thread_mother_sata_03_01_03{
+}
+
+.thread_mother_sata_03_01_03 {
   grid-column: 75/123;
   background: red;
   grid-row: 190/193;
 }
-.thread_mother_sata_03_01_04{
+
+.thread_mother_sata_03_01_04 {
   grid-column: 73/75;
   background: red;
   grid-row: 190/198;
@@ -528,3 +566,25 @@
   background: red;
   grid-row: 190/198;
 } */
+
+/*Segunda sata segunda entrada*/
+.thread_mother_cooler_01 {
+  display: none;
+  grid-column: 101/101;
+  background: red;
+  grid-row: 11/29;
+}
+.thread_mother_cooler_01.pc {
+  grid-column: 45/45;
+  grid-row: 67/79;
+}
+.thread_mother_cooler_02 {
+  display: none;
+  grid-column: 102/102;
+  background: black;
+  grid-row: 11/29;
+}
+.thread_mother_cooler_02.pc {
+  grid-column: 46/46;
+  grid-row: 67/79;
+}
