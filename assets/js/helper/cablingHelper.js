@@ -1,4 +1,10 @@
-import {setCable, getPCBuilding} from '../data/localStorage.js';
+import {
+   setCable,
+   getPCBuilding,
+   getCable,
+   getSataPath,
+   setSataPath,
+} from '../data/localStorage.js';
 
 export function psuPlugged(display) {
    const plugPSU = document.getElementById('plugPSU');
@@ -118,7 +124,7 @@ export function romPluggedDisable(psu, part) {
 export function romSlotVerify(rom, part) {
    let answer;
    rom.forEach((element) => {
-      if (element.id === part.id ) answer = element.div;
+      if (element.id === part.id) answer = element.div;
    });
    return answer;
 }
@@ -132,4 +138,110 @@ export function coolerPlugged(display) {
    } else {
       setCable('cooler', false);
    }
+}
+
+export function sataMotherPlugged(plug) {
+   const {rom, recorder} = getPCBuilding();
+   const path = getSataPath();
+   let plugged = getCable();
+
+   if (recorder) {
+      if (!plugged[`sata${plug}`]) {
+         if (path.recorder.length === 0) {
+            const plugSata = document.getElementById(`plugSata0${plug}`);
+            plugSata.classList.add('plugged');
+
+            const arrayPath = [
+               `thread_mother_sata_01_0${plug}_01`,
+               `thread_mother_sata_01_0${plug}_02`,
+               `thread_mother_sata_01_0${plug}_03`,
+               `thread_mother_sata_01_0${plug}_04`,
+            ];
+            setSataPath('recorder', arrayPath);
+            setCable(`sata${plug}`, true);
+
+            if (plugSata.classList.length === 3) {
+               pathSataCable('recorder', 'inline');
+            }
+         }
+      }
+   }
+   if (rom) {
+      rom.forEach((element) => {
+         plugged = getCable();
+         if (!plugged[`sata${plug}`]) {
+            const divRom = element.div === 'rom_1' ? 1 : 2;
+
+            if (path[`rom${divRom}`].length === 0) {
+               const plugSata = document.getElementById(`plugSata0${plug}`);
+               plugSata.classList.add('plugged');
+
+               const arrayPath = [
+                  `thread_mother_sata_0${divRom + 1}_0${plug}_01`,
+                  `thread_mother_sata_0${divRom + 1}_0${plug}_02`,
+                  `thread_mother_sata_0${divRom + 1}_0${plug}_03`,
+                  `thread_mother_sata_0${divRom + 1}_0${plug}_04`,
+               ];
+
+               setSataPath(`rom${divRom}`, arrayPath);
+               setCable(`sata${plug}`, true);
+
+               if (plugSata.classList.length === 3) {
+                  pathSataCable(`rom${divRom}`, 'inline');
+               }
+            }
+         }
+      });
+   }
+
+   return true;
+}
+
+
+export function pathSataCable(part, display) {
+   const path = getSataPath();
+   path[part].forEach((element) => {
+      document.getElementById(element).style.display = display;
+   });
+}
+
+export function sataMotherUnpluggedPSU() {
+   const {recorder} = getSataPath();
+   if (recorder.length > 0) {
+      const plug = recorder[0][23];
+
+      const plugSata = document.getElementById(`plugSata0${plug}`);
+      plugSata.classList.remove('plugged');
+
+      if (plugSata.classList.length === 2) {
+         pathSataCable('recorder', 'none');
+      }
+
+      setSataPath('recorder', []);
+      setCable(`sata${plug}`, false);
+   }
+}
+
+export function sataMotherUnpluggedRom(part) {
+   const divRom = getDivRom(part) === 'rom_1' ? 1 : 2;
+   const path = getSataPath();
+   if (path[`rom${divRom}`].length > 0) {
+      const plug = path[`rom${divRom}`][0][23];
+
+      const plugSata = document.getElementById(`plugSata0${plug}`);
+      plugSata.classList.remove('plugged');
+
+      if (plugSata.classList.length === 2) {
+         pathSataCable(`rom${divRom}`, 'none');
+      }
+
+      setSataPath(`rom${divRom}`, []);
+      setCable(`sata${plug}`, false);
+   }
+}
+
+export function getDivRom(part) {
+   const {rom} = getPCBuilding();
+   const answer = rom.filter((element) => element.id === part.id);
+   return answer[0].div;
 }

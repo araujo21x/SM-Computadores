@@ -3,6 +3,7 @@ import {
    setModelDropZone,
    getPCBuilding,
    getCable,
+   getSataPath,
 } from './data/localStorage.js';
 import resizeGrid from './helper/dropZone.js';
 import {
@@ -10,6 +11,7 @@ import {
    recordCable,
    rom1cable,
    rom2cable,
+   pathSataCable,
 } from './helper/cablingHelper.js';
 
 // mother trade visual
@@ -100,10 +102,14 @@ function changeDisplayPlug(classStatus) {
 function changeDisplayCable(displayStatus) {
    const {powerSupply, recorder} = getPCBuilding();
    const cables = getCable();
+   const path = getSataPath();
    if (powerSupply && cables.powerSupply) psuCable(displayStatus);
    if (powerSupply && recorder && cables.record) recordCable(displayStatus);
    if (cables.rom1) rom1cable(displayStatus);
    if (cables.rom2) rom2cable(displayStatus);
+   if (path.recorder.length > 0) pathSataCable( 'recorder', displayStatus);
+   if (path.rom1.length > 0) pathSataCable( 'rom1', displayStatus);
+   if (path.rom2.length > 0) pathSataCable( 'rom2', displayStatus);
 }
 
 export function coolerZone(titleTab) {

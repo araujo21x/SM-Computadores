@@ -203,6 +203,10 @@ function generateCable() {
       record: false,
       rom1: false,
       rom2: false,
+      sata1: false,
+      sata2: false,
+      sata3: false,
+      sata4: false,
    };
 }
 
@@ -220,4 +224,29 @@ export function setCable(partType, value) {
 
    cable[partType] = value;
    localStorage.setItem('cables', JSON.stringify(cable));
+}
+
+// cableSata
+function generateSataPath() {
+   return {
+      recorder: [],
+      rom1: [],
+      rom2: [],
+   };
+}
+
+export function getSataPath() {
+   let path = JSON.parse(localStorage.getItem('sataPath'));
+   if (!path) {
+      path = generateSataPath();
+      localStorage.setItem('sataPath', JSON.stringify(path));
+   }
+   return path;
+}
+
+export function setSataPath(partType, value) {
+   const path = getSataPath() ? getSataPath() : generateSataPath();
+
+   path[partType] = value;
+   localStorage.setItem('sataPath', JSON.stringify(path));
 }

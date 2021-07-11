@@ -34,6 +34,8 @@ import {
    psuPlugged,
    recordPluggedDisable,
    romPluggedDisable,
+   sataMotherUnpluggedPSU,
+   sataMotherUnpluggedRom,
 } from '../helper/cablingHelper.js';
 
 function partSpecificity(partType, idDropZone, part, slot) {
@@ -230,9 +232,11 @@ export function dropSave(event, typeTab) { // drop da save zone
 }
 
 function removeError(part, idDiv) {
-   const compatibility = checkCompatibility(part);
-   if (compatibility.situation !== 'compatible') {
-      deleteErrorReport(part, compatibility, idDiv);
+   if (getEvaluativeMode()) { // ultima mudança feita
+      const compatibility = checkCompatibility(part);
+      if (compatibility.situation !== 'compatible') {
+         deleteErrorReport(part, compatibility, idDiv);
+      }
    }
 }
 
@@ -248,9 +252,11 @@ function partSpecificityRemove(partType, part) {
    case 'recorder':
       activatePlug('plugRecord', 'none');
       recordPluggedDisable();
+      sataMotherUnpluggedPSU();
       break;
    case 'rom':
       romPluggedDisable(false, part);
+      sataMotherUnpluggedRom(part);
       break;
    case 'cooler':
       activatePlug('plugCooler', 'none');

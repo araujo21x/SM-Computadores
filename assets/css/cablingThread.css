@@ -295,24 +295,28 @@
 /* terceiro são as partes para fazer a afiação*/
 /* encaixe no primeiro  */
 .thread_mother_sata_01_01_01 {
+  display: none;
   grid-column: 109/130;
   background: red;
   grid-row: 26/29;
 }
 
 .thread_mother_sata_01_01_02 {
+  display: none;
   grid-column: 109/111;
   background: red;
   grid-row: 29/174;
 }
 
 .thread_mother_sata_01_01_03 {
+  display: none;
   grid-column: 60/111;
   background: red;
   grid-row: 174/177;
 }
 
 .thread_mother_sata_01_01_04 {
+  display: none;
   grid-column: 58/60;
   background: red;
   grid-row: 174/198;
@@ -321,21 +325,25 @@
 
 /* encaixe no segundo  */
 .thread_mother_sata_01_02_01{
+  display: none;
   grid-column: 109/130;
   background: red;
   grid-row: 26/29;
 } 
 .thread_mother_sata_01_02_02{
+  display: none;
   grid-column: 109/111;
   background: red;
   grid-row: 29/174;
 } 
 .thread_mother_sata_01_02_03{
+  display: none;
   grid-column: 68/111;
   background: red;
   grid-row: 174/177;
 }
 .thread_mother_sata_01_02_04{
+  display: none;
   grid-column: 66/68;
   background: red;
   grid-row: 174/198;
@@ -343,21 +351,25 @@
 
 /* terceiro*/
 .thread_mother_sata_01_03_01{
+  display: none;
   grid-column: 109/130;
   background: red;
   grid-row: 26/29;
 } 
 .thread_mother_sata_01_03_02{
+  display: none;
   grid-column: 109/111;
   background: red;
   grid-row: 29/174;
 } 
 .thread_mother_sata_01_03_03{
+  display: none;
   grid-column: 75/111;
   background: red;
   grid-row: 174/177;
 }
 .thread_mother_sata_01_03_04{
+  display: none;
   grid-column: 73/75;
   background: red;
   grid-row: 174/198;
@@ -365,21 +377,25 @@
 
 /*quarto*/
 .thread_mother_sata_01_04_01{
+  display: none;
   grid-column: 109/130;
   background: red;
   grid-row: 26/29;
 } 
 .thread_mother_sata_01_04_02{
+  display: none;
   grid-column: 109/111;
   background: red;
   grid-row: 29/174;
 } 
 .thread_mother_sata_01_04_03{
+  display: none;
   grid-column: 82/111;
   background: red;
   grid-row: 174/177;
 }
 .thread_mother_sata_01_04_04{
+  display: none;
   grid-column: 80/82;
   background: red;
   grid-row: 174/198;
@@ -387,185 +403,214 @@
 
 
 /* encaixe no segundo sata  */
-/* .thread_mother_sata_02_01_01{
+.thread_mother_sata_02_01_01{
+  display: none;
   grid-column: 115/140;
   background: red;
   grid-row: 51/54;
 } 
 .thread_mother_sata_02_01_02{
+  display: none;
   grid-column: 113/115;
   background: red;
   grid-row: 51/185;
 } 
 .thread_mother_sata_02_01_03{
+  display: none;
   grid-column: 60/115;
   background: red;
   grid-row: 185/188;
 }
 .thread_mother_sata_02_01_04{
+  display: none;
   grid-column: 58/60;
   background: red;
   grid-row: 185/198;
-} */
+}
 
-/*Segunda sata segunda entrada*/
+
 .thread_mother_sata_02_02_01 {
+  display: none;
   grid-column: 115/140;
   background: red;
   grid-row: 51/54;
 }
 
 .thread_mother_sata_02_02_02 {
+  display: none;
   grid-column: 113/115;
   background: red;
   grid-row: 51/185;
 }
 
 .thread_mother_sata_02_02_03 {
+  display: none;
   grid-column: 65/115;
   background: red;
   grid-row: 185/188;
 }
 
 .thread_mother_sata_02_02_04 {
+  display: none;
   grid-column: 65/67;
   background: red;
   grid-row: 185/198;
 }
 
-/*Segunda sata terceira entrada*/
-/* .thread_mother_sata_02_03_01{
+.thread_mother_sata_02_03_01{
+  display: none;
   grid-column: 115/140;
   background: red;
   grid-row: 51/54;
 } 
 .thread_mother_sata_02_03_02{
+  display: none;
   grid-column: 113/115;
   background: red;
   grid-row: 51/185;
 } 
 .thread_mother_sata_02_03_03{
+  display: none;
   grid-column: 75/115;
   background: red;
   grid-row: 185/188;
 }
 .thread_mother_sata_02_03_04{
+  display: none;
   grid-column: 73/75;
   background: red;
   grid-row: 185/198;
-} */
+}
 
-/*Segunda sata quarta entrada*/
-/* .thread_mother_sata_02_04_01{
+
+.thread_mother_sata_02_04_01{
+  display: none;
   grid-column: 115/140;
   background: red;
   grid-row: 51/54;
 } 
 .thread_mother_sata_02_04_02{
+  display: none;
   grid-column: 113/115;
   background: red;
   grid-row: 51/185;
 } 
 .thread_mother_sata_02_04_03{
+  display: none;
   grid-column: 82/115;
   background: red;
   grid-row: 185/188;
 }
 .thread_mother_sata_02_04_04{
+  display: none;
   grid-column: 80/82;
   background: red;
   grid-row: 185/198;
-} */
+}
 
-/* sata 3 entrada 1 */
-/* .thread_mother_sata_03_01_01{
+/* terceira */ 
+.thread_mother_sata_03_01_01{
+  display: none;
   grid-column: 123/140;
   background: red;
   grid-row: 76/79;
 } 
 .thread_mother_sata_03_01_02{
+  display: none;
   grid-column: 121/123;
   background: red;
   grid-row: 76/191;
 } 
 .thread_mother_sata_03_01_03{
+  display: none;
   grid-column: 60/123;
   background: red;
   grid-row: 190/193;
 }
 .thread_mother_sata_03_01_04{
+  display: none;
   grid-column:58/60;
   background: red;
   grid-row: 190/198;
-} */
-/* sata 3 entrada 2 */
-/* .thread_mother_sata_03_02_01{
+} 
+
+.thread_mother_sata_03_02_01{
+  display: none;
   grid-column: 123/140;
   background: red;
   grid-row: 76/79;
 } 
 .thread_mother_sata_03_02_02{
+  display: none;
   grid-column: 121/123;
   background: red;
   grid-row: 76/191;
 } 
 .thread_mother_sata_03_02_03{
+  display: none;
   grid-column: 67/123;
   background: red;
   grid-row: 190/193;
 }
 .thread_mother_sata_03_02_04{
+  display: none;
   grid-column: 65/67;
   background: red;
   grid-row: 190/198;
-} */
+}
 
-/* sata 3 entrada 1 */
-.thread_mother_sata_03_01_01 {
+.thread_mother_sata_03_03_01 {
+  display: none;
   grid-column: 123/140;
   background: red;
   grid-row: 76/79;
 }
 
-.thread_mother_sata_03_01_02 {
+.thread_mother_sata_03_03_02 {
+  display: none;
   grid-column: 121/123;
   background: red;
   grid-row: 76/191;
 }
 
-.thread_mother_sata_03_01_03 {
+.thread_mother_sata_03_03_03 {
+  display: none;
   grid-column: 75/123;
   background: red;
   grid-row: 190/193;
 }
 
-.thread_mother_sata_03_01_04 {
+.thread_mother_sata_03_03_04 {
+  display: none;
   grid-column: 73/75;
   background: red;
   grid-row: 190/198;
 }
 
-/* sata 3 entrada 4 */
-/* .thread_mother_sata_03_04_01{
+.thread_mother_sata_03_04_01{
+  display: none;
   grid-column: 123/140;
   background: red;
   grid-row: 76/79;
 } 
 .thread_mother_sata_03_04_02{
+  display: none;
   grid-column: 121/123;
   background: red;
   grid-row: 76/191;
 } 
 .thread_mother_sata_03_04_03{
+  display: none;
   grid-column: 82/123;
   background: red;
   grid-row: 190/193;
 }
 .thread_mother_sata_03_04_04{
+  display: none;
   grid-column: 80/82;
   background: red;
   grid-row: 190/198;
-} */
+}
 
 /*Segunda sata segunda entrada*/
 .thread_mother_cooler_01 {

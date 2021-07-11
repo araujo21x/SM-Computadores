@@ -17,6 +17,7 @@ import {
    rom1Plugged,
    rom2Plugged,
    coolerPlugged,
+   sataMotherPlugged,
 } from './helper/cablingHelper.js';
 
 function generateSideMenu() {
@@ -83,7 +84,26 @@ function generateDropZone() {
    const plugRecord = document.getElementById('plugRecord');
    const plugRom1 = document.getElementById('plugRom1');
    const plugRom2 = document.getElementById('plugRom2');
-   const plugCooler = document.getElementById('plugCooler');
+   const plugSata01 = document.getElementById('plugSata01');
+   const plugSata02 = document.getElementById('plugSata02');
+   const plugSata03 = document.getElementById('plugSata03');
+   const plugSata04 = document.getElementById('plugSata04');
+
+   plugSata01.addEventListener('click', () =>{
+      sataMotherPlugged(1);
+   });
+
+   plugSata02.addEventListener('click', () =>{
+      sataMotherPlugged(2);
+   });
+
+   plugSata03.addEventListener('click', () =>{
+      sataMotherPlugged(3);
+   });
+
+   plugSata04.addEventListener('click', () =>{
+      sataMotherPlugged(4);
+   });
 
    plugCooler.addEventListener('click', () =>{
       coolerPlugged('inline');
@@ -149,6 +169,9 @@ function generateThread(partZone) {
    dropZonePCDetails('thread_psu_sata_06', 'thread_psu_sata_04_03', partZone);
    dropZonePCDetails('thread_psu_sata_07', 'thread_psu_sata_05_01', partZone);
 
+   dropZonePCDetails('thread_mother_cooler_01', 'thread_mother_cooler_01', partZone);
+   dropZonePCDetails('thread_mother_cooler_02', 'thread_mother_cooler_02', partZone);
+
    dropZonePCDetails('thread_mother_sata_01_01_01', 'thread_mother_sata_01_01_01', partZone);
    dropZonePCDetails('thread_mother_sata_01_01_02', 'thread_mother_sata_01_01_02', partZone);
    dropZonePCDetails('thread_mother_sata_01_01_03', 'thread_mother_sata_01_01_03', partZone);
@@ -169,8 +192,45 @@ function generateThread(partZone) {
    dropZonePCDetails('thread_mother_sata_01_04_03', 'thread_mother_sata_01_04_03', partZone);
    dropZonePCDetails('thread_mother_sata_01_04_04', 'thread_mother_sata_01_04_04', partZone);
 
-   dropZonePCDetails('thread_mother_cooler_01', 'thread_mother_cooler_01', partZone);
-   dropZonePCDetails('thread_mother_cooler_02', 'thread_mother_cooler_02', partZone);
+   dropZonePCDetails('thread_mother_sata_02_01_01', 'thread_mother_sata_02_01_01', partZone);
+   dropZonePCDetails('thread_mother_sata_02_01_02', 'thread_mother_sata_02_01_02', partZone);
+   dropZonePCDetails('thread_mother_sata_02_01_03', 'thread_mother_sata_02_01_03', partZone);
+   dropZonePCDetails('thread_mother_sata_02_01_04', 'thread_mother_sata_02_01_04', partZone);
+
+   dropZonePCDetails('thread_mother_sata_02_02_01', 'thread_mother_sata_02_02_01', partZone);
+   dropZonePCDetails('thread_mother_sata_02_02_02', 'thread_mother_sata_02_02_02', partZone);
+   dropZonePCDetails('thread_mother_sata_02_02_03', 'thread_mother_sata_02_02_03', partZone);
+   dropZonePCDetails('thread_mother_sata_02_02_04', 'thread_mother_sata_02_02_04', partZone);
+
+   dropZonePCDetails('thread_mother_sata_02_03_01', 'thread_mother_sata_02_03_01', partZone);
+   dropZonePCDetails('thread_mother_sata_02_03_02', 'thread_mother_sata_02_03_02', partZone);
+   dropZonePCDetails('thread_mother_sata_02_03_03', 'thread_mother_sata_02_03_03', partZone);
+   dropZonePCDetails('thread_mother_sata_02_03_04', 'thread_mother_sata_02_03_04', partZone);
+
+   dropZonePCDetails('thread_mother_sata_02_04_01', 'thread_mother_sata_02_04_01', partZone);
+   dropZonePCDetails('thread_mother_sata_02_04_02', 'thread_mother_sata_02_04_02', partZone);
+   dropZonePCDetails('thread_mother_sata_02_04_03', 'thread_mother_sata_02_04_03', partZone);
+   dropZonePCDetails('thread_mother_sata_02_04_04', 'thread_mother_sata_02_04_04', partZone);
+
+   dropZonePCDetails('thread_mother_sata_03_01_01', 'thread_mother_sata_03_01_01', partZone);
+   dropZonePCDetails('thread_mother_sata_03_01_02', 'thread_mother_sata_03_01_02', partZone);
+   dropZonePCDetails('thread_mother_sata_03_01_03', 'thread_mother_sata_03_01_03', partZone);
+   dropZonePCDetails('thread_mother_sata_03_01_04', 'thread_mother_sata_03_01_04', partZone);
+
+   dropZonePCDetails('thread_mother_sata_03_02_01', 'thread_mother_sata_03_02_01', partZone);
+   dropZonePCDetails('thread_mother_sata_03_02_02', 'thread_mother_sata_03_02_02', partZone);
+   dropZonePCDetails('thread_mother_sata_03_02_03', 'thread_mother_sata_03_02_03', partZone);
+   dropZonePCDetails('thread_mother_sata_03_02_04', 'thread_mother_sata_03_02_04', partZone);
+
+   dropZonePCDetails('thread_mother_sata_03_03_01', 'thread_mother_sata_03_03_01', partZone);
+   dropZonePCDetails('thread_mother_sata_03_03_02', 'thread_mother_sata_03_03_02', partZone);
+   dropZonePCDetails('thread_mother_sata_03_03_03', 'thread_mother_sata_03_03_03', partZone);
+   dropZonePCDetails('thread_mother_sata_03_03_04', 'thread_mother_sata_03_03_04', partZone);
+
+   dropZonePCDetails('thread_mother_sata_03_04_01', 'thread_mother_sata_03_04_01', partZone);
+   dropZonePCDetails('thread_mother_sata_03_04_02', 'thread_mother_sata_03_04_02', partZone);
+   dropZonePCDetails('thread_mother_sata_03_04_03', 'thread_mother_sata_03_04_03', partZone);
+   dropZonePCDetails('thread_mother_sata_03_04_04', 'thread_mother_sata_03_04_04', partZone);
 }
 
 function generateModal() {

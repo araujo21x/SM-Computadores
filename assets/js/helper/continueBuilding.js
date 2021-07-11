@@ -60,7 +60,16 @@ function checkPartCooler(cooler, id) {
 }
 
 function continueCable() {
-   const {powerSupply, record, rom1, rom2, cooler} = getCable();
+   const {powerSupply,
+      record,
+      rom1,
+      rom2,
+      cooler,
+      sata1,
+      sata2,
+      sata3,
+      sata4,
+   } = getCable();
    if (powerSupply) psuPlugged('plugPSU', 'inline');
    if (record) {
       const plugRecord = document.getElementById('plugRecord');
@@ -80,5 +89,17 @@ function continueCable() {
       coolerPlug.style.display = 'inline';
       document.getElementById('thread_mother_cooler_01').style.display = 'inline';
       document.getElementById('thread_mother_cooler_02').style.display = 'inline';
+   }
+   if (sata1) {
+      document.getElementById('plugSata01').classList.add('plugged');
+   }
+   if (sata2) {
+      document.getElementById('plugSata02').classList.add('plugged');
+   }
+   if (sata3) {
+      document.getElementById('plugSata03').classList.add('plugged');
+   }
+   if (sata4) {
+      document.getElementById('plugSata04').classList.add('plugged');
    }
 }
