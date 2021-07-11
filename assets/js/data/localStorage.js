@@ -109,10 +109,15 @@ export function setModelDropZone(value) {
    localStorage.setItem('dropZone', JSON.stringify(dropZone));
 }
 
-export function resetLocalStorage() {
+export function resetLocalStorage(evaluativeMode) {
    const evaluative = getEvaluativeMode();
    localStorage.clear();
-   setEvaluativeMode(evaluative);
+   console.log(evaluativeMode);
+   if (evaluativeMode !== null && evaluativeMode !== undefined) {
+      setEvaluativeMode(evaluativeMode);
+   } else {
+      setEvaluativeMode(evaluative);
+   }
 }
 
 // modo de jogo

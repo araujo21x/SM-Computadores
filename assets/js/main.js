@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import {setBuildingPC, setEvaluativeMode} from './data/localStorage.js';
+import {setBuildingPC, getEvaluativeMode} from './data/localStorage.js';
 import {disableTab} from './tab.js';
 import {motherboardMode} from './visualHardware.js';
 import {loading} from './helper/utils.js';
@@ -89,39 +89,39 @@ function generateDropZone() {
    const plugSata03 = document.getElementById('plugSata03');
    const plugSata04 = document.getElementById('plugSata04');
 
-   plugSata01.addEventListener('click', () =>{
+   plugSata01.addEventListener('click', () => {
       sataMotherPlugged(1);
    });
 
-   plugSata02.addEventListener('click', () =>{
+   plugSata02.addEventListener('click', () => {
       sataMotherPlugged(2);
    });
 
-   plugSata03.addEventListener('click', () =>{
+   plugSata03.addEventListener('click', () => {
       sataMotherPlugged(3);
    });
 
-   plugSata04.addEventListener('click', () =>{
+   plugSata04.addEventListener('click', () => {
       sataMotherPlugged(4);
    });
 
-   plugCooler.addEventListener('click', () =>{
+   plugCooler.addEventListener('click', () => {
       coolerPlugged('inline');
    });
 
-   plugPSU.addEventListener('click', () =>{
+   plugPSU.addEventListener('click', () => {
       psuPlugged('inline');
    });
 
-   plugRecord.addEventListener('click', () =>{
+   plugRecord.addEventListener('click', () => {
       recordPlugged();
    });
 
-   plugRom1.addEventListener('click', () =>{
+   plugRom1.addEventListener('click', () => {
       rom1Plugged();
    });
 
-   plugRom2.addEventListener('click', () =>{
+   plugRom2.addEventListener('click', () => {
       rom2Plugged();
    });
 
@@ -305,19 +305,24 @@ function generateAlertBase() {
 
 
 (function init() {
-   loading(true);
-   setEvaluativeMode(false);
-   generateSideMenu();
-   generateDropZone();
-   generateButtonsSideMenu();
-   generateModal();
-   generateAlertBase();
-   setBuildingPC();
+   const evaluative = getEvaluativeMode();
+   console.log(evaluative);
+   if ( evaluative !== null && evaluative !== undefined) {
+      loading(true);
+      generateSideMenu();
+      generateDropZone();
+      generateButtonsSideMenu();
+      generateModal();
+      generateAlertBase();
+      setBuildingPC();
 
-   const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
-   disableTab(titleTabs);
+      const titleTabs = Array.from(document.getElementsByClassName('titleTab'));
+      disableTab(titleTabs);
 
-   motherboardMode();
-   continueBuilding();
-   loading(false);
+      motherboardMode();
+      continueBuilding();
+      loading(false);
+   } else {
+      window.location.href = '../../index.html';
+   }
 })();
