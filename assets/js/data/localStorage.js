@@ -112,7 +112,6 @@ export function setModelDropZone(value) {
 export function resetLocalStorage(evaluativeMode) {
    const evaluative = getEvaluativeMode();
    localStorage.clear();
-   console.log(evaluativeMode);
    if (evaluativeMode !== null && evaluativeMode !== undefined) {
       setEvaluativeMode(evaluativeMode);
    } else {

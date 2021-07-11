@@ -1,39 +1,42 @@
 * {
   margin: 0;
   padding: 0;
-  font-family:'Mulish', sans-serif;;
+  box-sizing: border-box;
+  font-family: 'Mulish', sans-serif;
+  ;
 }
 
-.banner{
+.banner {
   width: auto;
   height: 100vh;
-  background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),url(../img/bgIndex.webp);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.50),  rgba(0, 0, 0, 0.50)), url(../img/bgIndex.webp);
   background-size: cover;
   background-position: center;
 }
 
-.navbar{
-  width: 85%;
+.navbar {
+  width: 100%;
   margin: auto;
   padding: 0 25px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: fixed;
 }
 
-.logo{
+.logo {
   width: 125px;
   cursor: pointer;
 }
 
-.navbar ul li{
+.navbar ul li {
   list-style: none;
   display: inline-block;
   margin: 0 4vh;
   position: relative;
 }
 
-.navbar ul li::after{
+.navbar ul li::after {
   content: '';
   height: 3px;
   width: 0;
@@ -43,16 +46,18 @@
   bottom: -1vh;
   transition: 0.5s;
 }
-.navbar ul li:hover:after{
+
+.navbar ul li:hover:after {
   width: 100%;
 }
-.navbar ul li a{
+
+.navbar ul li a {
   text-decoration: none;
   color: #f4f5f6;
   text-transform: uppercase;
 }
 
-.content{
+.content {
   width: 100%;
   position: absolute;
   top: 50%;
@@ -60,18 +65,19 @@
   text-align: center;
   color: #f4f5f6;
 }
-.content h1{
+
+.content h1 {
   font-size: 8vh;
   margin-top: 2vh;
 }
 
-.content p{
+.content p {
   margin: 1vh auto;
   font-weight: 100;
   line-height: 3.5vh;
 }
 
-button{
+button {
   width: 200px;
   font-size: 15px;
   padding: 15px 0;
@@ -87,7 +93,7 @@ button{
   overflow: hidden;
 }
 
-span{
+span {
   background: #62B0CB;
   height: 100%;
   width: 0;
@@ -99,12 +105,27 @@ span{
   transition: 0.5s;
 }
 
-button:hover span{
+button:hover span {
   width: 100%;
-  
+
 }
 
-button:hover{
+button:hover {
   border: none;
   color: black;
+}
+
+/* About*/
+.about {
+  width: auto;
+  height: 100vh;
+  background: black;
+}
+
+.guide {
+  width: auto;
+  height: 100vh;
+  background: black;
+  background-size: cover;
+  background-position: center;
 }
