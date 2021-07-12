@@ -93,3 +93,17 @@ export function loading(activate) {
    if (activate) modalLoading.classList.add('open');
    else modalLoading.classList.remove('open');
 }
+
+export function cablesZoneHelper() {
+   if (!getEvaluativeMode()) {
+      document.getElementById('plugPSU').style.border ='2px solid #29ffda';
+      document.getElementById('plugSata01').style.border ='2px solid #29ffda';
+      document.getElementById('plugSata02').style.border ='2px solid #29ffda';
+      document.getElementById('plugSata03').style.border ='2px solid #29ffda';
+      document.getElementById('plugSata04').style.border ='2px solid #29ffda';
+      document.getElementById('plugRecord').style.border ='2px solid #29ffda';
+      document.getElementById('plugRom1').style.border ='2px solid #29ffda';
+      document.getElementById('plugRom2').style.border ='2px solid #29ffda';
+      document.getElementById('plugCooler').style.border ='2px solid #29ffda';
+   }
+}

@@ -2,7 +2,7 @@
 import {setBuildingPC, getEvaluativeMode} from './data/localStorage.js';
 import {disableTab} from './tab.js';
 import {motherboardMode} from './visualHardware.js';
-import {loading} from './helper/utils.js';
+import {loading, cablesZoneHelper} from './helper/utils.js';
 import {closeModal} from './modal.js';
 import {closeAlert} from './alert.js';
 
@@ -306,7 +306,6 @@ function generateAlertBase() {
 
 (function init() {
    const evaluative = getEvaluativeMode();
-   console.log(evaluative);
    if ( evaluative !== null && evaluative !== undefined) {
       loading(true);
       generateSideMenu();
@@ -321,6 +320,7 @@ function generateAlertBase() {
 
       motherboardMode();
       continueBuilding();
+      cablesZoneHelper();
       loading(false);
    } else {
       window.location.href = '../../index.html';
