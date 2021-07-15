@@ -160,7 +160,12 @@ export function setErrorReport(part, idDiv, error) {
 }
 
 export function getErrorReport() {
-   return JSON.parse(localStorage.getItem('errorReport'));
+   let errors = JSON.parse(localStorage.getItem('errorReport'));
+   if (!errors) {
+      errors = generateErrorReport();
+      localStorage.setItem('errorReport', JSON.stringify(errors));
+   }
+   return errors;
 }
 
 function multipleSlotsError(part, idDiv, errorReport, error) {

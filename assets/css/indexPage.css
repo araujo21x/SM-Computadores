@@ -3,7 +3,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Mulish', sans-serif;
-  ;
 }
 
 .banner {
@@ -25,10 +24,10 @@
 }
 
 .logo {
-  width: 125px;
+  width: 10vh;
+  height: auto;
   cursor: pointer;
 }
-
 .navbar ul li {
   list-style: none;
   display: inline-block;

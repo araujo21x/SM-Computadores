@@ -2,8 +2,8 @@ import {request} from '../helper/utils.js';
 import {getPCBuilding} from '../data/localStorage.js';
 
 const multiplesParts = ['ram', 'rom'];
-const API = 'https://api-draganddrop.herokuapp.com';
-
+// const API = 'https://api-draganddrop.herokuapp.com';
+const API = 'http://localhost:3000';
 export function removingPieceFitted(parts, partType) {
    const pcBuilding = getPCBuilding();
 

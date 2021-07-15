@@ -1,5 +1,11 @@
 /* eslint-disable max-len */
-import {resetLocalStorage, getPCBuilding, getEvaluativeMode} from '../data/localStorage.js';
+import {
+   resetLocalStorage,
+   getPCBuilding,
+   getEvaluativeMode,
+   getCable,
+   getErrorReport,
+} from '../data/localStorage.js';
 import {openAlert, close} from '../alert.js';
 
 // server para pegar o tipo da peça
@@ -42,10 +48,19 @@ export function reset() {
 export function generatePDF() {
    close();
    loading(true);
-   fetch('https://api-draganddrop.herokuapp.com/finish', {
+
+   const body = {
+      ...getPCBuilding(),
+      evaluativeMode: getEvaluativeMode(),
+      cable: getCable(),
+      error: getErrorReport(),
+   };
+   console.log(body);
+   // fetch('https://api-draganddrop.herokuapp.com/finish', {
+   fetch('http://localhost:3000/finish', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(getPCBuilding()),
+      body: JSON.stringify(body),
    }).then((response) => {
       if (response.status === 200) {
          response.blob().then((blob) => {
@@ -96,14 +111,14 @@ export function loading(activate) {
 
 export function cablesZoneHelper() {
    if (!getEvaluativeMode()) {
-      document.getElementById('plugPSU').style.border ='2px solid #29ffda';
-      document.getElementById('plugSata01').style.border ='2px solid #29ffda';
-      document.getElementById('plugSata02').style.border ='2px solid #29ffda';
-      document.getElementById('plugSata03').style.border ='2px solid #29ffda';
-      document.getElementById('plugSata04').style.border ='2px solid #29ffda';
-      document.getElementById('plugRecord').style.border ='2px solid #29ffda';
-      document.getElementById('plugRom1').style.border ='2px solid #29ffda';
-      document.getElementById('plugRom2').style.border ='2px solid #29ffda';
-      document.getElementById('plugCooler').style.border ='2px solid #29ffda';
+      document.getElementById('plugPSU').style.border = '2px solid #29ffda';
+      document.getElementById('plugSata01').style.border = '2px solid #29ffda';
+      document.getElementById('plugSata02').style.border = '2px solid #29ffda';
+      document.getElementById('plugSata03').style.border = '2px solid #29ffda';
+      document.getElementById('plugSata04').style.border = '2px solid #29ffda';
+      document.getElementById('plugRecord').style.border = '2px solid #29ffda';
+      document.getElementById('plugRom1').style.border = '2px solid #29ffda';
+      document.getElementById('plugRom2').style.border = '2px solid #29ffda';
+      document.getElementById('plugCooler').style.border = '2px solid #29ffda';
    }
 }
