@@ -56,8 +56,8 @@ export function generatePDF() {
       error: getErrorReport(),
    };
    console.log(body);
-   // fetch('https://api-draganddrop.herokuapp.com/finish', {
-   fetch('http://localhost:3000/finish', {
+   fetch('https://api-draganddrop.herokuapp.com/finish', {
+   // fetch('http://localhost:3000/finish', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(body),
