@@ -158,7 +158,7 @@ export function notPluggable(parts) {
 export async function listParts(tabId, title) {
    loading(true);
    const typePart = cutId(tabId);
-   let parts = await getParts(typePart);
+   const parts = await getParts(typePart);
 
    // Adicionado os botões e a zona de recuperar peça
    const divTab = document.getElementById(tabId);
@@ -171,7 +171,7 @@ export async function listParts(tabId, title) {
    section.id = 'droppableParts';
 
    // Adicionando as peças
-   if (!getEvaluativeMode()) parts = justPlugable(parts);
+   // if (!getEvaluativeMode()) parts = justPlugable(parts);
 
    parts.forEach((element) => section.appendChild(partBox(element)));
    divTab.appendChild(section);

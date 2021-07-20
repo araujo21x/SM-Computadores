@@ -1,8 +1,9 @@
-
 import {removingPieceFitted, getFieldsFilter} from '../data/db.js';
 import hardwareItem from '../components/partBox.js';
 import {loading} from '../helper/utils.js';
-import {justPlugable} from '../listParts.js';
+import {justPlugable, notPluggable} from '../listParts.js';
+import {openAlert} from '../alert.js';
+import {getEvaluativeMode} from '../data/localStorage.js';
 
 export default async function(part) {
    const fieldsFilter = await getFieldsFilter(part);
@@ -70,13 +71,22 @@ export async function filter(typePart) {
 }
 
 async function renderFilter(response, typePart, showPieces) {
-   if (response.status !== 200) alert('Erro! peça não encontrada!');
-   else {
+   if (response.status !== 200) {
+      // fechar modal
+      const modal = document.getElementById('modal');
+      modal.classList.remove('open');
+      openAlert('confirmDanger', ' Atenção!!!',
+         'Erro! peça não encontrada!');
+   } else {
       const parts = await response.json();
       const verifiedParts = removingPieceFitted(parts, typePart);
 
       if (verifiedParts.length === 0) {
-         alert('Erro! só foi encontrada uma peçã e ela já esta encaixada!');
+         // fechar modal
+         const modal = document.getElementById('modal');
+         modal.classList.remove('open');
+         openAlert('confirmDanger', ' Atenção!!!',
+            'Erro! só foi encontrada uma peçã e ela já esta encaixada!');
       } else {
          // pegar a div
 
@@ -139,13 +149,15 @@ function creatItemForm({name, question, filterResponse}) {
       optionNull.text = 'Todas';
       select.appendChild(optionNull);
    }
+   if (!(name === 'showPieces' && getEvaluativeMode())) {
+      filterResponse.forEach((element) => {
+         const option = document.createElement('option');
+         option.value = element.value;
+         option.text = element.text;
+         select.appendChild(option);
+      });
+   }
 
-   filterResponse.forEach((element) => {
-      const option = document.createElement('option');
-      option.value = element.value;
-      option.text = element.text;
-      select.appendChild(option);
-   });
    divItemFilter.appendChild(select);
    return divItemFilter;
 };
