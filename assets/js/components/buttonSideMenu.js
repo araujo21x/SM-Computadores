@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
-import {openAlert} from '../alert.js';
-import {reset, generatePDF} from '../helper/utils.js';
+import {openAlert, putName} from '../alert.js';
+import {reset} from '../helper/utils.js';
 
 export default function(className, typeAlert, iClassName, pText, fatherDiv) {
    const button = document.createElement('button');
@@ -9,7 +9,7 @@ export default function(className, typeAlert, iClassName, pText, fatherDiv) {
       button.addEventListener('click', function() {
          openAlert(typeAlert, 'Deseja gerar PDF ?',
             'Gerar um arquivo pdf com as especificações que você montou até agora',
-            generatePDF);
+            putName);
       });
    } else {
       button.addEventListener('click', function() {

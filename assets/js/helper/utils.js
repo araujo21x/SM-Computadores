@@ -46,39 +46,44 @@ export function reset() {
 }
 
 export function generatePDF() {
-   close();
-   loading(true);
+   const studentName = document.getElementById('studentName').value;
+   if (studentName.length > 0) {
+      close();
+      loading(true);
 
-   const body = {
-      ...getPCBuilding(),
-      evaluativeMode: getEvaluativeMode(),
-      cable: getCable(),
-      error: getErrorReport(),
-   };
-   console.log(body);
-   fetch('https://api-draganddrop.herokuapp.com/finish', {
-   // fetch('http://localhost:3000/finish', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(body),
-   }).then((response) => {
-      if (response.status === 200) {
-         response.blob().then((blob) => {
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'arquivo.pdf';
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-         });
-      } else {
-         response.json().then((value) => {
-            openAlert('confirmDanger', ' Erro', value.result.mensagem);
-         });
-      }
-   });
-   loading(false);
+      const body = {
+         ...getPCBuilding(),
+         evaluativeMode: getEvaluativeMode(),
+         cable: getCable(),
+         error: getErrorReport(),
+         studentName: studentName,
+      };
+      fetch('https://api-draganddrop.herokuapp.com/finish', {
+      // fetch('http://localhost:3000/finish', {
+         method: 'POST',
+         headers: {'Content-Type': 'application/json'},
+         body: JSON.stringify(body),
+      }).then((response) => {
+         if (response.status === 200) {
+            response.blob().then((blob) => {
+               const url = window.URL.createObjectURL(blob);
+               const a = document.createElement('a');
+               a.href = url;
+               a.download = 'arquivo.pdf';
+               document.body.appendChild(a);
+               a.click();
+               a.remove();
+            });
+         } else {
+            response.json().then((value) => {
+               openAlert('confirmDanger', ' Erro', value.result.mensagem);
+            });
+         }
+      });
+      loading(false);
+   } else {
+      openAlert('confirmDanger', ' Erro', 'Nome não informado!');
+   }
 }
 
 export function showSaveZone() {

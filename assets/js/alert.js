@@ -1,3 +1,5 @@
+import {generatePDF} from './helper/utils.js';
+
 export function openAlert(typeAlert, title, text, cb) {
    const modal = document.getElementById('alert');
    modal.classList.add('openAlert');
@@ -103,4 +105,32 @@ function createButton(text, type, cb) {
 export function close() {
    const modal = document.getElementById('alert');
    modal.classList.remove('openAlert');
+}
+
+export function putName() {
+   createTile('Informe seu nome', 'primaryColor', 'fas fa-check-circle');
+
+   const alertBody = document.getElementById('alertBody');
+   alertBody.innerHTML = '';
+
+   const form = document.createElement('form');
+   form.action = '';
+   const input = document.createElement('input');
+   input.type = 'text';
+   input.id = 'studentName';
+   input.name = 'studentName';
+   form.appendChild(input);
+   alertBody.appendChild(form);
+
+   const alertButton = document.getElementById('alertButton');
+   alertButton.innerHTML = '';
+
+   alertButton.appendChild(createButton('Cancelar', 'cancelButton', close));
+   const button = document.createElement('button');
+   button.className = 'normalButton';
+   button.innerText = 'Confirmar';
+   button.addEventListener('click', function() {
+      generatePDF();
+   });
+   alertButton.appendChild(button);
 }
