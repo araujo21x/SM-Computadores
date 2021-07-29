@@ -10,7 +10,6 @@ function verifyCpu(part) {
    const {
       motherBoard: {
          socket,
-         chipset,
          memorySlotAmount,
          memorySizeSupport},
       ramMemory,
@@ -18,11 +17,11 @@ function verifyCpu(part) {
 
    let answer = {situation: 'compatible', error: ''};
 
-   if (socket !== part.socket || chipset !== part.chipset) {
+   if (socket !== part.socket ) {
       answer = {situation: 'incompatible', error: err.cpu01};
    } else {
       if (memorySlotAmount !== part.memorySupportAmountSlot) {
-         answer = {situation: 'incompatible', error: err.cpu02};
+         answer = {situation: 'malfunction', error: err.cpu02};
       } else {
          if (memorySizeSupport !== part.memorySizeSupport) {
             answer = {situation: 'malfunction', error: err.cpu03};
