@@ -62,9 +62,10 @@ function verifyRam(part) {
    } = getPCBuilding();
 
    let answer = {situation: 'compatible', error: ''};
+
    if (memorySlotAmount === 0 || memorySlotType !== part.memorySlotType) {
       answer = {situation: 'incompatible', error: err.ram01};
-   } else if (memorySlotFrequency.includes(part.memoryFrequency)) {
+   } else if (!memorySlotFrequency.includes(part.memoryFrequency)) {
       answer = {situation: 'malfunction', error: err.ram02};
    } else {
       if ((ramMemory + part.memorySize) > memorySizeSupport) {
