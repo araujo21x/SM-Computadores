@@ -6,6 +6,7 @@ const API = 'https://api-draganddrop.herokuapp.com';
 // const API = 'http://localhost:3000';
 export function removingPieceFitted(parts, partType) {
    const pcBuilding = getPCBuilding();
+   const ramListed = new Set();
 
    return parts.filter((element) => {
       let part = element.type === partType ? element : null;
@@ -16,15 +17,19 @@ export function removingPieceFitted(parts, partType) {
          }
 
          if (multiplesParts.includes(partType) && pcBuilding[partType]) {
-            pcBuilding[partType].map((buildingPart) => {
-               delete buildingPart.div;
-               if (JSON.stringify(part) === JSON.stringify(buildingPart)) {
-                  part = null;
-               }
-            });
+            if (partType === 'ram' && ramListed.has(part.memoryFrequency)) {
+               part = null;
+            } else {
+               pcBuilding[partType].map((buildingPart) => {
+                  delete buildingPart.div;
+                  if (JSON.stringify(part) === JSON.stringify(buildingPart)) {
+                     part = null;
+                  }
+               });
+            }
          }
+         if (partType === 'ram' && part) ramListed.add(part.memoryFrequency);
       }
-
       return part;
    });
 }

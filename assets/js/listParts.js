@@ -170,7 +170,7 @@ export async function listParts(tabId, title) {
    const section = document.createElement('section');
    section.id = 'droppableParts';
 
-   // Adicionando as peças
+   // listar apenas peças compatíveis
    // if (!getEvaluativeMode()) parts = justPlugable(parts);
 
    parts.forEach((element) => section.appendChild(partBox(element)));
