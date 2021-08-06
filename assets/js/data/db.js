@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import {request} from '../helper/utils.js';
 import {getPCBuilding} from '../data/localStorage.js';
 
@@ -6,8 +7,8 @@ const API = 'https://api-draganddrop.herokuapp.com';
 // const API = 'http://localhost:3000';
 export function removingPieceFitted(parts, partType) {
    const pcBuilding = getPCBuilding();
-   const ramFreqListed = new Set();
-   const ramSizeListed = new Set();
+   const ramListed = {};
+
    return parts.filter((element) => {
       let part = element.type === partType ? element : null;
 
@@ -17,9 +18,18 @@ export function removingPieceFitted(parts, partType) {
          }
 
          if (multiplesParts.includes(partType) && pcBuilding[partType]) {
-            if (partType === 'ram' && ramFreqListed.has(part.memoryFrequency) &&
-            ramFreqListed.has(part.memorySize)) {
-               part = null;
+            console.log(ramListed[part.memoryFrequency]);
+            if (partType === 'ram' && ramListed[part.memoryFrequency]) {
+               if (ramListed[part.memoryFrequency].has(part.memorySize)) {
+                  part = null;
+               } else {
+                  pcBuilding[partType].map((buildingPart) => {
+                     delete buildingPart.div;
+                     if (JSON.stringify(part) === JSON.stringify(buildingPart)) {
+                        part = null;
+                     }
+                  });
+               }
             } else {
                pcBuilding[partType].map((buildingPart) => {
                   delete buildingPart.div;
@@ -30,8 +40,10 @@ export function removingPieceFitted(parts, partType) {
             }
          }
          if (partType === 'ram' && part) {
-            ramFreqListed.add(part.memoryFrequency);
-            ramSizeListed.add(part.memorySize);
+            if (!ramListed[part.memoryFrequency]) {
+               ramListed[part.memoryFrequency] = new Set();
+            }
+            ramListed[part.memoryFrequency].add(part.memorySize);
          }
       }
       return part;
