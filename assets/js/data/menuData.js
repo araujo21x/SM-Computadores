@@ -21,7 +21,7 @@ export default {
    },
    rom: {
       part: 'rom',
-      title: 'Memória Rom',
+      title: 'Armazenamento',
       img: './assets/img/icon/rom.svg',
    },
    pciExpress: {
