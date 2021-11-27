@@ -3,6 +3,7 @@
   <img width="300em" height="300em" src="https://sm-drag-and-drop.vercel.app/assets/img/logo.png">
 </p>
 
+<h3 align="center">🚧 Software em construção 🚧</h3>
 <p align="center">
   
   <img width="auto" height="23em" src="https://img.shields.io/badge/JavaScript-323330?style=flat&logo=javascript&logoColor=F7DF1E" >
