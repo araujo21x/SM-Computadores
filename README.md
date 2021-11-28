@@ -1,4 +1,3 @@
-# SM-DragAndDrop
 <p align="center">
   <img width="300em" height="300em" src="https://sm-drag-and-drop.vercel.app/assets/img/logo.png">
 </p>
