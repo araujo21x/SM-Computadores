@@ -58,7 +58,7 @@ export function generatePDF() {
          error: getErrorReport(),
          studentName: studentName,
       };
-      fetch('https://api-draganddrop.herokuapp.com/finish', {
+      fetch('https://sm-computadores.onrender.com/finish', {
       // fetch('http://localhost:3000/finish', {
          method: 'POST',
          headers: {'Content-Type': 'application/json'},
