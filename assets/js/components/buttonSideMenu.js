@@ -7,9 +7,12 @@ export default function(className, typeAlert, iClassName, pText, fatherDiv) {
    button.className = className;
    if (typeAlert === 'confirm') {
       button.addEventListener('click', function() {
-         openAlert(typeAlert, 'Deseja gerar PDF ?',
+         openAlert(
+            typeAlert,
+            'Deseja gerar PDF ?',
             'Gerar um arquivo pdf com as especificações que você montou até agora',
-            putName);
+            putName,
+         );
       });
    } else {
       button.addEventListener('click', function() {

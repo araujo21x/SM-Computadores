@@ -108,18 +108,37 @@ export function close() {
 }
 
 export function putName() {
-   createTile('Informe seu nome', 'primaryColor', 'fas fa-check-circle');
+   createTile(
+      'Informe dados de envio',
+      'primaryColor',
+      'fas fa-check-circle',
+   );
 
    const alertBody = document.getElementById('alertBody');
    alertBody.innerHTML = '';
 
    const form = document.createElement('form');
    form.action = '';
+   form.style.display = 'flex';
+   form.style.flexDirection= 'column';
+   form.style.width= '50%';
+   form.style.height= '50%';
+   form.style.gap = '5px';
+
    const input = document.createElement('input');
    input.type = 'text';
    input.id = 'studentName';
    input.name = 'studentName';
+   input.placeholder = 'Seu nome';
    form.appendChild(input);
+   alertBody.appendChild(form);
+
+   const inputEmail = document.createElement('input');
+   inputEmail.type = 'email';
+   inputEmail.id = 'mailTeacher';
+   inputEmail.name = 'mailTeacher';
+   inputEmail.placeholder = 'email do professor';
+   form.appendChild(inputEmail);
    alertBody.appendChild(form);
 
    const alertButton = document.getElementById('alertButton');

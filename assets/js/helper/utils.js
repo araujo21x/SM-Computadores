@@ -47,6 +47,8 @@ export function reset() {
 
 export function generatePDF() {
    const studentName = document.getElementById('studentName').value;
+   const mailTeacher = document.getElementById('mailTeacher').value;
+
    if (studentName.length > 0) {
       close();
       loading(true);
@@ -57,6 +59,7 @@ export function generatePDF() {
          cable: getCable(),
          error: getErrorReport(),
          studentName: studentName,
+         mailTeacher: mailTeacher,
       };
       fetch('https://sm-computadores.onrender.com/finish', {
       // fetch('http://localhost:3000/finish', {
