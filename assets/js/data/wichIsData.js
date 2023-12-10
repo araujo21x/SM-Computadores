@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 export const motherBoardWich = {
-   img: 'https://res.cloudinary.com/drbclvi9z/image/upload/v1614129009/DragAndDrop/motherBoard/mother1_iumte0.png',
+   img: 'https://res.cloudinary.com/drbclvi9z/image/upload/v1625162662/DragAndDrop/motherBoard/PMAE_CINZA_4_RAM-02-01_d7gspm.png',
    whatIs: 'Um dos componentes mais importante, a placa mãe é como uma central para o computador, ela faz a comunicação entre todas as peças além de passar a energia necessária para as peças.',
    verifications: [
       'Tipo de Socket e Chipset suportados pela placa mãe, pois interferem na compatibilidade com o processador;',

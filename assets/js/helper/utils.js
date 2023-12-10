@@ -45,6 +45,10 @@ export function reset() {
    location.reload();
 }
 
+export function goToHome() {
+   window.location.href = '../../index.html';
+}
+
 export function generatePDF() {
    const studentName = document.getElementById('studentName').value;
    const mailTeacher = document.getElementById('mailTeacher').value;

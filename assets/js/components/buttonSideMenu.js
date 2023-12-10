@@ -1,10 +1,12 @@
 /* eslint-disable max-len */
 import {openAlert, putName} from '../alert.js';
-import {reset} from '../helper/utils.js';
+import {reset, goToHome} from '../helper/utils.js';
+
 
 export default function(className, typeAlert, iClassName, pText, fatherDiv) {
    const button = document.createElement('button');
    button.className = className;
+
    if (typeAlert === 'confirm') {
       button.addEventListener('click', function() {
          openAlert(
@@ -14,11 +16,22 @@ export default function(className, typeAlert, iClassName, pText, fatherDiv) {
             putName,
          );
       });
-   } else {
+   } else if (typeAlert === 'confirmDanger') {
       button.addEventListener('click', function() {
-         openAlert(typeAlert, 'Deseja reiniciar ?',
+         openAlert(
+            typeAlert,
+            'Deseja reiniciar ?',
             'Ao confirmar você vai precisar recomeçar o processo de montagem',
             reset,
+         );
+      });
+   } else {
+      button.addEventListener('click', function() {
+         openAlert(
+            typeAlert,
+            'Deseja voltar a pagina inicial ?',
+            'Ao confirmar você voltara para a pagina inicial. O processo de montagem não sera perdido',
+            goToHome,
          );
       });
    }

@@ -34,7 +34,9 @@ function generateSideMenu() {
 
 function generateButtonsSideMenu() {
    const sectionButton = document.getElementById('optionsLateralMenu');
+
    buttonSideMenu('buttonFinish', 'confirm', 'fa-file-pdf', 'Gerar PDF', sectionButton);
+   buttonSideMenu('buttonFinish', 'confirmAttention', 'fa-home', 'Home', sectionButton);
    buttonSideMenu('buttonReset', 'confirmDanger', 'fa-power-off', 'Resetar', sectionButton);
 }
 
